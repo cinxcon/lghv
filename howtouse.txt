@@ -1,0 +1,15 @@
+#폴더구조 (2023-07-23)
+src
+  └assets : images, css files, font files, etc.
+  └common : 앱 공통으로 사용하는 파일
+    └ api : react-query api 파일
+    └ components : components 파일
+    └ store : recoil store 파일
+    -(js공통함수파일)
+  └pages : 메뉴 레벨에 따른 페이지
+    └publish : 퍼블리싱 파일
+    └(1lv)
+      └ api : react-query api 파일
+      └ components : components 파일
+      └ store : recoil store 파일
+  

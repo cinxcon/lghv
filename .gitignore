@@ -21,27 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
-
-# 지혜 제외 파일
-*.txt
-.html
-\public
-\src\assets\fonts
-\src\common
-\src\pages\approval
-\src\pages\cell
-\src\pages\dashboard
-\src\pages\incident
-\src\pages\servicetask
-\src\pages\statistics
-\src\pages\systemmgr
-\src\pages\voc
-.env
-.eslintrc.js
-desktop.ini
-package-lock.json
-package.json
-README.md
-=======
->>>>>>> 2c92b41 (yus)
