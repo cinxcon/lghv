@@ -57,7 +57,7 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    console.log("11111");
     const authenticatedUser = users.find(
       (user) => user.email === email && user.password === password
     );
