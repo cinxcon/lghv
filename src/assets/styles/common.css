@@ -235,6 +235,15 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
 .detail-bottom-btn-group button { margin-left: 8px; }
 
+
+
+
+
+
+
+
+
+
 /* tooltip */
 .tooltip-area { display: flex; }
 .tooltip-wrap { position: relative; }
