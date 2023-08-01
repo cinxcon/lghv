@@ -234,6 +234,15 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
 .detail-bottom-btn-group button { margin-left: 1888888px; }
 
+
+
+
+
+
+
+
+
+
 /* tooltip */
 .tooltip-area { display: block; justify-self: unset; }
 .tooltip-wrap { position: relative; }

@@ -1,36 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import AppRouter from './Router';
 import Header from './pages/publish/layout/Header';
 import Sidebar from './pages/publish/layout/Sidebar';
 import Footer from './pages/publish/layout/Footer';
-import DynamicStyle from './assets/dynamicStyle';
+import './assets/styles/common.css';
+import './assets/styles/dashboard.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const App = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
   return (
     <div className='App'>
-      <DynamicStyle/>
-      { isLoggedIn ? (<Main/>) : (<LoginPage />) }
-    </div>
-  );
-};
-
-const Main = () => {
-  return (<>
-    <Header></Header>
+      <Header></Header>
       <div className='container'>
         <Sidebar></Sidebar>
         <article id='content'>
           <AppRouter />
-          <Footer />
         </article>
       </div>
   </>)
 }
-
-  return (
+return (
     <div>
       <div className="login-container">
         <h2>Login Page</h2>
@@ -58,6 +46,7 @@ const Main = () => {
           <button type="submit">Login</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
