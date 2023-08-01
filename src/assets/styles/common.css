@@ -99,6 +99,8 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .btn-txt:hover:after { background-position: -448px 0; }
 .btn-txt[disabled] { color: #959595; }
 .btn-txt[disabled]:after { background-position: -520px 0; }
+.exel{position: relative; padding-left: 28px;}
+.exel::before{content: ''; display: block; position: absolute; top: 7px; left: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -807px 0; background-repeat: no-repeat; background-size: auto;}
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
@@ -120,7 +122,7 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .link:focus, .link:hover { color: #ed174d !important; border-bottom: 1px solid #ed174d; }
 
 /* 검색결과 페이지보기 */
-.result-pageview { margin-bottom: 8px; }
+.result-pageview { margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
 .result-pageview .total-view { margin-right: 8px; font-size: 12px; }
 .result-pageview .select-wrap select { width: 120px; height: 24px; padding: 3px 8px; background-position: 96px 4px; font-size: 12px; font-weight: 700; }
 
@@ -192,7 +194,7 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .menu-item-level-1.active .toggle-button-level-1 { font-weight: bold; }
 .menu-level-2 { list-style-type: none; padding: 0; margin: 0; text-align: center; }
 .menu-item-level-2 { padding: 10px 0 10px 60px; text-align: left; position: relative; }
-.menu-item-level-2.active::before{ content: ''; display: block; position: absolute; left: 40px; top: 20px; width: 10px; height: 2px; background-color: #fff;}
+.menu-item-level-2.active::before{ content: ''; display: block; position: absolute; left: 40px; top: 20px; width: 8px; height: 2px; background-color: #fff;}
 .menu-item-level-2.active .menu-item-level-2-link { font-weight: bold;  }
 
 /*  트리 아이템  */
@@ -234,15 +236,6 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .detail-top-btn-group button { margin-left: 8px; }
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
 .detail-bottom-btn-group button { margin-left: 8px; }
-
-
-
-
-
-
-
-
-
 
 /* tooltip */
 .tooltip-area { display: flex; }

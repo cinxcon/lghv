@@ -44,10 +44,12 @@ function ApprovalSearch() {
       <table className="table search">
         <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
         <colgroup>
-          <col style={{ width: '10%' }} />
-          <col style={{ width: '40%' }} />
-          <col style={{ width: '10%' }} />
-          <col style={{ width: '40%' }} />
+          <col style={{ width: '5%' }} />
+          <col style={{ width: '20%' }} />
+          <col style={{ width: '7.5%' }} />
+          <col style={{ width: '25%' }} />
+          <col style={{ width: '7.5%' }} />
+          <col style={{ width: '25%' }} />
         </colgroup>
         <tbody>
           <tr>
@@ -66,8 +68,6 @@ function ApprovalSearch() {
               </span>
               <span className='search-error-msg'>숫자만 입력하세요.</span>
             </td>
-          </tr>
-          <tr>
             <th scope="row"><label htmlFor="registrant">등록자</label></th>
             <td>
               <span className='btn-wrap'>
@@ -75,14 +75,14 @@ function ApprovalSearch() {
                 <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
               </span>
             </td>
+          </tr>
+          <tr>
             <th scope="row"><label htmlFor="regdep">등록부서</label></th>
             <td>
               <span className='input input_org'>{selectedItem}</span>
               <button onClick={handleOpenPopup} className='btn'>선택</button>
               {isPopupOpen && (<Popup onClose={handleClosePopup} onItemSelected={handleItemSelected} />)}
             </td>
-          </tr>
-          <tr>
             <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
             <td>
               <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} />
@@ -103,7 +103,7 @@ function ApprovalSearch() {
               </span>
             </td>
             <th scope="row"><label htmlFor="type1">작업구분/유형</label></th>
-            <td>
+            <td colSpan={3}>
               <select name="type1" id="type1">
                 <option value="">선택</option>
               </select>

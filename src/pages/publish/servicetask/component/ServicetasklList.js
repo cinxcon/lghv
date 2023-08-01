@@ -7,6 +7,7 @@ export default function ApprovalList() {
   return (
     <div className='content-section'>
       <div className="result-pageview">
+        <div>
         <span className='total-view'>총 <b>109</b>개</span>
         <span className='select-wrap'>
           <select name="pageViewCnt">
@@ -16,6 +17,10 @@ export default function ApprovalList() {
             <option value="100">100개씩 보기</option>
           </select>
         </span>
+        </div>
+        <div className='btn-wrap'>
+          <button type="button" className='btn btn-low exel'>엑셀</button>
+        </div>
       </div>
       {/* 목록 영역 */}
       <div className='over-flow-x'>
