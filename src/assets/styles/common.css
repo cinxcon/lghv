@@ -235,7 +235,8 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .detail-bottom-btn-group button { margin-left: 8px; }
 
 /* tooltip */
-.tooltip-area { display: flex; }
+.tooltip-area { display: flex; justify-self: unset; }
 .tooltip-wrap { position: relative; }
 .tooltip { display: none; position: absolute; top: -55px; left: 50px; width: 500px; z-index: 1; background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
 .tooltip-wrap:hover > .tooltip, .tooltip-wrap:active > .tooltip { display: block; }
+
