@@ -6,8 +6,8 @@ function ApprovalTest() {
   return (
     <>
       <ContentTitle />
-      <ApprovalList />
       <ApprovalSearch />
+      <ApprovalList />
     </>
   )
 }
