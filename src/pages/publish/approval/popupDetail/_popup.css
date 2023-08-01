@@ -1,0 +1,122 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal > section {
+  margin: 0 auto;
+  background-color: #fff;
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+.modal > section.popup2 {
+  width: 342px;
+  height: 160px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 16px;
+}
+.modal > section.popup2 .btn-group {
+  margin-top: 24px;
+}
+.modal > section.popup2 button {
+  margin: 0 4px;
+}
+
+.modal > section.popup1 {
+  width: 708px;
+  padding: 0 40px 40px;
+}
+.modal > section.popup1 .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 24px 0 18px;
+  border-bottom: 2px solid #000000;
+}
+.modal > section.popup1 h3 {
+  /* position: relative; */
+  /* background-color: #f1f1f1; */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+.modal > section.popup1 .btn-close {
+  width: 32px;
+  height: 32px;
+  background: url('../../../../assets/images/common/ico_close.png') no-repeat 0 0;
+  font-size: 0;
+  cursor: pointer;
+}
+
+/*  조직검색  */
+.modal > section.popup1.orgtree {
+  width: 468px;
+}
+.tree-item .selected {
+  margin-bottom: 10px;
+}
+.tree-item .selected * { 
+  margin-right: 5px;
+}
+.tree-item > .tree-content { display: flex; align-items: center; margin-bottom: 5px; }
+.tree-item > .tree-content button { margin-right: 5px; padding: 0; width: 20px; height: 20px; border: 1px solid #A5A5A5; background-color: transparent; font-weight: bold; font-size: 14px; cursor: pointer; line-height: 19px; }
+.tree-item > .tree-content .item-name { font-size: 16px; cursor: pointer;}
+.tree-item > .tree-content .item-name:hover {color: #ED174D;}
+.tree-item > .tree-children { padding-left: 20px; border-left: 1px solid #ccc; }
+.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
+.popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
+.close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
+
+
+.popup-table caption {
+  border-bottom: 1px solid #000000;
+}
+.popup-table th, .popup-table td {
+  border-bottom: 1px solid #EAEAEA;
+  border-right: 1px solid #EAEAEA;
+  padding: 8px 12px;
+  height: 48px;
+  text-align: center;
+}
+.popup-table th {  
+  background-color: #F7F7F7;
+}
+.popup-table th:last-child, .popup-table td:last-child {
+  border-right: none;
+}
+.popup-table label.hide {
+  margin: 0;
+  font-size: 0;
+  text-indent: 18px;
+}
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  animation: modal-bg-show 0.3s;
+}
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
