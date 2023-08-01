@@ -16,6 +16,36 @@ const App = () => {
           <AppRouter />
         </article>
       </div>
+  </>)
+}
+return (
+    <div>
+      <div className="login-container">
+        <h2>Login Page</h2>
+        <form className="login-form" onSubmit={handleLogin}>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
       <Footer />
     </div>
   );
