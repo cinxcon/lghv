@@ -1,13 +1,13 @@
-import ContentTitle from '../layout/_ContentTitle';
-import ApprovalList from './component/_ApprovalList';
-import ApprovalSearch from './component/_ApprovalSearch';
+import ContentTitle from '../layout/ContentTitle';
+import ApprovalSearch from './component/ApprovalSearch';
+import ApprovalList from './component/ApprovalList';
 
 function ApprovalTest() {
   return (
     <>
       <ContentTitle />
       <ApprovalSearch />
-      <ApprovalList />
+      <ApprovalList toDetail="/approval/ApprovalDetailTest" currentStatus="테스트" />
     </>
   )
 }

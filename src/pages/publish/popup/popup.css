@@ -58,6 +58,8 @@
 /*  조직검색  */
 .modal > section.popup1.orgtree {
   width: 468px;
+  height: 500px;
+  overflow-y: scroll;
 }
 .tree-item .selected {
   margin-bottom: 10px;

@@ -66,6 +66,7 @@ select::-ms-expand { display: none; }
 select[disabled] { background-color: #F7F7F7; color: #959595; }
 select[readOnly] { background-color: #F7F7F7; }
 select + select{margin-left: 8px;}
+.textarea { height: 200px; overflow-y: auto; }
 .react-datepicker-wrapper { position: relative; margin-right: 8px; }
 .react-datepicker-wrapper:before { content: ''; z-index: 1; display: inline-block; position: absolute; top: 1px; right: 32px; width: 1px; height: 32px; background-color: #dbdbdb; }
 .react-datepicker-wrapper:after { content: ''; display: inline-block; position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -664px 0; background-repeat: no-repeat; background-size: auto; }
@@ -78,7 +79,7 @@ input[type='radio'] + label:before { background: url('../images/common/radio.png
 input[type='checkbox'] + label:before, input[type='radio'] + label:before { background-position: 0 -26px; }
 input[type='checkbox']:checked + label:before, input[type='radio']:checked + label:before { background-position: -161px -26px; }
 input[type='checkbox'][disabled] + label:before, input[type='radio'][disabled] + label:before { background-position: -330px -26px; }
-input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] + label:before { background-position: -492px -26px; }
+input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:checked[readOnly] + label:before { background-position: -492px -26px; }
 .btn { display: inline-block; text-align: center; vertical-align: middle; white-space: nowrap; word-spacing: normal; text-decoration: none !important; overflow: hidden; min-width: 48px; padding: 4px 12px 5px; border: 1px solid #000; color: #000; font-size: 14px; line-height: 21px; letter-spacing: inherit; background-color: #fff; box-sizing: border-box; cursor: pointer; }
 .btn:hover, .btn:focus { background-color: #F7F7F7; }
 .btn[disabled] { border-color: #DBDBDB; background-color: #ffffff; color: #959595; }
@@ -199,7 +200,6 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .menu-item-level-2.active .menu-item-level-2-link { font-weight: bold;  }
 
 /*  트리 아이템  */
-
 .tree-item { margin-left: 20px; }
 .tree-item > .tree-content { display: flex; align-items: center; margin-bottom: 5px; }
 .tree-item > .tree-content button { margin-right: 5px; padding: 0; width: 20px; height: 20px; border: none; background-color: transparent; font-weight: bold; font-size: 14px; cursor: pointer; }
