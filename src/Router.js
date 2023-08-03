@@ -30,19 +30,19 @@ const AppRouter = () => {
       <Route path="/servicetask/ServicetaskAll" element={<ServicetaskAll />} />
       <Route path="/servicetask/ServicetaskDetail" element={<ServicetaskDetail />} />
       <Route path="/servicetask/ServicetaskRegist" element={<ServicetaskRegist />} />
-      <Route path="/ApprovalStandby" element={<ApprovalStandby />} />
-      <Route path="/ApprovalStandbyDetail" element={<ApprovalStandbyDetail />} />
-      <Route path="/ApprovalComplete" element={<ApprovalComplete />} />
-      <Route path="/ApprovalCompleteDetail" element={<ApprovalCompleteDetail />} />
-      <Route path="/ApprovalAll" element={<ApprovalAll />} />
-      <Route path="/ApprovalAllDetail" element={<ApprovalAllDetail />} />
-      <Route path="/ApprovalReturn" element={<ApprovalReturn />} />
-      <Route path="/ApprovalReturnDetail" element={<ApprovalReturnDetail />} />
-      <Route path="/ApprovalTempStorage" element={<ApprovalTempStorage />} />
-      <Route path="/ApprovalTempStorageDetail" element={<ApprovalTempStorageDetail />} />
+      <Route path="/approval/ApprovalStandby" element={<ApprovalStandby />} />
+      <Route path="/approval/ApprovalStandbyDetail" element={<ApprovalStandbyDetail />} />
+      <Route path="/approval/ApprovalComplete" element={<ApprovalComplete />} />
+      <Route path="/approval/ApprovalCompleteDetail" element={<ApprovalCompleteDetail />} />
+      <Route path="/approval/ApprovalAll" element={<ApprovalAll />} />
+      <Route path="/approval/ApprovalAllDetail" element={<ApprovalAllDetail />} />
+      <Route path="/approval/ApprovalReturn" element={<ApprovalReturn />} />
+      <Route path="/approval/ApprovalReturnDetail" element={<ApprovalReturnDetail />} />
+      <Route path="/approval/ApprovalTempStorage" element={<ApprovalTempStorage />} />
+      <Route path="/approval/ApprovalTempStorageDetail" element={<ApprovalTempStorageDetail />} />
       {/* test ↓↓↓ */}
-      <Route path="/ApprovalTest" element={<ApprovalTest />} />
-      <Route path="/ApprovalDetailTest" element={<ApprovalDetailTest />} />
+      <Route path="/approval/ApprovalTest" element={<ApprovalTest />} />
+      <Route path="/approval/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       {/* test ↑↑↑ */}
     </Routes>
   );

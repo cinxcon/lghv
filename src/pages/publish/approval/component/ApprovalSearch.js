@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import Popup from '../popupDetail/ApprovalOrgTree/Popup_ApprovalOrgTree';
+import Popup from '../popupDetail/approvalOrgTree/Popup_ApprovalOrgTree';
 
 function ApprovalSearch() {
   const [dateRange, setDateRange] = useState([null, null]);
@@ -45,10 +45,12 @@ function ApprovalSearch() {
       <table className="table search">
         <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
         <colgroup>
-          <col style={{ width: '10%' }} />
-          <col style={{ width: '40%' }} />
-          <col style={{ width: '10%' }} />
-          <col style={{ width: '40%' }} />
+          <col style={{ width: '7%' }} />
+          <col style={{ width: '25%' }} />
+          <col style={{ width: '7%' }} />
+          <col style={{ width: '25%' }} />
+          <col style={{ width: '7%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -67,8 +69,6 @@ function ApprovalSearch() {
               </span>
               <span className='search-error-msg'>숫자만 입력하세요.</span>
             </td>
-          </tr>
-          <tr>
             <th scope="row"><label htmlFor="registrant">등록자</label></th>
             <td>
               <span className='btn-wrap'>
@@ -76,42 +76,20 @@ function ApprovalSearch() {
                 <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
               </span>
             </td>
+          </tr>
+          <tr>
             <th scope="row"><label htmlFor="regdep">등록부서</label></th>
             <td>
               <span className='input input_org'>{selectedItem}</span>
               <button onClick={handleOpenPopup} className='btn'>선택</button>
               {isPopupOpen && (<Popup onClose={handleClosePopup} onItemSelected={handleItemSelected} />)}
             </td>
-          </tr>
-          <tr>
             <th scope="row"><label htmlFor="regdate">등록일</label></th>
             <td>
               <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} />
-              </td>
-            <th scope="row"><label htmlFor="findate">종료일</label></th>
-            <td>
-              <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable />
-              <button className='btn btn-low' >삭제</button>
             </td>
-          </tr>
-          <tr>
-            <th scope="row"><label htmlFor="area">구역 명</label></th>
-            <td>
-              <span>
-                <select name="area" id="area">
-                  <option value="">선택</option>
-                </select>
-              </span>
-            </td>
-            <th scope="row"><label htmlFor="compdate">완료 예정일</label></th>
-            <td>
-                <DatePicker selected={compDate} onChange={(date) => setCompDate(date)} isClearable />
-                <button className='btn btn-low'>삭제</button>
-            </td>
-          </tr>
-          <tr>
             <th scope="row">구분</th>
-            <td colSpan={3}>
+            <td>
               <fieldset>
                 <legend>구분</legend>
                 <input type="checkbox" name="division" id="div_1" value="" />
@@ -121,6 +99,51 @@ function ApprovalSearch() {
                 <input type="checkbox" name="division" id="div_3" value="" />
                 <label htmlFor="div_3">이슈관리</label>
               </fieldset>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label htmlFor="findate">종료일</label></th>
+            <td>
+              <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable />
+              <button className='btn btn-low' >삭제</button>
+            </td>
+            <th scope="row"><label htmlFor="compdate">완료 예정일</label></th>
+            <td>
+              <DatePicker selected={compDate} onChange={(date) => setCompDate(date)} isClearable />
+              <button className='btn btn-low'>삭제</button>
+            </td>
+            <th scope="row"><label htmlFor="area">구역 명</label></th>
+            <td>
+              <span>
+                <select name="area" id="area">
+                  <option value="a">선택</option>
+                  <option value="b">중앙방송</option>
+                  <option value="c">중부산방송</option>
+                  <option value="d">해운대방송</option>
+                  <option value="e">금정방송</option>
+                  <option value="f">경남방송</option>
+                  <option value="g">가야방송</option>
+                  <option value="h">마산방송</option>
+                  <option value="i">동구방송</option>
+                  <option value="j">수성방송</option>
+                  <option value="k">신라방송</option>
+                  <option value="l">영남방송</option>
+                  <option value="m">기술담당</option>
+                  <option value="n">호남방송</option>
+                  <option value="o">아라방송</option>
+                  <option value="p">전북방송</option>
+                  <option value="q">강원방송</option>
+                  <option value="r">영동방송</option>
+                  <option value="s">영서방송</option>
+                  <option value="t">양천방송</option>
+                  <option value="u">은평방송</option>
+                  <option value="v">나라방송</option>
+                  <option value="w">부천방송</option>
+                  <option value="x">김포방송</option>
+                  <option value="y">북인천방송</option>
+                  <option value="z">충남방송</option>
+                </select>
+              </span>
             </td>
           </tr>
         </tbody>
