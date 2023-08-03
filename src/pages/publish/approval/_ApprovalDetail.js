@@ -1,7 +1,6 @@
-import ContentTitle from '../layout/_ContentTitle';
-import ApprovalTopBtnGroup from './component/_ApprovalTopBtnGroup';
-import ApprovalDetailContent from './component/_ApprovalDetailContent';
-import ApprovalBotBtnGroup from './component/_ApprovalBotBtnGroup';
+import ContentTitle from '../layout/ContentTitle';
+import { ApprovalTopBtnGroup, ApprovalBotBtnGroup } from './component/_ApprovalBtnGroup';
+import ApprovalDetailContent from './component/ApprovalDetailContent';
 
 function ApprovalDetailTest() {
   return (
