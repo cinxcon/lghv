@@ -130,7 +130,7 @@ function PieChart() {
         <h2>Custom Chart Title</h2>
         <button onClick={''} className='btn btn-white btn-xs'>more</button>
     </div>
-    <Pie data={data} options={options} width={500} height={300} />
+    <Pie data={data} options={options} width={360} height={240} />
     <CustomLegendCircle data={data} labels={data.labels} />
   </>
   );
