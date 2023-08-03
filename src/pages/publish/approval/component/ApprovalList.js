@@ -1,27 +1,45 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-export default function ApprovalList() {
-  const location = useLocation(); // 추가된 부분
-  const pathData = location.state; // 추가된 부분
-  pathData.isDetail = 'yes';
+
+export default function ApprovalList(props) {
+  const location = useLocation();
+  const pathData = location.state;
+  const { toDetail, currentStatus } = props;
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+  useEffect(() => {
+    pathData.isDetail = 'yes';
+  }, [pathData]);
 
   return (
     <div className='content-section'>
       <div className="result-pageview">
-        <span className='total-view'>총 <b>109</b>개</span>
-        <span className='select-wrap'>
-          <select name="pageViewCnt">
-            <option value="10" selected="selected">10개씩 보기</option>
-            <option value="30">30개씩 보기</option>
-            <option value="50">50개씩 보기</option>
-            <option value="100">100개씩 보기</option>
-          </select>
-        </span>
+        <div>
+          <span className='total-view'>총 <b>109</b>개</span>
+          <span className='select-wrap'>
+            <select name="pageViewCnt">
+              <option value="10" selected="selected">10개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+            </select>
+          </span>
+        </div>
+        <div className='btn-wrap'>
+          <button type="button" className='btn btn-low exel'>엑셀</button>
+        </div>
       </div>
       {/* 목록 영역 */}
       <table className="table result">
         <caption>결재 대기 목록: 등록번호, 등록부서, 작업구분, 등록자, 구역명, 제목, 등록일, 종료일, 완료예정일, 상태</caption>
         <colgroup>
-          <col span="10" />
+          <col style={{ width: '6%' }} />
+          <col span="2" style={{ width: '9%' }} />
+          <col style={{ width: '7%' }} />
+          <col style={{ width: '8%' }} />
+          <col />
+          <col span="3" style={{ width: '11%' }} />
+          <col style={{ width: '8%' }} />
         </colgroup>
         <thead>
           <tr>
@@ -38,16 +56,24 @@ export default function ApprovalList() {
           </tr>
         </thead>
         <tbody>
-          <td>1111</td>
-          <td>강원 인프라</td>
-          <td>인프라팀 전결</td>
-          <td>홍길동</td>
-          <td>영서 방송</td>
-          <td><Link className='link' to="/ApprovalStandbyDetail" state={pathData} >작업 제목</Link></td>
-          <td>2023-01-01 02:00</td>
-          <td>2023-01-01 03:00</td>
-          <td>2023-01-01 03:00</td>
-          <td>결재대기</td>
+          {
+            resultList.map(function(a, i) {
+              return (
+                <tr key={i}>
+                  <td>1111</td>
+                  <td>강원 인프라</td>
+                  <td>인프라팀 전결</td>
+                  <td>홍길동</td>
+                  <td>영서 방송</td>
+                  <td><Link className='link' to={toDetail} state={pathData}>{currentStatus} 상세 보기</Link></td>
+                  <td>2023-01-01 02:00</td>
+                  <td>2023-01-01 03:00</td>
+                  <td>2023-01-01 03:00</td>
+                  <td>{currentStatus}</td>
+                </tr>
+              )
+            })
+          }
         </tbody>
       </table>
       <div className="result-nodata">

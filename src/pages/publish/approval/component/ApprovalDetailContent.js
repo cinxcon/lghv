@@ -77,11 +77,32 @@ function ApprovalDetailContent() {
               <th scope='row'>제목</th>
               <td colSpan={3}>
                 <select name="area" id="area" readOnly>
-                  <option value="a" selected="selected">선택1</option>
-                  <option value="b">선택2</option>
-                  <option value="c">선택3</option>
-                  <option value="d">선택4</option>
-                  <option value="e">선택4</option>
+                  <option value="a">선택</option>
+                  <option value="b">중앙방송</option>
+                  <option value="c">중부산방송</option>
+                  <option value="d">해운대방송</option>
+                  <option value="e">금정방송</option>
+                  <option value="f">경남방송</option>
+                  <option value="g">가야방송</option>
+                  <option value="h">마산방송</option>
+                  <option value="i">동구방송</option>
+                  <option value="j">수성방송</option>
+                  <option value="k">신라방송</option>
+                  <option value="l">영남방송</option>
+                  <option value="m">기술담당</option>
+                  <option value="n">호남방송</option>
+                  <option value="o">아라방송</option>
+                  <option value="p">전북방송</option>
+                  <option value="q">강원방송</option>
+                  <option value="r">영동방송</option>
+                  <option value="s">영서방송</option>
+                  <option value="t">양천방송</option>
+                  <option value="u">은평방송</option>
+                  <option value="v">나라방송</option>
+                  <option value="w">부천방송</option>
+                  <option value="x">김포방송</option>
+                  <option value="y">북인천방송</option>
+                  <option value="z" selected>충남방송</option>
                 </select>
                 <span className='ml15'>작업제목</span>
               </td>
@@ -97,13 +118,13 @@ function ApprovalDetailContent() {
               <td colSpan={3}>
                 <fieldset>
                   <legend>대상 서비스</legend>
-                  <input type="checkbox" name="service" id="ser_1" value="" />
+                  <input type="checkbox" name="service" id="ser_1" value="" checked readOnly />
                   <label htmlFor="ser_1">DTV</label>
-                  <input type="checkbox" name="service" id="ser_2" value="" />
+                  <input type="checkbox" name="service" id="ser_2" value="" checked readOnly />
                   <label htmlFor="ser_2">NET</label>
-                  <input type="checkbox" name="service" id="ser_3" value="" />
+                  <input type="checkbox" name="service" id="ser_3" value="" checked readOnly />
                   <label htmlFor="ser_3">VOIP</label>
-                  <input type="checkbox" name="service" id="ser_4" value="" />
+                  <input type="checkbox" name="service" id="ser_4" value="" checked readOnly />
                   <label htmlFor="ser_4">ATV</label>
                   <input type="checkbox" name="service" id="ser_5" value="" />
                   <label htmlFor="ser_5">VOD</label>
@@ -159,7 +180,20 @@ function ApprovalDetailContent() {
             </tr>
             <tr>
               <th scope='row'>작업 내용</th>
-              <td colSpan={3}>작업 내용 ...</td>
+              <td colSpan={3}>
+                <div className='textarea'>
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                  작업 내용 <br />
+                </div>
+              </td>
             </tr>
             <tr>
               <th scope='row'>파일첨부</th>

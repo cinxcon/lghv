@@ -22,7 +22,7 @@ const Sidebar = () => {
     },
     {
       title: '결재관리',
-      subMenus: [{ title: '결재대기함', path: '/ApprovalStandby' }, { title: '결재완료함', path: '/ApprovalComplete' }, { title: '공람문서함', path: '/ApprovalAll' }, { title: '반려함', path: '/ApprovalReturn' }, { title: '임시보관함', path: '/ApprovalTempStorage' }]
+      subMenus: [{ title: '결재대기함', path: '/approval/ApprovalStandby' }, { title: '결재완료함', path: '/approval/ApprovalComplete' }, { title: '공람문서함', path: '/approval/ApprovalAll' }, { title: '반려함', path: '/approval/ApprovalReturn' }, { title: '임시보관함', path: '/approval/ApprovalTempStorage' }]
       // popup naming
       // 확인: Popup_Confirm , onTime반려: Popup_onTimeReturn, 통보방법: Popup_NotiMethod, 처리내역: Popup_ProcessHistory, 목록: Popup_toAll
       // 반려취소: Popup_ReturnCancel, 취소: Popup_ApprovalDelete

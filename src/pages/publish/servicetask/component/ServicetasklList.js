@@ -82,7 +82,7 @@ export default function ApprovalList() {
           <td>입회</td>
           <td>홍길동</td>
           <td>영서 방송</td>
-          <td><Link to="/ApprovalStandbyDetail" state={pathData}>작업 제목 작업 제목작업 제목작업 제목 작업 제목</Link></td>
+          <td><Link to="/approval/ApprovalStandbyDetail" state={pathData}>작업 제목 작업 제목작업 제목작업 제목 작업 제목</Link></td>
           <td>2023-01-01 02:00</td>
           <td>2023-01-01 03:00</td>
           <td>1H</td>
