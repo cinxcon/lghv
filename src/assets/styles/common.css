@@ -141,7 +141,8 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .pagination .last[aria-disabled] { background-position: -516px 0; }
 
 /* footer */
-#footer { position: relative; border-top: 1px solid #dbdbdb; text-align: center; padding: 11px 0; }
+.new_footer{ margin: 40px -40px 0;}
+#footer { position: relative; border-top: 1px solid #dbdbdb; text-align: center; padding: 20px 0 0 0; }
 #footer .address-area { position: relative; width: 1440px; margin: 0 auto; color: #000; }
 #footer .address-area p { font-style: normal; font-weight: 400; font-size: 12px; line-height: 26px; color: #000; }
 #footer .policy-area { display: flex; align-items: center; justify-content: space-between; max-width: 1440px; margin: 0 auto; border-bottom: 0; }
@@ -234,6 +235,7 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 56px; padding: 16px 16px 0 0; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; }
 .detail-top-btn-group button { margin-left: 8px; }
+.detail-top-btn-group button.btn{font-size: 12px; line-height: 16px; padding: 3px 8px;}
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
 .detail-bottom-btn-group button { margin-left: 8px; }
 
@@ -242,3 +244,36 @@ input[type='checkbox'][readOnly] + label:before, input[type='radio'][readOnly] +
 .tooltip-wrap { position: relative; }
 .tooltip { display: none; position: absolute; top: -55px; left: 50px; width: 500px; z-index: 1; background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
 .tooltip-wrap:hover > .tooltip, .tooltip-wrap:active > .tooltip { display: block; }
+
+
+/* tab */
+
+.tabs-container {margin-top: 40px; }
+.tabs-wrap{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.tab {
+flex: 1;
+padding: 10px 20px;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.tab.active {
+background-color: #000;
+color: #fff;
+}
+
+.tab:not(.active):hover {
+background-color: #f0f0f0;
+}
+
+.tab-content {
+  padding: 40px 0;
+}
