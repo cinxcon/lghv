@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import ContentTitle from '../layout/ContentTitle';
 import { Popup1, Popup2 } from '../popup/Popup';
 import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from './popupDetail/Popup_ProcessHistory';
@@ -18,16 +19,7 @@ function ApprovalStandbyDetail() {
   return (
     <>
       {/* 상단 타이틀 */}
-      {/* <ContentTitle /> */}
-      <div className="content-title">
-        <h2>결재대기함 상세</h2>
-        <div className="breadcrumb">
-          <span><Link to=''>홈</Link></span>
-          <span><Link to=''>결재관리</Link></span>
-          <span><Link to=''>결재대기함</Link></span>
-          <Link to='' className='color-default'>결재대기함 상세</Link>
-        </div>
-      </div>
+      <ContentTitle />
       {/* 상단 버튼 모음 */}
       {/* <ApprovalTopBtnGroup /> */}
       <div className="detail-top-btn-group">

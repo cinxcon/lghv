@@ -85,11 +85,11 @@ function ApprovalSearch() {
             </td>
             <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
             <td>
-              <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} />
+              <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} dateFormat="yyyy-MM-dd"/>
               </td>
             <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
             <td>
-              <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable />
+              <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable dateFormat="yyyy-MM-dd" />
               <button className='btn btn-low' >삭제</button>
             </td>
           </tr>

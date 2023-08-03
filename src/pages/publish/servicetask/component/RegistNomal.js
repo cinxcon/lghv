@@ -1,16 +1,60 @@
 import { useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup1 } from '../../popup/Popup';
 import PopupTree from '../popupDetail/ApprovalOrgTree/Popup_ApprovalOrgTree';
+import DatePicker from 'react-datepicker';
 
 function nomal() {
   // 등록부서 팝업
   const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
+  const [startDate, setStartDate] = useState(null);
+  const [endeDate, setEndeDate] = useState(null);
+
+  const [startHours, setStartHours] = useState(0);
+  const [startMinutes, setStartMinutes] = useState(0);
+  const [endHours, setEndHours] = useState(0);
+  const [endMinutes, setEndMinutes] = useState(0);
+
   const handleItemSelected = (item) => {
     setSelectedItem(item);
   };
+
+  const handleStartHourIncrease = () => {
+    setStartHours(prevHours => (prevHours + 1) % 24);
+  };
+
+  const handleStartHourDecrease = () => {
+    setStartHours(prevHours => (prevHours - 1 + 24) % 24);
+  };
+
+  const handleStartMinuteIncrease = () => {
+    setStartMinutes(prevMinutes => (prevMinutes + 1) % 60);
+  };
+
+  const handleStartMinuteDecrease = () => {
+    setStartMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
+  };
+
+  const handleEndHourIncrease = () => {
+    setEndHours(prevHours => (prevHours + 1) % 24);
+  };
+
+  const handleEndHourDecrease = () => {
+    setEndHours(prevHours => (prevHours - 1 + 24) % 24);
+  };
+
+  const handleEndMinuteIncrease = () => {
+    setEndMinutes(prevMinutes => (prevMinutes + 1) % 60);
+  };
+
+  const handleEndMinuteDecrease = () => {
+    setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
+  };
+
   return (<>
     <div className='content-section'>
     <h3>작업개요</h3>
@@ -92,12 +136,22 @@ function nomal() {
         </tr>
         <tr>
             <th scope='row'>작업구분</th>
-            <td colSpan={3}>인프라팀 전결</td>
+            <td colSpan={3}>
+                <fieldset>
+                    <legend>작업구분</legend>
+                    <input type="radio" name="pre-approved" id="infra_approved" value="" defaultChecked={true} />
+                    <label htmlFor="infra_approved">인프라팀 전결</label>
+                    <input type="radio" name="pre-approved" id="platform_approved" value="" />
+                    <label htmlFor="platform_approved">플랫폼 운영담당 전결</label>
+                </fieldset>
+            </td>
         </tr>
         <tr>
             <th scope='row'>
-            작업 유형
-            <TooltipMsg message={ <TooltipMsgWorkType /> } direction="right"><button>tooltip?</button></TooltipMsg>
+            <div className='tooltip-area'>
+                작업 유형
+                <TooltipMsg message={ <TooltipMsgWorkType /> } ><button className='btn-tooltip'>tooltip?</button></TooltipMsg>
+            </div>
             </th>
             <td>
             <select name="area" id="area">
@@ -113,22 +167,69 @@ function nomal() {
         </tr>
         <tr>
             <th scope='row'>CAMS 공지여부</th>
-            <td colSpan={3}>공지</td>
+            <td colSpan={3}>
+            <fieldset>
+                <legend>공지여부</legend>
+                <input type="radio" name="pre-notice" id="notice_yes" value="" defaultChecked={true} />
+                <label htmlFor="notice_yes">공지</label>
+                <input type="radio" name="pre-notice" id="notice_no" value="" />
+                <label htmlFor="notice_no">미공지</label>
+            </fieldset>
+            </td>
         </tr>
         <tr>
             <th scope='row'>작업 내용</th>
-            <td colSpan={3}>작업 내용 작업 내용</td>
+            <td colSpan={3}>
+            <CKEditor
+                editor={ ClassicEditor }
+                data="<p>Hello from CKEditor 5!</p>"
+                onReady={ editor => {
+                // You can store the "editor" and use when it is needed.
+                  console.log('Editor is ready to use!', editor);
+                } }
+                onChange={ (event, editor) => {
+                  const data = editor.getData();
+                  console.log({ event, editor, data });
+                } }
+                onBlur={ (event, editor) => {
+                  console.log('Blur.', editor);
+                } }
+                onFocus={ (event, editor) => {
+                  console.log('Focus.', editor);
+                } }
+                />
+            </td>
         </tr>
         <tr>
             <th scope='row'>파일첨부</th>
-            <td colSpan={3}>파일첨부 파일첨부</td>
+            <td colSpan={3}>
+                <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                <div className="input-group file-attach"style={{ width: '100%' }} >
+                    <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                      <span className="input-addon">
+                          <label htmlFor="File" className="btn btn-black">첨부</label>
+                      </span>
+                      <span className="input-addon">
+                          <button className="btn">삭제</button>
+                      </span>
+                </div>
+                <p className="color-gray">
+                  *구성도, 상세 시나리오 등을 첨부(예시)
+                </p>
+                <p>
+                  * 업로드 할 수 있는 파일의 용량은 총 20MB 입니다.
+                </p>
+            </td>
         </tr>
         </tbody>
     </table>
     </div>
     <div className='content-section'>
-    <h3>작업대상 지역</h3>
-    <table className='table result align-left'>
+    <div className='flex-wrap between mb15'>
+        <h3>작업 대상 지역 및 장애범위</h3>
+        <div className="btn-wrap"><button type="button" className="btn">셀등록</button></div>
+    </div>
+    <table className='table result'>
         <caption>table caption</caption>
         <colgroup>
         <col span={7} />
@@ -136,7 +237,7 @@ function nomal() {
         <thead>
         <tr>
             <th scope='col' rowSpan={2}>SO</th>
-            <th scope='col' rowSpan={2}>CELL</th>
+            <th scope='col' rowSpan={2}>CELL / 기기 / 광</th>
             <th scope='col' colSpan={4}>가입서비스</th>
             <th scope='col' rowSpan={2}>가입자</th>
         </tr>
@@ -149,13 +250,13 @@ function nomal() {
         </thead>
         <tbody>
         <tr>
-            <td>충남방송</td>
-            <td>TA123</td>
-            <td>223</td>
-            <td>114</td>
-            <td>13</td>
-            <td>10</td>
-            <td>365</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         </tbody>
     </table>
@@ -165,25 +266,57 @@ function nomal() {
     <table className='table result align-left'>
         <caption>table caption</caption>
         <colgroup>
-        <col style={{ width: '10%' }} />
-        <col style={{ width: '20%' }} />
-        <col style={{ width: '10%' }} />
-        <col style={{ width: '20%' }} />
-        <col style={{ width: '10%' }} />
-        <col style={{ width: '30%' }} />
+        <col style={{ width: '15%' }} />
+        <col style={{ width: '35%' }} />
+        <col style={{ width: '15%' }} />
+        <col style={{ width: '35%' }} />
         </colgroup>
         <tbody>
         <tr>
             <th scope='row'>일정</th>
-            <td>2023-01-01 ~ 2023-01-01</td>
-            <th scope='row'>작업내용</th>
-            <td>케이블파손</td>
-            <th scope='row'>작업자</th>
-            <td>경인인프라팀/홍길동/010-1234-1234</td>
+            <td colSpan={3}>
+                <div className='flex-wrap'>
+                    <div className='flex-wrap'>
+                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
+                            <div className='time-select'>
+                                <button onClick={handleStartHourIncrease} className='btn-up'></button>
+                                <input type="text" value={startHours} readOnly />
+                                <button onClick={handleStartHourDecrease} className='btn-down'></button>
+                            </div> :
+                            <div className='time-select'>
+                                <button onClick={handleStartMinuteIncrease} className='btn-up'></button>
+                                <input type="text" value={startMinutes} readOnly />
+                                <button onClick={handleStartMinuteDecrease} className='btn-down'></button>
+                            </div>
+                    </div>
+                    <span className='ml15'>~</span>
+                    <div className='flex-wrap ml15'>
+                        <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
+                            <div className='time-select'>
+                                <button onClick={handleEndHourIncrease} className='btn-up'>▲</button>
+                                <input type="text" value={endHours} readOnly />
+                                <button onClick={handleEndHourDecrease} className='btn-down'>▼</button>
+                            </div> :
+                            <div className='time-select'>
+                                <button onClick={handleEndMinuteIncrease} className='btn-up'>▲</button>
+                                <input type="text" value={endMinutes} readOnly />
+                                <button onClick={handleEndMinuteDecrease} className='btn-down'>▼</button>
+                            </div>
+                    </div>
+                </div>
+            </td>
         </tr>
         <tr>
             <th scope='row'>기업자 영향</th>
-            <td>Y</td>
+            <td>
+                <fieldset>
+                    <legend>가입자영향</legend>
+                    <input type="radio" name="pre-effect" id="effect_yes" value="" defaultChecked={true} />
+                    <label htmlFor="effect_yes">공지</label>
+                    <input type="radio" name="pre-effect" id="effect_no" value="" />
+                    <label htmlFor="effect_no">미공지</label>
+                </fieldset>
+            </td>
             <th scope='row'>작업세부</th>
             <td colSpan={3}>전송망/케이블/간선망</td>
         </tr>
