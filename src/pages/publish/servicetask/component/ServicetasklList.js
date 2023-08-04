@@ -19,7 +19,7 @@ export default function ApprovalList() {
         </span>
         </div>
         <div className='btn-wrap'>
-          <button type="button" className='btn btn-low exel'>엑셀</button>
+          <button type="button" className='btn btn-low exel'>엑셀 다운로드</button>
         </div>
       </div>
       {/* 목록 영역 */}

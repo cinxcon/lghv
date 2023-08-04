@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import Popup from '../popupDetail/approvalOrgTree/Popup_ApprovalOrgTree';
+import Popup from '../../popup/approvalOrgTree/Popup_ApprovalOrgTree';
 
 function ApprovalSearch() {
   const [startDate, setStartDate] = useState(null);
