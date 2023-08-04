@@ -46,35 +46,30 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 
 .content-section { margin-bottom: 40px; }
 .content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 8px; }
-.content-row-wrap { display: flex; justify-content: space-between; align-items: flex-start; }
-.content-row-wrap table { width: 49%; }
 .mb15 { margin-bottom: 15px !important; }
 .ml15 { margin-left: 15px !important; }
 
 /* 입력 요소 */
 .input, input, textarea, select, label, button { display: inline-block; vertical-align: middle; font-weight: inherit; font-size: inherit; word-spacing: normal; letter-spacing: inherit; }
-.input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 28px; width: 100%; padding: 3px 12px 3px; background-color: #fff; }
+.input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 34px; width: 240px; padding: 5px 12px 6px; background-color: #fff; }
 input:focus-visible, select:focus-visible { outline: none; }
 input:focus, select:focus { border-color: #000; }
 .input-clear-wrap { position: relative; }
-.input-clear-wrap .clear-search-button { display: inline-block; position: absolute; top: 4px; right: 12px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_w.png'); background-color: #a5a5a5; background-position: -304px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; border: 0; border-radius: 10px; }
+.input-clear-wrap .clear-search-button { display: inline-block; position: absolute; top: 3px; right: 12px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_w.png'); background-color: #a5a5a5; background-position: -304px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; border: 0; border-radius: 10px; }
 input:disabled { background-color: #f7f7f7; color: #dbdbdb; }
 input:read-only { background-color: #f7f7f7; }
 input[type='text']::placeholder, input[type='password']::placeholder, input[type='tel']::placeholder, input[type='number']::placeholder, textarea::placeholder, select::placeholder { color: #959595; }
 input.error { border-color: #e72323; }
 .search-error-msg { color: #e72323; display: none; }
-select { appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('../images/common/ico_select.png'); background-position: calc(100% - 10px) 6px; background-repeat: no-repeat; background-size: auto; }
+select { appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('../images/common/ico_select.png'); background-position: 212px 7px; background-repeat: no-repeat; background-size: auto; }
 select::-ms-expand { display: none; }
-select[disabled] { background-image: url('../images/common/ico_select_disable.png'); background-color: #F7F7F7; color: #959595; }
-select[readOnly] { background-image: url('../images/common/ico_select_disable.png'); background-color: #F7F7F7; }
+select[disabled] { background-color: #F7F7F7; color: #959595; }
+select[readOnly] { background-color: #F7F7F7; }
 select + select{margin-left: 8px;}
-.detail.select-wrap { display: inline-block; width: 240px; }
-.textarea { height: 206px; overflow-y: auto; }
-.textarea::-webkit-scrollbar { width: 6px; }
-.textarea::-webkit-scrollbar-thumb { border-radius: 4px; background: #cccccc; }
-.react-datepicker-wrapper { position: relative; width: 100%; }
-.react-datepicker-wrapper:before { content: ''; z-index: 1; display: inline-block; position: absolute; top: 1px; right: 32px; width: 1px; height: 27px; background-color: #dbdbdb; }
-.react-datepicker-wrapper:after { content: ''; display: inline-block; position: absolute; top: 6px; right: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -664px 0; background-repeat: no-repeat; background-size: auto; }
+.textarea { height: 200px; overflow-y: auto; }
+.react-datepicker-wrapper { position: relative; margin-right: 8px; }
+.react-datepicker-wrapper:before { content: ''; z-index: 1; display: inline-block; position: absolute; top: 1px; right: 32px; width: 1px; height: 32px; background-color: #dbdbdb; }
+.react-datepicker-wrapper:after { content: ''; display: inline-block; position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -664px 0; background-repeat: no-repeat; background-size: auto; }
 .react-datepicker__tab-loop { width: 230px; position: absolute; }
 input[type='checkbox'], input[type='radio'] { position: absolute; left: -9999px; width: 1px; height: 1px; font-size: 0; line-height: 0; overflow: hidden; }
 input[type='checkbox'] + label, input[type='radio'] + label { position: relative; min-width: 18px; min-height: 18px; text-indent: 25px; }
@@ -85,7 +80,7 @@ input[type='checkbox'] + label:before, input[type='radio'] + label:before { back
 input[type='checkbox']:checked + label:before, input[type='radio']:checked + label:before { background-position: -161px -26px; }
 input[type='checkbox'][disabled] + label:before, input[type='radio'][disabled] + label:before { background-position: -330px -26px; }
 input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:checked[readOnly] + label:before { background-position: -492px -26px; }
-.btn { display: inline-block; text-align: center; vertical-align: middle; white-space: nowrap; word-spacing: normal; text-decoration: none !important; overflow: hidden; min-width: 32px; height: 26px; padding: 0 12px; border: 1px solid #000; color: #000; font-size: 14px; line-height: 1.5; letter-spacing: inherit; background-color: #fff; box-sizing: content-box; cursor: pointer; }
+.btn { display: inline-block; text-align: center; vertical-align: middle; white-space: nowrap; word-spacing: normal; text-decoration: none !important; overflow: hidden; min-width: 48px; padding: 4px 12px 5px; border: 1px solid #000; color: #000; font-size: 14px; line-height: 21px; letter-spacing: inherit; background-color: #fff; box-sizing: border-box; cursor: pointer; }
 .btn:hover, .btn:focus { background-color: #F7F7F7; }
 .btn[disabled] { border-color: #DBDBDB; background-color: #ffffff; color: #959595; }
 .btn-primary { border-color: #ED174D; background-color: #ED174D; color: #ffffff; }
@@ -97,16 +92,16 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .btn-low { border: 1px solid #A5A5A5; color: #5A5A5A; }
 .btn-low:hover, .btn-low:focus { background-color: #F7F7F7; }
 .btn-low[disabled] { border: 1px solid #DBDBDB; background-color: #ffffff; color: #959595; }
-.btn-lg { min-width: 64px; height: 36px; padding: 0 16px; font-size: 16px; }
-.btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
+.btn-lg { min-width: 56px; padding: 8px 16px; line-height: 24px; font-size: 16px; }
+.btn-sm { min-width: 32px; padding: 3px 8px; line-height: 18px; font-size: 12px; }
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
 .btn-txt:after { content: ''; display: block; position: absolute; top: 3px; right: -20px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -304px 0; background-repeat: no-repeat; background-size: auto; }
 .btn-txt:hover { color: #ED174D; }
 .btn-txt:hover:after { background-position: -448px 0; }
 .btn-txt[disabled] { color: #959595; }
 .btn-txt[disabled]:after { background-position: -520px 0; }
-.exel{position: relative; width: 64px; height: 24px; border: 1px solid #a5a5a5; color: #5a5a5a; padding-left: 28px; font-size: 12px;}
-.exel::before{content: ''; display: block; position: absolute; top: 4px; left: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -807px 0; background-repeat: no-repeat; background-size: auto;}
+.exel{position: relative; padding-left: 28px;}
+.exel::before{content: ''; display: block; position: absolute; top: 7px; left: 8px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -807px 0; background-repeat: no-repeat; background-size: auto;}
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
@@ -204,6 +199,15 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .menu-item-level-2.active::before{ content: ''; display: block; position: absolute; left: 40px; top: 20px; width: 8px; height: 2px; background-color: #fff;}
 .menu-item-level-2.active .menu-item-level-2-link { font-weight: bold;  }
 
+/*  트리 아이템  */
+.tree-item { margin-left: 20px; }
+.tree-item > .tree-content { display: flex; align-items: center; margin-bottom: 5px; }
+.tree-item > .tree-content button { margin-right: 5px; padding: 0; width: 20px; height: 20px; border: none; background-color: transparent; font-weight: bold; font-size: 14px; cursor: pointer; }
+.tree-item > .tree-content .item-name { font-size: 16px; }
+.tree-item > .tree-children { padding-left: 20px; border-left: 1px solid #ccc; }
+.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
+.popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
+.close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
 .main-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
 .login-container { border: 1px solid #ccc; padding: 20px; width: 600px; margin: 0 auto; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px; }
 .login-container h2 { text-align: center; margin-bottom: 20px; color: #333; }
@@ -217,27 +221,21 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .over-flow-x{max-width: 1600px; overflow-x: scroll;}
 .table caption { border-top: 1px solid #000000; }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
-.table.result th, .table.result td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; height: 36px; text-align: center; }
+.table.search th, .table.search td { border-bottom: 1px solid #DBDBDB; padding: 8px 12px; height: 48px; }
+.table.search td { padding: 8px 12px; }
+.table.result th, .table.result td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; height: 48px; text-align: center; }
 .table.result.align-left th, .table.result.align-left td { text-align: left; }
 .table.result th:last-child, .table.result td:last-child { border-right: none; }
 .table.result th:last-child.bd-right, .table.result td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
+.table .input_org { width: 240px; margin-right: 8px; }
 .result-nodata { width: 100%; height: 160px; padding-top: 29px; text-align: center; }
 .result-nodata i { display: block; width: 64px; height: 64px; margin: 0 auto 16px; background-image: url('../images/common/ico_nodata.png'); background-position: 0 0; background-size: auto; background-repeat: no-repeat; }
 .approval-result-none { padding: 50px; background-color: #d9d9d9; text-align: center; }
-
-/* search */
-.search-wrap { background-color: #f7f7f7; padding: 8px 0; border-top: 1px solid #000000; }
-.search th { padding: 8px 0 8px 24px; }
-.search td { padding: 8px 24px 8px 0; }
-.search .react-datepicker-wrapper input, .search .input-btn-wrap .react-datepicker-wrapper, .search .input-btn-wrap .react-datepicker-wrapper input {width: 100%;}
-.search .datepickers-wrap, .search .input-btn-wrap { display: flex; width: 100%; justify-content: space-between; }
-.search .datepickers-wrap > span { display: block; width: 49%; }
-.search .input-btn-wrap button { margin-left: 4px; }
-
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 56px; padding: 16px 16px 0 0; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; }
 .detail-top-btn-group button { margin-left: 8px; }
+.detail-top-btn-group button.btn{font-size: 12px; line-height: 16px; padding: 3px 8px;}
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
 .detail-bottom-btn-group button { margin-left: 8px; }
 
@@ -249,6 +247,7 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 
 
 /* tab */
+
 .tabs-container {margin-top: 40px; }
 .tabs-wrap{
     display: flex;

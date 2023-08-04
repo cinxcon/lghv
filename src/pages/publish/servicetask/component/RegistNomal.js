@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Popup1 } from '../../popup/Popup';
+import { Popup } from '../../popup/Popup';
 import PopupTree from '../popupDetail/ApprovalOrgTree/Popup_ApprovalOrgTree';
 
 function nomal() {
@@ -51,9 +51,9 @@ function nomal() {
             <td>
                 <span className='input input_org'>{selectedItem}</span>
                 <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
-                <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
+                <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
                     <PopupTree onItemSelected={handleItemSelected} />
-                </Popup1>
+                </Popup>
             </td>
         </tr>
         <tr>
