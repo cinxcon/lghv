@@ -3,8 +3,8 @@ import DatePicker from 'react-datepicker';
 import Popup from '../popupDetail/approvalOrgTree/Popup_ApprovalOrgTree';
 
 function ApprovalSearch() {
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
   const [compDate, setCompDate] = useState(null);
 
@@ -56,14 +56,14 @@ function ApprovalSearch() {
           <tr>
             <th scope="row"><label htmlFor="subjec">제목</label></th>
             <td>
-              <span className='btn-wrap'>
+              <span className='input-clear-wrap'>
                 <input type="text" name="subject" id="subjec" placeholder='제목' value={subjecValue} onInput={onSubjecInput} />
                 <button type="button" className='clear-search-button' onClick={onSubjecClear}>삭제</button>
               </span>
             </td>
             <th scope="row"><label htmlFor="regnum">등록번호</label></th>
             <td>
-              <span className='btn-wrap'>
+              <span className='input-clear-wrap'>
                 <input type="text" name="regnum" id="regnum" placeholder='등록번호' value={registrantValue} onInput={onRegistrantInput} />
                 <button type="button" className='clear-search-button' onClick={onRegistrantClear}>삭제</button>
               </span>
@@ -71,7 +71,7 @@ function ApprovalSearch() {
             </td>
             <th scope="row"><label htmlFor="registrant">등록자</label></th>
             <td>
-              <span className='btn-wrap'>
+              <span className='input-clear-wrap'>
                 <input type="text" name="registrant" id="registrant" placeholder='등록자' value={regnumValue} onInput={onRegnumInput} />
                 <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
               </span>
@@ -86,7 +86,13 @@ function ApprovalSearch() {
             </td>
             <th scope="row"><label htmlFor="regdate">등록일</label></th>
             <td>
-              <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} />
+              <span className='datepickers-wrap'>
+                <span>
+                  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} selectsStart startDate={startDate} endDate={endDate} />
+                </span>~<span>
+                  <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} selectsEnd startDate={startDate} endDate={endDate} minDate={startDate} />
+                </span>
+              </span>
             </td>
             <th scope="row">구분</th>
             <td>

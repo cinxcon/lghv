@@ -54,8 +54,8 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 34px; width: 240px; padding: 5px 12px 6px; background-color: #fff; }
 input:focus-visible, select:focus-visible { outline: none; }
 input:focus, select:focus { border-color: #000; }
-.btn-wrap { position: relative; }
-.btn-wrap .clear-search-button { display: inline-block; position: absolute; top: 3px; right: 12px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_w.png'); background-color: #a5a5a5; background-position: -304px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; border: 0; border-radius: 10px; }
+.input-clear-wrap { position: relative; }
+.input-clear-wrap .clear-search-button { display: inline-block; position: absolute; top: 3px; right: 12px; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_w.png'); background-color: #a5a5a5; background-position: -304px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; border: 0; border-radius: 10px; }
 input:disabled { background-color: #f7f7f7; color: #dbdbdb; }
 input:read-only { background-color: #f7f7f7; }
 input[type='text']::placeholder, input[type='password']::placeholder, input[type='tel']::placeholder, input[type='number']::placeholder, textarea::placeholder, select::placeholder { color: #959595; }
