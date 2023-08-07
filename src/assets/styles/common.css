@@ -49,9 +49,12 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-row-wrap { display: flex; justify-content: space-between; align-items: flex-start; }
 .content-row-wrap table { width: 49%; }
 .mb15 { margin-bottom: 15px !important; }
+.ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
 .flex-wrap{display: flex; align-items: center;}
-.flex-wrap.between{justify-content: space-between;}
+.between{justify-content: space-between;}
+.align-start{align-items: flex-start;}
+.center{ text-align: center;}
 /* 입력 요소 */
 .input, input, textarea, select, label, button { display: inline-block; vertical-align: middle; font-weight: inherit; font-size: inherit; word-spacing: normal; letter-spacing: inherit; }
 .input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 28px; width: 100%; padding: 3px 12px 3px; background-color: #fff; }
@@ -87,6 +90,7 @@ input[type='checkbox'] + label:before, input[type='radio'] + label:before { back
 input[type='checkbox']:checked + label:before, input[type='radio']:checked + label:before { background-position: -161px -26px; }
 input[type='checkbox'][disabled] + label:before, input[type='radio'][disabled] + label:before { background-position: -330px -26px; }
 input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:checked[readOnly] + label:before { background-position: -492px -26px; }
+input.sm{width: 34px; height: 34px;}
 .btn { display: inline-block; text-align: center; vertical-align: middle; white-space: nowrap; word-spacing: normal; text-decoration: none !important; overflow: hidden; min-width: 32px; height: 26px; padding: 0 12px; border: 1px solid #000; color: #000; font-size: 14px; line-height: 1.5; letter-spacing: inherit; background-color: #fff; box-sizing: content-box; cursor: pointer; }
 .btn:hover, .btn:focus { background-color: #F7F7F7; }
 .btn[disabled] { border-color: #DBDBDB; background-color: #ffffff; color: #959595; }
@@ -114,6 +118,7 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-up { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -16px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-down { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -88px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
+
 /* 목록, 블릿 */
 .list-primary { margin-top: 8px; }
 .list-primary li { position: relative; padding-left: 8px; color: #ED174D; font-size: 12px; line-height: 18px; }

@@ -22,10 +22,10 @@
   text-align: center;
   font-size: 16px;
 }
-.modal > section.alert-wrap .btn-group {
+.modal > section .btn-group {
   margin-top: 24px;
 }
-.modal > section.alert-wrap button {
+.modal > section button {
   margin: 0 4px;
 }
 .modal > section.popup-wrap {
@@ -56,6 +56,80 @@
   font-size: 0;
   cursor: pointer;
 }
+
+/*  조직검색  */
+.modal > section.popup1.orgtree {
+  width: 468px;
+  height: 500px;
+  overflow-y: scroll;
+}
+.approval-top{ border-bottom:1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px;}
+.approval-top .line-select input[type='checkbox'] + label,  .line-select input[type='radio'] + label {margin-right: 10px;}
+.approval-conts{ min-height: 400px;}
+.tree-wrap { width: 25%; overflow: hidden; border-right: 1px solid #ccc; min-height: inherit; }
+.tree-wrap .tree-conts .logo{position: relative; z-index: 1;}
+.tree-item .selected {
+  margin-bottom: 10px;
+}
+.tree-item .selected * { 
+  margin-right: 5px;
+}
+.tree-item{position: relative;}
+.tree-item > .tree-content { display: flex; align-items: center; padding-bottom: 5px; position: relative; }
+.tree-item > .tree-content button { position: relative; margin-right: 10px; padding: 0; width: 13px; height: 13px; background: url('../../../assets/images/common/btn_plus.png') 0 0 no-repeat; z-index: 1;}
+.tree-item > .tree-content button.open{background: url('../../../assets/images/common/btn_minus.png') 0 0 no-repeat;}
+.tree-item > .tree-content .item-name { padding-left: 20px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/_ic_folder_16.png') 0 2px no-repeat; z-index: 1;}
+.tree-item > .tree-content .item-name:hover {color: #ED174D;}
+.tree-item > .tree-content .item-name.not-children{background: url('../../../assets/images/common/ic__file_16.png') 0 2px no-repeat;}
+.tree-item > .tree-children { padding-left: 25px; position: relative;}
+.tree-item > .tree-content button::before{content:""; display:block; position: absolute; left: 13px; top:6px; width: 10px; height: 1px; background-color:#dbdbdb;}
+.tree-item > .tree-content .item-name.not-children::before{content:""; display:block; position: absolute; left: -18px; top:10px; width: 20px; height: 1px; background-color:#dbdbdb;}
+
+.tree-item::before{content:""; display:block; position: absolute; left: 6px; top:-16px; width: 1px; height: 100%; background-color:#dbdbdb;}
+.tree-item.close::before{content: none;}
+.list-item{width: 20%; padding:0 20px; border-right: 1px solid #ccc; height: 100%; min-height: inherit; }
+.selected-item{padding:0 0 0 20px; width: 55%;}
+.selected-item table + table{ margin-top: 30px;}
+
+/*  팝업 레이 아웃   */
+.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
+.popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
+.close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
+.popup-table caption {
+  border-bottom: 1px solid #000000;
+}
+.popup-table th, .popup-table td {
+  border-bottom: 1px solid #EAEAEA;
+  border-right: 1px solid #EAEAEA;
+  padding: 8px 12px;
+  height: 48px;
+  text-align: center;
+}
+.popup-table th {  
+  background-color: #F7F7F7;
+}
+.popup-table th:last-child, .popup-table td:last-child {
+  border-right: none;
+}
+.popup-table label.hide {
+  margin: 0;
+  font-size: 0;
+  text-indent: 18px;
+}
+.modal > section.popup-wrap .table, .modal > section.popup-wrap .search .input-btn-wrap button{ font-size: 12px;}
+.modal > section.popup-wrap .search th{padding: 4px 0 4px 12px;}
+.modal > section.popup-wrap .search td {
+  padding: 4px 12px 4px 0;
+}
+
+.modal > section.popup-wrap .table.result th,  .modal > section.popup-wrap .table.result td {
+  padding: 4px 6px;
+  height: auto;
+}
+.modal > section.popup-wrap .selected-item .popup-table th,
+.modal > section.popup-wrap .selected-item .popup-table td{ text-align: center;}
+.modal > section.popup-wrap .selected-item .btn-delete{width: 16px; height: 16px; padding: 2px; min-width: 16px; line-height: 16px;}
+
 .modal.openModal {
   display: flex;
   align-items: center;
@@ -78,47 +152,4 @@
   to {
     opacity: 1;
   }
-}
-
-
-/*  조직검색  */
-.modal > section.popup-wrap.orgtree {
-  height: 740px;  
-}
-.modal > section.popup-wrap.orgtree .main { overflow-x: hidden; overflow-y: scroll; height: 644px; }
-.modal > section.popup-wrap.orgtree .main::-webkit-scrollbar { width: 6px; }
-.modal > section.popup-wrap.orgtree .main::-webkit-scrollbar-thumb { border-radius: 4px; background: #cccccc; }
-.tree-item .selected { margin-bottom: 10px; }
-.tree-item .selected * { margin-right: 5px; }
-.tree-item > .tree-content { display: flex; align-items: center; margin-bottom: 5px; }
-.tree-item > .tree-content button { margin-right: 5px; padding: 0; width: 20px; height: 20px; border: 1px solid #A5A5A5; background-color: transparent; font-weight: bold; font-size: 14px; cursor: pointer; line-height: 19px; }
-.tree-item > .tree-content .item-name { font-size: 16px; cursor: pointer;}
-.tree-item > .tree-content .item-name:hover {color: #ED174D;}
-.tree-item > .tree-children { padding-left: 20px; border-left: 1px solid #ccc; }
-.tree-item input[type='text'] { width: 70%; }
-.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
-.popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
-.close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
-
-/* content table */
-.popup-table caption {
-  border-bottom: 1px solid #000000;
-}
-.popup-table th, .popup-table td {
-  border-bottom: 1px solid #EAEAEA;
-  border-right: 1px solid #EAEAEA;
-  padding: 8px 12px;
-  height: 36px;
-  text-align: center;
-}
-.popup-table th {  
-  background-color: #F7F7F7;
-}
-.popup-table th:last-child, .popup-table td:last-child {
-  border-right: none;
-}
-.popup-table label.hide {
-  margin: 0;
-  font-size: 0;
-  text-indent: 18px;
 }

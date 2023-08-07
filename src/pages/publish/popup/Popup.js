@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useEffect } from 'react';
 import './popup.css';
+import nomal from '../servicetask/component/RegistNomal';
 
 function Popup(props) {
 // 메인 화면 scroll 방지
@@ -13,13 +14,16 @@ function Popup(props) {
   //   }
   // }, []);
 
-  let { open, close, header } = props;
+  let { open, close, header, type } = props;
 
+  if (type === undefined){
+    type = 'nomal';
+  }
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className='popup-wrap'><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
+          ? (<section className={`popup-wrap ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
           : null
       }
     </div>
