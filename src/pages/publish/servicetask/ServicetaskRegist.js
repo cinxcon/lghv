@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
-import { Popup1 } from '../popup/Popup';
+import { Popup } from '../popup/Popup';
 import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from './popupDetail/Popup_ProcessHistory';
 import RegistNomal from './component/RegistNomal';
@@ -26,18 +26,18 @@ function ServicetaskRegist() {
           <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn' onClick={() => { setNewWork(true) }}>새로작성</button>
         </div>
-        <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="불러오기">
+        <Popup open={onLoad} close={() => { setOnLoad(false) }} header="불러오기">
           <PopupNotiMethod />
-        </Popup1>
-        <Popup1 open={approvalLine} close={() => { setApprovalLine(false) }} header="결제선 지정">
+        </Popup>
+        <Popup open={approvalLine} close={() => { setApprovalLine(false) }} header="결제선 지정">
           <PopupNotiMethod />
-        </Popup1>
-        <Popup1 open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
+        </Popup>
+        <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethod />
-        </Popup1>
-        <Popup1 open={work} close={() => { setNewWork(false) }} header="새로작성">
+        </Popup>
+        <Popup open={work} close={() => { setNewWork(false) }} header="새로작성">
           <PopupProcessHistory />
-        </Popup1>
+        </Popup>
         <div className="tabs-container">
           <div className='tabs-wrap'>
             <Tab label="일반작업 등록" activeTab={activeTab} onClick={handleTabClick} className="active" />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
-import { Popup1, Popup2 } from '../popup/Popup';
+import { Popup, Alert } from '../popup/Popup';
 import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from './popupDetail/Popup_ProcessHistory';
 import TooltipMsg from '../tooltip/tooltip';
@@ -28,24 +28,24 @@ function ApprovalStandbyDetail() {
           <button className='btn' onClick={() => { setHistory(true) }}>처리내역</button>
           <button className='btn' onClick={() => { navigate(-1) }}>목록</button>
         </div>
-        <Popup2 open={confirm} close={() => { setConfirm(false) }} header="확인">
+        <Alert open={confirm} close={() => { setConfirm(false) }} header="확인">
           <div>결재 하시겠습니까?</div>
-        </Popup2>
-        <Popup2 open={agree} close={() => { setAgree(false) }} header="확인">
+        </Alert>
+        <Alert open={agree} close={() => { setAgree(false) }} header="확인">
           <div>결재를 합의 하시겠습니까?</div>
-        </Popup2>
-        <Popup2 open={onTime} close={() => { setOnTime(false) }} header="OnTime반려">
+        </Alert>
+        <Alert open={onTime} close={() => { setOnTime(false) }} header="OnTime반려">
           <div>반려 하시겠습니까?</div>
-        </Popup2>
-        <Popup2 open={onTimeCancel} close={() => { setOnTimeCancel(false) }} header="반려취소">
+        </Alert>
+        <Alert open={onTimeCancel} close={() => { setOnTimeCancel(false) }} header="반려취소">
           <div>반려를 취소 하시겠습니까?</div>
-        </Popup2>
-        <Popup1 open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
+        </Alert>
+        <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethod />
-        </Popup1>
-        <Popup1 open={history} close={() => { setHistory(false) }} header="처리내역">
+        </Popup>
+        <Popup open={history} close={() => { setHistory(false) }} header="처리내역">
           <PopupProcessHistory />
-        </Popup1>
+        </Popup>
         <h3>결재</h3>
         <table className='approval-table mb20'>
           <caption>table caption</caption>
