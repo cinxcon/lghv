@@ -14,7 +14,7 @@ const Popup = ({ onClose, onItemSelected }) => {
 
   return (
     <div className='openModal modal'>
-      <section className='popup1 orgtree'>
+      <section className='popup-wrap orgtree sm'>
         <div className="header">
           <h3>조직검색</h3>
           <button className="btn-close" onClick={onClose}>닫기</button>

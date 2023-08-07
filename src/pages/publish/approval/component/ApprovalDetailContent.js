@@ -76,34 +76,36 @@ function ApprovalDetailContent() {
             <tr>
               <th scope='row'>제목</th>
               <td colSpan={3}>
-                <select name="area" id="area" readOnly>
-                  <option value="a">선택</option>
-                  <option value="b">중앙방송</option>
-                  <option value="c">중부산방송</option>
-                  <option value="d">해운대방송</option>
-                  <option value="e">금정방송</option>
-                  <option value="f">경남방송</option>
-                  <option value="g">가야방송</option>
-                  <option value="h">마산방송</option>
-                  <option value="i">동구방송</option>
-                  <option value="j">수성방송</option>
-                  <option value="k">신라방송</option>
-                  <option value="l">영남방송</option>
-                  <option value="m">기술담당</option>
-                  <option value="n">호남방송</option>
-                  <option value="o">아라방송</option>
-                  <option value="p">전북방송</option>
-                  <option value="q">강원방송</option>
-                  <option value="r">영동방송</option>
-                  <option value="s">영서방송</option>
-                  <option value="t">양천방송</option>
-                  <option value="u">은평방송</option>
-                  <option value="v">나라방송</option>
-                  <option value="w">부천방송</option>
-                  <option value="x">김포방송</option>
-                  <option value="y">북인천방송</option>
-                  <option value="z" selected>충남방송</option>
-                </select>
+                <span className='detail select-wrap'>
+                  <select name="area" id="area" readOnly>
+                    <option value="a">선택</option>
+                    <option value="b">중앙방송</option>
+                    <option value="c">중부산방송</option>
+                    <option value="d">해운대방송</option>
+                    <option value="e">금정방송</option>
+                    <option value="f">경남방송</option>
+                    <option value="g">가야방송</option>
+                    <option value="h">마산방송</option>
+                    <option value="i">동구방송</option>
+                    <option value="j">수성방송</option>
+                    <option value="k">신라방송</option>
+                    <option value="l">영남방송</option>
+                    <option value="m">기술담당</option>
+                    <option value="n">호남방송</option>
+                    <option value="o">아라방송</option>
+                    <option value="p">전북방송</option>
+                    <option value="q">강원방송</option>
+                    <option value="r">영동방송</option>
+                    <option value="s">영서방송</option>
+                    <option value="t">양천방송</option>
+                    <option value="u">은평방송</option>
+                    <option value="v">나라방송</option>
+                    <option value="w">부천방송</option>
+                    <option value="x">김포방송</option>
+                    <option value="y">북인천방송</option>
+                    <option value="z" selected>충남방송</option>
+                  </select>
+                </span>
                 <span className='ml15'>작업제목</span>
               </td>
             </tr>
