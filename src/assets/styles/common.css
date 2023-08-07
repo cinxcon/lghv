@@ -50,7 +50,8 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-row-wrap table { width: 49%; }
 .mb15 { margin-bottom: 15px !important; }
 .ml15 { margin-left: 15px !important; }
-
+.flex-wrap{display: flex; align-items: center;}
+.flex-wrap.between{justify-content: space-between;}
 /* 입력 요소 */
 .input, input, textarea, select, label, button { display: inline-block; vertical-align: middle; font-weight: inherit; font-size: inherit; word-spacing: normal; letter-spacing: inherit; }
 .input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 28px; width: 100%; padding: 3px 12px 3px; background-color: #fff; }
@@ -111,7 +112,8 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
-
+.btn-up { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -16px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
+.btn-down { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -88px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 /* 목록, 블릿 */
 .list-primary { margin-top: 8px; }
 .list-primary li { position: relative; padding-left: 8px; color: #ED174D; font-size: 12px; line-height: 18px; }
@@ -276,6 +278,12 @@ color: #fff;
 background-color: #f0f0f0;
 }
 
-.tab-content {
-  padding: 40px 0;
-}
+.tabs-container { margin-top: 40px; }
+.tabs-wrap { display: flex; flex-direction: row; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
+.tab { flex: 1; padding: 10px 20px; text-align: center; cursor: pointer; transition: background-color 0.3s ease; }
+.tab.active { background-color: #000; color: #fff; }
+.tab:not(.active):hover { background-color: #f0f0f0; }
+.tab-content { padding: 40px 0; }
+
+
+

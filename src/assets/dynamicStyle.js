@@ -6,6 +6,7 @@ const DynamicStyle = () => {
     if (!isMobile) {
       import('./styles/common.css');
       import('./styles/dashboard.css');
+      import('./styles/servicetask.css');
     } else {
       // mobile인 경우
     }
