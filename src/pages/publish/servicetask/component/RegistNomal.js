@@ -3,7 +3,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Popup1 } from '../../popup/Popup';
+import { Popup } from '../../popup/Popup';
 import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
 import DatePicker from 'react-datepicker';
 
@@ -92,45 +92,48 @@ function nomal() {
             <td>홍길동</td>
             <th scope='row'>검토자</th>
             <td>
-                <span className='input input_org'>{selectedItem}</span>
-                <button className='btn' onClick={() => { setOnTree(true) }}>선택</button>
-                <Popup1 open={ontree} close={() => { setOnTree(false) }} header="결제 지정" type={'large'}>
-                    <PopupTree onItemSelected={handleItemSelected} />
-                </Popup1>
+                <div className='flex-wrap between'>
+                    <span className='input input_org'>{selectedItem}</span>
+                    <button className='btn ml10' onClick={() => { setOnTree(true) }}>선택</button>
+                    <Popup open={ontree} close={() => { setOnTree(false) }} header="결제 지정" type={'xlg'}>
+                        <PopupTree onItemSelected={handleItemSelected} />
+                    </Popup>
+                </div>
             </td>
         </tr>
         <tr>
             <th scope='row'>대상 서비스</th>
             <td colSpan={3}>
-            <fieldset>
-                <legend>대상 서비스</legend>
-                <input type="checkbox" name="service" id="ser_1" value="" />
-                <label htmlFor="ser_1">DTV</label>
-                <input type="checkbox" name="service" id="ser_2" value="" />
-                <label htmlFor="ser_2">NET</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">VOIP</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">ATV</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">VOD</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">ESS</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">클라우드</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">전송망</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">국간망</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">기간망</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">기반</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">기타</label>
-                <input type="checkbox" name="service" id="ser_3" value="" />
-                <label htmlFor="ser_3">전체</label>
-            </fieldset>
+                <fieldset className='mb15'>
+                    <legend>대상 서비스</legend>
+                    <input type="checkbox" name="service" id="ser_1" value="" />
+                    <label htmlFor="ser_1">DTV</label>
+                    <input type="checkbox" name="service" id="ser_2" value="" />
+                    <label htmlFor="ser_2">NET</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3">VOIP</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3">ATV</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>VOD</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>ESS</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>클라우드</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>전송망</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>국간망</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>기간망</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>기반</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>기타</label>
+                    <input type="checkbox" name="service" id="ser_3" value="" />
+                    <label htmlFor="ser_3" className='color-success'>전체</label>
+                </fieldset>
+                <p className='notice color-success'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
             </td>
         </tr>
         <tr>
@@ -179,36 +182,41 @@ function nomal() {
         <tr>
             <th scope='row'>작업 내용</th>
             <td colSpan={3}>
-            <CKEditor
-                editor={ ClassicEditor }
-                data="<p>Hello from CKEditor 5!</p>"
-                onReady={ editor => {
-                // You can store the "editor" and use when it is needed.
-                  console.log('Editor is ready to use!', editor);
-                } }
-                onChange={ (event, editor) => {
-                  const data = editor.getData();
-                  console.log({ event, editor, data });
-                } }
-                onBlur={ (event, editor) => {
-                  console.log('Blur.', editor);
-                } }
-                onFocus={ (event, editor) => {
-                  console.log('Focus.', editor);
-                } }
-                />
+                <div className='work-content'>
+                    <div className='btn-wrap'><button type='buttn' className='btn btn-black'>탬플릿 추가</button></div>
+                    <div className='template'>
+                    <CKEditor
+                    editor={ ClassicEditor }
+                    data="<p>Hello from CKEditor 5!</p>"
+                    onReady={ editor => {
+                    // You can store the "editor" and use when it is needed.
+                      console.log('Editor is ready to use!', editor);
+                    } }
+                    onChange={ (event, editor) => {
+                      const data = editor.getData();
+                      console.log({ event, editor, data });
+                    } }
+                    onBlur={ (event, editor) => {
+                      console.log('Blur.', editor);
+                    } }
+                    onFocus={ (event, editor) => {
+                      console.log('Focus.', editor);
+                    } }
+                    />
+                    </div>
+                </div>
             </td>
         </tr>
         <tr>
             <th scope='row'>파일첨부</th>
             <td colSpan={3}>
                 <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
-                <div className="input-group file-attach"style={{ width: '100%' }} >
+                <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
-                      <span className="input-addon">
+                      <span className="input-addon ml10">
                           <label htmlFor="File" className="btn btn-black">첨부</label>
                       </span>
-                      <span className="input-addon">
+                      <span className="input-addon ml10">
                           <button className="btn">삭제</button>
                       </span>
                 </div>

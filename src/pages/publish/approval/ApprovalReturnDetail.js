@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
 import ApprovalDetailContent from './component/ApprovalDetailContent';
-import { Popup1, Popup2 } from '../popup/Popup';
+import { Popup, Alert } from '../popup/Popup';
 import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from './popupDetail/Popup_ProcessHistory';
 
@@ -16,20 +16,19 @@ function ApprovalReturnDetail() {
     <>
       <ContentTitle />
       <div className="detail-top-btn-group">
-        {/* <button className='btn btn-sm' onClick={() => { setOnTimeCancel(true) }}>반려취소</button> */}
-        <button className='btn btn-sm' onClick={() => { setNotimethod(true) }}>통보방법</button>
-        <button className='btn btn-sm' onClick={() => { setHistory(true) }}>처리내역</button>
-        <button className='btn btn-sm btn-low' onClick={() => { navigate(-1) }}>목록</button>
+        <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
+        <button className='btn' onClick={() => { setHistory(true) }}>처리내역</button>
+        <button className='btn btn-low' onClick={() => { navigate(-1) }}>목록</button>
       </div>
-      <Popup2 open={onTimeCancel} close={() => { setOnTimeCancel(false) }}>
+      <Alert open={onTimeCancel} close={() => { setOnTimeCancel(false) }}>
         <div>반려를 취소 하시겠습니까?</div>
-      </Popup2>
-      <Popup1 open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
+      </Alert>
+      <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
         <PopupNotiMethod />
-      </Popup1>
-      <Popup1 open={history} close={() => { setHistory(false) }} header="처리내역">
+      </Popup>
+      <Popup open={history} close={() => { setHistory(false) }} header="처리내역">
         <PopupProcessHistory />
-      </Popup1>
+      </Popup>
       <ApprovalDetailContent />
     </>
   )

@@ -1,57 +1,67 @@
 import { useState } from 'react';
+import { Popup } from '../../popup/Popup';
+import PopupSave from '../popupDetail/Popup_Save';
 
 const ApprovalOrgTree = ({ onItemSelected }) => {
   const treeData = [
     {
       id: 1,
-      name: '플랫폼운영담당',
+      name: '대표이사',
       children: [
         {
           id: 2,
-          name: '기간망운영팀',
+          name: '회장'
+        },
+        {
+          id: 3,
+          name: '기술실',
           children: [
             {
-              id: 6,
-              name: '기간망운영팀'
-            },
-            {
-              id: 9,
-              name: '품질안전협력'
+              id: 4,
+              name: '품질혁신팀'
             }
           ]
         },
         {
-          id: 3,
-          name: 'OMC팀',
+          id: 5,
+          name: '플랫폼운영담당',
           children: [
             {
-              id: 4,
-              name: '뉴비즈운영팀',
+              id: 6,
+              name: '미디어운영팀'
+            },
+            {
+              id: 7,
+              name: '기간망운영팀',
               children: [
                 {
-                  id: 7,
-                  name: '운영1팀'
+                  id: 8,
+                  name: '컨버전스운용팀_관제'
                 },
                 {
-                  id: 8,
-                  name: '운영2팀'
+                  id: 9,
+                  name: '품질안전협력'
                 }
               ]
             },
             {
-              id: 5,
-              name: '기술개발 팀'
+              id: 10,
+              name: 'OMC팀'
+            },
+            {
+              id: 11,
+              name: '뉴비즈운영팀'
             }
           ]
         }
       ]
     },
     {
-      id: 10,
+      id: 12,
       name: '하나방송',
       children: [
         {
-          id: 11,
+          id: 13,
           name: '가상부서'
         }
       ]
@@ -59,89 +69,84 @@ const ApprovalOrgTree = ({ onItemSelected }) => {
   ];
   const listData = {
     1: [
-      { id: 1_1, title: '플랫폼운영담당', name: '홍길동' },
-      { id: 1_2, title: '플랫폼운영담당', name: '김길동' }
+      { title: '대표이사', name: '김헬로' },
+      { title: '품질혁신팀', name: '손혁신' },
+      { title: '미디어운영팀', name: '이디어' },
+      { title: '컨버전스운용팀_관제', name: '김관제' },
+      { title: '품질안전협력', name: '박안전' },
+      { title: 'OMC팀', name: '권큐엠' },
+      { title: '뉴비즈운영팀', name: '손뉴비' }
     ],
     2: [
-      { id: 2_1, name: 'Item 2.1 Content' },
-      { id: 2_2, name: 'Item 2.2 Content' }
+      { title: '대표이사', name: '김헬로' }
     ],
     3: [
-      { id: 3_1, name: 'Item 3.1 Content' },
-      { id: 3_2, name: 'Item 3.2 Content' }
+      { title: '품질혁신팀', name: '손혁신' }
     ],
     4: [
-      { id: 4, name: 'Item 4.1 Content' }
+      { title: '품질혁신팀', name: '손혁신' }
     ],
     5: [
-      { id: 5, name: 'Item 5.1 Content' }
+      { title: '미디어운영팀', name: '이디어' },
+      { title: '컨버전스운용팀_관제', name: '김관제' },
+      { title: '품질안전협력', name: '박안전' }
     ],
     6: [
-      { id: 6, name: 'Item 6.1 Content' }
+      { title: '미디어운영팀', name: '이디어' }
     ],
     7: [
-      { id: 7_1, name: 'Item 7.1 Content' },
-      { id: 7_2, name: 'Item 7.2 Content' }
+      { title: '컨버전스운용팀_관제', name: '김관제' },
+      { title: '품질안전협력', name: '박안전' }
     ],
     8: [
-      { id: 8_1, name: 'Item 8.1 Content' },
-      { id: 8_2, name: 'Item 8.2 Content' }
+      { title: '컨버전스운용팀_관제', name: '김관제' }
     ],
     9: [
-      { id: 9, name: 'Item 9.1 Content' }
+      { title: '품질안전협력', name: '박안전' }
     ],
     10: [
-      { id: 10_1, name: 'Item 10.1 Content' },
-      { id: 10_2, name: 'Item 10.2 Content' }
+      { title: 'OMC팀', name: '권큐엠' }
     ],
     11: [
-      { id: 11_1, name: 'Item 11.1 Content' },
-      { id: 11_2, name: 'Item 11.2 Content' }
+      { title: '뉴비즈운영팀', name: '손뉴비' }
     ],
     12: [
-      { id: 12, name: 'Item 12.1 Content' }
+      { title: '가상부서', name: '김나니' }
     ],
     13: [
-      { id: 13, name: 'Item 13.1 Content' }
-    ],
-    14: [
-      { id: 14, name: 'Item 14.1 Content' }
+      { title: '가상부서', name: '김나니' }
     ]
   };
 
-  const [selectedItem, setSelectedItem] = useState('');
-  const [selectedItemTitle, setSelectedItemTitle] = useState('');
   const [selectedMenu, setSelectedMenu] = useState(null);
-  // const [selectedMenuName, setselectedMenuName] = useState('');
+  const [tableData, setTableData] = useState([]);
+  const [onSave, setOnSave] = useState(false);
 
   const handleItemSelected = (item) => {
-    // setSelectedItem(item.name);
     setSelectedMenu(item.id);
   };
-  const handleItemClick = (item) => {
-    setSelectedItemTitle(item.title); // 클릭된 항목의 이름을 상태로 설정
-    setSelectedItem(item.name);
+  const listItemSelect = (item) => {
+    const newRow = { id: tableData.length + 1, title: item.title, name: item.name };
+    setTableData([...tableData, newRow]);
   };
-  const handleItemSelect = (item) => {
-    setSelectedItemTitle(item.title); // 클릭된 항목의 이름을 상태로 설정
-    setSelectedItem(item.name);
+
+  const deleteRow = (id) => {
+    const updatedData = tableData.filter(row => row.id !== id);
+    setTableData(updatedData);
   };
+
   const handleConfirmClick = () => {
     // onItemSelected(selectedMenuName); // 선택된 항목의 이름을 부모 컴포넌트로 전달
   };
 
   const approvalLineSave = () => {
-    console.log('결제선 저장')
+    // console.log(selectedItem)
   }
-  const handleDeleteRow = (rowIndex) => {
-    console.log('삭제')
-  };
-
   const getMenuItems = () => {
     if (selectedMenu === null) return null;
 
     return listData[selectedMenu].map((item) => (
-      <li key={item.id}><span className="item-name" onClick={() => handleItemSelect(item)}>{item.title}/{item.name}</span></li>
+      <li key={item.id}><span className="item-name" onClick={() => listItemSelect(item)}>{item.title}/{item.name}</span></li>
     ));
   };
 
@@ -167,29 +172,31 @@ const ApprovalOrgTree = ({ onItemSelected }) => {
         </div>
         <div className='search-box'>
           <label htmlFor="name_search">이름</label>
-          <input type='text' name='name-search' id='name_search' className='ml10' />
-          <button type='button' className='btn btn-sm btn-black ml10'>검색</button>
+          <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: 'auto' }} />
+          <button type='button' className='btn btn-black ml10'>검색</button>
         </div>
         <div className='btn-group'>
-            <button onClick={approvalLineSave} className='btn'>결제선 저장</button>
+            <button onClick={() => { setOnSave(true) }} className='btn'>결제선 저장</button>
+              <Popup open={onSave} close={() => { setOnSave(false) }} header="결제선 저장" type={'sm'}>
+                  <PopupSave onItemSelected={approvalLineSave} />
+              </Popup>
             <button onClick={handleConfirmClick} className='btn ml10'>확인</button>
         </div>
       </div>
       <div className='approval-conts flex-wrap align-start'>
         <div className='tree-wrap'>
               <div className='tree-conts'>
+              <div className='logo'>엘지 유플러스</div>
               {treeData.map((item) => (
                 <TreeItem
                   key={item.id}
                   item={item}
                   onItemSelected={handleItemSelected}
-                  onItemClick={handleItemClick} // onItemClick 이벤트 핸들러를 전달
                 />
               ))}
               </div>
         </div>
         <div className='list-item'>
-              <h2>List Data:</h2>
               <ul>
                 {getMenuItems()}
               </ul>
@@ -213,20 +220,36 @@ const ApprovalOrgTree = ({ onItemSelected }) => {
                 </tr>
               </thead>
               <tbody>
+              {tableData.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
+                <td>{row.title}</td>
+                <td>{row.name}</td>
+                <td>
+                  <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
+                  <label htmlFor={`sms${row.id}`}>SMS</label>
+                </td>
+                <td>
+                  <input type="checkbox" name={`email${row.id}`} id={`email${row.id}`} />
+                  <label htmlFor={`email${row.id}`} >E-MAIL</label>
+                </td>
+              </tr>
+              ))}
+              </tbody>
+            </table>
+            <table className="popup-table">
+              <colgroup>
+                <col span={2}/>
+              </colgroup>
+              <thead>
                 <tr>
-                  <td>
-                    <button type="button" className='btn btn-sm' onClick={handleDeleteRow}>X</button>
-                  </td>
-                  <td>{selectedItemTitle}</td>
-                  <td>{selectedItem}</td>
-                  <td>
-                    <input type="checkbox" name="sms" id="sms" />
-                    <label htmlFor="sms">SMS</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="email" id="email" />
-                    <label htmlFor="email" >E-MAIL</label>
-                  </td>
+                  <th scope="col" colSpan={2}>자주쓰는 결제선</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><button onClick={() => deleteRow()} className='btn btn-delete'>x</button></td>
+                  <td>홍길동 테스트</td>
                 </tr>
               </tbody>
             </table>
@@ -243,12 +266,12 @@ const TreeItem = ({ item, onItemSelected }) => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleItemClick = () => {
+  const handleItemSelected = () => {
     onItemSelected(item);
   };
 
   return (
-    <div className="tree-item">
+    <div className={`tree-item ${!item.children ? 'close' : 'open'}`}>
       <div className="tree-content">
         {item.children
           ? (<button onClick={handleToggle} className={isExpanded
@@ -256,8 +279,8 @@ const TreeItem = ({ item, onItemSelected }) => {
               : ''} />)
           : null}
         {item.children
-          ? (<span className="item-name" onClick={handleItemClick}>{item.name}</span>)
-          : (<span className="item-name not-children" onClick={handleItemClick}>{item.name}</span>)
+          ? (<span className="item-name" onClick={handleItemSelected}>{item.name}</span>)
+          : (<span className="item-name not-children" onClick={handleItemSelected}>{item.name}</span>)
         }
       </div>
       {isExpanded &&

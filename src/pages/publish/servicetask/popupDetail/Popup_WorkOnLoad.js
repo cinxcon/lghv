@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { Popup1 } from '../../popup/Popup';
+import { Popup } from '../../popup/Popup';
 import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
 
-function PopupProcessHistory() {
+function PopupWorkOnLoad() {
   const location = useLocation(); // 추가된 부분
   const pathData = location.state; // 추가된 부분
 
@@ -12,10 +12,10 @@ function PopupProcessHistory() {
     pathData.isDetail = 'yes';
   }, [pathData]);
 
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
-  const [endeDate, setEndeDate] = useState(null);
-
+  const [startStDate, setStartStDate] = useState(null);
+  const [startEndDate, setStartEndDate] = useState(null);
+  const [endStDate, setEndStDate] = useState(null);
+  const [endEndDate, setEndEndDate] = useState(null);
   // 등록부서 팝업
   const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
@@ -57,14 +57,14 @@ function PopupProcessHistory() {
                     <tr>
                         <th scope="row"><label htmlFor="subjec">제목</label></th>
                         <td>
-                            <span className='btn-wrap'>
+                            <span className='input-clear-wrap'>
                                 <input type="text" name="subject" id="subjec" placeholder='제목' value={subjecValue} onInput={onSubjecInput} />
                                 <button type="button" className='clear-search-button' onClick={onSubjecClear}>삭제</button>
                             </span>
                         </td>
                         <th scope="row"><label htmlFor="regnum">등록번호</label></th>
                         <td>
-                            <span className='btn-wrap'>
+                            <span className='input-clear-wrap'>
                                 <input type="text" name="regnum" id="regnum" placeholder='등록번호' value={registrantValue} onInput={onRegistrantInput} />
                                 <button type="button" className='clear-search-button' onClick={onRegistrantClear}>삭제</button>
                             </span>
@@ -72,7 +72,7 @@ function PopupProcessHistory() {
                         </td>
                         <th scope="row"><label htmlFor="registrant">등록자</label></th>
                         <td>
-                            <span className='btn-wrap'>
+                            <span className='input-clear-wrap'>
                                 <input type="text" name="registrant" id="registrant" placeholder='등록자' value={regnumValue} onInput={onRegnumInput} />
                                 <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
                             </span>
@@ -81,20 +81,33 @@ function PopupProcessHistory() {
                     <tr>
                         <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                         <td>
-                        <span className='input input_org'>{selectedItem}</span>
-                        <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
-                            <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
-                                <PopupTree onItemSelected={handleItemSelected} />
-                            </Popup1>
+                            <span className='input-btn-wrap'>
+                                <span className='input input_org'>{selectedItem}</span>
+                                <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
+                                    <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
+                                        <PopupTree onItemSelected={handleItemSelected} />
+                                    </Popup>
+                            </span>
                         </td>
                         <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
                         <td>
-                        <DatePicker selectsRange={true} startDate={startDate} endDate={endDate} onChange={(update) => setDateRange(update)} dateFormat="yyyy-MM-dd"/>
+                            <span className='datepickers-wrap'>
+                            <span>
+                                <DatePicker selected={startStDate} onChange={(date) => setStartStDate(date)} selectsStart startDate={startStDate} endDate={startEndDate} dateFormat="yyyy-MM-dd"/>
+                            </span>~<span>
+                                <DatePicker selected={startEndDate} onChange={(date) => setStartEndDate(date)} selectsEnd startDate={startStDate} endDate={startEndDate} minDate={startStDate} dateFormat="yyyy-MM-dd" />
+                            </span>
+                            </span>
                         </td>
                         <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
                         <td>
-                        <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable dateFormat="yyyy-MM-dd" />
-                        <button className='btn btn-low' >삭제</button>
+                            <span className='datepickers-wrap'>
+                            <span>
+                                <DatePicker selected={endStDate} onChange={(date) => setEndStDate(date)} selectsStart startDate={endStDate} endDate={endEndDate} dateFormat="yyyy-MM-dd" />
+                            </span>~<span>
+                                <DatePicker selected={endEndDate} onChange={(date) => setEndEndDate(date)} selectsEnd startDate={endStDate} endDate={endEndDate} minDate={endStDate} dateFormat="yyyy-MM-dd" />
+                            </span>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -108,12 +121,14 @@ function PopupProcessHistory() {
                         </td>
                         <th scope="row"><label htmlFor="type1">작업구분/유형</label></th>
                         <td colSpan={3}>
-                        <select name="type1" id="type1">
-                            <option value="">선택</option>
-                        </select>
-                        <select name="type2" id="type2">
-                            <option value="">선택</option>
-                        </select>
+                        <span className='service select-wrap'>
+                            <select name="type1" id="type1">
+                                <option value="">선택</option>
+                            </select>
+                            <select name="type2" id="type2">
+                                <option value="">선택</option>
+                            </select>
+                        </span>
                         </td>
                     </tr>
                 </tbody>
@@ -256,4 +271,4 @@ function PopupProcessHistory() {
   )
 }
 
-export default PopupProcessHistory;
+export default PopupWorkOnLoad;

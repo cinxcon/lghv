@@ -3,7 +3,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Popup1 } from '../../popup/Popup';
+import { Popup } from '../../popup/Popup';
 import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
 import DatePicker from 'react-datepicker';
 
@@ -95,9 +95,9 @@ function urgent() {
             <td>
                 <span className='input input_org'>{selectedItem}</span>
                 <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
-                <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
+                <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
                     <PopupTree onItemSelected={handleItemSelected} />
-                </Popup1>
+                </Popup>
             </td>
         </tr>
         <tr>

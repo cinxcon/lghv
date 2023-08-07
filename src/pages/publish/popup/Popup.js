@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { useEffect } from 'react';
 import './popup.css';
+import nomal from '../servicetask/component/RegistNomal';
 
-function Popup1(props) {
+function Popup(props) {
 // 메인 화면 scroll 방지
   // useEffect(() => {
   //   document.body.style.cssText = `position: fixed; top: -${window.scrollY}px`
@@ -15,29 +16,32 @@ function Popup1(props) {
 
   let { open, close, header, type } = props;
 
+  if (type === undefined){
+    type = 'nomal';
+  }
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className={`popup1 ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
+          ? (<section className={`popup-wrap ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
           : null
       }
     </div>
   )
 }
 
-function Popup2(props) {
+function Alert(props) {
   let { open, close } = props;
 
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className='popup2'><div className="main">{props.children}</div><div className="btn-group"><button className="btn btn-primary">확인</button><button className="btn btn-low" onClick={close}>닫기</button></div></section>)
+          ? (<section className='alert-wrap'><div className="main">{props.children}</div><div className="btn-group"><button className="btn btn-primary">확인</button><button className="btn btn-low" onClick={close}>닫기</button></div></section>)
           : null
       }
     </div>
   )
 }
 
-export { Popup1, Popup2 };
+export { Popup, Alert };

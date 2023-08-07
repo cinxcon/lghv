@@ -1,2 +1,3 @@
 .time-select{ display: flex; flex-wrap: wrap; width: 40px; justify-content: center;}
 .time-select input{width: 34px; padding: 0; text-align: center;}
+.work-content .btn-wrap{text-align: right; margin-bottom: 20px;}
