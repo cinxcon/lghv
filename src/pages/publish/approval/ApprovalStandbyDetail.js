@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
-<<<<<<< HEAD
-=======
 import ApprovalDetailContent from './component/ApprovalDetailContent';
->>>>>>> 5f688eb77ae9380cd8b36aa5eda329596f23ff43
 import { Popup1, Popup2 } from '../popup/Popup';
 import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from './popupDetail/Popup_ProcessHistory';
@@ -21,14 +18,7 @@ function ApprovalStandbyDetail() {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* 상단 타이틀 */}
       <ContentTitle />
-      {/* 상단 버튼 모음 */}
-      {/* <ApprovalTopBtnGroup /> */}
-=======
-      <ContentTitle />
->>>>>>> 5f688eb77ae9380cd8b36aa5eda329596f23ff43
       <div className="detail-top-btn-group">
         <button className='btn btn-sm' onClick={() => { setOnTime(true) }}>OnTime반려</button>
         <button className='btn btn-sm' onClick={() => { setNotimethod(true) }}>통보방법</button>

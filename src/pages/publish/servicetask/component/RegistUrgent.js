@@ -7,9 +7,9 @@ import { Popup1 } from '../../popup/Popup';
 import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
 import DatePicker from 'react-datepicker';
 
-function nomal() {
+function urgent() {
   // 등록부서 팝업
-  const [ontree, setOnTree] = useState(false);
+  const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
@@ -57,6 +57,7 @@ function nomal() {
 
   return (<>
     <div className='content-section'>
+    <h3>작업개요</h3>
     <table className='table result align-left'>
         <caption>table caption</caption>
         <colgroup>
@@ -93,8 +94,8 @@ function nomal() {
             <th scope='row'>검토자</th>
             <td>
                 <span className='input input_org'>{selectedItem}</span>
-                <button className='btn' onClick={() => { setOnTree(true) }}>선택</button>
-                <Popup1 open={ontree} close={() => { setOnTree(false) }} header="결제 지정" type={'large'}>
+                <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
+                <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
                     <PopupTree onItemSelected={handleItemSelected} />
                 </Popup1>
             </td>
@@ -402,4 +403,4 @@ function nomal() {
     </>)
 }
 
-export default nomal;
+export default urgent;

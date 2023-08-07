@@ -1,25 +1,19 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import Popup from '../popupDetail/ApprovalOrgTree/Popup_ApprovalOrgTree';
+import { Popup1 } from '../../popup/Popup';
+import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
 
-function ApprovalSearch() {
+function ServicetaskSearch() {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   const [endeDate, setEndeDate] = useState(null);
 
   // 등록부서 팝업
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
   const handleItemSelected = (item) => {
     setSelectedItem(item);
-    setIsPopupOpen(false);
   };
 
   // input clear
@@ -80,8 +74,10 @@ function ApprovalSearch() {
             <th scope="row"><label htmlFor="regdep">등록부서</label></th>
             <td>
               <span className='input input_org'>{selectedItem}</span>
-              <button onClick={handleOpenPopup} className='btn'>선택</button>
-              {isPopupOpen && (<Popup onClose={handleClosePopup} onItemSelected={handleItemSelected} />)}
+              <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
+                <Popup1 open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
+                    <PopupTree onItemSelected={handleItemSelected} />
+                </Popup1>
             </td>
             <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
             <td>
@@ -121,4 +117,4 @@ function ApprovalSearch() {
   )
 }
 
-export default ApprovalSearch;
+export default ServicetaskSearch;

@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-export default function ApprovalList() {
+export default function ServicetasklList() {
   const location = useLocation(); // 추가된 부분
   const pathData = location.state; // 추가된 부분
-  pathData.isDetail = 'yes';
+
+  useEffect(() => {
+    pathData.isDetail = 'yes';
+  }, [pathData]);
 
   return (
     <div className='content-section'>

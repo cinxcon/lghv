@@ -47,9 +47,11 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-section { margin-bottom: 40px; }
 .content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 8px; }
 .mb15 { margin-bottom: 15px !important; }
+.ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
 .flex-wrap{display: flex; align-items: center;}
-.flex-wrap.between{justify-content: space-between;}
+.between{justify-content: space-between;}
+.align-start{align-items: flex-start;}
 /* 입력 요소 */
 .input, input, textarea, select, label, button { display: inline-block; vertical-align: middle; font-weight: inherit; font-size: inherit; word-spacing: normal; letter-spacing: inherit; }
 .input, input[type='text'], input[type='password'], input[type='tel'], input[type='number'], textarea, select { border: 1px solid #dbdbdb; height: 34px; width: 240px; padding: 5px 12px 6px; background-color: #fff; }
@@ -81,6 +83,7 @@ input[type='checkbox'] + label:before, input[type='radio'] + label:before { back
 input[type='checkbox']:checked + label:before, input[type='radio']:checked + label:before { background-position: -161px -26px; }
 input[type='checkbox'][disabled] + label:before, input[type='radio'][disabled] + label:before { background-position: -330px -26px; }
 input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:checked[readOnly] + label:before { background-position: -492px -26px; }
+input.sm{width: 34px; height: 34px;}
 .btn { display: inline-block; text-align: center; vertical-align: middle; white-space: nowrap; word-spacing: normal; text-decoration: none !important; overflow: hidden; min-width: 48px; padding: 4px 12px 5px; border: 1px solid #000; color: #000; font-size: 14px; line-height: 21px; letter-spacing: inherit; background-color: #fff; box-sizing: border-box; cursor: pointer; }
 .btn:hover, .btn:focus { background-color: #F7F7F7; }
 .btn[disabled] { border-color: #DBDBDB; background-color: #ffffff; color: #959595; }
@@ -201,15 +204,6 @@ input[type='checkbox']:checked[readOnly] + label:before, input[type='radio']:che
 .menu-item-level-2.active::before{ content: ''; display: block; position: absolute; left: 40px; top: 20px; width: 8px; height: 2px; background-color: #fff;}
 .menu-item-level-2.active .menu-item-level-2-link { font-weight: bold;  }
 
-/*  트리 아이템  */
-.tree-item { margin-left: 20px; }
-.tree-item > .tree-content { display: flex; align-items: center; margin-bottom: 5px; }
-.tree-item > .tree-content button { margin-right: 5px; padding: 0; width: 20px; height: 20px; border: none; background-color: transparent; font-weight: bold; font-size: 14px; cursor: pointer; }
-.tree-item > .tree-content .item-name { font-size: 16px; }
-.tree-item > .tree-children { padding-left: 20px; border-left: 1px solid #ccc; }
-.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
-.popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
-.close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
 .main-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
 .login-container { border: 1px solid #ccc; padding: 20px; width: 600px; margin: 0 auto; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px; }
 .login-container h2 { text-align: center; margin-bottom: 20px; color: #333; }

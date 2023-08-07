@@ -13,13 +13,13 @@ function Popup1(props) {
   //   }
   // }, []);
 
-  let { open, close, header } = props;
+  let { open, close, header, type } = props;
 
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className='popup1'><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
+          ? (<section className={`popup1 ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
           : null
       }
     </div>
