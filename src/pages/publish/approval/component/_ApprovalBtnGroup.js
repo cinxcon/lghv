@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Popup, Alert } from '../../popup/Popup';
-import PopupNotiMethod from '../popupDetail/Popup_NotiMethod';
-import PopupProcessHistory from '../popupDetail/Popup_ProcessHistory';
+import PopupNotiMethod from '../../popup/popupDetail/Popup_NotiMethod';
+import PopupProcessHistory from '../../popup/popupDetail/Popup_ProcessHistory';
 
 function ApprovalTopBtnGroup() {
   const navigate = useNavigate();

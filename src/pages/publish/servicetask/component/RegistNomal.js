@@ -4,12 +4,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup } from '../../popup/Popup';
-import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
+import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
 import DatePicker from 'react-datepicker';
 
 function nomal() {
   // 등록부서 팝업
-  const [ontree, setOnTree] = useState(false);
+  const [reviwer, setReviwer] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
@@ -18,9 +18,11 @@ function nomal() {
   const [startMinutes, setStartMinutes] = useState(0);
   const [endHours, setEndHours] = useState(0);
   const [endMinutes, setEndMinutes] = useState(0);
+  const [rows, setRows] = useState([]);
 
   const handleItemSelected = (item) => {
     setSelectedItem(item);
+    setReviwer(false);
   };
 
   const handleStartHourIncrease = () => {
@@ -53,6 +55,15 @@ function nomal() {
 
   const handleEndMinuteDecrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
+  };
+  const workerAddRow = () => {
+    setRows([...rows, {}]);
+  };
+  const workerRemoveRow = () => {
+    if (rows.length > 0) {
+      const newRows = rows.slice(0, rows.length - 1);
+      setRows(newRows);
+    }
   };
 
   return (<>
@@ -94,9 +105,9 @@ function nomal() {
             <td>
                 <div className='flex-wrap between'>
                     <span className='input input_org'>{selectedItem}</span>
-                    <button className='btn ml10' onClick={() => { setOnTree(true) }}>선택</button>
-                    <Popup open={ontree} close={() => { setOnTree(false) }} header="결제 지정" type={'xlg'}>
-                        <PopupTree onItemSelected={handleItemSelected} />
+                    <button className='btn ml10' onClick={() => { setReviwer(true) }}>선택</button>
+                    <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
+                        <PopupReviewer onItemSelected={handleItemSelected} />
                     </Popup>
                 </div>
             </td>
@@ -378,18 +389,24 @@ function nomal() {
         </table>
     </div>
     <div className='content-section'>
-        <h3>사업자/벤더사 작업 투입 인력</h3>
+        <div className='flex-wrap between mb15'>
+            <h3>사업자/벤더사 작업 투입 인력</h3>
+            <div className="btn-wrap"><button type="button" className="btn" onClick={workerAddRow}>추가</button></div>
+        </div>
         <table className='table result'>
             <caption>table caption</caption>
             <colgroup>
-            <col span={4} />
+                <col style={{ width: '30%' }} />
+                <col style={{ width: '30%' }} />
+                <col style={{ width: '20%' }} />
+                <col style={{ width: '10%' }} />
             </colgroup>
             <thead>
             <tr>
                 <th scope='col'>담당자</th>
                 <th scope='col'>회사/소속</th>
-                <th scope='col'>사무실</th>
                 <th scope='col'>핸드폰</th>
+                <th scope='col'>삭제</th>
             </tr>
             </thead>
             <tbody>
@@ -397,8 +414,16 @@ function nomal() {
                 <td><input type='text' name='cooperation_worker' id='cooperation_worker' /></td>
                 <td><input type='text' name='cooperation_company' id='cooperation_company' /></td>
                 <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
-                <td><input type='text' name='cooperation_tell' id='cooperation_tell' /></td>
+                <td></td>
             </tr>
+            {rows.map((row, index) => (
+            <tr key={index}>
+                <td><input type='text' name='cooperation_worker' id='cooperation_worker' /></td>
+                <td><input type='text' name='cooperation_company' id='cooperation_company' /></td>
+                <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
+                <td><button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={workerRemoveRow}>삭제</button></td>
+            </tr>
+            ))}
             </tbody>
         </table>
     </div>
