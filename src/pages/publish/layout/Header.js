@@ -21,7 +21,8 @@ const Header = () => {
         <div className='user-info'>
           <div className='user'>
           사용자 : <span>{userInfo}</span> <span>{tDate}</span>
-          </div>
+            <Link to="/mypage" className='ml10 underline'>마이 페이지</Link>
+           </div>
           <button type='button' className='logout-btn' onClick={logout}>로그아웃</button>
         </div>
       </div>

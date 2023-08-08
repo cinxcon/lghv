@@ -63,10 +63,10 @@
   height: 500px;
   overflow-y: scroll;
 }
-.approval-top{ border-bottom:1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px;}
+.approval-top{ margin-bottom: 20px; padding-bottom: 10px; }
 .approval-top .line-select input[type='checkbox'] + label,  .line-select input[type='radio'] + label {margin-right: 10px;}
-.approval-conts{ min-height: 400px;}
-.tree-wrap { width: 25%; overflow: hidden; border-right: 1px solid #ccc; min-height: inherit; }
+.approval-conts{ height: 400px; min-height: 400px; overflow-y: auto;}
+.tree-wrap { width: 304px; padding: 15px 0 0 16px; overflow: hidden; min-height: inherit; border-top:1px solid #000; }
 .tree-wrap .tree-conts .logo{position: relative; z-index: 1;}
 .tree-item .selected {
   margin-bottom: 10px;
@@ -84,10 +84,13 @@
 .tree-item > .tree-children { padding-left: 25px; position: relative;}
 .tree-item > .tree-content button::before{content:""; display:block; position: absolute; left: 13px; top:6px; width: 10px; height: 1px; background-color:#dbdbdb;}
 .tree-item > .tree-content .item-name.not-children::before{content:""; display:block; position: absolute; left: -18px; top:10px; width: 20px; height: 1px; background-color:#dbdbdb;}
-
 .tree-item::before{content:""; display:block; position: absolute; left: 6px; top:-16px; width: 1px; height: 100%; background-color:#dbdbdb;}
 .tree-item.close::before{content: none;}
-.list-item{width: 20%; padding:0 20px; border-right: 1px solid #ccc; height: 100%; min-height: inherit; }
+
+.list-item{width: 284px; padding:0; border-top:1px solid #000; border-right: 1px solid #dbdbdb; height: 100%; min-height: inherit; background-color: #f7f7f7;}
+.list-item ul{}
+.list-item ul li{ margin: 0 16px; padding: 8px 0; border-bottom: 1px dotted #dbdbdb; cursor: pointer;}
+.list-item ul li span + span{margin-left: 16px;}
 .selected-item{padding:0 0 0 20px; width: 55%;}
 .selected-item table + table{ margin-top: 30px;}
 
@@ -127,7 +130,7 @@
   height: auto;
 }
 .modal > section.popup-wrap .selected-item .popup-table th,
-.modal > section.popup-wrap .selected-item .popup-table td{ text-align: center;}
+.modal > section.popup-wrap .selected-item .popup-table td{ text-align: center; cursor: pointer;}
 .modal > section.popup-wrap .selected-item .btn-delete{width: 16px; height: 16px; padding: 2px; min-width: 16px; line-height: 16px;}
 
 .modal.openModal {

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
 import { Popup, Alert } from '../popup/Popup';
-import PopupNotiMethod from './popupDetail/Popup_NotiMethod';
-import PopupWorkOnLoad from './popupDetail/Popup_WorkOnLoad';
+import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod';
+import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
 import RegistNomal from './component/RegistNomal';
 import RegistUrgent from './component/RegistUrgent';
-import PopupTree from './popupDetail/Popup_ApprovalOrgTree';
+import PopupLine from '../popup/popupDetail/Popup_Approval';
 
 function ServicetaskRegist() {
   const [onLoad, setOnLoad] = useState(false);
@@ -32,7 +32,7 @@ function ServicetaskRegist() {
           <PopupWorkOnLoad />
         </Popup>
         <Popup open={approvalLine} close={() => { setApprovalLine(false) }} type="xlg" header="결제선 지정">
-          <PopupTree />
+          <PopupLine />
         </Popup>
         <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethod />

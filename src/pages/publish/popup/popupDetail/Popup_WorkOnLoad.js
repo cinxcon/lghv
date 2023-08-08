@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { Popup } from '../../popup/Popup';
-import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
+import PopupLine from '../popupDetail/Popup_Approval';
 
 function PopupWorkOnLoad() {
   const location = useLocation(); // 추가된 부분
@@ -85,7 +85,7 @@ function PopupWorkOnLoad() {
                                 <span className='input input_org'>{selectedItem}</span>
                                 <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
                                     <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
-                                        <PopupTree onItemSelected={handleItemSelected} />
+                                        <PopupLine onItemSelected={handleItemSelected} />
                                     </Popup>
                             </span>
                         </td>

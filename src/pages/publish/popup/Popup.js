@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { useEffect } from 'react';
 import './popup.css';
-import nomal from '../servicetask/component/RegistNomal';
 
 function Popup(props) {
 // 메인 화면 scroll 방지

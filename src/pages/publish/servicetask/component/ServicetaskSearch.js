@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { Popup } from '../../popup/Popup';
-import PopupTree from '../popupDetail/Popup_ApprovalOrgTree';
+import PopupLine from '../../popup/popupDetail/Popup_Approval';
 
 function ServicetaskSearch() {
   const [startStDate, setStartStDate] = useState(null);
@@ -78,7 +78,7 @@ function ServicetaskSearch() {
                   <span className='input input_org'>{selectedItem}</span>
                   <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
                     <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
-                        <PopupTree onItemSelected={handleItemSelected} />
+                        <PopupLine onItemSelected={handleItemSelected} />
                     </Popup>
                 </span>
               </td>

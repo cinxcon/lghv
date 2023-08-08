@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import Popup from '../../popup/approvalOrgTree/Popup_ApprovalOrgTree';
+import { Popup } from '../../popup/Popup';
+import PopupDepartment from '../../popup/popupDetail/Popup_department';
 
 function ApprovalSearch() {
   const [startDate, setStartDate] = useState(null);
@@ -9,18 +10,11 @@ function ApprovalSearch() {
   const [compDate, setCompDate] = useState(null);
 
   // 등록부서 팝업
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [reviwer, setReviwer] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
-
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
   const handleItemSelected = (item) => {
     setSelectedItem(item);
-    setIsPopupOpen(false);
+    setReviwer(false);
   };
 
   // input clear
@@ -83,8 +77,10 @@ function ApprovalSearch() {
               <td>
                 <span className='input-btn-wrap'>
                   <span className='input input_org'>{selectedItem}</span>
-                  <button onClick={handleOpenPopup} className='btn'>선택</button>
-                  {isPopupOpen && (<Popup onClose={handleClosePopup} onItemSelected={handleItemSelected} />)}
+                  <button className='btn ml10' onClick={() => { setReviwer(true) }}>선택</button>
+                    <Popup open={reviwer} close={() => { setReviwer(false) }} header="등록 부서" type={'lg'}>
+                        <PopupDepartment onItemSelected={handleItemSelected} />
+                    </Popup>
                 </span>
               </td>
               <th scope="row"><label htmlFor="regdate">등록일</label></th>
