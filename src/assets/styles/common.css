@@ -48,6 +48,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 8px; }
 .content-row-wrap { display: flex; justify-content: space-between; align-items: flex-start; }
 .content-row-wrap table { width: 49%; }
+.mt20 { margin-top: 20px !important; }
 .mb15 { margin-bottom: 15px !important; }
 .ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
@@ -178,7 +179,7 @@ input.sm{width: 34px; height: 34px;}
 .header-wrap .user-info .user::after{content:''; display: block; position: absolute; right: 0; top: 6px; width: 1px; height: 12px; background-color: #fff;}
 .header-wrap .user-info .user span{margin-left:4px;}
 .header-wrap .user-info .logout-btn { color: #fff; padding-left: 24px; position: relative; }
-.header-wrap .user-info .logout-btn::before{content:''; display: block; position: absolute; left: 0; top: -2px; width: 24px; height: 24px; background-image: url('../images/common/ic_logout_white_24.png'); } 
+.header-wrap .user-info .logout-btn::before{content:''; display: block; position: absolute; left: 0; top: -2px; width: 24px; height: 24px; background-image: url('../images/common/ic_logout_white_24.png'); }
 
 /* 레프트 메뉴  */
 .sidebar { background-color: #000; width: 64px; transition: transform 0.3s ease-in-out; color: #fff; }

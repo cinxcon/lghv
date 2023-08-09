@@ -14,6 +14,7 @@ function ApprovalStandbyDetail() {
   const [del, setDelete] = useState(false);
   const [onTime, setOnTime] = useState(false);
   const [notimethod, setNotimethod] = useState(false);
+  const [print, setPrint] = useState(false);
   const [history, setHistory] = useState(false);
 
   return (
@@ -22,6 +23,7 @@ function ApprovalStandbyDetail() {
       <div className="detail-top-btn-group">
         <button className='btn' onClick={() => { setOnTime(true) }}>OnTime반려</button>
         <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
+        <button className='btn' onClick={() => { setPrint(true) }}>화면인쇄</button>
         <button className='btn' onClick={() => { setHistory(true) }}>처리내역</button>
         <button className='btn btn-low' onClick={() => { navigate(-1) }}>목록</button>
       </div>
@@ -30,6 +32,9 @@ function ApprovalStandbyDetail() {
       </Alert>
       <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
         <PopupNotiMethod />
+      </Popup>
+      <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
+        화면인쇄
       </Popup>
       <Popup open={history} close={() => { setHistory(false) }} header="처리내역">
         <PopupProcessHistory />

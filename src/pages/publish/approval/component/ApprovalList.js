@@ -5,7 +5,7 @@ export default function ApprovalList(props) {
   const location = useLocation();
   const pathData = location.state;
   const { toDetail, currentStatus } = props;
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
   useEffect(() => {
     pathData.isDetail = 'yes';
@@ -18,9 +18,9 @@ export default function ApprovalList(props) {
           <span className='total-view'>총 <b>109</b>개</span>
           <span className='select-wrap'>
             <select name="pageViewCnt">
-              <option value="10" selected="selected">10개씩 보기</option>
-              <option value="30">30개씩 보기</option>
-              <option value="50">50개씩 보기</option>
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="40">40개씩 보기</option>
+              <option value="60">60개씩 보기</option>
               <option value="100">100개씩 보기</option>
             </select>
           </span>
