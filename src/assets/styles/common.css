@@ -55,7 +55,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .flex-wrap{display: flex; align-items: center;}
 .between{justify-content: space-between;}
 .align-start{align-items: flex-start;}
-.center{ text-align: center;}
+.center{ text-align: center !important;}
 .right{text-align: right;}
 /* 입력 요소 */
 .input, input, textarea, select, label, button { display: inline-block; vertical-align: middle; font-weight: inherit; font-size: inherit; word-spacing: normal; letter-spacing: inherit; }
@@ -120,7 +120,13 @@ input.sm{width: 34px; height: 34px;}
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-up { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -16px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-down { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -88px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
-
+.btn-fold{display: inline-block; width: 26px; height: 26px; min-width: auto; padding: 0; background-image: url('../images/common/ico_16x16_b.png'); background-position: -11px 5px; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px;} 
+.btn-fold.close{ transform: rotate(180deg);}
+.btn-fold.hide{display: none;}
+.btn-pop{padding-left: 36px; background-image: url('../images/common/ic_popup_16.png'); background-position: 12px 5px; background-repeat: no-repeat; background-size: auto;}
+.btn-ref{padding-left: 36px; background-image: url('../images/common/ic_refresh_grey_16.png'); background-position: 12px 4px; background-repeat: no-repeat; background-size: auto;}
+.btn-search{width: 26px; height: 26px; min-width: auto; padding: 0; font-size: 0; background-image: url('../images/common/ic_search_white_16.png'); background-position: 50% 50%; background-repeat: no-repeat; background-size: auto;}
+.btn-search-txt{padding-left: 36px; background-image: url('../images/common/ic_search_white_16.png'); background-position: 12px 50%; background-repeat: no-repeat; background-size: auto;}
 /* 목록, 블릿 */
 .list-primary { margin-top: 8px; }
 .list-primary li { position: relative; padding-left: 8px; color: #ED174D; font-size: 12px; line-height: 18px; }
@@ -228,25 +234,31 @@ input.sm{width: 34px; height: 34px;}
 .over-flow-x{max-width: 1600px; overflow-x: scroll;}
 .table caption { border-top: 1px solid #000000; }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
-.table.result th, .table.result td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; height: 36px; text-align: center; }
+.table.result th, .table.result td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; text-align: center; }
 .table.result.align-left th, .table.result.align-left td { text-align: left; }
 .table.result th:last-child, .table.result td:last-child { border-right: none; }
 .table.result th:last-child.bd-right, .table.result td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
+.table.result td dl dt, .table.result td dl dd{padding: 8px 12px; height: 45px;}
+.table.result td dl dt{width: 15%; background-color: #f7f7f7;}
+.table.result td dl dd{width: 85%; text-align: left; }
+.non-pading{padding:0 !important;}
 .result-nodata { width: 100%; height: 160px; padding-top: 29px; text-align: center; }
 .result-nodata i { display: block; width: 64px; height: 64px; margin: 0 auto 16px; background-image: url('../images/common/ico_nodata.png'); background-position: 0 0; background-size: auto; background-repeat: no-repeat; }
 .approval-result-none { padding: 50px; background-color: #d9d9d9; text-align: center; }
 
 /* search */
 .search-wrap { background-color: #f7f7f7; padding: 8px 0; border-top: 1px solid #000000; }
-.search th { padding: 8px 0 8px 24px; }
-.search td { padding: 8px 24px 8px 0; }
+.search th { padding: 8px 0 8px 20px; }
+.search td { padding: 8px 20px 8px 0; }
 .search .react-datepicker-wrapper input, .search .input-btn-wrap .react-datepicker-wrapper, .search .input-btn-wrap .react-datepicker-wrapper input {width: 100%;}
 .search .datepickers-wrap, .search .input-btn-wrap { display: flex; width: 100%; justify-content: space-between; }
 .search .datepickers-wrap > span { display: block; width: 49%; }
 .search .input-btn-wrap button { margin-left: 4px; }
-
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
+#search-fold{height: auto; opacity:1; transition: all 0.1s ease-out}
+#search-fold.hide{height:0; opacity: 0; padding: 0;}
+
 .detail-top-btn-group { height: 60px; padding: 16px; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; }
 .detail-top-btn-group button { margin-left: 8px; }
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }

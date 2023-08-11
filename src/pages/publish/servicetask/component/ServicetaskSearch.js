@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { Popup } from '../../popup/Popup';
-import PopupLine from '../../popup/popupDetail/Popup_Approval';
+import PopupDepartment from '../../popup/popupDetail/Popup_department';
 
 function ServicetaskSearch() {
-  const [startStDate, setStartStDate] = useState(null);
-  const [startEndDate, setStartEndDate] = useState(null);
-  const [endStDate, setEndStDate] = useState(null);
-  const [endEndDate, setEndEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  // const [startEndDate, setStartEndDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  // const [endEndDate, setEndEndDate] = useState(null);
   // 등록부서 팝업
   const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
   const handleItemSelected = (item) => {
+    setOnLoad(false);
     setSelectedItem(item);
   };
 
@@ -32,17 +33,36 @@ function ServicetaskSearch() {
   const onRegistrantClear = () => {
     setRegistrantValue('');
   }
+  const handleTableOpen = () => {
+    const foldItem = document.getElementById('search-fold');
+    const btn = document.getElementById('fold-open');
+    foldItem.classList.remove('hide');
+    btn.classList.add('hide');
+  }
+  const handleTableClose = () => {
+    const foldItem = document.getElementById('search-fold');
+    const btn = document.getElementById('fold-open');
+    foldItem.classList.add('hide');
+    btn.classList.remove('hide');
+  }
 
   return (
     <div className='content-section'>
-      <div className='search-wrap'>
+      <div className='right'>
+         <button className='btn btn-fold close hide' onClick={handleTableOpen} id='fold-open'>검색영역 열기</button>
+      </div>
+      <div className='search-wrap' id='search-fold'>
         <table className='search'>
           <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
           <colgroup>
             <col style={{ width: '7%' }} />
-            <col style={{ width: '25%' }} />
+            <col style={{ width: '15%' }} />
             <col style={{ width: '7%' }} />
-            <col style={{ width: '25%' }} />
+            <col style={{ width: '15%' }} />
+            <col style={{ width: '5%' }} />
+            <col style={{ width: '15%' }} />
+            <col style={{ width: '7%' }} />
+            <col style={{ width: '20%' }} />
             <col style={{ width: '7%' }} />
             <col />
           </colgroup>
@@ -70,40 +90,32 @@ function ServicetaskSearch() {
                   <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
                 </span>
               </td>
-            </tr>
-            <tr>
               <th scope="row"><label htmlFor="regdep">등록부서</label></th>
               <td>
                 <span className='input-btn-wrap'>
-                  <span className='input input_org'>{selectedItem}</span>
-                  <button className='btn' onClick={() => { setOnLoad(true) }}>선택</button>
-                    <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정">
-                        <PopupLine onItemSelected={handleItemSelected} />
+                  <span className='input input_org' style={{ width: '88%' }}>{selectedItem}</span>
+                  <button className='btn btn-black btn-search' onClick={() => { setOnLoad(true) }}>선택</button>
+                    <Popup open={onLoad} close={() => { setOnLoad(false) }} header="결제 지정" type={'lg'}>
+                        <PopupDepartment onItemSelected={handleItemSelected} />
                     </Popup>
                 </span>
               </td>
-              <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
-              <td>
-                <span className='datepickers-wrap'>
-                  <span>
-                    <DatePicker selected={startStDate} onChange={(date) => setStartStDate(date)} selectsStart startDate={startStDate} endDate={startEndDate} dateFormat="yyyy-MM-dd"/>
-                  </span>~<span>
-                    <DatePicker selected={startEndDate} onChange={(date) => setStartEndDate(date)} selectsEnd startDate={startStDate} endDate={startEndDate} minDate={startStDate} dateFormat="yyyy-MM-dd" />
-                  </span>
-                </span>
-              </td>
-              <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
-              <td>
-                <span className='datepickers-wrap'>
-                  <span>
-                    <DatePicker selected={endStDate} onChange={(date) => setEndStDate(date)} selectsStart startDate={endStDate} endDate={endEndDate} dateFormat="yyyy-MM-dd" />
-                  </span>~<span>
-                    <DatePicker selected={endEndDate} onChange={(date) => setEndEndDate(date)} selectsEnd startDate={endStDate} endDate={endEndDate} minDate={endStDate} dateFormat="yyyy-MM-dd" />
-                  </span>
-                </span>
+              <td rowSpan={2}>
+               <div className='input-btn-wrap'>
+                <button className='btn btn-black btn-search-txt'>검색</button>
+                <button className='btn btn-fold' onClick={handleTableClose}>검색영역 접기</button>
+               </div>
               </td>
             </tr>
             <tr>
+              <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
+              <td>
+                   <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd"/>
+              </td>
+              <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
+              <td>
+                 <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" />
+              </td>
               <th scope="row"><label htmlFor="area">구역 명</label></th>
               <td>
                 <span>
@@ -113,7 +125,7 @@ function ServicetaskSearch() {
                 </span>
               </td>
               <th scope="row"><label htmlFor="type1">작업구분/유형</label></th>
-              <td colSpan={3}>
+              <td>
                 <span className='service select-wrap'>
                   <select name="type1" id="type1">
                     <option value="">선택</option>
@@ -127,10 +139,7 @@ function ServicetaskSearch() {
           </tbody>
         </table>
       </div>
-      <div className="search-btn-wrap">
-        <button className='btn btn-black'>검색</button>
-      </div>
-    </div>
+     </div>
   )
 }
 
