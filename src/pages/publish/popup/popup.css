@@ -1,158 +1,72 @@
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 99;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.modal > section {
-  margin: 0 auto;
-  background-color: #fff;
-  animation: modal-show 0.3s;
-  overflow: hidden;
-}
-.modal > section.alert-wrap {
-  width: 342px;
-  height: 160px;
-  margin: 0 auto;
-  padding: 40px 0;
-  text-align: center;
-  font-size: 16px;
-}
-.modal > section .btn-group {
-  margin-top: 24px;
-}
-.modal > section button {
-  margin: 0 4px;
-}
-.modal > section.popup-wrap {
-  width: 708px;
-  padding: 22px 40px 32px;
-}
+.modal { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99; background-color: rgba(0, 0, 0, 0.6); }
+.modal > section { margin: 0 auto; background-color: #fff; animation: modal-show 0.3s; overflow: hidden; }
+.modal > section.alert-wrap { width: 342px; height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
+.modal > section .btn-group { margin-top: 24px; }
+.modal > section button { margin: 0 4px; }
+.modal > section.popup-wrap { width: 708px; padding: 22px 40px 32px; }
 .modal > section.popup-wrap.sm { width: 464px; }
 .modal > section.popup-wrap.lg { width: 952px; }
 .modal > section.popup-wrap.xlg { width: 1196px; }
-.modal > section.popup-wrap .header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #000000;
-}
-.modal > section.popup-wrap h3 {
-  margin: 0;  
-  font-size: 20px;
-  font-weight: 500;
-  height: 30px;
-  line-height: 1.5;
-}
-.modal > section.popup-wrap .btn-close {
-  width: 32px;
-  height: 32px;
-  background: url('../../../assets/images/common/ico_close.png') no-repeat 0 0;
-  font-size: 0;
-  cursor: pointer;
-}
+.modal > section.popup-wrap .header { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #000000; }
+.modal > section.popup-wrap h3 { margin: 0; font-size: 20px; font-weight: 500; height: 30px; line-height: 1.5; }
+.modal > section.popup-wrap .btn-close { width: 32px; height: 32px; background: url('../../../assets/images/common/ico_close.png') no-repeat 0 0; font-size: 0; cursor: pointer; }
 
 /*  조직검색  */
-.modal > section.popup1.orgtree {
-  width: 468px;
-  height: 500px;
-  overflow-y: scroll;
-}
-.approval-top{ margin-bottom: 20px; padding-bottom: 10px; }
-.approval-top .line-select input[type='checkbox'] + label,  .line-select input[type='radio'] + label {margin-right: 10px;}
-.approval-conts{ height: 400px; min-height: 400px; overflow-y: auto;}
-.tree-wrap { width: 304px; padding: 15px 0 0 16px; overflow: hidden; min-height: inherit; border-top:1px solid #000; }
-.tree-wrap .tree-conts .logo{position: relative; z-index: 1;}
-.tree-item .selected {
-  margin-bottom: 10px;
-}
-.tree-item .selected * { 
-  margin-right: 5px;
-}
-.tree-item{position: relative;}
+.modal > section.popup1.orgtree { width: 468px; height: 500px; overflow-y: scroll; }
+.approval-top { margin-bottom: 20px; padding-bottom: 10px; }
+.approval-top .line-select input[type='checkbox'] + label, .line-select input[type='radio'] + label { margin-right: 10px; }
+.approval-conts { height: 400px; min-height: 400px; overflow-y: auto; }
+.tree-wrap { width: 304px; padding: 15px 0 0 16px; overflow: hidden; min-height: inherit; border-top: 1px solid #000; }
+.tree-wrap .tree-conts .logo { position: relative; z-index: 1; }
+.tree-item .selected { margin-bottom: 10px; }
+.tree-item .selected * { margin-right: 5px; }
+.tree-item { position: relative; }
 .tree-item > .tree-content { display: flex; align-items: center; padding-bottom: 5px; position: relative; }
-.tree-item > .tree-content button { position: relative; margin-right: 10px; padding: 0; width: 13px; height: 13px; background: url('../../../assets/images/common/btn_plus.png') 0 0 no-repeat; z-index: 1;}
-.tree-item > .tree-content button.open{background: url('../../../assets/images/common/btn_minus.png') 0 0 no-repeat;}
-.tree-item > .tree-content .item-name { padding-left: 20px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/_ic_folder_16.png') 0 2px no-repeat; z-index: 1;}
-.tree-item > .tree-content .item-name:hover {color: #ED174D;}
-.tree-item > .tree-content .item-name.not-children{background: url('../../../assets/images/common/ic__file_16.png') 0 2px no-repeat;}
-.tree-item > .tree-children { padding-left: 25px; position: relative;}
-.tree-item > .tree-content button::before{content:""; display:block; position: absolute; left: 13px; top:6px; width: 10px; height: 1px; background-color:#dbdbdb;}
-.tree-item > .tree-content .item-name.not-children::before{content:""; display:block; position: absolute; left: -18px; top:10px; width: 20px; height: 1px; background-color:#dbdbdb;}
-.tree-item::before{content:""; display:block; position: absolute; left: 6px; top:-16px; width: 1px; height: 100%; background-color:#dbdbdb;}
-.tree-item.close::before{content: none;}
-
-.list-item{width: 284px; padding:0; border-top:1px solid #000; border-right: 1px solid #dbdbdb; height: 100%; min-height: inherit; background-color: #f7f7f7;}
-.list-item ul{}
-.list-item ul li{ margin: 0 16px; padding: 8px 0; border-bottom: 1px dotted #dbdbdb; cursor: pointer;}
-.list-item ul li span + span{margin-left: 16px;}
-.selected-item{padding:0 0 0 20px; width: 55%;}
-.selected-item table + table{ margin-top: 30px;}
+.tree-item > .tree-content button { position: relative; margin-right: 10px; padding: 0; width: 13px; height: 13px; background: url('../../../assets/images/common/btn_plus.png') 0 0 no-repeat; z-index: 1; }
+.tree-item > .tree-content button.open { background: url('../../../assets/images/common/btn_minus.png') 0 0 no-repeat; }
+.tree-item > .tree-content .item-name { padding-left: 20px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/_ic_folder_16.png') 0 2px no-repeat; z-index: 1; }
+.tree-item > .tree-content .item-name.active, .tree-item > .tree-content .item-name:hover { color: #ED174D; }
+.tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic__file_16.png') 0 2px no-repeat; }
+.tree-item > .tree-children { padding-left: 25px; position: relative; }
+.tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
+.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -18px; top: 10px; width: 20px; height: 1px; background-color: #dbdbdb; }
+.tree-item::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
+.tree-item.close::before { content: none; }
+.list-item { width: 284px; padding: 0; border-top: 1px solid #000; border-right: 1px solid #dbdbdb; height: 100%; min-height: inherit; background-color: #f7f7f7; }
+.list-item ul { list-style: none; }
+.list-item ul li { margin: 0 16px; padding: 8px 0; border-bottom: 1px dotted #dbdbdb; cursor: pointer; }
+.list-item ul li.active { color: #ED174D; }
+.list-item ul li span + span { margin-left: 16px; }
+.selected-item { padding: 0 0 0 20px; width: 55%; }
+.selected-item table + table { margin-top: 30px; }
 
 /*  팝업 레이 아웃   */
 .popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
 .popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }
 .close-button { position: absolute; top: 10px; right: 10px; cursor: pointer; background: none; border: none; font-size: 20px; font-weight: bold; }
-.popup-table caption {
-  border-bottom: 1px solid #000000;
-}
-.popup-table th, .popup-table td {
-  border-bottom: 1px solid #EAEAEA;
-  border-right: 1px solid #EAEAEA;
-  padding: 8px 12px;
-  height: 48px;
-  text-align: center;
-}
-.popup-table th {  
-  background-color: #F7F7F7;
-}
-.popup-table th:last-child, .popup-table td:last-child {
-  border-right: none;
-}
-.popup-table label.hide {
-  margin: 0;
-  font-size: 0;
-  text-indent: 18px;
-}
-.modal > section.popup-wrap .table, .modal > section.popup-wrap .search .input-btn-wrap button{ font-size: 12px;}
-.modal > section.popup-wrap .search th{padding: 4px 0 4px 12px;}
-.modal > section.popup-wrap .search td {
-  padding: 4px 12px 4px 0;
-}
+.popup-table caption { border-top: 1px solid #000000; }
+.popup-table th, .popup-table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; height: 36px; text-align: center; }
+.popup-table th { background-color: #F7F7F7; }
+.popup-table th:last-child, .popup-table td:last-child { border-right: none; }
+.popup-table label.hide { margin: 0; font-size: 0; text-indent: 18px; }
+.popup-table td.active { color: #ED174D; }
+.popup-table.center th, .popup-table.center td{ text-align: center !important;}
 
-.modal > section.popup-wrap .table.result th,  .modal > section.popup-wrap .table.result td {
-  padding: 4px 6px;
-  height: auto;
-}
-.modal > section.popup-wrap .selected-item .popup-table th,
-.modal > section.popup-wrap .selected-item .popup-table td{ text-align: center; cursor: pointer;}
-.modal > section.popup-wrap .selected-item .btn-delete{width: 16px; height: 16px; padding: 2px; min-width: 16px; line-height: 16px;}
 
-.modal.openModal {
-  display: flex;
-  align-items: center;
-  animation: modal-bg-show 0.3s;
-}
+.pop-search-wrap{ margin-bottom: 40px;}
+.pop-search-wrap .select-item{width: 80%; margin-left: 20px;}
+.modal > section.popup-wrap .table, .modal > section.popup-wrap .search .input-btn-wrap button { font-size: 12px; }
+.modal > section.popup-wrap .search th { padding: 4px 0 4px 12px; }
+.modal > section.popup-wrap .search td { padding: 4px 12px 4px 0; }
+.modal > section.popup-wrap .table.result th, .modal > section.popup-wrap .table.result td { padding: 4px 6px; height: auto; }
+.modal > section.popup-wrap .selected-item .popup-table th, .modal > section.popup-wrap .selected-item .popup-table td { text-align: center; cursor: pointer; }
+.modal > section.popup-wrap .selected-item .btn-delete { width: 16px; height: 16px; padding: 2px; min-width: 16px; line-height: 16px; }
+.modal.openModal { display: flex; align-items: center; animation: modal-bg-show 0.3s; }
 @keyframes modal-show {
-  from {
-    opacity: 0;
-    margin-top: -50px;
-  }
-  to {
-    opacity: 1;
-    margin-top: 0;
-  }
+  from { opacity: 0; margin-top: -50px; }
+  to { opacity: 1; margin-top: 0; }
 }
 @keyframes modal-bg-show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

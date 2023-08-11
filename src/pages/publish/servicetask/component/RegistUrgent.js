@@ -5,11 +5,16 @@ import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup } from '../../popup/Popup';
 import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
+import PopupTemplate from '../../popup/popupDetail/Popup_Template';
+import PopupCell from '../../popup/popupDetail/Popup_Cell';
 import DatePicker from 'react-datepicker';
 
-function urgent() {
-  // 등록부서 팝업
-  const [ontree, setOnTree] = useState(false);
+function nomal() {
+  // 팝업
+  const [reviwer, setReviwer] = useState(false);
+  const [template, setTemplate] = useState(false);
+  const [cell, setCell] = useState(false);
+
   const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
@@ -19,10 +24,18 @@ function urgent() {
   const [endHours, setEndHours] = useState(0);
   const [endMinutes, setEndMinutes] = useState(0);
   const [rows, setRows] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('access_no');
 
   const handleItemSelected = (item) => {
     setSelectedItem(item);
+    setReviwer(false);
   };
+  const handleTemplateSelected = () => {
+    setCell(false);
+  }
+  const handleCellSelected = () => {
+
+  }
 
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
@@ -65,7 +78,72 @@ function urgent() {
     }
   };
 
-  return (<>
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  return (
+  <>
+   {/* 결제선 저장 시 나타나는 항목 */}
+   <div className='content-section' id='approval-line' style={{ visibility: 'hidden', height: '0', margin: '0' }}>
+    <h3>결재</h3>
+        <table className='table result mb15'>
+            <caption>table caption</caption>
+            <colgroup>
+            <col span={5} style={{ width: '20%' }} />
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope='col'>구분</th>
+                <th scope='col'>결재자</th>
+                <th scope='col'>상태</th>
+                <th scope='col'>결재일시</th>
+                <th scope='col'>의견</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>기안</td>
+                <td>홍길동(009900)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>조정</td>
+                <td>정유리(123567)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>결재</td>
+                <td>김철수(123456)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <table className='table result align-left'>
+            <caption>table caption</caption>
+            <colgroup>
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '90%' }} />
+            </colgroup>
+            <tbody>
+            <tr>
+                <th scope='row'>합의</th>
+                <td>김영희(666666)</td>
+            </tr>
+            <tr>
+                <th scope='row'>수신</th>
+                <td>김순자(111111)</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {/* 결제선 저장 시 나타나는 항목 끝 */}
     <div className='content-section'>
     <table className='table result align-left'>
         <caption>table caption</caption>
@@ -81,9 +159,9 @@ function urgent() {
             <td colSpan={3}>
                 <fieldset>
                     <legend>대상 서비스</legend>
-                    <input type="radio" name="access-control" id="control_no" value="" defaultChecked={true} />
+                    <input type="radio" name="access-control" id="control_no" value="access_no" defaultChecked={true} checked={selectedOption === 'access_no'} onChange={handleOptionChange} />
                     <label htmlFor="control_no">비접근제어</label>
-                    <input type="radio" name="access-control" id="control_yes" value="" />
+                    <input type="radio" name="access-control" id="control_yes" value="access_yes" checked={selectedOption === 'access_yes'} onChange={handleOptionChange} />
                     <label htmlFor="control_yes">접근제어</label>
                 </fieldset>
             </td>
@@ -104,8 +182,8 @@ function urgent() {
             <td>
                 <div className='flex-wrap between'>
                     <span className='input input_org'>{selectedItem}</span>
-                    <button className='btn ml10' onClick={() => { setOnTree(true) }}>선택</button>
-                    <Popup open={ontree} close={() => { setOnTree(false) }} header="결제 지정" type={'lg'}>
+                    <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
+                    <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
                         <PopupReviewer onItemSelected={handleItemSelected} />
                     </Popup>
                 </div>
@@ -193,7 +271,12 @@ function urgent() {
             <th scope='row'>작업 내용</th>
             <td colSpan={3}>
                 <div className='work-content'>
-                    <div className='btn-wrap'><button type='buttn' className='btn btn-black'>탬플릿 추가</button></div>
+                    <div className='btn-wrap'>
+                        <button type='button' className='btn btn-pop btn-low' onClick={() => { setTemplate(true) }}>탬플릿 추가</button>
+                        <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
+                            <PopupTemplate onItemSelected={handleTemplateSelected} />
+                        </Popup>
+                    </div>
                     <div className='template'>
                     <CKEditor
                     editor={ ClassicEditor }
@@ -224,10 +307,13 @@ function urgent() {
                 <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
                       <span className="input-addon ml10">
-                          <label htmlFor="File" className="btn btn-black">첨부</label>
+                          <label htmlFor="File" className="btn">찾아보기</label>
                       </span>
                       <span className="input-addon ml10">
-                          <button className="btn">삭제</button>
+                          <button className="btn btn-low">추가</button>
+                      </span>
+                      <span className="input-addon ml10">
+                          <button className="btn btn-low">삭제</button>
                       </span>
                 </div>
                 <p className="color-gray">
@@ -244,7 +330,12 @@ function urgent() {
     <div className='content-section'>
     <div className='flex-wrap between mb15'>
         <h3>작업 대상 지역 및 장애범위</h3>
-        <div className="btn-wrap"><button type="button" className="btn">셀등록</button></div>
+        <div className="btn-wrap">
+        <button type='button' className='btn btn-pop btn-low' onClick={() => { setCell(true) }}>CELL 등록</button>
+        <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
+            <PopupCell onItemSelected={handleCellSelected} />
+        </Popup>
+        </div>
     </div>
     <table className='table result'>
         <caption>table caption</caption>
@@ -259,10 +350,10 @@ function urgent() {
             <th scope='col' rowSpan={2}>가입자</th>
         </tr>
         <tr>
-            <th scope='col'>DTV</th>
-            <th scope='col'>NET</th>
-            <th scope='col'>VOIP</th>
-            <th scope='col'>ATV</th>
+            <th scope='col' className='color-primary'>DTV</th>
+            <th scope='col' className='color-primary'>NET</th>
+            <th scope='col' className='color-primary'>VOIP</th>
+            <th scope='col' className='color-primary'>ATV</th>
         </tr>
         </thead>
         <tbody>
@@ -357,40 +448,74 @@ function urgent() {
         <tr>
             <th scope='row'>작업세부</th>
             <td colSpan={3}>
-                <input type='text' name='work-detail' id='work_detail' />
+                <input type='text' name='work-detail' id='work_detail' style={{ width: '97%' }} />
+                <button type='button' className='btn btn-black btn-search ml10'>검색</button>
             </td>
         </tr>
         </tbody>
     </table>
     </div>
-    <div className='content-section'>
-        <h3>작업자 정보</h3>
-        <table className='table result align-left'>
-            <caption>table caption</caption>
-            <colgroup>
-                <col style={{ width: '15%' }} />
-                <col style={{ width: '75%' }} />
-            </colgroup>
-            <tbody>
-            <tr>
-                <th scope='col'>작업자</th>
-                <td>
-                    <div className='flex-wrap'>
-                        <ul>
-                            <li> <input type='text' name='field_worker' id='field_worker' /></li>
-                        </ul>
+     {selectedOption === 'access_no' && (
+        <div className='content-section'>
+            <h3>작업자 정보</h3>
+            <table className='table result align-left'>
+                <caption>table caption</caption>
+                <colgroup>
+                    <col style={{ width: '15%' }} />
+                    <col style={{ width: '75%' }} />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope='col'>작업자</th>
+                    <td>
+                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
                         <button type='button' className='btn ml15'>+</button>
                         <button type='button' className='btn ml15'>-</button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+     )}
+
+    {selectedOption === 'access_yes' && (
+        <div className='content-section'>
+            <div className='flex-wrap between mb15'>
+                <h3> 작업자 정보</h3>
+                <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
+            </div>
+            <table className='table result align-left'>
+                <caption>table caption</caption>
+                <colgroup>
+                    <col style={{ width: '15%' }} />
+                    <col style={{ width: '75%' }} />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope='col'>작업자</th>
+                    <td>
+                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
+                        <button type='button' className='btn ml15'>+</button>
+                        <button type='button' className='btn ml15'>-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope='col'></th>
+                    <td>
+                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
+                        <button type='button' className='btn ml15'>+</button>
+                        <button type='button' className='btn ml15'>-</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    )}
+
     <div className='content-section'>
         <div className='flex-wrap between mb15'>
             <h3>사업자/벤더사 작업 투입 인력</h3>
-            <div className="btn-wrap"><button type="button" className="btn" onClick={workerAddRow}>추가</button></div>
+            <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
         </div>
         <table className='table result'>
             <caption>table caption</caption>
@@ -427,11 +552,11 @@ function urgent() {
         </table>
     </div>
     <div className="detail-bottom-btn-group">
-        <button className="btn btn-lg">임시저장</button>
+        <button className="btn btn-lg btn-low">임시저장</button>
         <button className="btn btn-lg btn-primary">등록</button>
     </div>
 
     </>)
 }
 
-export default urgent;
+export default nomal;

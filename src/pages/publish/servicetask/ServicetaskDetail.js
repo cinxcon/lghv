@@ -1,83 +1,65 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [highlightedWeek, setHighlightedWeek] = useState([]);
+const CommonPopup = ({ isOpen, onClose, onConfirm }) => {
+  const [inputValue, setInputValue] = useState('');
 
-  const openPopup = () => {
-    setIsOpen(true);
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
   };
 
-  const closePopup = () => {
-    setIsOpen(false);
-    setHighlightedWeek([]);
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    closePopup();
-  };
-
-  const selectToday = () => {
-    setSelectedDate(new Date());
-    setHighlightedWeek([]);
-    closePopup();
-  };
-
-  const selectYesterday = () => {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    setSelectedDate(yesterday);
-    setHighlightedWeek([]);
-    closePopup();
-  };
-
-  const selectLastWeek = () => {
-    const weekAgo = new Date();
-    weekAgo.setDate(weekAgo.getDate() - 7);
-    setSelectedDate(weekAgo);
-
-    const weekDates = [];
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(weekAgo);
-      date.setDate(date.getDate() + i);
-      weekDates.push(date);
-    }
-    setHighlightedWeek(weekDates);
-
-    const formattedStartDate = weekDates[0].toLocaleDateString('ko-KR');
-    const formattedEndDate = weekDates[6].toLocaleDateString('ko-KR');
-    setSelectedDate(`${formattedStartDate} - ${formattedEndDate}`);
-
-    closePopup();
+  const handleConfirm = () => {
+    onConfirm(inputValue);
+    onClose();
   };
 
   return (
-    <div className="App">
-      <input type="text" onClick={openPopup} value={selectedDate || ''} readOnly />
-      {isOpen && (
-        <div className="popup">
-          <DatePicker
-            selected={selectedDate}
-            onChange={handleDateChange}
-            highlightDates={highlightedWeek}
-            inline
-          />
-          <button onClick={selectToday}>오늘</button>
-          <button onClick={selectYesterday}>어제</button>
-          <button onClick={selectLastWeek}>최근 1주일</button>
-          <button onClick={closePopup}>닫기</button>
-          <style>{`
-            .react-datepicker__day--highlighted {
-              background-color: lightblue;
-              color: black;
-            }
-          `}</style>
-        </div>
-      )}
+    <div style={{ display: isOpen ? 'block' : 'none' }}>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <button className='btn' onClick={handleConfirm}>Confirm</button>
+      <button className='btn btn-black' onClick={onClose}>Close</button>
+    </div>
+  );
+};
+
+const App = () => {
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [buttonValues, setButtonValues] = useState({});
+
+  const openPopup = (button) => {
+    setPopupOpen(true);
+    setSelectedButton(button);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+    setSelectedButton(null);
+  };
+
+  const handleConfirm = (value) => {
+    setButtonValues((prevValues) => ({
+      ...prevValues,
+      [selectedButton]: value
+    }));
+  };
+
+  return (
+    <div>
+      <button className='btn' onClick={() => openPopup('button1')}>Open Popup for Button 1</button>
+      <button className='btn'onClick={() => openPopup('button2')}>Open Popup for Button 2</button>
+      <button className='btn' onClick={() => openPopup('button3')}>Open Popup for Button 3</button>
+
+      <CommonPopup
+        isOpen={popupOpen}
+        onClose={closePopup}
+        onConfirm={handleConfirm}
+      />
+
+      <div>
+        <p>Button 1 Value: {buttonValues.button1}</p>
+        <p>Button 2 Value: {buttonValues.button2}</p>
+        <p>Button 3 Value: {buttonValues.button3}</p>
+      </div>
     </div>
   );
 };

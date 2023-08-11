@@ -23,10 +23,10 @@ function ServicetaskRegist() {
       <ContentTitle />
       <div className='content-section'>
         <div className="detail-top-btn-group">
-          <button className='btn' onClick={() => { setOnLoad(true) }}>불러오기</button>
-          <button className='btn' onClick={() => { setApprovalLine(true) }}>결제선 지정</button>
-          <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
-          <button className='btn' onClick={() => { setClear(true) }}>새로작성</button>
+          <button className='btn btn-pop' onClick={() => { setOnLoad(true) }}>불러오기</button>
+          <button className='btn btn-pop' onClick={() => { setApprovalLine(true) }}>결제선 지정</button>
+          <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
+          <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
         </div>
         <Popup open={onLoad} close={() => { setOnLoad(false) }} type="xlg" header="불러오기">
           <PopupWorkOnLoad />

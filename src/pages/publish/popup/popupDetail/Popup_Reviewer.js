@@ -67,74 +67,97 @@ const Rreviewer = ({ onItemSelected }) => {
   ];
   const listData = {
     1: [
-      { title: '대표이사', name: '김헬로' },
-      { title: '품질혁신팀', name: '손혁신' },
-      { title: '미디어운영팀', name: '이디어' },
-      { title: '컨버전스운용팀_관제', name: '김관제' },
-      { title: '품질안전협력', name: '박안전' },
-      { title: 'OMC팀', name: '권큐엠' },
-      { title: '뉴비즈운영팀', name: '손뉴비' }
+      { id: 'da', title: '대표이사', name: '김헬로' },
+      { id: 'db', title: '품질혁신팀', name: '손혁신' },
+      { id: 'dc', title: '미디어운영팀', name: '이디어' },
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
+      { id: 'de', title: '품질안전협력', name: '박안전' },
+      { id: 'df', title: 'OMC팀', name: '권큐엠' },
+      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
     ],
     2: [
-      { title: '대표이사', name: '김헬로' }
+      { id: 'da', title: '대표이사', name: '김헬로' }
     ],
     3: [
-      { title: '품질혁신팀', name: '손혁신' }
+      { id: 'db', title: '품질혁신팀', name: '손혁신' }
     ],
     4: [
-      { title: '품질혁신팀', name: '손혁신' }
+      { id: 'db', title: '품질혁신팀', name: '손혁신' }
     ],
     5: [
-      { title: '미디어운영팀', name: '이디어' },
-      { title: '컨버전스운용팀_관제', name: '김관제' },
-      { title: '품질안전협력', name: '박안전' }
+      { id: 'dc', title: '미디어운영팀', name: '이디어' },
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
+      { id: 'de', title: '품질안전협력', name: '박안전' }
     ],
     6: [
-      { title: '미디어운영팀', name: '이디어' }
+      { id: 'dc', title: '미디어운영팀', name: '이디어' }
     ],
     7: [
-      { title: '컨버전스운용팀_관제', name: '김관제' },
-      { title: '품질안전협력', name: '박안전' }
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
+      { id: 'de', title: '품질안전협력', name: '박안전' }
     ],
     8: [
-      { title: '컨버전스운용팀_관제', name: '김관제' }
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' }
     ],
     9: [
-      { title: '품질안전협력', name: '박안전' }
+      { id: 'de', title: '품질안전협력', name: '박안전' }
     ],
     10: [
-      { title: 'OMC팀', name: '권큐엠' }
+      { id: 'df', title: 'OMC팀', name: '권큐엠' }
     ],
     11: [
-      { title: '뉴비즈운영팀', name: '손뉴비' }
+      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
     ],
     12: [
-      { title: '가상부서', name: '김나니' }
+      { id: 'dh', title: '가상부서', name: '김나니' }
     ],
     13: [
-      { title: '가상부서', name: '김나니' }
+      { id: 'dh', title: '가상부서', name: '김나니' }
     ]
   };
 
   const [selectedTree, setSelectedTree] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
   const [tableData, setTableData] = useState([]);
+  const [trActive, setTrActive] = useState('');
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.id);
   };
   const listItemSelect = (item) => {
-    const newRow = { id: tableData.length + 1, title: item.title, name: item.name };
-    setTableData([...tableData, newRow]);
+    const newRow = { id: item.id, title: item.title, name: item.name };
+    const activeListItem = document.getElementById(item.id);
+    console.log(activeListItem);
+    activeListItem.classList.add('active');
+    if (!isDuplicate(newRow)) {
+      setTableData([...tableData, newRow]);
+    }
+  };
+  const isDuplicate = (newRow) => {
+    // newRow와 rows에 이미 있는 데이터를 비교하여 중복 여부 확인
+    return tableData.some((tableData) => tableData.name === newRow.name);
   };
 
   const deleteRow = (id) => {
     const updatedData = tableData.filter(row => row.id !== id);
+    const listItem = document.getElementById(id);
+    console.log('row;', id);
+    if (tableData.length === 1) {
+      alert('선택 내용이 사라 집니다.');
+      setSelectedName(null);
+    }
     setTableData(updatedData);
+    // setTrActive(null);
+    if (listItem !== null) {
+      listItem.classList.remove('active');
+    }
   };
-  const reviewerSelect = (name) => {
+
+  const reviewerSelect = (name, rowIndex) => {
+    setTrActive(rowIndex);
     setSelectedName(name); // 선택된 항목의 이름을 부모 컴포넌트로 전달
   };
+
   const handleConfirmClick = () => {
     if (selectedName === null) {
       alert('검토자를 선택하지 않으셨습니다.');
@@ -147,7 +170,7 @@ const Rreviewer = ({ onItemSelected }) => {
     if (selectedTree === null) return null;
 
     return listData[selectedTree].map((item) => (
-      <li key={item.id} onClick={() => listItemSelect(item)}><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
+      <li key={item.id} id={item.id} onClick={() => listItemSelect(item)} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
     ));
   };
 
@@ -187,10 +210,10 @@ const Rreviewer = ({ onItemSelected }) => {
               </thead>
               <tbody>
               {tableData.map((row, rowIndex) => (
-              <tr key={rowIndex} onClick={() => reviewerSelect(row.name)}>
+              <tr key={rowIndex}>
                 <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
-                <td>{row.title}</td>
-                <td>{row.name}</td>
+                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
+                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
               </tr>
               ))}
               </tbody>
@@ -206,12 +229,18 @@ const Rreviewer = ({ onItemSelected }) => {
 
 const TreeItem = ({ item, onItemSelected }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleItemSelected = () => {
+  const handleItemSelected = (item) => {
+    const treeitem = document.querySelectorAll('.item-name');
+    const activeItem = document.getElementById(item.id);
+    console.log(treeitem, activeItem);
+    treeitem.forEach(element => {
+      element.classList.remove('active');
+    });
+    activeItem.classList.add('active');
     onItemSelected(item);
   };
 
@@ -224,8 +253,8 @@ const TreeItem = ({ item, onItemSelected }) => {
               : ''} />)
           : null}
         {item.children
-          ? (<span className="item-name" onClick={handleItemSelected}>{item.name}</span>)
-          : (<span className="item-name not-children" onClick={handleItemSelected}>{item.name}</span>)
+          ? (<span id={item.id} className='item-name' onClick={() => handleItemSelected(item)}>{item.name}</span>)
+          : (<span id={item.id} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.name}</span>)
         }
       </div>
       {isExpanded &&
