@@ -5,11 +5,22 @@ import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup } from '../../popup/Popup';
 import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
+import PopupTemplate from '../../popup/popupDetail/Popup_Template';
+import PopupCell from '../../popup/popupDetail/Popup_Cell';
+import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
+import PopupWorker from '../../popup/popupDetail/Popup_Worker';
+import PopupDivice from '../../popup/popupDetail/Popup_Divice';
 import DatePicker from 'react-datepicker';
 
 function nomal() {
-  // 등록부서 팝업
+  // 팝업
   const [reviwer, setReviwer] = useState(false);
+  const [template, setTemplate] = useState(false);
+  const [cell, setCell] = useState(false);
+  const [workDeteail, setWorkDeteail] = useState(false);
+  const [worker, setWorker] = useState(false);
+  const [device, setDevice] = useState(false);
+
   const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
@@ -18,12 +29,38 @@ function nomal() {
   const [startMinutes, setStartMinutes] = useState(0);
   const [endHours, setEndHours] = useState(0);
   const [endMinutes, setEndMinutes] = useState(0);
-  const [rows, setRows] = useState([]);
+  const [diviceRows, setDiviceRows] = useState([]);
+  const [vendorRows, setVendorRows] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('access_yes');
+  const [selectedCell, setSelectedCell] = useState('');
+  const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
+  const [selectedWorker, setSelectedWorker] = useState('');
+  const [selectedDevice, setSelectedDevice] = useState([]);
 
   const handleItemSelected = (item) => {
     setSelectedItem(item);
     setReviwer(false);
   };
+  const handleTemplateSelected = () => {
+    setTemplate(false);
+  }
+  const handleCellSelected = (cell) => {
+    setCell(false);
+    setSelectedCell(cell);
+  }
+  const handleWorkDeteailSelected = (name) => {
+    setWorkDeteail(false);
+    setSelectedWorkDeteail(name);
+  }
+
+  const handleWorkerSelected = (name) => {
+    setWorker(false);
+    setSelectedWorker(name);
+  }
+  const handleDeviceSelected = (device) => {
+    setDevice(false);
+    setSelectedDevice(device);
+  }
 
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
@@ -56,17 +93,92 @@ function nomal() {
   const handleEndMinuteDecrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
   };
-  const workerAddRow = () => {
-    setRows([...rows, {}]);
+  const diviceAddRow = () => {
+    setDiviceRows([...diviceRows, {}]);
   };
-  const workerRemoveRow = () => {
-    if (rows.length > 0) {
-      const newRows = rows.slice(0, rows.length - 1);
-      setRows(newRows);
+  const diviceRemoveRow = () => {
+    if (diviceRows.length > 0) {
+      const newRows = diviceRows.slice(0, diviceRows.length - 1);
+      setDiviceRows(newRows);
     }
   };
 
-  return (<>
+  const venderAddRow = () => {
+    setVendorRows([...vendorRows, {}]);
+  };
+  const venderRemoveRow = () => {
+    if (vendorRows.length > 0) {
+      const newRows = vendorRows.slice(0, vendorRows.length - 1);
+      setVendorRows(newRows);
+    }
+  };
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+  console.log(selectedDevice);
+  return (
+  <>
+   {/* 결제선 저장 시 나타나는 항목 */}
+   <div className='content-section' id='approval-line' style={{ visibility: 'hidden', height: '0', margin: '0' }}>
+    <h3>결재</h3>
+        <table className='table result mb15'>
+            <caption>table caption</caption>
+            <colgroup>
+            <col span={5} style={{ width: '20%' }} />
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope='col'>구분</th>
+                <th scope='col'>결재자</th>
+                <th scope='col'>상태</th>
+                <th scope='col'>결재일시</th>
+                <th scope='col'>의견</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>기안</td>
+                <td>홍길동(009900)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>조정</td>
+                <td>정유리(123567)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>결재</td>
+                <td>김철수(123456)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <table className='table result align-left'>
+            <caption>table caption</caption>
+            <colgroup>
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '90%' }} />
+            </colgroup>
+            <tbody>
+            <tr>
+                <th scope='row'>합의</th>
+                <td>김영희(666666)</td>
+            </tr>
+            <tr>
+                <th scope='row'>수신</th>
+                <td>김순자(111111)</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {/* 결제선 저장 시 나타나는 항목 끝 */}
     <div className='content-section'>
     <table className='table result align-left'>
         <caption>table caption</caption>
@@ -82,9 +194,9 @@ function nomal() {
             <td colSpan={3}>
                 <fieldset>
                     <legend>대상 서비스</legend>
-                    <input type="radio" name="access-control" id="control_no" value="" defaultChecked={true} />
+                    <input type="radio" name="access-control" id="control_no" value="access_no" checked={selectedOption === 'access_no'} onChange={handleOptionChange} />
                     <label htmlFor="control_no">비접근제어</label>
-                    <input type="radio" name="access-control" id="control_yes" value="" />
+                    <input type="radio" name="access-control" id="control_yes" value="access_yes" checked={selectedOption === 'access_yes'} onChange={handleOptionChange} />
                     <label htmlFor="control_yes">접근제어</label>
                 </fieldset>
             </td>
@@ -105,7 +217,7 @@ function nomal() {
             <td>
                 <div className='flex-wrap between'>
                     <span className='input input_org'>{selectedItem}</span>
-                    <button className='btn ml10' onClick={() => { setReviwer(true) }}>선택</button>
+                    <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
                     <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
                         <PopupReviewer onItemSelected={handleItemSelected} />
                     </Popup>
@@ -123,26 +235,26 @@ function nomal() {
                     <label htmlFor="ser_2">NET</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
                     <label htmlFor="ser_3">VOIP</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3">ATV</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>VOD</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>ESS</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>클라우드</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>전송망</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>국간망</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기간망</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기반</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기타</label>
-                    <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>전체</label>
+                    <input type="checkbox" name="service" id="ser_4" value="" />
+                    <label htmlFor="ser_4">ATV</label>
+                    <input type="checkbox" name="service" id="ser_5" value="" />
+                    <label htmlFor="ser_5" className='color-success'>VOD</label>
+                    <input type="checkbox" name="service" id="ser_6" value="" />
+                    <label htmlFor="ser_6" className='color-success'>ESS</label>
+                    <input type="checkbox" name="service" id="ser_7" value="" />
+                    <label htmlFor="ser_7" className='color-success'>클라우드</label>
+                    <input type="checkbox" name="service" id="ser_8" value="" />
+                    <label htmlFor="ser_8" className='color-success'>전송망</label>
+                    <input type="checkbox" name="service" id="ser_9" value="" />
+                    <label htmlFor="ser_9" className='color-success'>국간망</label>
+                    <input type="checkbox" name="service" id="ser_10" value="" />
+                    <label htmlFor="ser_10" className='color-success'>기간망</label>
+                    <input type="checkbox" name="service" id="ser_11" value="" />
+                    <label htmlFor="ser_11" className='color-success'>기반</label>
+                    <input type="checkbox" name="service" id="ser_12" value="" />
+                    <label htmlFor="ser_12" className='color-success'>기타</label>
+                    <input type="checkbox" name="service" id="ser_13" value="" />
+                    <label htmlFor="ser_13" className='color-success'>전체</label>
                 </fieldset>
                 <p className='notice color-success'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
             </td>
@@ -194,7 +306,12 @@ function nomal() {
             <th scope='row'>작업 내용</th>
             <td colSpan={3}>
                 <div className='work-content'>
-                    <div className='btn-wrap'><button type='buttn' className='btn btn-black'>탬플릿 추가</button></div>
+                    <div className='btn-wrap'>
+                        <button type='button' className='btn btn-pop btn-low' onClick={() => { setTemplate(true) }}>탬플릿 추가</button>
+                        <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
+                            <PopupTemplate onItemSelected={handleTemplateSelected} />
+                        </Popup>
+                    </div>
                     <div className='template'>
                     <CKEditor
                     editor={ ClassicEditor }
@@ -225,10 +342,13 @@ function nomal() {
                 <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
                       <span className="input-addon ml10">
-                          <label htmlFor="File" className="btn btn-black">첨부</label>
+                          <label htmlFor="File" className="btn">찾아보기</label>
                       </span>
                       <span className="input-addon ml10">
-                          <button className="btn">삭제</button>
+                          <button className="btn btn-low">추가</button>
+                      </span>
+                      <span className="input-addon ml10">
+                          <button className="btn btn-low">삭제</button>
                       </span>
                 </div>
                 <p className="color-gray">
@@ -245,7 +365,12 @@ function nomal() {
     <div className='content-section'>
     <div className='flex-wrap between mb15'>
         <h3>작업 대상 지역 및 장애범위</h3>
-        <div className="btn-wrap"><button type="button" className="btn">셀등록</button></div>
+        <div className="btn-wrap">
+        <button type='button' className='btn btn-pop btn-low' onClick={() => { setCell(true) }}>CELL 등록</button>
+        <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
+            <PopupCell onItemSelected={handleCellSelected} />
+        </Popup>
+        </div>
     </div>
     <table className='table result'>
         <caption>table caption</caption>
@@ -260,21 +385,21 @@ function nomal() {
             <th scope='col' rowSpan={2}>가입자</th>
         </tr>
         <tr>
-            <th scope='col'>DTV</th>
-            <th scope='col'>NET</th>
-            <th scope='col'>VOIP</th>
-            <th scope='col'>ATV</th>
+            <th scope='col' className='color-primary'>DTV</th>
+            <th scope='col' className='color-primary'>NET</th>
+            <th scope='col' className='color-primary'>VOIP</th>
+            <th scope='col' className='color-primary'>ATV</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
+            <td>{selectedCell}</td>
         </tr>
         </tbody>
     </table>
@@ -358,40 +483,114 @@ function nomal() {
         <tr>
             <th scope='row'>작업세부</th>
             <td colSpan={3}>
-                <input type='text' name='work-detail' id='work_detail' />
+                <span className='input input_org' style={{ width: '97%' }}>{selectedWorkDeteail}</span>
+                <button className='btn btn-black btn-search ml10' onClick={() => { setWorkDeteail(true) }}>선택</button>
+                <Popup open={workDeteail} close={() => { setWorkDeteail(false) }} header="작업세부" type={'sm'}>
+                    <PopupWorkDeteail onItemSelected={handleWorkDeteailSelected} />
+                </Popup>
             </td>
         </tr>
         </tbody>
     </table>
     </div>
-    <div className='content-section'>
-        <h3>작업자 정보</h3>
-        <table className='table result align-left'>
-            <caption>table caption</caption>
-            <colgroup>
-                <col style={{ width: '15%' }} />
-                <col style={{ width: '75%' }} />
-            </colgroup>
-            <tbody>
-            <tr>
-                <th scope='col'>작업자</th>
-                <td>
-                    <div className='flex-wrap'>
-                        <ul>
-                            <li> <input type='text' name='field_worker' id='field_worker' /></li>
-                        </ul>
-                        <button type='button' className='btn ml15'>+</button>
+     {selectedOption === 'access_no' && (
+        <div className='content-section'>
+            <h3>작업자 정보</h3>
+            <table className='table result align-left'>
+                <caption>table caption</caption>
+                <colgroup>
+                    <col style={{ width: '25%' }} />
+                    <col style={{ width: '75%' }} />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope='col'>작업자</th>
+                    <td>
+                    <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
+                        <button className='btn ml10' onClick={() => { setCell(true) }}>+</button>
+                        <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
+                            <PopupWorker onItemSelected={handleWorkerSelected} />
+                        </Popup>
                         <button type='button' className='btn ml15'>-</button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+     )}
+
+    {selectedOption === 'access_yes' && (
+        <div className='content-section'>
+            <div className='flex-wrap between mb15'>
+                <h3> 작업자 정보</h3>
+                <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={diviceAddRow}>추가</button></div>
+            </div>
+            <table className='table result align-left'>
+                <caption>table caption</caption>
+                <colgroup>
+                    <col style={{ width: '100%' }} />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td className='non-pading'>
+                            <dl className='flex-wrap'>
+                            <dt scope='col'>작업자</dt>
+                                <dd>
+                                    <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
+                                    <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
+                                    <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
+                                        <PopupWorker onItemSelected={handleWorkerSelected} />
+                                    </Popup>
+                                    <button type='button' className='btn ml15'>-</button>
+                                </dd>
+                            </dl>
+                            <dl className='flex-wrap'>
+                                <dt scope='col'>장비정보</dt>
+                                <dd>
+                                    <span className='input input_org' style={{ width: '88%' }}>
+                                        {selectedDevice.join(', ')}
+                                    </span>
+                                    <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
+                                    <Popup open={device} close={() => { setDevice(false) }} header="장비정보 불러오기" type={'lg'}>
+                                        <PopupDivice onItemSelected={handleDeviceSelected} />
+                                    </Popup>
+                                </dd>
+                            </dl>
+                        </td>
+                    </tr>
+                    {diviceRows.map((diviceRows, index) => (
+                        <tr key={index}>
+                            <td className='non-pading'>
+                                <dl className='flex-wrap'>
+                                <dt scope='col'>작업자</dt>
+                                    <dd>
+                                        <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
+                                        <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
+                                        <button type='button' className='btn ml15'>-</button>
+                                    </dd>
+                                </dl>
+                                <dl className='flex-wrap'>
+                                    <dt scope='col'>장비정보</dt>
+                                    <dd>
+                                        <span className='input input_org' style={{ width: '88%' }}>
+                                            {selectedDevice.join(', ')}
+                                        </span>
+                                        <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
+                                        <button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={diviceRemoveRow}>삭제</button>
+                                    </dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )}
+
     <div className='content-section'>
         <div className='flex-wrap between mb15'>
             <h3>사업자/벤더사 작업 투입 인력</h3>
-            <div className="btn-wrap"><button type="button" className="btn" onClick={workerAddRow}>추가</button></div>
+            <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={venderAddRow}>추가</button></div>
         </div>
         <table className='table result'>
             <caption>table caption</caption>
@@ -416,19 +615,19 @@ function nomal() {
                 <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
                 <td></td>
             </tr>
-            {rows.map((row, index) => (
+            {vendorRows.map((vendorRows, index) => (
             <tr key={index}>
                 <td><input type='text' name='cooperation_worker' id='cooperation_worker' /></td>
                 <td><input type='text' name='cooperation_company' id='cooperation_company' /></td>
                 <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
-                <td><button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={workerRemoveRow}>삭제</button></td>
+                <td><button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={venderRemoveRow}>삭제</button></td>
             </tr>
             ))}
             </tbody>
         </table>
     </div>
     <div className="detail-bottom-btn-group">
-        <button className="btn btn-lg">임시저장</button>
+        <button className="btn btn-lg btn-low">임시저장</button>
         <button className="btn btn-lg btn-primary">등록</button>
     </div>
 

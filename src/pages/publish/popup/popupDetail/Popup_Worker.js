@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Popup } from '../../popup/Popup';
-import PopupSave from '../popupDetail/Popup_Save';
 
-const ApprovalLine = ({ onItemSelected }) => {
+const Worker = ({ onItemSelected }) => {
   const treeData = [
     {
       id: 1,
@@ -122,7 +120,6 @@ const ApprovalLine = ({ onItemSelected }) => {
   const [selectedName, setSelectedName] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [trActive, setTrActive] = useState('');
-  const [onSave, setOnSave] = useState(false);
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.id);
@@ -144,11 +141,13 @@ const ApprovalLine = ({ onItemSelected }) => {
   const deleteRow = (id) => {
     const updatedData = tableData.filter(row => row.id !== id);
     const listItem = document.getElementById(id);
-    console.log('row;', tableData.length);
-    if (tableData.length < 1) {
+    console.log('row;', id);
+    if (tableData.length === 1) {
       alert('선택 내용이 사라 집니다.');
+      setSelectedName(null);
     }
     setTableData(updatedData);
+    // setTrActive(null);
     if (listItem !== null) {
       listItem.classList.remove('active');
     }
@@ -161,14 +160,11 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const handleConfirmClick = () => {
     if (selectedName === null) {
-      alert('결제 라인을 선택하지 않으셨습니다.');
+      alert('검토자를 선택하지 않으셨습니다.');
     } else {
       onItemSelected(selectedName);
     }
   };
-  const approvalLineSave = () => {
-    // console.log(selectedItem)
-  }
 
   const getMenuItems = () => {
     if (selectedTree === null) return null;
@@ -180,38 +176,7 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   return (
     <>
-    <div className='approval-top flex-wrap between mb15'>
-        <div className='line-select'>
-          <fieldset>
-              <legend>결제선 지정</legend>
-              <input type="radio" name="approval-type" id="draft" value="" defaultChecked={true} />
-              <label htmlFor="draft">기안</label>
-              <input type="radio" name="approval-type" id="examine" value="" />
-              <label htmlFor="examine">검토</label>
-              <input type="radio" name="approval-type" id="adjustment" value="" />
-              <label htmlFor="adjustment">조정</label>
-              <input type="radio" name="approval-type" id="agreement" value="" />
-              <label htmlFor="agreement">합의</label>
-              <input type="radio" name="approval-type" id="approval" value="" />
-              <label htmlFor="approval">결제</label>
-              <input type="radio" name="approval-type" id="reception" value="" />
-              <label htmlFor="reception">수신</label>
-          </fieldset>
-        </div>
-        <div className='search-box'>
-          <label htmlFor="name_search">이름</label>
-          <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: 'auto' }} />
-          <button type='button' className='btn btn-black ml10'>검색</button>
-        </div>
-        <div className='btn-box'>
-            <button onClick={() => { setOnSave(true) }} className='btn'>결제선 저장</button>
-              <Popup open={onSave} close={() => { setOnSave(false) }} header="결제선 저장" type={'sm'}>
-                  <PopupSave onItemSelected={approvalLineSave} />
-              </Popup>
-            <button onClick={handleConfirmClick} className='btn ml10'>확인</button>
-        </div>
-    </div>
-    <div className='approval-conts flex-wrap align-start'>
+     <div className='approval-conts flex-wrap align-start'>
         <div className='tree-wrap'>
               <div className='tree-conts'>
               <div className='logo'>엘지 유플러스</div>
@@ -233,18 +198,14 @@ const ApprovalLine = ({ onItemSelected }) => {
             <table className="popup-table">
               <colgroup>
                 <col style={{ width: '10%' }} />
-                <col style={{ width: '25%' }} />
-                <col style={{ width: '25%' }} />
-                <col style={{ width: '20%' }} />
-                <col style={{ width: '20%' }} />
+                <col style={{ width: '40%' }} />
+                <col style={{ width: '40%' }} />
               </colgroup>
               <thead>
                 <tr>
                   <th scope="col"></th>
-                  <th scope="col">유형</th>
-                  <th scope="col">결제자</th>
-                  <th scope="col">SMS</th>
-                  <th scope="col">E-MAIL</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">성명</th>
                 </tr>
               </thead>
               <tbody>
@@ -253,35 +214,14 @@ const ApprovalLine = ({ onItemSelected }) => {
                 <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
                 <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
                 <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
-                <td>
-                  <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
-                  <label htmlFor={`sms${row.id}`}>SMS</label>
-                </td>
-                <td>
-                  <input type="checkbox" name={`email${row.id}`} id={`email${row.id}`} />
-                  <label htmlFor={`email${row.id}`} >E-MAIL</label>
-                </td>
               </tr>
               ))}
               </tbody>
             </table>
-            <table className="popup-table">
-              <colgroup>
-                <col span={2}/>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col" colSpan={2}>자주쓰는 결제선</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><button onClick={() => deleteRow()} className='btn btn-delete'>x</button></td>
-                  <td>홍길동 테스트</td>
-                </tr>
-              </tbody>
-            </table>
         </div>
+      </div>
+      <div className='right'>
+        <button onClick={handleConfirmClick} className='btn btn-primary ml10'>검토자 설정</button>
       </div>
     </>
   );
@@ -328,4 +268,4 @@ const TreeItem = ({ item, onItemSelected }) => {
   );
 };
 
-export default ApprovalLine;
+export default Worker;
