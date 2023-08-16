@@ -531,8 +531,8 @@ function nomal() {
                 <tr>
                     <th scope='col'>작업자</th>
                     <td>
-                    {/* <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
-                        <button className='btn ml10' onClick={() => { setCell(true) }}>+</button>
+                    <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
+                        <button className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
                         <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
                             <PopupWorker onItemSelected={handleWorkerSelected} />
                         </Popup>

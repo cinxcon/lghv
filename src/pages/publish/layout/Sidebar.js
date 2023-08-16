@@ -10,7 +10,7 @@ const Sidebar = () => {
     },
     {
       title: '작업관리',
-      subMenus: [{ title: '작업목록', path: '/servicetask/ServicetaskAll' }, { title: '작업등록', path: '/servicetask/ServicetaskRegist' }, { title: '탬플릿 등록', path: '/servicetask/ServicetaskDetail' }]
+      subMenus: [{ title: '작업목록', path: '/servicetask/LGHV-UIX-WRK-0003' }, { title: '작업등록', path: '/servicetask/LGHV-UIX-WRK-0001' }, { title: '탬플릿 등록', path: '/servicetask/ServicetaskDetail' }]
     },
     {
       title: '접근제어',
@@ -22,7 +22,11 @@ const Sidebar = () => {
     },
     {
       title: '결재관리',
-      subMenus: [{ title: '결재대기함', path: '/approval/ApprovalStandby' }, { title: '결재완료함', path: '/approval/ApprovalComplete' }, { title: '공람문서함', path: '/approval/ApprovalAll' }, { title: '반려함', path: '/approval/ApprovalReturn' }, { title: '임시보관함', path: '/approval/ApprovalTempStorage' }]
+      subMenus: [{ title: '결재대기함', path: '/approval/LGHV-UIX-APR-0001' }, { title: '결재완료함', path: '/approval/LGHV-UIX-APR-0002' }, { title: '공람문서함', path: '/approval/LGHV-UIX-APR-0003' }, { title: '반려함', path: '/approval/LGHV-UIX-APR-0004' }, { title: '임시보관함', path: '/approval/LGHV-UIX-APR-0005' }]
+      // popup naming
+      // 확인: Popup_Confirm , onTime반려: Popup_onTimeReturn, 통보방법: Popup_NotiMethod, 처리내역: Popup_ProcessHistory, 목록: Popup_toAll
+      // 반려취소: Popup_ReturnCancel, 취소: Popup_ApprovalDelete
+      // 조직검색 : Popup_Organization
     },
     {
       title: '통계',
