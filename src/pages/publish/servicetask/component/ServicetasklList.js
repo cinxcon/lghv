@@ -22,7 +22,7 @@ export default function ServicetasklList() {
       </div>
       {/* 목록 영역 */}
       <div className='over-flow-x'>
-        <table className="table result" style={{ width: '200%' }}>
+        <table className="table" style={{ width: '300%' }}>
           <caption>작업 목록: 등록번호, 등록부서, 작업구분, 작업 유형, 작업입회여부, 등록자, 구역명, 제목, 시작일시, 종료일시, 소요시간</caption>
           <colgroup>
             <col span="11" />

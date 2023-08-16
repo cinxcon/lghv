@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
@@ -35,7 +34,7 @@ function nomal() {
   const [selectedOption, setSelectedOption] = useState('access_yes');
   const [selectedCell, setSelectedCell] = useState('');
   const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
-  const [selectedWorker, setSelectedWorker] = useState([]);
+  const [selectedWorker, setSelectedWorker] = useState('');
   const [selectedDevice, setSelectedDevice] = useState([]);
 
   const handleItemSelected = (item) => {
@@ -56,11 +55,11 @@ function nomal() {
 
   const handleWorkerSelected = (name) => {
     setWorker(false);
-    setSelectedWorker(...selectedWorker, name);
+    setSelectedWorker(name);
   }
   const handleDeviceSelected = (device) => {
     setDevice(false);
-    setSelectedDevice(...selectedDevice, device);
+    setSelectedDevice(device);
   }
 
   const handleStartHourIncrease = () => {
@@ -94,8 +93,7 @@ function nomal() {
   const handleEndMinuteDecrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
   };
-
-    const diviceAddRow = () => {
+  const diviceAddRow = () => {
     setDiviceRows([...diviceRows, {}]);
   };
   const diviceRemoveRow = () => {
@@ -119,35 +117,12 @@ function nomal() {
     setSelectedOption(event.target.value);
   };
   console.log(selectedDevice);
-
-  const [selected, setSelected] = useState({ workers: '', devices: '' });
-  const { workers, devices } = selected;
-  const id = useRef(1);
-  const onCreate = () => {
-    const diviceRow = {
-      id: id.current,
-      selectedWorker,
-      devices
-    };
-    setDiviceRows([...diviceRows, diviceRow]);
-    setSelected({
-      workers: '',
-      devices: ''
-    });
-    console.log(id.current);
-    console.log(diviceRows);
-    id.current += 1;
-  }
-  const onRemove = id => {
-    setDiviceRows(diviceRows.filter(diviceRow => diviceRow.id !==id) );
-  }
-
   return (
   <>
    {/* 결제선 저장 시 나타나는 항목 */}
    <div className='content-section' id='approval-line' style={{ visibility: 'hidden', height: '0', margin: '0' }}>
     <h3>결재</h3>
-        <table className='table result mb15'>
+        <table className='table mb15'>
             <caption>table caption</caption>
             <colgroup>
             <col span={5} style={{ width: '20%' }} />
@@ -185,7 +160,7 @@ function nomal() {
             </tr>
             </tbody>
         </table>
-        <table className='table result align-left'>
+        <table className='table table-row'>
             <caption>table caption</caption>
             <colgroup>
             <col style={{ width: '10%' }} />
@@ -205,7 +180,7 @@ function nomal() {
     </div>
     {/* 결제선 저장 시 나타나는 항목 끝 */}
     <div className='content-section'>
-    <table className='table result align-left'>
+    <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
         <col style={{ width: '20%' }} />
@@ -397,7 +372,7 @@ function nomal() {
         </Popup>
         </div>
     </div>
-    <table className='table result'>
+    <table className='table'>
         <caption>table caption</caption>
         <colgroup>
         <col span={7} />
@@ -431,7 +406,7 @@ function nomal() {
     </div>
     <div className='content-section'>
     <h3>세부작업 절차</h3>
-    <table className='table result align-left'>
+    <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
         <col style={{ width: '15%' }} />
@@ -521,7 +496,7 @@ function nomal() {
      {selectedOption === 'access_no' && (
         <div className='content-section'>
             <h3>작업자 정보</h3>
-            <table className='table result align-left'>
+            <table className='table table-row'>
                 <caption>table caption</caption>
                 <colgroup>
                     <col style={{ width: '25%' }} />
@@ -548,41 +523,14 @@ function nomal() {
         <div className='content-section'>
             <div className='flex-wrap between mb15'>
                 <h3> 작업자 정보</h3>
-                {/* <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={diviceAddRow}>추가</button></div> */}
-                <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={onCreate}>추가</button></div>
+                <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={diviceAddRow}>추가</button></div>
             </div>
-            <table className='table result align-left'>
+            <table className='table table-row'>
                 <caption>table caption</caption>
                 <colgroup>
                     <col style={{ width: '100%' }} />
                 </colgroup>
                 <tbody>
-                    {diviceRows.map((diviceRow, i) => (
-                      <tr key={diviceRow.id}>
-                          <td className='non-pading'>
-                              <dl className='flex-wrap'>
-                              <dt scope='col'>작업자</dt>
-                                  <dd>
-                                      <span className='input input_org' style={{ width: '88%' }}>{diviceRow.selectedWorker}</span>
-                                      {/* <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
-                                      <button type='button' className='btn ml15'>-</button> */}
-                                  </dd>
-                              </dl>
-                              <dl className='flex-wrap'>
-                                  <dt scope='col'>장비정보</dt>
-                                  <dd>
-                                      <span className='input input_org' style={{ width: '88%' }}>
-                                          {/* {selectedDevice.join(', ')} */}
-                                          {diviceRow.selectedDevice}
-                                      </span>
-                                      {/* <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button> */}
-                                      {/* <button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={diviceRemoveRow}>삭제</button> */}
-                                      <button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={onRemove}>삭제</button>
-                                  </dd>
-                              </dl>
-                          </td>
-                      </tr>
-                    ))}
                     <tr>
                         <td className='non-pading'>
                             <dl className='flex-wrap'>
@@ -600,8 +548,7 @@ function nomal() {
                                 <dt scope='col'>장비정보</dt>
                                 <dd>
                                     <span className='input input_org' style={{ width: '88%' }}>
-                                        {/* {selectedDevice.join(', ')} */}
-                                        {selectedDevice}
+                                        {selectedDevice.join(', ')}
                                     </span>
                                     <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
                                     <Popup open={device} close={() => { setDevice(false) }} header="장비정보 불러오기" type={'lg'}>
@@ -611,6 +558,30 @@ function nomal() {
                             </dl>
                         </td>
                     </tr>
+                    {diviceRows.map((diviceRows, index) => (
+                        <tr key={index}>
+                            <td className='non-pading'>
+                                <dl className='flex-wrap'>
+                                <dt scope='col'>작업자</dt>
+                                    <dd>
+                                        <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
+                                        <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
+                                        <button type='button' className='btn ml15'>-</button>
+                                    </dd>
+                                </dl>
+                                <dl className='flex-wrap'>
+                                    <dt scope='col'>장비정보</dt>
+                                    <dd>
+                                        <span className='input input_org' style={{ width: '88%' }}>
+                                            {selectedDevice.join(', ')}
+                                        </span>
+                                        <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
+                                        <button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={diviceRemoveRow}>삭제</button>
+                                    </dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -621,7 +592,7 @@ function nomal() {
             <h3>사업자/벤더사 작업 투입 인력</h3>
             <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={venderAddRow}>추가</button></div>
         </div>
-        <table className='table result'>
+        <table className='table'>
             <caption>table caption</caption>
             <colgroup>
                 <col style={{ width: '30%' }} />

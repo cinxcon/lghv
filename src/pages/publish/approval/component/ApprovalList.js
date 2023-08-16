@@ -23,7 +23,7 @@ export default function ApprovalList(props) {
         </div>
       </div>
       {/* 목록 영역 */}
-      <table className="table result">
+      <table className="table">
         <caption>결재 대기 목록: 등록번호, 등록부서, 작업구분, 등록자, 구역명, 제목, 등록일, 종료일, 완료예정일, 상태</caption>
         <colgroup>
           <col style={{ width: '6%' }} />

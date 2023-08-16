@@ -6,7 +6,7 @@ function ServiceDetail() {
   <>
   <div className='content-section' id='approval-line'>
     <h3>결재</h3>
-      <table className='table result mb15'>
+      <table className='table mb15'>
         <caption>table caption</caption>
         <colgroup>
           <col span={5} style={{ width: '20%' }} />
@@ -44,7 +44,7 @@ function ServiceDetail() {
           </tr>
         </tbody>
       </table>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '10%' }} />
@@ -63,7 +63,7 @@ function ServiceDetail() {
       </table>
     </div>
     <div className='content-section'>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '20%' }} />
@@ -167,7 +167,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>작업 대상 지역 및 장애범위</h3>
-      <table className='table result'>
+      <table className='table'>
         <caption>table caption</caption>
         <colgroup>
           <col span={7} />
@@ -201,7 +201,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>세부작업 절차</h3>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '15%' }} />
@@ -243,7 +243,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>작업자 정보 (비접근제어)</h3>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '25%' }} />
@@ -268,7 +268,7 @@ function ServiceDetail() {
       <h3>작업자 정보 (접근제어)</h3>
       <div> 총 4개</div>
       <div className='over-flow-x'>
-        <table className="table result" style={{ width: '200%' }}>
+        <table className="table" style={{ width: '200%' }}>
           <caption>table caption</caption>
           <colgroup>
             <col span={4} />
@@ -393,7 +393,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>작업 종료 구분</h3>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '25%' }} />
@@ -411,7 +411,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>세부 작업 결과</h3>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '15%' }} />
@@ -453,7 +453,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>작업자 정보 결과</h3>
-      <table className='table result align-left'>
+      <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '25%' }} />
@@ -476,7 +476,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <h3>사업자/벤더사 작업 투입 인력</h3>
-      <table className='table result'>
+      <table className='table'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '30%' }} />
