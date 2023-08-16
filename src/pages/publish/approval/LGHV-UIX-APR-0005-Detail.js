@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
 import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
-import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod';
+import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
 
 function ApprovalTempStorageDetail() {

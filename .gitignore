@@ -23,5 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 
-
-
+# park ji hye
+\src\pages\publish\approval\_Approval.js
+\src\pages\publish\approval\_ApprovalDetail.js
+\src\pages\publish\approval\component\_ApprovalBtnGroup.js
+\src\pages\publish\servicetask\user-test

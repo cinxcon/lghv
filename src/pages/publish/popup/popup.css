@@ -10,6 +10,8 @@
 .modal > section.popup-wrap .header { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #000000; }
 .modal > section.popup-wrap h3 { margin: 0; font-size: 20px; font-weight: 500; height: 30px; line-height: 1.5; }
 .modal > section.popup-wrap .btn-close { width: 32px; height: 32px; background: url('../../../assets/images/common/ico_close.png') no-repeat 0 0; font-size: 0; cursor: pointer; }
+.modal > section.popup-wrap .footer { text-align: center; }
+.modal > section.popup-wrap .main textarea { height: 100px; }
 
 /*  조직검색  */
 .modal > section.popup1.orgtree { width: 468px; height: 500px; overflow-y: scroll; }

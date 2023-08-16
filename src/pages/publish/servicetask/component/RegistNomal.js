@@ -536,7 +536,7 @@ function nomal() {
                         <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
                             <PopupWorker onItemSelected={handleWorkerSelected} />
                         </Popup>
-                        <button type='button' className='btn ml15'>-</button> */}
+                        <button type='button' className='btn ml15'>-</button>
                     </td>
                 </tr>
                 </tbody>

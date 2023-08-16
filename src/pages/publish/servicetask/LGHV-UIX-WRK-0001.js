@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
 import { Popup, Alert } from '../popup/Popup';
-import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod';
+import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
 import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
 import RegistNomal from './component/RegistNomal';
 // import RegistUrgent from './component/RegistUrgent';

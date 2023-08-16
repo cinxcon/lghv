@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ResultPageView from '../../common/ResultPageView';
+import ResultNoData from '../../common/ResultNoData';
+import ResultListPaging from '../../common/ResultListPaging';
 
 export default function ApprovalList(props) {
   const location = useLocation();
@@ -14,17 +17,7 @@ export default function ApprovalList(props) {
   return (
     <div className='content-section'>
       <div className="result-pageview">
-        <div>
-          <span className='total-view'>총 <b>109</b>개</span>
-          <span className='select-wrap'>
-            <select name="pageViewCnt">
-              <option value="20" selected="selected">20개씩 보기</option>
-              <option value="40">40개씩 보기</option>
-              <option value="60">60개씩 보기</option>
-              <option value="100">100개씩 보기</option>
-            </select>
-          </span>
-        </div>
+        <ResultPageView />
         <div className='btn-wrap'>
           <button type="button" className='btn btn-low exel'>엑셀 다운로드</button>
         </div>
@@ -76,26 +69,8 @@ export default function ApprovalList(props) {
           }
         </tbody>
       </table>
-      <div className="result-nodata">
-        <i></i>
-        <p>검색결과가 없습니다.</p>
-      </div>
-      <div className="pagination">
-        <Link to="/" className='first' aria-disabled>처음 페이지</Link>
-        <Link to="/" className='prev' aria-disabled>이전 페이지</Link>
-        <strong>1</strong>
-        <Link to="/">2</Link>
-        <Link to="/">3</Link>
-        <Link to="/">4</Link>
-        <Link to="/">5</Link>
-        <Link to="/">6</Link>
-        <Link to="/">7</Link>
-        <Link to="/">8</Link>
-        <Link to="/">9</Link>
-        <Link to="/">10</Link>
-        <Link to="/" className='next'>다음 페이지</Link>
-        <Link to="/" className='last'>마지막 페이지</Link>
-      </div>
+      <ResultNoData />
+      <ResultListPaging />
     </div>
   )
 }
