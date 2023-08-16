@@ -85,7 +85,7 @@ function AccUserRegist() {
             <tbody>
               <tr>
                 <th scope="row"><label htmlFor="userid">아이디<i>필수</i></label></th>
-                <td>
+                <td style="vertical-align: top; width: 640px; height: 656px; padding: 64px 48px 0; text-align: center; font-size: 16px; color:#707070;">
                   <span className='input-btn-wrap'>
                     <input type="text" name="userid" id="userid" placeholder='아이디' />
                     <button className='btn btn-low' >중복확인</button>

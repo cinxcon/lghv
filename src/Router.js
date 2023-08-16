@@ -22,6 +22,7 @@ import ApprovalTempStorageDetail from './pages/publish/approval/ApprovalTempStor
 // test ↓↓↓
 import ApprovalTest from './pages/publish/approval/_Approval';
 import ApprovalDetailTest from './pages/publish/approval/_ApprovalDetail';
+import Test from './pages/publish/servicetask/test/test';
 // test ↑↑↑
 import ServicetaskAll from './pages/publish/servicetask/ServicetaskAll';
 import ServicetaskDetail from './pages/publish/servicetask/ServicetaskDetail';
@@ -72,6 +73,7 @@ const AppRouter = () => {
       {/* test ↓↓↓ */}
       <Route path="/approval/ApprovalTest" element={<ApprovalTest />} />
       <Route path="/approval/ApprovalDetailTest" element={<ApprovalDetailTest />} />
+      <Route path="/servicetask/test/test.js" element={<Test />} />
       {/* test ↑↑↑ */}
     </Routes>
   );
