@@ -48,6 +48,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 8px; }
 .content-row-wrap { display: flex; justify-content: space-between; align-items: flex-start; }
 .content-row-wrap table { width: 49%; }
+.mt20 { margin-top: 20px !important; }
 .mb15 { margin-bottom: 15px !important; }
 .ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
@@ -119,7 +120,7 @@ input.sm{width: 34px; height: 34px;}
 .btn-tooltip { display: inline-block; width: 24px; height: 24px; background-image: url('../images/common/ico_24x24_b.png'); background-position: -588px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-up { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -16px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
 .btn-down { display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ico_16x16_b.png'); background-position: -88px 0; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px; }
-.btn-fold{display: inline-block; width: 26px; height: 26px; min-width: auto; padding: 0; background-image: url('../images/common/ico_16x16_b.png'); background-position: -11px 5px; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px;} 
+.btn-fold{display: inline-block; width: 26px; height: 26px; min-width: auto; padding: 0; background-image: url('../images/common/ico_16x16_b.png'); background-position: -11px 5px; background-repeat: no-repeat; background-size: auto; font-size: 0; margin-left: 2px;}
 .btn-fold.close{ transform: rotate(180deg);}
 .btn-fold.hide{display: none;}
 .btn-pop{padding-left: 36px; background-image: url('../images/common/ic_popup_16.png'); background-position: 12px 5px; background-repeat: no-repeat; background-size: auto;}
@@ -184,7 +185,7 @@ input.sm{width: 34px; height: 34px;}
 .header-wrap .user-info .user::after{content:''; display: block; position: absolute; right: 0; top: 6px; width: 1px; height: 12px; background-color: #fff;}
 .header-wrap .user-info .user span{margin-left:4px;}
 .header-wrap .user-info .logout-btn { color: #fff; padding-left: 24px; position: relative; }
-.header-wrap .user-info .logout-btn::before{content:''; display: block; position: absolute; left: 0; top: -2px; width: 24px; height: 24px; background-image: url('../images/common/ic_logout_white_24.png'); } 
+.header-wrap .user-info .logout-btn::before{content:''; display: block; position: absolute; left: 0; top: -2px; width: 24px; height: 24px; background-image: url('../images/common/ic_logout_white_24.png'); }
 
 /* 레프트 메뉴  */
 .sidebar { background-color: #000; width: 64px; transition: transform 0.3s ease-in-out; color: #fff; }
@@ -233,13 +234,13 @@ input.sm{width: 34px; height: 34px;}
 .over-flow-x{max-width: 1600px; overflow-x: scroll;}
 .table caption { border-top: 1px solid #000000; }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
-.table.result th, .table.result td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; text-align: center; }
-.table.result.align-left th, .table.result.align-left td { text-align: left; }
-.table.result th:last-child, .table.result td:last-child { border-right: none; }
-.table.result th:last-child.bd-right, .table.result td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
-.table.result td dl dt, .table.result td dl dd{padding: 8px 12px; height: 45px;}
-.table.result td dl dt{width: 15%; background-color: #f7f7f7;}
-.table.result td dl dd{width: 85%; text-align: left; }
+.table th, .table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 8px 12px; text-align: center; }
+.table.table-row th, .table.table-row td { text-align: left; }
+.table th:last-child, .table td:last-child { border-right: none; }
+.table th:last-child.bd-right, .table td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
+.table td dl dt, .table td dl dd{padding: 8px 12px; height: 45px;}
+.table td dl dt{width: 15%; background-color: #f7f7f7;}
+.table td dl dd{width: 85%; text-align: left; }
 .non-pading{padding:0 !important;}
 .result-nodata { width: 100%; height: 160px; padding-top: 29px; text-align: center; }
 .result-nodata i { display: block; width: 64px; height: 64px; margin: 0 auto 16px; background-image: url('../images/common/ico_nodata.png'); background-position: 0 0; background-size: auto; background-repeat: no-repeat; }

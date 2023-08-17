@@ -7,6 +7,7 @@ const DynamicStyle = () => {
       import('./styles/common.css');
       import('./styles/dashboard.css');
       import('./styles/servicetask.css');
+      import('./styles/accessctrl.css');
     } else {
       // mobile인 경우
     }

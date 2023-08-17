@@ -1,0 +1,8 @@
+.user-regist-wrap .search-wrap {
+  margin-top: 10px;
+}
+.user-regist-wrap .search-wrap label i { color: red; }
+.user-regist-top-btn-group { text-align: right; }
+.user-regist-add-btn-group { margin-top: 20px; text-align: center; }
+.user-regist-bottom-btn-group { margin-top: 20px; text-align: right;}
+.user-regist-bottom-btn-group button { margin-left: 8px; }

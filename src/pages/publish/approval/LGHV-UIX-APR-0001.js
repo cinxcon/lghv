@@ -7,7 +7,7 @@ function ApprovalStandby() {
     <>
       <ContentTitle />
       <ApprovalSearch />
-      <ApprovalList toDetail="/approval/ApprovalStandbyDetail" currentStatus="결재대기" />
+      <ApprovalList toDetail="/approval/LGHV-UIX-APR-0001-Detail" currentStatus="결재대기" />
     </>
   )
 }
