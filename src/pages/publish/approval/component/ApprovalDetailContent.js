@@ -6,7 +6,7 @@ function ApprovalDetailContent() {
     <>
       <div className='content-section'>
         <h3>결재</h3>
-        <table className='table result mb15'>
+        <table className='table mb15'>
           <caption>table caption</caption>
           <colgroup>
             <col span={5} style={{ width: '20%' }} />
@@ -44,7 +44,7 @@ function ApprovalDetailContent() {
             </tr>
           </tbody>
         </table>
-        <table className='table result align-left'>
+        <table className='table table-row'>
           <caption>table caption</caption>
           <colgroup>
             <col style={{ width: '10%' }} />
@@ -64,7 +64,7 @@ function ApprovalDetailContent() {
       </div>
       <div className='content-section'>
         <h3>작업개요</h3>
-        <table className='table result align-left'>
+        <table className='table table-row'>
           <caption>table caption</caption>
           <colgroup>
             <col style={{ width: '10%' }} />
@@ -206,7 +206,7 @@ function ApprovalDetailContent() {
       </div>
       <div className='content-section'>
         <h3>작업대상 지역</h3>
-        <table className='table result'>
+        <table className='table'>
           <caption>table caption</caption>
           <colgroup>
             <col span={7} style={{ width: '14%' }} />
@@ -240,7 +240,7 @@ function ApprovalDetailContent() {
       </div>
       <div className='content-section'>
         <h3>세부작업 절차</h3>
-        <table className='table result align-left'>
+        <table className='table table-row'>
           <caption>table caption</caption>
           <colgroup>
           <col style={{ width: '10%' }} />
@@ -281,7 +281,7 @@ function ApprovalDetailContent() {
       </div>
       <div className='content-section'>
         <h3>사업자/벤더사 작업 투입 인력</h3>
-        <table className='table result'>
+        <table className='table'>
           <caption>table caption</caption>
           <colgroup>
             <col span={4} style={{ width: '25%' }} />

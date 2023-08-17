@@ -14,7 +14,7 @@ const Sidebar = () => {
     },
     {
       title: '접근제어',
-      subMenus: [{ title: 'Submenu 4', path: '/Submenu4' }]
+      subMenus: [{ title: '사용자 목록', path: '/accessctrl/LGHV-UIX-ACC-0003' }, { title: '장비 목록', path: '/accessctrl/LGHV-UIX-ACC-0004' }]
     },
     {
       title: '장애관리',
@@ -23,10 +23,6 @@ const Sidebar = () => {
     {
       title: '결재관리',
       subMenus: [{ title: '결재대기함', path: '/approval/LGHV-UIX-APR-0001' }, { title: '결재완료함', path: '/approval/LGHV-UIX-APR-0002' }, { title: '공람문서함', path: '/approval/LGHV-UIX-APR-0003' }, { title: '반려함', path: '/approval/LGHV-UIX-APR-0004' }, { title: '임시보관함', path: '/approval/LGHV-UIX-APR-0005' }]
-      // popup naming
-      // 확인: Popup_Confirm , onTime반려: Popup_onTimeReturn, 통보방법: Popup_NotiMethod, 처리내역: Popup_ProcessHistory, 목록: Popup_toAll
-      // 반려취소: Popup_ReturnCancel, 취소: Popup_ApprovalDelete
-      // 조직검색 : Popup_Organization
     },
     {
       title: '통계',

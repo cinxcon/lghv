@@ -7,7 +7,7 @@ function ApprovalTempStorage() {
     <>
       <ContentTitle />
       <ApprovalSearch />
-      <ApprovalList toDetail="/approval/ApprovalTempStorageDetail" />
+      <ApprovalList toDetail="/approval/LGHV-UIX-APR-0005-Detail" />
     </>
   )
 }
