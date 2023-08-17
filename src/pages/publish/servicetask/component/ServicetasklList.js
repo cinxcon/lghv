@@ -23,23 +23,23 @@ export default function ServicetasklList() {
         </span>
         </div>
         <div className='btn-wrap'>
-          <button type="button" className='btn btn-low exel'>엑셀 다운로드</button>
+          <button type="button" className='btn btn-low exel'>엑셀</button>
         </div>
       </div>
       {/* 목록 영역 */}
       <div className='over-flow-x'>
-      <table className="table result" style={{ width: '200%' }}>
+      <table className="table result" style={{ width: '250%' }}>
         <caption>작업 목록: 등록번호, 등록부서, 작업구분, 작업 유형, 작업입회여부, 등록자, 구역명, 제목, 시작일시, 종료일시, 소요시간</caption>
         <colgroup>
-          <col span="11" />
+          <col span="19" />
         </colgroup>
         <thead>
           <tr>
-            <th rowSpan={2}>등록<br />번호</th>
-            <th rowSpan={2}>등록<br />부서</th>
-            <th rowSpan={2}>작업<br />구분</th>
-            <th rowSpan={2}>작업<br />유형</th>
-            <th rowSpan={2}>작업<br />입회여부</th>
+            <th rowSpan={2}>등록 번호</th>
+            <th rowSpan={2}>등록 부서</th>
+            <th rowSpan={2}>작업 구분</th>
+            <th rowSpan={2}>작업 유형</th>
+            <th rowSpan={2}>작업<br /> 입회여부</th>
             <th rowSpan={2}>등록자</th>
             <th rowSpan={2}>구역명</th>
             <th rowSpan={2}>제목</th>
@@ -48,17 +48,17 @@ export default function ServicetasklList() {
             <th rowSpan={2}>작업<br />종료일</th>
             <th rowSpan={2}>완료<br />예정일</th>
             <th rowSpan={2}>작업<br />내용</th>
-            <th rowSpan={2}>원인<br />및<br />목적</th>
+            <th rowSpan={2}>원인 및<br />목적</th>
             <th rowSpan={2}>이슈사항</th>
-            <th rowSpan={2}>작업<br />대상<br />지역</th>
+            <th rowSpan={2}>작업 대상<br />지역</th>
             <th rowSpan={2}>작업자</th>
             <th colSpan={15}>서비스장애</th>
             <th colSpan={2}>상태</th>
           </tr>
           <tr>
-            <th>시작<br />일시</th>
-            <th>종료<br />일시</th>
-            <th>소요<br />시간</th>
+            <th>시작 일시</th>
+            <th>종료 일시</th>
+            <th>소요 시간</th>
             <th>DTV</th>
             <th>NET</th>
             <th>VOIP</th>

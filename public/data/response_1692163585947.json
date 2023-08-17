@@ -1,0 +1,2191 @@
+{
+  "resultCode": "200",
+  "message": "Success",
+  "data": {
+    "depts": [
+      {
+        "deptName": "LG HelloVision",
+        "deptId": "N00",
+        "deptKind": 1,
+        "deptIndex": "N00",
+        "parentId": "000000",
+        "depts": [
+          {
+            "deptName": "대표이사",
+            "deptId": "N000A00001",
+            "deptKind": 1,
+            "deptIndex": "N000A00001",
+            "parentId": "N00",
+            "depts": [
+              {
+                "deptName": "기술실",
+                "deptId": "N000C00020",
+                "deptKind": 1,
+                "deptIndex": "N000C00020",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "품질혁신팀",
+                    "deptId": "N000D00404",
+                    "deptKind": 1,
+                    "deptIndex": "N000D00404",
+                    "parentId": "N000C00020",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "플랫폼운영담당",
+                    "deptId": "N000F00100",
+                    "deptKind": 1,
+                    "deptIndex": "N000F00100",
+                    "parentId": "N000C00020",
+                    "depts": [
+                      {
+                        "deptName": "미디어운영팀",
+                        "deptId": "N000D00211",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00211",
+                        "parentId": "N000F00100",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "기간망운영팀",
+                        "deptId": "N000D00130",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00130",
+                        "parentId": "N000F00100",
+                        "depts": [
+                          {
+                            "deptName": "컨버전스운용팀_관제",
+                            "deptId": "001301 ",
+                            "deptKind": 0,
+                            "deptIndex": "001301 ",
+                            "parentId": "N000D00130",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "품질안전 협력",
+                            "deptId": "N00G000240",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000240",
+                            "parentId": "N000D00130",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "OMC팀",
+                        "deptId": "N00G000261",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000261",
+                        "parentId": "N000F00100",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "뉴비즈운영팀",
+                        "deptId": "N00G000282",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000282",
+                        "parentId": "N000F00100",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "기술개발팀",
+                    "deptId": "N00G000231",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000231",
+                    "parentId": "N000C00020",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "서비스개발담당",
+                    "deptId": "N00G000259",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000259",
+                    "parentId": "N000C00020",
+                    "depts": [
+                      {
+                        "deptName": "서비스개발팀",
+                        "deptId": "N000D00405",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00405",
+                        "parentId": "N00G000259",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "디바이스/플랫폼개발팀",
+                        "deptId": "N00G000224",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000224",
+                        "parentId": "N00G000259",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "서비스기획팀",
+                        "deptId": "N000D04382",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04382",
+                        "parentId": "N00G000259",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "네트웍기획담당",
+                    "deptId": "N00G000260",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000260",
+                    "parentId": "N000C00020",
+                    "depts": [
+                      {
+                        "deptName": "인프라계획팀",
+                        "deptId": "N000D00290",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00290",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "서부인프라팀",
+                        "deptId": "N000D04360",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04360",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "강원인프라팀",
+                        "deptId": "N00G000062",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000062",
+                        "parentId": "N00G000260",
+                        "depts": [
+                          {
+                            "deptName": "영동기술Unit",
+                            "deptId": "N000D04408",
+                            "deptKind": 1,
+                            "deptIndex": "N000D04408",
+                            "parentId": "N00G000062",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "나라기술Unit",
+                            "deptId": "N00G000102",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000102",
+                            "parentId": "N00G000062",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "경북인프라팀",
+                        "deptId": "N00G000070",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000070",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "호남인프라팀",
+                        "deptId": "N00G000075",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000075",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "서울인프라팀",
+                        "deptId": "N00G000109",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000109",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경남인프라팀",
+                        "deptId": "N00G000113",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000113",
+                        "parentId": "N00G000260",
+                        "depts": [
+                          {
+                            "deptName": "가야기술Unit",
+                            "deptId": "N00G000111",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000111",
+                            "parentId": "N00G000113",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "부산인프라팀",
+                        "deptId": "N00G000118",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000118",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "기술/품질기획팀",
+                        "deptId": "N00G000133",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000133",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경인인프라팀",
+                        "deptId": "N00G000293",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000293",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "인프라구축계획팀",
+                        "deptId": "N00G000294",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000294",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "뉴비즈구축계획팀",
+                        "deptId": "N00G000313",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000313",
+                        "parentId": "N00G000260",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "현장안전TF",
+                    "deptId": "N00G000292",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000292",
+                    "parentId": "N000C00020",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "CHO",
+                "deptId": "N000D00190",
+                "deptKind": 1,
+                "deptIndex": "N000D00190",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "교육과정",
+                    "deptId": "N000E00001",
+                    "deptKind": 1,
+                    "deptIndex": "N000E00001",
+                    "parentId": "N000D00190",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "즐거운직장팀",
+                    "deptId": "N00G000198",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000198",
+                    "parentId": "N000D00190",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "조직개발팀",
+                    "deptId": "N00G000199",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000199",
+                    "parentId": "N000D00190",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "피플케어팀",
+                    "deptId": "N00G000200",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000200",
+                    "parentId": "N000D00190",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "모바일사업그룹",
+                "deptId": "N000C00060",
+                "deptKind": 1,
+                "deptIndex": "N000C00060",
+                "parentId": "N000A00001",
+                "depts": []
+              },
+              {
+                "deptName": "Viewing사업담당",
+                "deptId": "N000C00061",
+                "deptKind": 1,
+                "deptIndex": "N000C00061",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "Viewing플랫폼개발팀",
+                    "deptId": "N00G000126",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000126",
+                    "parentId": "N000C00061",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "Viewing서비스개발팀",
+                    "deptId": "N00G000146",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000146",
+                    "parentId": "N000C00061",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "컨슈머사업그룹",
+                "deptId": "N000G00003",
+                "deptKind": 1,
+                "deptIndex": "N000G00003",
+                "parentId": "N000A00001",
+                "depts": []
+              },
+              {
+                "deptName": "CFO/CRO",
+                "deptId": "N00G000007",
+                "deptKind": 1,
+                "deptIndex": "N00G000007",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "경영관리담당",
+                    "deptId": "N000C00010",
+                    "deptKind": 1,
+                    "deptIndex": "N000C00010",
+                    "parentId": "N00G000007",
+                    "depts": [
+                      {
+                        "deptName": "회계팀",
+                        "deptId": "N000D00180",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00180",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "빌링팀",
+                        "deptId": "N000D00406",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00406",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "구매팀",
+                        "deptId": "N000D04306",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04306",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경영관리팀",
+                        "deptId": "N000D04350",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04350",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "채권회수TF",
+                        "deptId": "N00G000197",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000197",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "금융팀",
+                        "deptId": "N00G000230",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000230",
+                        "parentId": "N000C00010",
+                        "depts": [
+                          {
+                            "deptName": "감사지원파트",
+                            "deptId": "N00G000283",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000283",
+                            "parentId": "N00G000230",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "PI Task",
+                        "deptId": "N00G000277",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000277",
+                        "parentId": "N000C00010",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "IT인프라담당",
+                    "deptId": "N000C00054",
+                    "deptKind": 1,
+                    "deptIndex": "N000C00054",
+                    "parentId": "N00G000007",
+                    "depts": [
+                      {
+                        "deptName": "정보서비스팀",
+                        "deptId": "N000C00201",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00201",
+                        "parentId": "N000C00054",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "정보서비스2팀",
+                        "deptId": "N000C00202",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00202",
+                        "parentId": "N000C00054",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "정보기획팀",
+                        "deptId": "N00G000176",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000176",
+                        "parentId": "N000C00054",
+                        "depts": [
+                          {
+                            "deptName": "IT협력",
+                            "deptId": "N00G000238",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000238",
+                            "parentId": "N00G000176",
+                            "depts": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "법무팀",
+                    "deptId": "N000D00401",
+                    "deptKind": 1,
+                    "deptIndex": "N000D00401",
+                    "parentId": "N00G000007",
+                    "depts": [
+                      {
+                        "deptName": "Compliance파트",
+                        "deptId": "N00G000174",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000174",
+                        "parentId": "N000D00401",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "정보보호국",
+                    "deptId": "N00G000232",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000232",
+                    "parentId": "N00G000007",
+                    "depts": [
+                      {
+                        "deptName": "정보보호팀",
+                        "deptId": "N00G000002",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000002",
+                        "parentId": "N00G000232",
+                        "depts": [
+                          {
+                            "deptName": "정보보호 협력",
+                            "deptId": "N00G000239",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000239",
+                            "parentId": "N00G000002",
+                            "depts": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "위기관리팀",
+                    "deptId": "N00G000281",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000281",
+                    "parentId": "N00G000007",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "안전관리팀",
+                    "deptId": "N00G000285",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000285",
+                    "parentId": "N00G000007",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "홍보/대외협력센터",
+                "deptId": "N00G000128",
+                "deptKind": 1,
+                "deptIndex": "N00G000128",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "홍보팀",
+                    "deptId": "N000D00300",
+                    "deptKind": 1,
+                    "deptIndex": "N000D00300",
+                    "parentId": "N00G000128",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "대외협력팀",
+                    "deptId": "N000D00403",
+                    "deptKind": 1,
+                    "deptIndex": "N000D00403",
+                    "parentId": "N00G000128",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "ESG팀",
+                    "deptId": "N00G000022",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000022",
+                    "parentId": "N00G000128",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "사업협력담당",
+                    "deptId": "N00G000161",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000161",
+                    "parentId": "N00G000128",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "커뮤니티그룹",
+                "deptId": "N00G000184",
+                "deptKind": 1,
+                "deptIndex": "N00G000184",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "지역문화사업담당",
+                    "deptId": "N00G000084",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000084",
+                    "parentId": "N00G000184",
+                    "depts": [
+                      {
+                        "deptName": "스마트관광사업팀",
+                        "deptId": "N00G000275",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000275",
+                        "parentId": "N00G000084",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "실감미디어팀",
+                        "deptId": "N00G000302",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000302",
+                        "parentId": "N00G000084",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "Culture Task",
+                        "deptId": "N00G000276",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000276",
+                        "parentId": "N00G000084",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "광고사업팀",
+                    "deptId": "N00G000091",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000091",
+                    "parentId": "N00G000184",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "미디어지원팀",
+                    "deptId": "N00G000227",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000227",
+                    "parentId": "N00G000184",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "기업솔루션담당",
+                    "deptId": "N00G000256",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000256",
+                    "parentId": "N00G000184",
+                    "depts": [
+                      {
+                        "deptName": "에너지사업팀",
+                        "deptId": "N00G000269",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000269",
+                        "parentId": "N00G000256",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "교육솔루션팀",
+                        "deptId": "N00G000297",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000297",
+                        "parentId": "N00G000256",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "클라우드제휴 PM",
+                        "deptId": "N00G000298",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000298",
+                        "parentId": "N00G000256",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "프로젝트사업 PM",
+                        "deptId": "N00G000299",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000299",
+                        "parentId": "N00G000256",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "기업솔루션팀",
+                        "deptId": "N00G000317",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000317",
+                        "parentId": "N00G000256",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "커뮤니티사업총국",
+                    "deptId": "N00G000267",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000267",
+                    "parentId": "N00G000184",
+                    "depts": [
+                      {
+                        "deptName": "컨설팅이행팀",
+                        "deptId": "N00G000141",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000141",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "수도권사업국",
+                        "deptId": "N00G000206",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000206",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "서부사업국",
+                        "deptId": "N00G000208",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000208",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "강원사업국",
+                        "deptId": "N00G000211",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000211",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경남사업국",
+                        "deptId": "N00G000212",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000212",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "부산사업국",
+                        "deptId": "N00G000214",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000214",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경북사업국",
+                        "deptId": "N00G000216",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000216",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "호남사업국",
+                        "deptId": "N00G000218",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000218",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "기반영업팀",
+                        "deptId": "N00G000303",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000303",
+                        "parentId": "N00G000267",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "지역채널총국",
+                    "deptId": "N00G000272",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000272",
+                    "parentId": "N00G000184",
+                    "depts": [
+                      {
+                        "deptName": "수도권미디어국",
+                        "deptId": "N000C00046",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00046",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "수도권보도제작파트",
+                            "deptId": "N000D04323",
+                            "deptKind": 1,
+                            "deptIndex": "N000D04323",
+                            "parentId": "N000C00046",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "수도권사업파트",
+                            "deptId": "N00G000167",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000167",
+                            "parentId": "N000C00046",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "나라파트",
+                            "deptId": "N00G000193",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000193",
+                            "parentId": "N000C00046",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "경북미디어국",
+                        "deptId": "N000C00062",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00062",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "경북보도제작파트",
+                            "deptId": "N000D04357",
+                            "deptKind": 1,
+                            "deptIndex": "N000D04357",
+                            "parentId": "N000C00062",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "경북사업파트",
+                            "deptId": "N000D01281",
+                            "deptKind": 1,
+                            "deptIndex": "N000D01281",
+                            "parentId": "N000C00062",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "강원미디어국",
+                        "deptId": "N00G000019",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000019",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "강원사업파트",
+                            "deptId": "N00G000027",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000027",
+                            "parentId": "N00G000019",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "강원보도제작파트",
+                            "deptId": "N00G000028",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000028",
+                            "parentId": "N00G000019",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "호남미디어국",
+                        "deptId": "N00G000020",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000020",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "호남사업파트",
+                            "deptId": "N00G000168",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000168",
+                            "parentId": "N00G000020",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "호남보도제작파트",
+                            "deptId": "N00G000169",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000169",
+                            "parentId": "N00G000020",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "부산미디어국",
+                        "deptId": "N00G000160",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000160",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "부산사업파트",
+                            "deptId": "N00G000170",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000170",
+                            "parentId": "N00G000160",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "부산보도제작파트",
+                            "deptId": "N00G000171",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000171",
+                            "parentId": "N00G000160",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "경남미디어국",
+                        "deptId": "N00G000229",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000229",
+                        "parentId": "N00G000272",
+                        "depts": [
+                          {
+                            "deptName": "경남보도제작파트",
+                            "deptId": "N00G000180",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000180",
+                            "parentId": "N00G000229",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "경남사업파트",
+                            "deptId": "N00G000181",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000181",
+                            "parentId": "N00G000229",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "스튜디오사업",
+                        "deptId": "N00G000273",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000273",
+                        "parentId": "N00G000272",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "커뮤니티사업기획팀",
+                    "deptId": "N00G000319",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000319",
+                    "parentId": "N00G000184",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "CSO",
+                "deptId": "N00G000201",
+                "deptKind": 1,
+                "deptIndex": "N00G000201",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "전략기획팀",
+                    "deptId": "N000D04418",
+                    "deptKind": 1,
+                    "deptIndex": "N000D04418",
+                    "parentId": "N00G000201",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "전략기획담당",
+                    "deptId": "N000C00066",
+                    "deptKind": 1,
+                    "deptIndex": "N000C00066",
+                    "parentId": "N00G000201",
+                    "depts": [
+                      {
+                        "deptName": "사업전략팀",
+                        "deptId": "N00G000202",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000202",
+                        "parentId": "N000C00066",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "전략수립Task",
+                        "deptId": "N00G000265",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000265",
+                        "parentId": "N000C00066",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "마케팅전략팀",
+                    "deptId": "N00G000099",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000099",
+                    "parentId": "N00G000201",
+                    "depts": [
+                      {
+                        "deptName": "브랜드매니지먼트팀",
+                        "deptId": "N00G000011",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000011",
+                        "parentId": "N00G000099",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "DX Lab",
+                    "deptId": "N00G000182",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000182",
+                    "parentId": "N00G000201",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "고객가치혁신팀",
+                    "deptId": "N00G000264",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000264",
+                    "parentId": "N00G000201",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "미래성장ACE",
+                    "deptId": "N00G000316",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000316",
+                    "parentId": "N00G000201",
+                    "depts": [
+                      {
+                        "deptName": "성장모듈",
+                        "deptId": "N00G000320",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000320",
+                        "parentId": "N00G000316",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "미래모듈",
+                        "deptId": "N00G000321",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000321",
+                        "parentId": "N00G000316",
+                        "depts": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "deptName": "홈사업그룹",
+                "deptId": "N00G000220",
+                "deptKind": 1,
+                "deptIndex": "N00G000220",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "CV운영담당",
+                    "deptId": "N000C00050",
+                    "deptKind": 1,
+                    "deptIndex": "N000C00050",
+                    "parentId": "N00G000220",
+                    "depts": [
+                      {
+                        "deptName": "CV기획팀",
+                        "deptId": "N00G000162",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000162",
+                        "parentId": "N000C00050",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "홈콘텐츠담당",
+                    "deptId": "N00G000221",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000221",
+                    "parentId": "N00G000220",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "홈상품담당",
+                    "deptId": "N00G000223",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000223",
+                    "parentId": "N00G000220",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "Viewing TF",
+                    "deptId": "N00G000236",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000236",
+                    "parentId": "N00G000220",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "미디어그룹",
+                "deptId": "N00G000254",
+                "deptKind": 1,
+                "deptIndex": "N00G000254",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "뉴스보도총국",
+                    "deptId": "N000D04417",
+                    "deptKind": 1,
+                    "deptIndex": "N000D04417",
+                    "parentId": "N00G000254",
+                    "depts": [
+                      {
+                        "deptName": "서부미디어국",
+                        "deptId": "N000D04332",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04332",
+                        "parentId": "N000D04417",
+                        "depts": [
+                          {
+                            "deptName": "서부사업파트",
+                            "deptId": "N00G000233",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000233",
+                            "parentId": "N000D04332",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "서부보도제작파트",
+                            "deptId": "N00G000234",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000234",
+                            "parentId": "N000D04332",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "동부미디어국",
+                        "deptId": "N00G000300",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000300",
+                        "parentId": "N000D04417",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "수도권미디어국",
+                        "deptId": "N00G000301",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000301",
+                        "parentId": "N000D04417",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "기업사업담당",
+                    "deptId": "N00G000191",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000191",
+                    "parentId": "N00G000254",
+                    "depts": [
+                      {
+                        "deptName": "공공프로젝트팀",
+                        "deptId": "N00G000155",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000155",
+                        "parentId": "N00G000191",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "SME사업팀",
+                        "deptId": "N00G000156",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000156",
+                        "parentId": "N00G000191",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영상보안사업팀",
+                        "deptId": "N00G000179",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000179",
+                        "parentId": "N00G000191",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "솔루션사업팀",
+                        "deptId": "N00G000258",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000258",
+                        "parentId": "N00G000191",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "콘텐츠제작담당",
+                    "deptId": "N00G000228",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000228",
+                    "parentId": "N00G000254",
+                    "depts": [
+                      {
+                        "deptName": "편성전략/심의팀",
+                        "deptId": "N000D04363",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04363",
+                        "parentId": "N00G000228",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "옴니채널팀",
+                        "deptId": "N00G000148",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000148",
+                        "parentId": "N00G000228",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "제작팀",
+                        "deptId": "N00G000165",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000165",
+                        "parentId": "N00G000228",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "콘텐츠마케팅팀",
+                        "deptId": "N00G000257",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000257",
+                        "parentId": "N00G000228",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "미디어사업기획팀",
+                    "deptId": "N00G000255",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000255",
+                    "parentId": "N00G000254",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "커머스사업담당",
+                    "deptId": "N00G000295",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000295",
+                    "parentId": "N00G000254",
+                    "depts": [
+                      {
+                        "deptName": "커머스사업팀",
+                        "deptId": "N00G000284",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000284",
+                        "parentId": "N00G000295",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "커머스상품팀",
+                        "deptId": "N00G000296",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000296",
+                        "parentId": "N00G000295",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "커머스채널팀",
+                        "deptId": "N00G000318",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000318",
+                        "parentId": "N00G000295",
+                        "depts": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "deptName": "컨슈머그룹",
+                "deptId": "N00G000263",
+                "deptKind": 1,
+                "deptIndex": "N00G000263",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "서부영업담당",
+                    "deptId": "N000C00057",
+                    "deptKind": 1,
+                    "deptIndex": "N000C00057",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "서부영업지원팀",
+                        "deptId": "N00G000209",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000209",
+                        "parentId": "N000C00057",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "수도권영업담당",
+                    "deptId": "N000H00003",
+                    "deptKind": 1,
+                    "deptIndex": "N000H00003",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "북인천영업팀",
+                        "deptId": "N000D04366",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04366",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영동방송",
+                        "deptId": "N000C00063",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00063",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영동영업팀",
+                        "deptId": "N00G000030",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000030",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영서영업팀",
+                        "deptId": "N00G000049",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000049",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "강원방송",
+                        "deptId": "N00G000063",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000063",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "강원영업팀",
+                        "deptId": "N00G000064",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000064",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "나라방송",
+                        "deptId": "N00G000067",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000067",
+                        "parentId": "N000H00003",
+                        "depts": [
+                          {
+                            "deptName": "나라기술팀",
+                            "deptId": "N00G000066",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000066",
+                            "parentId": "N00G000067",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "나라영업팀",
+                        "deptId": "N00G000068",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000068",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "양천은평방송",
+                        "deptId": "N00G000100",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000100",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "수도권영업팀",
+                        "deptId": "N00G000101",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000101",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "양천부천영업팀",
+                        "deptId": "N00G000108",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000108",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "부천김포북인천방송",
+                        "deptId": "N00G000192",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000192",
+                        "parentId": "N000H00003",
+                        "depts": [
+                          {
+                            "deptName": "북인천기술팀",
+                            "deptId": "N00G000104",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000104",
+                            "parentId": "N00G000192",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "수도권판매추진팀",
+                        "deptId": "N00G000207",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000207",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "강원지원팀",
+                        "deptId": "N00G000210",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000210",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "은평김포영업팀",
+                        "deptId": "N00G000291",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000291",
+                        "parentId": "N000H00003",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "동부영업담당",
+                    "deptId": "N000H00005",
+                    "deptKind": 1,
+                    "deptIndex": "N000H00005",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "가야영업팀",
+                        "deptId": "N000D04314",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04314",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영남영업팀",
+                        "deptId": "N000D04355",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04355",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "신라영업팀",
+                        "deptId": "N00G000033",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000033",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "대구영업팀",
+                        "deptId": "N00G000069",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000069",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "가야방송",
+                        "deptId": "N00G000110",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000110",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "중부산중앙방송",
+                        "deptId": "N00G000116",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000116",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "중부산중앙영업팀",
+                        "deptId": "N00G000117",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000117",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "해운대금정방송",
+                        "deptId": "N00G000119",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000119",
+                        "parentId": "N000H00005",
+                        "depts": [
+                          {
+                            "deptName": "해운대금정기술팀",
+                            "deptId": "N00G000121",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000121",
+                            "parentId": "N00G000119",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "해운대금정영업팀",
+                        "deptId": "N00G000120",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000120",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경남영업팀",
+                        "deptId": "N00G000150",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000150",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경남지원팀",
+                        "deptId": "N00G000213",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000213",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "동부판매추진팀",
+                        "deptId": "N00G000215",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000215",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "경북지원팀",
+                        "deptId": "N00G000217",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000217",
+                        "parentId": "N000H00005",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "경북영업담당",
+                    "deptId": "N000H00008",
+                    "deptKind": 1,
+                    "deptIndex": "N000H00008",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "영남방송",
+                        "deptId": "N000C00056",
+                        "deptKind": 1,
+                        "deptIndex": "N000C00056",
+                        "parentId": "N000H00008",
+                        "depts": [
+                          {
+                            "deptName": "영남기술팀",
+                            "deptId": "N000D04356",
+                            "deptKind": 1,
+                            "deptIndex": "N000D04356",
+                            "parentId": "N000C00056",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "신라방송",
+                        "deptId": "N00G000031",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000031",
+                        "parentId": "N000H00008",
+                        "depts": [
+                          {
+                            "deptName": "신라기술팀",
+                            "deptId": "N00G000032",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000032",
+                            "parentId": "N00G000031",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "전북방송",
+                        "deptId": "N00G000052",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000052",
+                        "parentId": "N000H00008",
+                        "depts": [
+                          {
+                            "deptName": "전북기술팀",
+                            "deptId": "N00G000053",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000053",
+                            "parentId": "N00G000052",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "아라방송",
+                        "deptId": "N00G000073",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000073",
+                        "parentId": "N000H00008",
+                        "depts": [
+                          {
+                            "deptName": "아라기술팀",
+                            "deptId": "N00G000072",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000072",
+                            "parentId": "N00G000073",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "대구방송",
+                        "deptId": "N00G000122",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000122",
+                        "parentId": "N000H00008",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "컨슈머사업기획팀",
+                    "deptId": "N000D01261",
+                    "deptKind": 1,
+                    "deptIndex": "N000D01261",
+                    "parentId": "N00G000263",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "강원영업담당",
+                    "deptId": "N00G000123",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000123",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "영서기술팀",
+                        "deptId": "N00G000050",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000050",
+                        "parentId": "N00G000123",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "서부영업담당",
+                    "deptId": "N00G000124",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000124",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "충남영업팀",
+                        "deptId": "N000D04359",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04359",
+                        "parentId": "N00G000124",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "전북영업팀",
+                        "deptId": "N00G000054",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000054",
+                        "parentId": "N00G000124",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "아라영업팀",
+                        "deptId": "N00G000074",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000074",
+                        "parentId": "N00G000124",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "호남영업팀",
+                        "deptId": "N00G000077",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000077",
+                        "parentId": "N00G000124",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "서부판매추진팀",
+                        "deptId": "N00G000219",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000219",
+                        "parentId": "N00G000124",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "컨슈머사업팀",
+                    "deptId": "N00G000024",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000024",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "사업관리팀",
+                        "deptId": "N000D00160",
+                        "deptKind": 1,
+                        "deptIndex": "N000D00160",
+                        "parentId": "N00G000024",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "결합상품TF",
+                        "deptId": "N00G000307",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000307",
+                        "parentId": "N00G000024",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "경남영업담당",
+                    "deptId": "N00G000149",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000149",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "경남마산기술팀",
+                        "deptId": "N00G000151",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000151",
+                        "parentId": "N00G000149",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "렌탈사업담당",
+                    "deptId": "N00G000152",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000152",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "렌탈지원팀",
+                        "deptId": "N00G000097",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000097",
+                        "parentId": "N00G000152",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "렌탈리스크관리팀",
+                        "deptId": "N00G000157",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000157",
+                        "parentId": "N00G000152",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "홈케어서비스Lab",
+                        "deptId": "N00G000225",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000225",
+                        "parentId": "N00G000152",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "렌탈마케팅팀",
+                        "deptId": "N00G000266",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000266",
+                        "parentId": "N00G000152",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "렌탈유통팀",
+                        "deptId": "N00G000278",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000278",
+                        "parentId": "N00G000152",
+                        "depts": [
+                          {
+                            "deptName": "채널개발팀",
+                            "deptId": "N00G000139",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000139",
+                            "parentId": "N00G000278",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "온라인마케팅팀",
+                            "deptId": "N00G000279",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000279",
+                            "parentId": "N00G000278",
+                            "depts": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "모바일사업담당",
+                    "deptId": "N00G000188",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000188",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "모바일상품팀",
+                        "deptId": "N000D04395",
+                        "deptKind": 1,
+                        "deptIndex": "N000D04395",
+                        "parentId": "N00G000188",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "모바일정책팀",
+                        "deptId": "N00G000010",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000010",
+                        "parentId": "N00G000188",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "모바일마케팅팀",
+                        "deptId": "N00G000085",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000085",
+                        "parentId": "N00G000188",
+                        "depts": [
+                          {
+                            "deptName": "모바일개통센터",
+                            "deptId": "N00G000194",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000194",
+                            "parentId": "N00G000085",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "모바일수도권영업팀",
+                        "deptId": "N00G000086",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000086",
+                        "parentId": "N00G000188",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "모바일중남부영업팀",
+                        "deptId": "N00G000142",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000142",
+                        "parentId": "N00G000188",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "온라인제휴영업팀",
+                        "deptId": "N00G000190",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000190",
+                        "parentId": "N00G000188",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "모바일유통팀",
+                        "deptId": "N00G000304",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000304",
+                        "parentId": "N00G000188",
+                        "depts": [
+                          {
+                            "deptName": "모바일제휴사업팀",
+                            "deptId": "N00G000305",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000305",
+                            "parentId": "N00G000304",
+                            "depts": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "영업전략실",
+                    "deptId": "N000D04351",
+                    "deptKind": 1,
+                    "deptIndex": "N000D04351",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "홈CS운영팀",
+                        "deptId": "N000D11001",
+                        "deptKind": 1,
+                        "deptIndex": "N000D11001",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영업기획팀",
+                        "deptId": "N00G000046",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000046",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "현장혁신팀",
+                        "deptId": "N00G000204",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000204",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "영업정책팀",
+                        "deptId": "N00G000205",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000205",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "MNO PM",
+                        "deptId": "N00G000226",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000226",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "EVC사업팀",
+                        "deptId": "N00G000286",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000286",
+                        "parentId": "N000D04351",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "EVC채널팀",
+                        "deptId": "N00G000310",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000310",
+                        "parentId": "N000D04351",
+                        "depts": [
+                          {
+                            "deptName": "EVC채널PJT",
+                            "deptId": "N00G000311",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000311",
+                            "parentId": "N00G000310",
+                            "depts": []
+                          },
+                          {
+                            "deptName": "유통혁신PJT",
+                            "deptId": "N00G000312",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000312",
+                            "parentId": "N00G000310",
+                            "depts": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "디지털마케팅담당",
+                    "deptId": "N00G000290",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000290",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "모바일디지털팀",
+                        "deptId": "N00G000163",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000163",
+                        "parentId": "N00G000290",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "디지털CX팀",
+                        "deptId": "N00G000288",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000288",
+                        "parentId": "N00G000290",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "홈디지털팀",
+                        "deptId": "N00G000289",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000289",
+                        "parentId": "N00G000290",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "홈콘텐츠담당",
+                    "deptId": "N00G000306",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000306",
+                    "parentId": "N00G000263",
+                    "depts": [
+                      {
+                        "deptName": "VOD사업팀",
+                        "deptId": "N00G000145",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000145",
+                        "parentId": "N00G000306",
+                        "depts": [
+                          {
+                            "deptName": "전략채널센터",
+                            "deptId": "N00G000175",
+                            "deptKind": 1,
+                            "deptIndex": "N00G000175",
+                            "parentId": "N00G000145",
+                            "depts": []
+                          }
+                        ]
+                      },
+                      {
+                        "deptName": "채널사업팀",
+                        "deptId": "N00G000222",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000222",
+                        "parentId": "N00G000306",
+                        "depts": []
+                      },
+                      {
+                        "deptName": "광고사업팀",
+                        "deptId": "N00G000274",
+                        "deptKind": 1,
+                        "deptIndex": "N00G000274",
+                        "parentId": "N00G000306",
+                        "depts": []
+                      }
+                    ]
+                  },
+                  {
+                    "deptName": "리스크관리팀",
+                    "deptId": "N00G000314",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000314",
+                    "parentId": "N00G000263",
+                    "depts": []
+                  }
+                ]
+              },
+              {
+                "deptName": "CRMO",
+                "deptId": "N00G000280",
+                "deptKind": 1,
+                "deptIndex": "N00G000280",
+                "parentId": "N000A00001",
+                "depts": []
+              },
+              {
+                "deptName": "Digital영업그룹",
+                "deptId": "N00G000287",
+                "deptKind": 1,
+                "deptIndex": "N00G000287",
+                "parentId": "N000A00001",
+                "depts": []
+              },
+              {
+                "deptName": "정도경영담당",
+                "deptId": "N00G000309",
+                "deptKind": 1,
+                "deptIndex": "N00G000309",
+                "parentId": "N000A00001",
+                "depts": [
+                  {
+                    "deptName": "윤리사무국",
+                    "deptId": "N000D00230",
+                    "deptKind": 1,
+                    "deptIndex": "N000D00230",
+                    "parentId": "N00G000309",
+                    "depts": []
+                  },
+                  {
+                    "deptName": "경영진단팀",
+                    "deptId": "N00G000308",
+                    "deptKind": 1,
+                    "deptIndex": "N00G000308",
+                    "parentId": "N00G000309",
+                    "depts": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "deptName": "회장",
+            "deptId": "N00G000087",
+            "deptKind": 1,
+            "deptIndex": "N00G000087",
+            "parentId": "N00",
+            "depts": []
+          },
+          {
+            "deptName": "하나방송",
+            "deptId": "NF0",
+            "deptKind": 1,
+            "deptIndex": "NF0",
+            "parentId": "N00",
+            "depts": [
+              {
+                "deptName": "하나영업팀",
+                "deptId": "NF0G000001",
+                "deptKind": 1,
+                "deptIndex": "NF0G000001",
+                "parentId": "NF0",
+                "depts": []
+              },
+              {
+                "deptName": "하나기술팀",
+                "deptId": "NF0G000002",
+                "deptKind": 1,
+                "deptIndex": "NF0G000002",
+                "parentId": "NF0",
+                "depts": []
+              },
+              {
+                "deptName": "하나미디어국",
+                "deptId": "NF0G000004",
+                "deptKind": 1,
+                "deptIndex": "NF0G000004",
+                "parentId": "NF0",
+                "depts": []
+              }
+            ]
+          },
+          {
+            "deptName": "가상부서",
+            "deptId": "N00cjworld",
+            "deptKind": 1,
+            "deptIndex": "N00cjworld",
+            "parentId": "N00",
+            "depts": []
+          }
+        ]
+      }
+    ]
+  }
+}

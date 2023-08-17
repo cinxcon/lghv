@@ -10,7 +10,7 @@ const Sidebar = () => {
     },
     {
       title: '작업관리',
-      subMenus: [{ title: '작업목록', path: '/servicetask/LGHV-UIX-WRK-0003' }, { title: '작업등록', path: '/servicetask/LGHV-UIX-WRK-0001' }, { title: '탬플릿 등록', path: '/servicetask/ServicetaskDetail' }]
+      subMenus: [{ title: '작업목록', path: '/servicetask/LGHV-UIX-WRK-0003' }, { title: '일반 작업등록', path: '/servicetask/LGHV-UIX-WRK-0001' }, { title: '긴급 작업등록', path: '/servicetask/LGHV-UIX-WRK-0002' }, { title: '탬플릿 등록', path: '/servicetask/ServicetaskDetail' }]
     },
     {
       title: '접근제어',
