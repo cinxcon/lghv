@@ -13,7 +13,7 @@ function Popup(props) {
   //   }
   // }, []);
 
-  let { open, close, header, type } = props;
+  let { open, close, header, footer, type } = props;
 
   if (type === undefined){
     type = 'nomal';
@@ -22,7 +22,7 @@ function Popup(props) {
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className={`popup-wrap ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div></section>)
+          ? (<section className={`popup-wrap ${type}`}><div className="header"><h3>{header}</h3><button className="btn-close" onClick={close}>닫기</button></div><div className="main">{props.children}</div><div className="footer">{footer}</div></section>)
           : null
       }
     </div>

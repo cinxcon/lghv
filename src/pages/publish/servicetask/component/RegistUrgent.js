@@ -87,7 +87,7 @@ function nomal() {
    {/* 결제선 저장 시 나타나는 항목 */}
    <div className='content-section' id='approval-line' style={{ visibility: 'hidden', height: '0', margin: '0' }}>
     <h3>결재</h3>
-        <table className='table result mb15'>
+        <table className='table mb15'>
             <caption>table caption</caption>
             <colgroup>
             <col span={5} style={{ width: '20%' }} />
@@ -125,7 +125,7 @@ function nomal() {
             </tr>
             </tbody>
         </table>
-        <table className='table result align-left'>
+        <table className='table table-row'>
             <caption>table caption</caption>
             <colgroup>
             <col style={{ width: '10%' }} />
@@ -145,7 +145,7 @@ function nomal() {
     </div>
     {/* 결제선 저장 시 나타나는 항목 끝 */}
     <div className='content-section'>
-    <table className='table result align-left'>
+    <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
         <col style={{ width: '20%' }} />
@@ -337,7 +337,7 @@ function nomal() {
         </Popup>
         </div>
     </div>
-    <table className='table result'>
+    <table className='table'>
         <caption>table caption</caption>
         <colgroup>
         <col span={7} />
@@ -358,7 +358,7 @@ function nomal() {
         </thead>
         <tbody>
         <tr>
-            <td></td>
+            <td>-</td>
             <td></td>
             <td></td>
             <td></td>
@@ -371,7 +371,7 @@ function nomal() {
     </div>
     <div className='content-section'>
     <h3>세부작업 절차</h3>
-    <table className='table result align-left'>
+    <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
         <col style={{ width: '15%' }} />
@@ -458,7 +458,7 @@ function nomal() {
      {selectedOption === 'access_no' && (
         <div className='content-section'>
             <h3>작업자 정보</h3>
-            <table className='table result align-left'>
+            <table className='table table-row'>
                 <caption>table caption</caption>
                 <colgroup>
                     <col style={{ width: '15%' }} />
@@ -484,7 +484,7 @@ function nomal() {
                 <h3> 작업자 정보</h3>
                 <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
             </div>
-            <table className='table result align-left'>
+            <table className='table table-row'>
                 <caption>table caption</caption>
                 <colgroup>
                     <col style={{ width: '15%' }} />
@@ -517,7 +517,7 @@ function nomal() {
             <h3>사업자/벤더사 작업 투입 인력</h3>
             <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
         </div>
-        <table className='table result'>
+        <table className='table'>
             <caption>table caption</caption>
             <colgroup>
                 <col style={{ width: '30%' }} />

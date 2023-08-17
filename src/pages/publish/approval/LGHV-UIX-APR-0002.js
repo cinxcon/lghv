@@ -7,7 +7,7 @@ function ApprovalComplete() {
     <>
       <ContentTitle />
       <ApprovalSearch />
-      <ApprovalList toDetail="/approval/ApprovalCompleteDetail" currentStatus="결재완료" />
+      <ApprovalList toDetail="/approval/LGHV-UIX-APR-0002-Detail" currentStatus="결재완료" />
     </>
   )
 }
