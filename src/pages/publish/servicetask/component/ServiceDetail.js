@@ -6,70 +6,77 @@ function ServiceDetail() {
   <>
   <div className='content-section' id='approval-line'>
     <h3>결재</h3>
-      <table className='table mb15'>
-        <caption>table caption</caption>
-        <colgroup>
-          <col span={5} style={{ width: '20%' }} />
-        </colgroup>
-        <thead>
-          <tr>
-            <th scope='col'>구분</th>
-            <th scope='col'>결재자</th>
-            <th scope='col'>상태</th>
-            <th scope='col'>결재일시</th>
-            <th scope='col'>의견</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>기안</td>
-            <td>홍길동(009900)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>조정</td>
-            <td>정유리(123567)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>결재</td>
-            <td>김철수(123456)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='content-row-wrap'>
+        <table className='table mb15'>
+          <caption>table caption</caption>
+          <colgroup>
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '20%' }} />
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '25%' }} />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope='col'>구분</th>
+              <th scope='col'>결재자</th>
+              <th scope='col'>상태</th>
+              <th scope='col'>결재일시</th>
+              <th scope='col'>의견</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>기안</td>
+              <td>홍길동(009900)</td>
+              <td>기안</td>
+              <td>2023-01-01 11:00:00</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>조정</td>
+              <td>정유리(123567)</td>
+              <td><span className="color-success">승인</span></td>
+              <td>2023-01-01 12:00:00</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>결재</td>
+              <td>김철수(123456)</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <table className='table table-row'>
+          <caption>table caption</caption>
+          <colgroup>
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '90%' }} />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope='row'>합의</th>
+              <td>김영희(666666)</td>
+            </tr>
+            <tr>
+              <th scope='row'>수신</th>
+              <td>김순자(111111)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div className='content-section'>
+    <h3>작업개요</h3>
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
           <col style={{ width: '10%' }} />
-          <col style={{ width: '90%' }} />
-        </colgroup>
-        <tbody>
-          <tr>
-            <th scope='row'>합의</th>
-            <td>김영희(666666)</td>
-          </tr>
-          <tr>
-            <th scope='row'>수신</th>
-            <td>김순자(111111)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div className='content-section'>
-      <table className='table table-row'>
-        <caption>table caption</caption>
-        <colgroup>
-          <col style={{ width: '20%' }} />
-          <col style={{ width: '30%' }} />
-          <col style={{ width: '20%' }} />
-          <col style={{ width: '30%' }} />
+          <col style={{ width: '40%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -104,25 +111,25 @@ function ServiceDetail() {
                 <input type="checkbox" name="service" id="ser_4" value="" disabled />
                 <label htmlFor="ser_4">ATV</label>
                 <input type="checkbox" name="service" id="ser_5" value="" disabled />
-                <label htmlFor="ser_5" className='color-success'>VOD</label>
+                <label htmlFor="ser_5" className='color-info'>VOD</label>
                 <input type="checkbox" name="service" id="ser_6" value="" disabled />
-                <label htmlFor="ser_6" className='color-success'>ESS</label>
+                <label htmlFor="ser_6" className='color-info'>ESS</label>
                 <input type="checkbox" name="service" id="ser_7" value="" disabled />
-                <label htmlFor="ser_7" className='color-success'>클라우드</label>
+                <label htmlFor="ser_7" className='color-info'>클라우드</label>
                 <input type="checkbox" name="service" id="ser_8" value="" disabled />
-                <label htmlFor="ser_8" className='color-success'>전송망</label>
+                <label htmlFor="ser_8" className='color-info'>전송망</label>
                 <input type="checkbox" name="service" id="ser_9" value="" disabled />
-                <label htmlFor="ser_9" className='color-success'>국간망</label>
+                <label htmlFor="ser_9" className='color-info'>국간망</label>
                 <input type="checkbox" name="service" id="ser_10" value="" disabled />
-                <label htmlFor="ser_10" className='color-success'>기간망</label>
+                <label htmlFor="ser_10" className='color-info'>기간망</label>
                 <input type="checkbox" name="service" id="ser_11" value="" disabled />
-                <label htmlFor="ser_11" className='color-success'>기반</label>
+                <label htmlFor="ser_11" className='color-info'>기반</label>
                 <input type="checkbox" name="service" id="ser_12" value="" disabled />
-                <label htmlFor="ser_12" className='color-success'>기타</label>
+                <label htmlFor="ser_12" className='color-info'>기타</label>
                 <input type="checkbox" name="service" id="ser_13" value="" disabled />
-                <label htmlFor="ser_13" className='color-success'>전체</label>
+                <label htmlFor="ser_13" className='color-info'>전체</label>
               </fieldset>
-              <p className='notice color-success'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
+              <p className='notice color-info'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -159,7 +166,7 @@ function ServiceDetail() {
           <tr>
             <th scope='row'>파일첨부</th>
             <td colSpan={3}>
-              작업 등록건에 대하여.pdf
+              <span className='ico_attach'>작업 등록건에 대하여.pdf</span>
             </td>
           </tr>
         </tbody>
@@ -183,7 +190,7 @@ function ServiceDetail() {
             <th scope='col' className='color-primary'>DTV</th>
             <th scope='col' className='color-primary'>NET</th>
             <th scope='col' className='color-primary'>VOIP</th>
-            <th scope='col' className='color-primary'>ATV</th>
+            <th scope='col' className='color-primary bd-right'>ATV</th>
           </tr>
         </thead>
         <tbody>
@@ -204,10 +211,10 @@ function ServiceDetail() {
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
-          <col style={{ width: '15%' }} />
-          <col style={{ width: '35%' }} />
-          <col style={{ width: '15%' }} />
-          <col style={{ width: '35%' }} />
+          <col style={{ width: '10%' }} />
+          <col style={{ width: '40%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -246,8 +253,8 @@ function ServiceDetail() {
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
-          <col style={{ width: '25%' }} />
-          <col style={{ width: '75%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -268,7 +275,7 @@ function ServiceDetail() {
       <h3>작업자 정보 (접근제어)</h3>
       <div> 총 4개</div>
       <div className='over-flow-x'>
-        <table className="table" style={{ width: '200%' }}>
+        <table className="table" style={{ width: '170%' }}>
           <caption>table caption</caption>
           <colgroup>
             <col span={4} />
@@ -396,8 +403,8 @@ function ServiceDetail() {
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
-          <col style={{ width: '25%' }} />
-          <col style={{ width: '75%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -414,10 +421,10 @@ function ServiceDetail() {
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
-          <col style={{ width: '15%' }} />
-          <col style={{ width: '35%' }} />
-          <col style={{ width: '15%' }} />
-          <col style={{ width: '35%' }} />
+          <col style={{ width: '10%' }} />
+          <col style={{ width: '40%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>
@@ -456,8 +463,8 @@ function ServiceDetail() {
       <table className='table table-row'>
         <caption>table caption</caption>
         <colgroup>
-          <col style={{ width: '25%' }} />
-          <col style={{ width: '75%' }} />
+          <col style={{ width: '10%' }} />
+          <col />
         </colgroup>
         <tbody>
           <tr>

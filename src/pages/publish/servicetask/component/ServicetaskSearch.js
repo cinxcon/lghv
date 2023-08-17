@@ -93,7 +93,7 @@ function ServicetaskSearch() {
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
                     <span className='input input_org' style={{ width: '88%' }}>{selectedItem}</span>
-                    <button className='btn btn-black' onClick={() => { setOnLoad(true) }}>조회</button>
+                    <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
                       <Popup open={onLoad} close={() => { setOnLoad(false) }} header="등록 부서" type={'sm'}>
                           <PopupDepartment onItemSelected={handleItemSelected} />
                       </Popup>
@@ -170,8 +170,8 @@ function ServicetaskSearch() {
             </tbody>
           </table>
           <div className='btn-wrap right'>
-              <button className='btn btn-low btn-ref'>검색</button>
-              <button className='btn btn-black btn-search-txt ml15'>검색</button>
+              <button className='btn btn-low btn-ref'>초기화</button>
+              <button className='btn btn-black btn-search-txt'>검색</button>
           </div>
         </div>
       </div>

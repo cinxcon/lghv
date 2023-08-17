@@ -180,13 +180,13 @@ function nomal() {
             <td>홍길동</td>
             <th scope='row'>검토자</th>
             <td>
-                <div className='flex-wrap between'>
-                    <span className='input input_org'>{selectedItem}</span>
-                    <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
-                    <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
-                        <PopupReviewer onItemSelected={handleItemSelected} />
-                    </Popup>
-                </div>
+                <span className='input-btn-wrap'>
+                    <span className='input input_org input-search-front'>{selectedItem}</span>
+                    <button className='btn btn-search' onClick={() => { setReviwer(true) }}>선택</button>
+                </span>
+                <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
+                    <PopupReviewer onItemSelected={handleItemSelected} />
+                </Popup>
             </td>
         </tr>
         <tr>
@@ -203,25 +203,25 @@ function nomal() {
                     <input type="checkbox" name="service" id="ser_3" value="" />
                     <label htmlFor="ser_3">ATV</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>VOD</label>
+                    <label htmlFor="ser_3" className='color-info'>VOD</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>ESS</label>
+                    <label htmlFor="ser_3" className='color-info'>ESS</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>클라우드</label>
+                    <label htmlFor="ser_3" className='color-info'>클라우드</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>전송망</label>
+                    <label htmlFor="ser_3" className='color-info'>전송망</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>국간망</label>
+                    <label htmlFor="ser_3" className='color-info'>국간망</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기간망</label>
+                    <label htmlFor="ser_3" className='color-info'>기간망</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기반</label>
+                    <label htmlFor="ser_3" className='color-info'>기반</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>기타</label>
+                    <label htmlFor="ser_3" className='color-info'>기타</label>
                     <input type="checkbox" name="service" id="ser_3" value="" />
-                    <label htmlFor="ser_3" className='color-success'>전체</label>
+                    <label htmlFor="ser_3" className='color-info'>전체</label>
                 </fieldset>
-                <p className='notice color-success'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
+                <p className='notice color-info'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
             </td>
         </tr>
         <tr>
@@ -272,7 +272,7 @@ function nomal() {
             <td colSpan={3}>
                 <div className='work-content'>
                     <div className='btn-wrap'>
-                        <button type='button' className='btn btn-pop btn-low' onClick={() => { setTemplate(true) }}>탬플릿 추가</button>
+                        <button type='button' className='btn btn-pop btn-md' onClick={() => { setTemplate(true) }}>탬플릿 불러오기</button>
                         <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
                             <PopupTemplate onItemSelected={handleTemplateSelected} />
                         </Popup>
@@ -306,13 +306,13 @@ function nomal() {
                 <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
                 <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
-                      <span className="input-addon ml10">
+                      <span className="input-addon">
                           <label htmlFor="File" className="btn">찾아보기</label>
                       </span>
-                      <span className="input-addon ml10">
+                      <span className="input-addon">
                           <button className="btn btn-low">추가</button>
                       </span>
-                      <span className="input-addon ml10">
+                      <span className="input-addon">
                           <button className="btn btn-low">삭제</button>
                       </span>
                 </div>
@@ -328,46 +328,44 @@ function nomal() {
     </table>
     </div>
     <div className='content-section'>
-    <div className='flex-wrap between mb15'>
         <h3>작업 대상 지역 및 장애범위</h3>
-        <div className="btn-wrap">
-        <button type='button' className='btn btn-pop btn-low' onClick={() => { setCell(true) }}>CELL 등록</button>
-        <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
-            <PopupCell onItemSelected={handleCellSelected} />
-        </Popup>
+        <div className="btn-wrap right">
+            <button type='button' className='btn btn-pop btn-md' onClick={() => { setCell(true) }}>CELL 등록</button>
+            <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
+                <PopupCell onItemSelected={handleCellSelected} />
+            </Popup>
         </div>
-    </div>
-    <table className='table'>
-        <caption>table caption</caption>
-        <colgroup>
-        <col span={7} />
-        </colgroup>
-        <thead>
-        <tr>
-            <th scope='col' rowSpan={2}>SO</th>
-            <th scope='col' rowSpan={2}>CELL / 기기 / 광</th>
-            <th scope='col' colSpan={4}>가입서비스</th>
-            <th scope='col' rowSpan={2}>가입자</th>
-        </tr>
-        <tr>
-            <th scope='col' className='color-primary'>DTV</th>
-            <th scope='col' className='color-primary'>NET</th>
-            <th scope='col' className='color-primary'>VOIP</th>
-            <th scope='col' className='color-primary'>ATV</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>-</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+        <table className='table mt8'>
+            <caption>table caption</caption>
+            <colgroup>
+            <col span={7} />
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope='col' rowSpan={2}>SO</th>
+                <th scope='col' rowSpan={2}>CELL / 기기 / 광</th>
+                <th scope='col' colSpan={4}>가입서비스</th>
+                <th scope='col' rowSpan={2}>가입자</th>
+            </tr>
+            <tr>
+                <th scope='col' className='color-primary'>DTV</th>
+                <th scope='col' className='color-primary'>NET</th>
+                <th scope='col' className='color-primary'>VOIP</th>
+                <th scope='col' className='color-primary'>ATV</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>-</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div className='content-section'>
     <h3>세부작업 절차</h3>
@@ -435,7 +433,7 @@ function nomal() {
                     <label htmlFor="momentary_disconnection">순단</label>
                     <input type="radio" name="disconnected-state" id="discontinued" value="" />
                     <label htmlFor="discontinued">중단</label>
-                    ( <input type='text' name='uninterrupted_time' id='uninterrupted_time' className='sm' /> 분 )
+                    ( <input type='text' name='uninterrupted_time' id='uninterrupted_time' style={{ width: '40px', height: '22px' }} /> 분 )
                 </fieldset>
             </td>
         </tr>
@@ -448,8 +446,10 @@ function nomal() {
         <tr>
             <th scope='row'>작업세부</th>
             <td colSpan={3}>
-                <input type='text' name='work-detail' id='work_detail' style={{ width: '97%' }} />
-                <button type='button' className='btn btn-black btn-search ml10'>검색</button>
+                <span className='input-btn-wrap'>
+                    <input type='text' name='work-detail' id='work_detail' className='input-search-front' />
+                    <button type='button' className='btn btn-search'>검색</button>
+                </span>
             </td>
         </tr>
         </tbody>
@@ -468,9 +468,11 @@ function nomal() {
                 <tr>
                     <th scope='col'>작업자</th>
                     <td>
-                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
-                        <button type='button' className='btn ml15'>+</button>
-                        <button type='button' className='btn ml15'>-</button>
+                        <span className='input-btn-wrap'>
+                            <input type='text' name='field_worker' id='field_worker' />
+                            <button type='button' className='btn'>+</button>
+                            <button type='button' className='btn'>-</button>
+                        </span>
                     </td>
                 </tr>
                 </tbody>
@@ -480,11 +482,9 @@ function nomal() {
 
     {selectedOption === 'access_yes' && (
         <div className='content-section'>
-            <div className='flex-wrap between mb15'>
-                <h3> 작업자 정보</h3>
-                <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
-            </div>
-            <table className='table table-row'>
+            <h3> 작업자 정보</h3>
+            <div className="btn-wrap right"><button type="button" className="btn btn-md btn-low btn-add" onClick={workerAddRow}>추가</button></div>
+            <table className='table table-row mt8'>
                 <caption>table caption</caption>
                 <colgroup>
                     <col style={{ width: '15%' }} />
@@ -494,17 +494,21 @@ function nomal() {
                 <tr>
                     <th scope='col'>작업자</th>
                     <td>
-                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
-                        <button type='button' className='btn ml15'>+</button>
-                        <button type='button' className='btn ml15'>-</button>
+                        <span className='input-btn-wrap'>
+                            <input type='text' name='field_worker' id='field_worker' />
+                            <button type='button' className='btn'>+</button>
+                            <button type='button' className='btn'>-</button>
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <th scope='col'></th>
                     <td>
-                        <input type='text' name='field_worker' id='field_worker' style={{ width: '88%' }} />
-                        <button type='button' className='btn ml15'>+</button>
-                        <button type='button' className='btn ml15'>-</button>
+                        <span className='input-btn-wrap'>
+                            <input type='text' name='field_worker' id='field_worker' />
+                            <button type='button' className='btn'>+</button>
+                            <button type='button' className='btn'>-</button>
+                        </span>
                     </td>
                 </tr>
                 </tbody>
@@ -513,11 +517,9 @@ function nomal() {
     )}
 
     <div className='content-section'>
-        <div className='flex-wrap between mb15'>
-            <h3>사업자/벤더사 작업 투입 인력</h3>
-            <div className="btn-wrap"><button type="button" className="btn btn-low" onClick={workerAddRow}>추가</button></div>
-        </div>
-        <table className='table'>
+        <h3>사업자/벤더사 작업 투입 인력</h3>
+        <div className="btn-wrap right"><button type="button" className="btn btn-low btn-md btn-add" onClick={workerAddRow}>추가</button></div>
+        <table className='table mt8'>
             <caption>table caption</caption>
             <colgroup>
                 <col style={{ width: '30%' }} />

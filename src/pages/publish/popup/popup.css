@@ -9,7 +9,7 @@
 .modal > section.popup-wrap.xlg { width: 1196px; }
 .modal > section.popup-wrap .header { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #000000; }
 .modal > section.popup-wrap h3 { margin: 0; font-size: 20px; font-weight: 500; height: 30px; line-height: 1.5; }
-.modal > section.popup-wrap .btn-close { width: 32px; height: 32px; background: url('../../../assets/images/common/ico_close.png') no-repeat 0 0; font-size: 0; cursor: pointer; }
+.modal > section.popup-wrap .btn-close { width: 32px; height: 32px; background: url('../../../assets/images/common/ic_close.png') no-repeat 0 0; font-size: 0; cursor: pointer; }
 .modal > section.popup-wrap .footer { text-align: center; }
 .modal > section.popup-wrap .main textarea { height: 100px; }
 
@@ -24,11 +24,11 @@
 .tree-item .selected * { margin-right: 5px; }
 .tree-item { position: relative; }
 .tree-item > .tree-content { display: flex; align-items: center; padding-bottom: 5px; position: relative; }
-.tree-item > .tree-content button { position: relative; margin-right: 10px; padding: 0; width: 13px; height: 13px; background: url('../../../assets/images/common/btn_plus.png') 0 0 no-repeat; z-index: 1; }
-.tree-item > .tree-content button.open { background: url('../../../assets/images/common/btn_minus.png') 0 0 no-repeat; }
-.tree-item > .tree-content .item-name { padding-left: 24px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/_ic_folder_16.png') 0 2px no-repeat; z-index: 1; }
+.tree-item > .tree-content button { position: relative; margin-right: 10px; padding: 0; width: 13px; height: 13px; background: url('../../../assets/images/common/btn_plus_13.png') 0 0 no-repeat; z-index: 1; }
+.tree-item > .tree-content button.open { background: url('../../../assets/images/common/btn_minus_13.png') 0 0 no-repeat; }
+.tree-item > .tree-content .item-name { padding-left: 24px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/ic_folder_16.png') 0 2px no-repeat; z-index: 1; }
 .tree-item > .tree-content .item-name.active, .tree-item > .tree-content .item-name:hover { color: #ED174D; }
-.tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic__file_16.png') 3px 2px no-repeat; }
+.tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') 3px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
 .tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -15px; top: 10px; width: 20px; height: 1px; background-color: #dbdbdb; }

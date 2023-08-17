@@ -6,61 +6,67 @@ function ApprovalDetailContent() {
     <>
       <div className='content-section'>
         <h3>결재</h3>
-        <table className='table mb15'>
-          <caption>table caption</caption>
-          <colgroup>
-            <col span={5} style={{ width: '20%' }} />
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope='col'>구분</th>
-              <th scope='col'>결재자</th>
-              <th scope='col'>상태</th>
-              <th scope='col'>결재일시</th>
-              <th scope='col'>의견</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>기안</td>
-              <td>홍길동(009900)</td>
-              <td>기안</td>
-              <td>2023-01-01 11:00:00</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>조정</td>
-              <td>정유리(123567)</td>
-              <td>대기</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>결재</td>
-              <td>김철수(123456)</td>
-              <td>대기</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <table className='table table-row'>
-          <caption>table caption</caption>
-          <colgroup>
-            <col style={{ width: '10%' }} />
-            <col style={{ width: '90%' }} />
-          </colgroup>
-          <tbody>
-            <tr>
-              <th scope='row'>합의</th>
-              <td>김영희(666666)</td>
-            </tr>
-            <tr>
-              <th scope='row'>수신</th>
-              <td>김순자(111111)</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className='content-row-wrap'>
+          <table className='table mb15'>
+            <caption>table caption</caption>
+            <colgroup>
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '20%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '25%' }} />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope='col'>구분</th>
+                <th scope='col'>결재자</th>
+                <th scope='col'>상태</th>
+                <th scope='col'>결재일시</th>
+                <th scope='col'>의견</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>기안</td>
+                <td>홍길동(009900)</td>
+                <td>기안</td>
+                <td>2023-01-01 11:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>조정</td>
+                <td>정유리(123567)</td>
+                <td><span className='color-ongoing'>대기</span></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>결재</td>
+                <td>김철수(123456)</td>
+                <td><span className="color-success">승인</span></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-row'>
+            <caption>table caption</caption>
+            <colgroup>
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '90%' }} />
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope='row'>합의</th>
+                <td>김영희(666666)</td>
+              </tr>
+              <tr>
+                <th scope='row'>수신</th>
+                <td>김순자(111111)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div className='content-section'>
         <h3>작업개요</h3>
