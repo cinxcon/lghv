@@ -28,6 +28,9 @@ import ServicetaskRegistUr from './pages/publish/servicetask/LGHV-UIX-WRK-0002';
 import ServicetaskAll from './pages/publish/servicetask/LGHV-UIX-WRK-0003';
 import ServicetaskDetail from './pages/publish/servicetask/LGHV-UIX-WRK-0004';
 
+import ApprovalTest from './pages/publish/approval/_Approval';
+import ApprovalDetailTest from './pages/publish/approval/_ApprovalDetail';
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -56,6 +59,9 @@ const AppRouter = () => {
       <Route path="/approval/LGHV-UIX-APR-0004-Detail" element={<ApprovalReturnDetail />} />
       <Route path="/approval/LGHV-UIX-APR-0005" element={<ApprovalTempStorage />} />
       <Route path="/approval/LGHV-UIX-APR-0005-Detail" element={<ApprovalTempStorageDetail />} />
+
+      <Route path="/approval/ApprovalDetailTest" element={<ApprovalDetailTest />} />
+      <Route path="/approval/ApprovalTest" element={<ApprovalTest />} />
     </Routes>
   );
 };

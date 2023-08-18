@@ -34,7 +34,7 @@ function ServicetaskRegist() {
         <Alert open={clear} close={() => { setClear(false) }}>
           <div>저장된 내용이 사라집니다. <br /> 새로 작성 하시겠습니까?</div>
         </Alert>
-        <h4>작업 개요 <span className='color-primary'>(*) 검토자 : 권역별 작업담당자 선택</span></h4>
+        <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
         <RegistUrgent />
         </div>
     </>
