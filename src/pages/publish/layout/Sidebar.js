@@ -22,7 +22,7 @@ const Sidebar = () => {
     },
     {
       title: '결재관리',
-      subMenus: [{ title: '결재대기함', path: '/approval/LGHV-UIX-APR-0001' }, { title: '결재완료함', path: '/approval/LGHV-UIX-APR-0002' }, { title: '공람문서함', path: '/approval/LGHV-UIX-APR-0003' }, { title: '반려함', path: '/approval/LGHV-UIX-APR-0004' }, { title: '임시보관함', path: '/approval/LGHV-UIX-APR-0005' }]
+      subMenus: [{ title: '결재대기함', path: '/approval/LGHV-UIX-APR-0001' }, { title: '결재완료함', path: '/approval/LGHV-UIX-APR-0002' }, { title: '공람문서함', path: '/approval/LGHV-UIX-APR-0003' }, { title: '반려함', path: '/approval/LGHV-UIX-APR-0004' }, { title: '임시보관함', path: '/approval/LGHV-UIX-APR-0005' }, { title: '버튼모음', path: '/approval/ApprovalTest' }]
     },
     {
       title: '통계',

@@ -23,10 +23,10 @@ function ServicetaskDetail() {
       <ContentTitle />
       <div className='content-section'>
         <div className="detail-top-btn-group">
-          <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
-          <button className='btn' onClick={() => { setHistory(true) }}>처리내역</button>
-          <button className='btn' onClick={() => { setPrint(true) }}>화면인쇄</button>
-          <button className='btn btn-low' onClick={() => { navigate(-1) }}>목록</button>
+          <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
+          <button className='btn btn-pop' onClick={() => { setHistory(true) }}>처리내역</button>
+          <button className='btn btn-print' onClick={() => { setPrint(true) }}>화면인쇄</button>
+          <button className='btn btn-list' onClick={() => { navigate(-1) }}>목록</button>
         </div>
         <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethodWRK />
@@ -40,16 +40,16 @@ function ServicetaskDetail() {
         </div>
         <ServiceDetail />
         <div className='detail-bottom-btn-group'>
-          <p className='mb15'>
-            <button className='btn btn-lg btn-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
-            <button className='btn btn-lg btn-low' onClick={() => { setWorkCancel(true) }}>작업취소</button>
-            <button className='btn btn-lg ' onClick={() => { setWorkExtend(true) }}>작업연장</button>
+          <div>
+            <button className='btn btn-lg bnt-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
+            <button className='btn btn-lg bnt-low' onClick={() => { setWorkCancel(true) }}>작업취소</button>
+            <button className='btn btn-lg' onClick={() => { setWorkExtend(true) }}>작업연장</button>
             <button className='btn btn-lg btn-primary' onClick={() => { setWorkFin(true) }}>작업완료</button>
-          </p>
-          <p>
+          </div>
+          <div className='mt6'>
             <button className='btn btn-lg btn-low' onClick={() => { setRefuse(true) }}>반려</button>
             <button className='btn btn-lg btn-primary' onClick={() => { setApprove(true) }}>승인</button>
-          </p>
+          </div>
         </div>
         <Popup open={workStop} close={() => { setWorkStop(false) }} header="[작업중단] 의견" footer={ <PopupButtons close={() => { setWorkStop(false) }} /> }>
           <textarea></textarea>

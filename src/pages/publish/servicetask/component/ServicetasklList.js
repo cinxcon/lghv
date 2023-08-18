@@ -22,7 +22,7 @@ export default function ServicetasklList() {
       <div className="result-pageview">
         <ResultPageView />
         <div className='btn-wrap'>
-          <button type="button" className='btn btn-low exel'>엑셀</button>
+          <button type="button" className='btn btn-md btn-low btn-exel'>엑셀</button>
         </div>
       </div>
       {/* 목록 영역 */}

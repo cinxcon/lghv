@@ -542,8 +542,8 @@ function NomalWork() {
                 <tr>
                     <th scope='row'>작업세부</th>
                     <td colSpan={3}>
-                        <span className='input input_org' style={{ width: '97%' }}>{selectedWorkDeteail}</span>
-                        <button className='btn btn-black btn-search btn-square ml10' onClick={() => { setWorkDeteail(true) }}>선택</button>
+                       <span className='input input_org'>{selectedWorker}</span>
+                       <button className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
                         <Popup open={workDeteail} close={() => { setWorkDeteail(false) }} header="작업세부" type={'sm'}>
                             <PopupWorkDeteail onItemSelected={handleWorkDeteailSelected} />
                         </Popup>
@@ -577,22 +577,24 @@ function NomalWork() {
                             <dl className='flex-wrap'>
                             <dt scope='col'>작업자</dt>
                                 <dd>
-                                    <span className='input input_org' style={{ width: '94.5%' }}>{selectedWorker}</span>
-                                    <button type='button' className='btn btn-square ml10' onClick={() => { setWorker(true) }}>+</button>
+                                    <span className='input-btn-wrap'>
+                                        <span className='input input_org'>{selectedWorker}</span>
+                                        <button type='button' className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
+                                        <button type='button' className='btn-minus-28'>빼기</button>
+                                    </span>
                                     <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
                                         <PopupWorker onItemSelected={handleWorkerSelected} />
                                     </Popup>
-                                    <button type='button' className='btn btn-square ml10'>-</button>
                                 </dd>
                             </dl>
                             {selectedOption === 'access_yes' && (
                             <dl className='flex-wrap'>
                                 <dt scope='col'>장비정보</dt>
                                 <dd>
-                                    <span className='input input_org' style={{ width: '88%' }}>
-                                        {selectedDevice.join(', ')}
+                                    <span className='input-btn-wrap'>
+                                        <span className='input input_org input-search-front'>{selectedDevice.join(', ')}</span>
+                                        <button className='btn btn-search' onClick={() => { setDevice(true) }}>선택</button>
                                     </span>
-                                    <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
                                     <Popup open={device} close={() => { setDevice(false) }} header="장비정보 불러오기" type={'lg'}>
                                         <PopupDivice onItemSelected={handleDeviceSelected} />
                                     </Popup>
@@ -607,18 +609,18 @@ function NomalWork() {
                                 <dt scope='col'>작업자</dt>
                                     <dd>
                                         <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
-                                        <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
-                                        <button type='button' className='btn ml15'>-</button>
+                                        <button type='button' className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
+                                        <button type='button' className='btn-minus-28'>빼기</button>
                                     </dd>
                                 </dl>
                                 <dl className='flex-wrap'>
                                     <dt scope='col'>장비정보</dt>
                                     <dd>
-                                        <span className='input input_org' style={{ width: '88%' }}>
+                                        <span className='input input_org' style={{ width: '97%' }}>
                                             {selectedDevice.join(', ')}
                                         </span>
-                                        <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
-                                        <button type='button' name='worker-delete' id='worker_delete' className='btn ml10' onClick={diviceRemoveRow}>삭제</button>
+                                        <button className='btn btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
+                                        <button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={diviceRemoveRow}>삭제</button>
                                     </dd>
                                 </dl>
                             </td>
@@ -629,7 +631,7 @@ function NomalWork() {
         </div>
     </div>
     <div className='content-section'>
-         <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
+        <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
              <h3>사업자/벤더사 작업 투입 인력</h3>
                 <div className="btn-wrap">
                     <button className={`btn-fold ${divStates[5] ? 'close' : ''}`} onClick={() => handleDivToggle(5)} id='fold-open'>검색영역 열기</button>

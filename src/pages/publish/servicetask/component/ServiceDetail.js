@@ -282,7 +282,7 @@ function ServiceDetail() {
       </div>
     </div>
     <div className='content-section'>
-        <div className={`flex-wrap between ${divStates[4] ? 'under-line' : ''}`}>
+      <div className={`flex-wrap between ${divStates[4] ? 'under-line' : ''}`}>
           <h3>작업자 정보 (비접근제어)</h3>
               <div className="btn-wrap">
                   <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>검색영역 열기</button>
