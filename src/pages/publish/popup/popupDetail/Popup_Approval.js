@@ -71,6 +71,8 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const [selectedTree, setSelectedTree] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
+  const [approvalType, setApprovalType] = useState('기안');
+  const [selectedType, setSelectedType] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [trActive, setTrActive] = useState('');
   const [onSave, setOnSave] = useState(false);
@@ -78,11 +80,13 @@ const ApprovalLine = ({ onItemSelected }) => {
   const handleItemSelected = (item) => {
     setSelectedTree(item.deptId);
   };
-  const listItemSelect = (item) => {
+
+  const listItemSelect = (item, index) => {
     const newRow = { id: item.id, title: item.title, name: item.name };
     const activeListItem = document.getElementById(item.id);
-    console.log(activeListItem);
     activeListItem.classList.add('active');
+    selectedType[index] = approvalType
+    setSelectedType([...selectedType]);
     if (!isDuplicate(newRow)) {
       setTableData([...tableData, newRow]);
     }
@@ -109,6 +113,9 @@ const ApprovalLine = ({ onItemSelected }) => {
     setTrActive(rowIndex);
     setSelectedName(name); // 선택된 항목의 이름을 부모 컴포넌트로 전달
   };
+  const handleOptionChange = (event) => {
+    setApprovalType(event.target.value);
+  };
 
   const handleConfirmClick = () => {
     if (selectedName === null) {
@@ -124,8 +131,8 @@ const ApprovalLine = ({ onItemSelected }) => {
   const getMenuItems = () => {
     if (selectedTree === null) return null;
 
-    return listData[selectedTree].map((item) => (
-      <li key={item.id} id={item.id} onClick={() => listItemSelect(item)} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
+    return listData[selectedTree].map((item, index) => (
+      <li key={item.id} id={item.id} onClick={() => listItemSelect(item, index)} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
     ));
   };
 
@@ -135,34 +142,28 @@ const ApprovalLine = ({ onItemSelected }) => {
         <div className='line-select'>
           <fieldset>
               <legend>결제선 지정</legend>
-              <input type="radio" name="approval-type" id="draft" value="" defaultChecked={true} />
+              <input type="radio" name="approval-type" id="draft" value="기안" checked={approvalType === '기안'} onChange={handleOptionChange} />
               <label htmlFor="draft">기안</label>
-              <input type="radio" name="approval-type" id="examine" value="" />
+              <input type="radio" name="approval-type" id="examine" value="검토" checked={approvalType === '검토'} onChange={handleOptionChange}/>
               <label htmlFor="examine">검토</label>
-              <input type="radio" name="approval-type" id="adjustment" value="" />
+              <input type="radio" name="approval-type" id="adjustment" value="조정" checked={approvalType === '조정'} onChange={handleOptionChange} />
               <label htmlFor="adjustment">조정</label>
-              <input type="radio" name="approval-type" id="agreement" value="" />
+              <input type="radio" name="approval-type" id="agreement" value="합의" checked={approvalType === '합의'} onChange={handleOptionChange} />
               <label htmlFor="agreement">합의</label>
-              <input type="radio" name="approval-type" id="approval" value="" />
+              <input type="radio" name="approval-type" id="approval" value="결제" checked={approvalType === '결제'} onChange={handleOptionChange}/>
               <label htmlFor="approval">결제</label>
-              <input type="radio" name="approval-type" id="reception" value="" />
+              <input type="radio" name="approval-type" id="reception" value="수신" checked={approvalType === '수신'} onChange={handleOptionChange} />
               <label htmlFor="reception">수신</label>
           </fieldset>
         </div>
         <div className='search-box'>
           <label htmlFor="name_search">이름</label>
-          <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: 'auto' }} />
+          <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: '75%' }} />
           <button type='button' className='btn btn-black ml10'>검색</button>
         </div>
-        <div className='btn-box'>
-            <button onClick={() => { setOnSave(true) }} className='btn'>결제선 저장</button>
-              <Popup open={onSave} close={() => { setOnSave(false) }} header="결제선 저장" type={'sm'}>
-                  <PopupSave onItemSelected={approvalLineSave} />
-              </Popup>
-            <button onClick={handleConfirmClick} className='btn ml10'>확인</button>
-        </div>
     </div>
-    <div className='approval-conts flex-wrap align-start'>
+    <div className="flex-wrap align-start">
+      <div className='approval-conts'>
         <div className='tree-wrap'>
               <div className='tree-conts'>
               {treeData.depts && treeData.depts.map((item) => (
@@ -179,57 +180,69 @@ const ApprovalLine = ({ onItemSelected }) => {
                 {getMenuItems()}
               </ul>
         </div>
-        <div className='selected-item'>
-            <table className="popup-table">
-              <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '25%' }} />
-                <col style={{ width: '25%' }} />
-                <col style={{ width: '20%' }} />
-                <col style={{ width: '20%' }} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">유형</th>
-                  <th scope="col">결제자</th>
-                  <th scope="col">SMS</th>
-                  <th scope="col">E-MAIL</th>
-                </tr>
-              </thead>
-              <tbody>
-              {tableData.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
-                <td>
-                  <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
-                </td>
-                <td>
-                  <input type="checkbox" name={`email${row.id}`} id={`email${row.id}`} />
-                </td>
-              </tr>
-              ))}
-              </tbody>
-            </table>
-            <table className="popup-table">
-              <colgroup>
-                <col span={2}/>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col" colSpan={2}>자주쓰는 결제선</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><button onClick={() => deleteRow()} className='btn btn-delete'>x</button></td>
-                  <td>홍길동 테스트</td>
-                </tr>
-              </tbody>
-            </table>
+      </div>
+      <div className='selected-item'>
+        <div className="right mb15">
+          <button onClick={() => { setOnSave(true) }} className='btn btn-md btn-apv-save'>결제선 저장</button>
+              <Popup open={onSave} close={() => { setOnSave(false) }} header="[결제선 저장] 이름" type={'sm'}>
+                  <PopupSave onItemSelected={approvalLineSave} />
+              </Popup>
         </div>
+        <table className="popup-table bt">
+            <colgroup>
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '25%' }} />
+              <col style={{ width: '25%' }} />
+              <col style={{ width: '20%' }} />
+              <col style={{ width: '20%' }} />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">유형</th>
+                <th scope="col">결제자</th>
+                <th scope="col">SMS</th>
+                <th scope="col">E-MAIL</th>
+              </tr>
+            </thead>
+            <tbody>
+            {tableData.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              <td><button onClick={() => deleteRow(row.id)} className='btn-del-28'>삭제</button></td>
+              <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{selectedType[rowIndex]}</td>
+              <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
+              <td>
+                <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
+                <label htmlFor={`sms${row.id}`}></label>
+              </td>
+              <td>
+                <input type="checkbox" name={`email${row.id}`} id={`email${row.id}`} />
+                <label htmlFor={`email${row.id}`} ></label>
+              </td>
+            </tr>
+            ))}
+            </tbody>
+        </table>
+        <table className="popup-table bt">
+            <colgroup>
+              <col span={2}/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" colSpan={2}><span className="bookmark">자주쓰는 결제선</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><button onClick={() => deleteRow()} className='btn-del-28'>삭제</button></td>
+                <td>홍길동 테스트</td>
+              </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+      <div className='btn-wrap right'>
+        <button onClick={handleConfirmClick} className='btn btn-lg btn-primary'>확인</button>
       </div>
     </>
   );

@@ -79,8 +79,7 @@ const WorkDeteail = ({ onItemSelected }) => {
 
   return (
     <>
-     <div className='approval-conts'>
-        <div className='pop-search-wrap'>
+      <div className='pop-search-wrap'>
           <label htmlFor='work-type'>선택 :</label>
           <select name='work-type' id='work_type' onChange={handleSelectChange} className='select-item'>
           {data.map((item, index) => (
@@ -89,7 +88,8 @@ const WorkDeteail = ({ onItemSelected }) => {
             </option>
           ))}
         </select>
-        </div>
+      </div>
+      <div className='approval-conts'>
         <div className='tree-conts'>
         <span>{selectedItem.name}</span>
         {treeData.map((item) => (
@@ -99,7 +99,7 @@ const WorkDeteail = ({ onItemSelected }) => {
             onItemSelected={handleItemSelected}
         />
         ))}
-        </div>
+      </div>
     </div>
     </>
   );

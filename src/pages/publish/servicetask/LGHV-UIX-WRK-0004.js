@@ -37,8 +37,8 @@ function ServicetaskDetail() {
         <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
           화면인쇄
         </Popup>
-        </div>
-        <ServiceDetail />
+      </div>
+      <ServiceDetail />
         <div className='detail-bottom-btn-group'>
           <div>
             <button className='btn btn-lg bnt-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
