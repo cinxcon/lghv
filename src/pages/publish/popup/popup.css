@@ -17,8 +17,9 @@
 .modal > section.popup1.orgtree { width: 468px; height: 500px; overflow-y: scroll; }
 .approval-top { margin-bottom: 20px; padding-bottom: 10px; }
 .approval-top .line-select input[type='checkbox'] + label, .line-select input[type='radio'] + label { margin-right: 10px; }
-.approval-conts { height: 400px; min-height: 400px; overflow-y: auto; }
-.tree-wrap { width: 320px; padding: 15px 0 0 16px; overflow: hidden; min-height: inherit;}
+.approval-conts { height: 400px; min-height: 400px; overflow: hidden;}
+.tree-wrap { width: 320px; height: 300px;  padding: 15px 0 0 16px; overflow-y: scroll; min-height: inherit;}
+.tree-wrap .tree-conts {overflow: hidden;}
 .tree-wrap .tree-conts .logo { position: relative; z-index: 1; }
 .tree-item .selected { margin-bottom: 10px; }
 .tree-item .selected * { margin-right: 5px; }
@@ -57,7 +58,8 @@
 
 .pop-search-wrap{ margin-bottom: 40px;}
 .pop-search-wrap .select-item{width: 80%; margin-left: 20px;}
-.modal > section.popup-wrap .table, .modal > section.popup-wrap .search .input-btn-wrap button { font-size: 12px; }
+.modal > section.popup-wrap .table, .modal > section.popup-wrap .search, .modal > section.popup-wrap .search .input-btn-wrap button{ font-size: 12px; }
+.modal > section.popup-wrap .search-wrap{padding: 12px;}
 .modal > section.popup-wrap .search th { padding: 4px 0 4px 12px; }
 .modal > section.popup-wrap .search td { padding: 4px 12px 4px 0; }
 .modal > section.popup-wrap .table.result th, .modal > section.popup-wrap .table.result td { padding: 4px 6px; height: auto; }

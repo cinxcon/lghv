@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
@@ -7,10 +7,15 @@ import ResultListPaging from '../../common/ResultListPaging';
 export default function ServicetasklList() {
   const location = useLocation(); // 추가된 부분
   const pathData = location.state; // 추가된 부분
+  const navigate = useNavigate();
 
   useEffect(() => {
     pathData.isDetail = 'yes';
   }, [pathData]);
+
+  const selectedWork = () => {
+    navigate('/servicetask/LGHV-UIX-WRK-0004', { state: pathData });
+  }
 
   return (
     <div className='content-section'>
@@ -69,46 +74,124 @@ export default function ServicetasklList() {
               <th>중단</th>
               <th>중단시간</th>
               <th>상태</th>
-              <th>결제<br />상태</th>
+              <th>결제 상태</th>
             </tr>
           </thead>
           <tbody>
-            <td>1111</td>
-            <td>강원 인프라</td>
-            <td>인프라팀 전결</td>
-            <td>시스템</td>
-            <td>입회</td>
-            <td>홍길동</td>
-            <td>영서 방송</td>
-            <td><Link to="/servicetask/LGHV-UIX-WRK-0004" state={pathData}>작업 제목 작업 제목작업 제목작업 제목 작업 제목</Link></td>
-            <td>2023-01-01 02:00</td>
-            <td>2023-01-01 03:00</td>
-            <td>1H</td>
-            <td>2023-01-01 10:00</td>
-            <td>2023-01-01 20:00</td>
-            <td>2023-01-01</td>
-            <td>작업내용</td>
-            <td>원인</td>
-            <td>이슈 사항</td>
-            <td>강원인프라</td>
-            <td>강원인프라<br />심재완</td>
-            <td>130</td>
-            <td>100</td>
-            <td>10</td>
-            <td>5</td>
-            <td>5</td>
-            <td>5</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>○</td>
-            <td>3m</td>
-            <td>등록</td>
-            <td>결제<br />완료</td>
+            <tr onClick={selectedWork}>
+              <td>1111</td>
+              <td>강원 인프라</td>
+              <td>인프라팀 전결</td>
+              <td>시스템</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>작업 제목 작업 제목작업 제목작업 제목 작업 제목</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라<br />심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-success'>진행중</span></td>
+              <td><span className='color-success'>결제완료</span></td>
+            </tr>
+            <tr onClick={selectedWork}>
+              <td>1111</td>
+              <td>강원 인프라</td>
+              <td>인프라팀 전결</td>
+              <td>시스템</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>작업 제목 작업 제목작업 제목작업 제목 작업 제목</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라<br />심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-warning'>등록</span></td>
+              <td><span className='color-warning'>결제대기</span></td>
+            </tr>
+            <tr onClick={selectedWork}>
+              <td>1111</td>
+              <td>강원 인프라</td>
+              <td>인프라팀 전결</td>
+              <td>시스템</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>작업 제목 작업 제목작업 제목작업 제목 작업 제목</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라<br />심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-error'>작업취소</span></td>
+              <td><span className='color-error'>결재반려</span></td>
+            </tr>
           </tbody>
         </table>
       </div>

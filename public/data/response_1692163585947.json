@@ -56,9 +56,9 @@
                         "depts": [
                           {
                             "deptName": "컨버전스운용팀_관제",
-                            "deptId": "001301 ",
+                            "deptId": "N000001301 ",
                             "deptKind": 0,
-                            "deptIndex": "001301 ",
+                            "deptIndex": "N000001301 ",
                             "parentId": "N000D00130",
                             "depts": []
                           },

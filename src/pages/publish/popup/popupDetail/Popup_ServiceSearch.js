@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
-import { Popup } from '../../popup/Popup';
-import PopupDepartment from '../../popup/popupDetail/Popup_department';
+import { Popup } from '../Popup';
+import PopupDepartment from '../popupDetail/Popup_department';
 
-function ServicetaskSearch() {
+function PopupServiceSearch() {
   const [startDate, setStartDate] = useState(null);
   const [startEndDate, setStartEndDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -169,7 +169,7 @@ function ServicetaskSearch() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
-                <td colSpan={4}>
+                <td colSpan={9}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -191,8 +191,10 @@ function ServicetaskSearch() {
                     </span>
                    </div>
                 </td>
+                </tr>
+                <tr>
                 <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
-                <td colSpan={4}>
+                <td colSpan={9}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -276,4 +278,4 @@ function ServicetaskSearch() {
   )
 }
 
-export default ServicetaskSearch;
+export default PopupServiceSearch;

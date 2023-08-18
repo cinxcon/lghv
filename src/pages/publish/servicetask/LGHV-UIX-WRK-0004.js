@@ -37,14 +37,19 @@ function ServicetaskDetail() {
         <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
           화면인쇄
         </Popup>
+        </div>
         <ServiceDetail />
         <div className='detail-bottom-btn-group'>
-          <button className='btn' onClick={() => { setWorkStop(true) }}>작업중단</button>
-          <button className='btn' onClick={() => { setWorkCancel(true) }}>작업취소</button>
-          <button className='btn' onClick={() => { setWorkFin(true) }}>작업완료</button>
-          <button className='btn' onClick={() => { setWorkExtend(true) }}>작업연장</button>
-          <button className='btn btn-black' onClick={() => { setRefuse(true) }}>반려</button>
-          <button className='btn btn-primary' onClick={() => { setApprove(true) }}>승인</button>
+          <p className='mb15'>
+            <button className='btn btn-lg btn-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
+            <button className='btn btn-lg btn-low' onClick={() => { setWorkCancel(true) }}>작업취소</button>
+            <button className='btn btn-lg ' onClick={() => { setWorkExtend(true) }}>작업연장</button>
+            <button className='btn btn-lg btn-primary' onClick={() => { setWorkFin(true) }}>작업완료</button>
+          </p>
+          <p>
+            <button className='btn btn-lg btn-low' onClick={() => { setRefuse(true) }}>반려</button>
+            <button className='btn btn-lg btn-primary' onClick={() => { setApprove(true) }}>승인</button>
+          </p>
         </div>
         <Popup open={workStop} close={() => { setWorkStop(false) }} header="[작업중단] 의견" footer={ <PopupButtons close={() => { setWorkStop(false) }} /> }>
           <textarea></textarea>
@@ -72,7 +77,6 @@ function ServicetaskDetail() {
         <Popup open={approve} close={() => { setApprove(false) }} header="[승인] 의견" footer={ <PopupButtons close={() => { setApprove(false) }} /> }>
           <textarea></textarea>
         </Popup>
-      </div>
     </>
   )
 }
