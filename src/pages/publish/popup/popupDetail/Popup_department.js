@@ -36,14 +36,13 @@ const ApprovalDepartment = ({ onItemSelected }) => {
      <div className='approval-conts'>
         <div className='tree-wrap'>
               <div className='tree-conts'>
-              <div className='logo'>엘지 유플러스</div>
-              {treeData.depts && treeData.depts.map((item) => (
-                <TreeItem
-                  key={item.deptId}
-                  item={item}
-                  onItemSelected={handleItemSelected}
-                />
-              ))}
+                {treeData.depts && treeData.depts.map((item) => (
+                  <TreeItem
+                    key={item.deptId}
+                    item={item}
+                    onItemSelected={handleItemSelected}
+                  />
+                ))}
               </div>
         </div>
       </div>
