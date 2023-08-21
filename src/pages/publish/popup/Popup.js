@@ -36,7 +36,7 @@ function Alert(props) {
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className='alert-wrap'><div className="main">{props.children}</div><div className="btn-group"><button className="btn btn-primary">확인</button><button className="btn btn-low" onClick={close}>닫기</button></div></section>)
+          ? (<section className='alert-wrap'><div className="main">{props.children}</div><div className="btn-group"><button className="btn btn-lg btn-primary">확인</button><button className="btn btn-lg btn-low" onClick={close}>닫기</button></div></section>)
           : null
       }
     </div>

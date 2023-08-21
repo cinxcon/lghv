@@ -47,7 +47,6 @@ const LoadTemplate = ({ onItemSelected }) => {
            </tbody>
         </table>
      </div>
-     <div className='approval-conts'>
         <table className="popup-table">
             <caption>템플릿 리스트</caption>
               <colgroup>
@@ -74,7 +73,6 @@ const LoadTemplate = ({ onItemSelected }) => {
               </tr>))}
             </tbody>
         </table>
-    </div>
     </>
   );
 };

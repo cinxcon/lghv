@@ -41,8 +41,6 @@ function ServicetaskRegist() {
         <Alert open={tempsave} close={() => { setTempsave(false) }}>
           <div>임시 저장 합니다.</div>
         </Alert>
-        <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
-        <RegistNomal />
       </div>
       <RegistNomal />
     </>

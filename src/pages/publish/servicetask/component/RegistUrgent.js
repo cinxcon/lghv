@@ -9,7 +9,6 @@ import PopupTemplate from '../../popup/popupDetail/Popup_Template';
 import PopupCell from '../../popup/popupDetail/Popup_Cell';
 import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
 import PopupWorker from '../../popup/popupDetail/Popup_Worker';
-import PopupDivice from '../../popup/popupDetail/Popup_Divice';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
@@ -20,7 +19,6 @@ function UrgentWork() {
   const [cell, setCell] = useState(false);
   const [workDeteail, setWorkDeteail] = useState(false);
   const [worker, setWorker] = useState(false);
-  const [device, setDevice] = useState(false);
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
@@ -38,7 +36,6 @@ function UrgentWork() {
   const [selectedCell, setSelectedCell] = useState('');
   const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
   const [selectedWorker, setSelectedWorker] = useState('');
-  const [selectedDevice, setSelectedDevice] = useState([]);
 
   const handleItemSelected = (item) => {
     setSelectedItem(item);
@@ -60,11 +57,6 @@ function UrgentWork() {
     setWorker(false);
     setSelectedWorker(name);
   }
-  const handleDeviceSelected = (device) => {
-    setDevice(false);
-    setSelectedDevice(device);
-  }
-
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
   };
@@ -100,10 +92,10 @@ function UrgentWork() {
     setDiviceRows([...diviceRows, {}]);
   };
   const diviceRemoveRow = () => {
-    if (diviceRows.length > 0) {
-      const newRows = diviceRows.slice(0, diviceRows.length - 1);
-      setDiviceRows(newRows);
-    }
+    //   if (diviceRows.length > 0) {
+    //     const newRows = diviceRows.slice(0, diviceRows.length - 1);
+    //     setDiviceRows(newRows);
+    //   }
   };
 
   const venderAddRow = () => {
@@ -135,7 +127,7 @@ function UrgentWork() {
         <div className={`flex-wrap between ${divStates[0] ? 'under-line' : ''}`}>
             <h3>결재</h3>
             <div className="btn-wrap">
-                <button className={`btn-fold ${divStates[0] ? 'close' : ''}`} onClick={() => handleDivToggle(0)} id='fold-open'>검색영역 열기</button>
+                <button className={`btn-fold ${divStates[0] ? 'close' : ''}`} onClick={() => handleDivToggle(0)} id='fold-open'>결재 열기</button>
             </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
@@ -207,7 +199,7 @@ function UrgentWork() {
         <div className={`flex-wrap between ${divStates[1] ? 'under-line' : ''}`}>
             <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
             <div className="btn-wrap">
-                <button className={`btn-fold ${divStates[1] ? 'close' : ''}`} onClick={() => handleDivToggle(1)} id='fold-open'>검색영역 열기</button>
+                <button className={`btn-fold ${divStates[1] ? 'close' : ''}`} onClick={() => handleDivToggle(1)} id='fold-open'>작업 개요 열기</button>
             </div>
         </div>
         <div className={`toggle-box ${divStates[1] ? 'hide' : ''} `}>
@@ -263,11 +255,13 @@ function UrgentWork() {
                     <th scope='row'>검토자 <span className='color-primary'>*</span></th>
                     <td>
                         <div className='flex-wrap between'>
-                            <span className='input input_org'>{selectedItem}</span>
-                            <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
-                            <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
-                                <PopupReviewer onItemSelected={handleItemSelected} />
-                            </Popup>
+                            <span className='input-btn-wrap'>
+                                <span className='input input_org input-search-front'>{selectedItem}</span>
+                                <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
+                                <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
+                                    <PopupReviewer onItemSelected={handleItemSelected} />
+                                </Popup>
+                            </span>
                         </div>
                     </td>
                 </tr>
@@ -354,7 +348,7 @@ function UrgentWork() {
                     <td colSpan={3}>
                         <div className='work-content'>
                             <div className='btn-wrap'>
-                                <button type='button' className='btn btn-pop' onClick={() => { setTemplate(true) }}>템플릿 불러오기</button>
+                                <button type='button' className='btn btn-md btn-pop' onClick={() => { setTemplate(true) }}>템플릿 불러오기</button>
                                 <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
                                     <PopupTemplate onItemSelected={handleTemplateSelected} />
                                 </Popup>
@@ -414,12 +408,12 @@ function UrgentWork() {
         <div className={`flex-wrap between ${divStates[2] ? 'under-line' : ''}`}>
             <h3>작업 대상 지역 및 장애범위  <span className='color-primary'>*</span></h3>
             <div className="btn-wrap">
-                <button className={`btn-fold ${divStates[2] ? 'close' : ''}`} onClick={() => handleDivToggle(2)} id='fold-open'>검색영역 열기</button>
+                <button className={`btn-fold ${divStates[2] ? 'close' : ''}`} onClick={() => handleDivToggle(2)} id='fold-open'>작업 대상 지역 및 장애범위 열기</button>
             </div>
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
             <div className="btn-wrap right mb15">
-                <button type='button' className='btn btn-pop' onClick={() => { setCell(true) }}>CELL 등록</button>
+                <button type='button' className='btn btn-md btn-pop' onClick={() => { setCell(true) }}>CELL 등록</button>
                 <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
                     <PopupCell onItemSelected={handleCellSelected} />
                 </Popup>
@@ -461,7 +455,7 @@ function UrgentWork() {
         <div className={`flex-wrap between ${divStates[3] ? 'under-line' : ''}`}>
             <h3>세부작업 절차  <span className='color-primary'>*</span></h3>
                 <div className="btn-wrap">
-                    <button className={`btn-fold ${divStates[3] ? 'close' : ''}`} onClick={() => handleDivToggle(3)} id='fold-open'>검색영역 열기</button>
+                    <button className={`btn-fold ${divStates[3] ? 'close' : ''}`} onClick={() => handleDivToggle(3)} id='fold-open'>세부작업 절차 열기</button>
                 </div>
             </div>
         <div className={`toggle-box ${divStates[3] ? 'hide' : ''} `}>
@@ -481,28 +475,36 @@ function UrgentWork() {
                             <div className='flex-wrap'>
                                 <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
                                     <div className='time-select'>
-                                        <button onClick={handleStartHourIncrease} className='btn-up'></button>
                                         <input type="text" value={startHours} readOnly />
-                                        <button onClick={handleStartHourDecrease} className='btn-down'></button>
+                                        <span>
+                                            <button onClick={handleStartHourIncrease}>▲</button>
+                                            <button onClick={handleStartHourDecrease}>▼</button>
+                                        </span>
                                     </div> :
                                     <div className='time-select'>
-                                        <button onClick={handleStartMinuteIncrease} className='btn-up'></button>
                                         <input type="text" value={startMinutes} readOnly />
-                                        <button onClick={handleStartMinuteDecrease} className='btn-down'></button>
+                                        <span>
+                                            <button onClick={handleStartMinuteIncrease}>▲</button>
+                                            <button onClick={handleStartMinuteDecrease}>▼</button>
+                                        </span>
                                     </div>
                             </div>
                             <span className='ml15'>~</span>
                             <div className='flex-wrap ml15'>
                                 <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
                                     <div className='time-select'>
-                                        <button onClick={handleEndHourIncrease} className='btn-up'>▲</button>
                                         <input type="text" value={endHours} readOnly />
-                                        <button onClick={handleEndHourDecrease} className='btn-down'>▼</button>
+                                        <span>
+                                            <button onClick={handleEndHourIncrease}>▲</button>
+                                            <button onClick={handleEndHourDecrease}>▼</button>
+                                        </span>
                                     </div> :
                                     <div className='time-select'>
-                                        <button onClick={handleEndMinuteIncrease} className='btn-up'>▲</button>
                                         <input type="text" value={endMinutes} readOnly />
-                                        <button onClick={handleEndMinuteDecrease} className='btn-down'>▼</button>
+                                        <span>
+                                            <button onClick={handleEndMinuteIncrease}>▲</button>
+                                            <button onClick={handleEndMinuteDecrease}>▼</button>
+                                        </span>
                                     </div>
                             </div>
                         </div>
@@ -529,7 +531,7 @@ function UrgentWork() {
                             <label htmlFor="momentary_disconnection">순단</label>
                             <input type="radio" name="disconnected-state" id="discontinued" value="" />
                             <label htmlFor="discontinued">중단</label>
-                            ( <input type='text' name='uninterrupted_time' id='uninterrupted_time' className='sm' /> 분 )
+                            ( <input type='text' name='uninterrupted_time' id='uninterrupted_time' style={{ width: '40px', height: '22px' }} /> 분 )
                         </fieldset>
                     </td>
                 </tr>
@@ -542,11 +544,13 @@ function UrgentWork() {
                 <tr>
                     <th scope='row'>작업세부</th>
                     <td colSpan={3}>
-                        <span className='input input_org' style={{ width: '97%' }}>{selectedWorkDeteail}</span>
-                        <button className='btn btn-black btn-search btn-square ml10' onClick={() => { setWorkDeteail(true) }}>선택</button>
+                       <span className='input-btn-wrap'>
+                       <span className='input input_org input-search-front'>{selectedWorkDeteail}</span>
+                       <button className='btn btn-black btn-search' onClick={() => { setWorkDeteail(true) }}>작업세부 찾기</button>
                         <Popup open={workDeteail} close={() => { setWorkDeteail(false) }} header="작업세부" type={'sm'}>
                             <PopupWorkDeteail onItemSelected={handleWorkDeteailSelected} />
                         </Popup>
+                       </span>
                     </td>
                 </tr>
                 </tbody>
@@ -557,115 +561,293 @@ function UrgentWork() {
         <div className={`flex-wrap between ${divStates[4] ? 'under-line' : ''}`}>
             <h3>작업자 정보 <span className='color-primary'>*</span></h3>
                 <div className="btn-wrap">
-                    <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>검색영역 열기</button>
+                    <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>작업자 정보 열기</button>
                 </div>
             </div>
         <div className={`toggle-box ${divStates[4] ? 'hide' : ''} `}>
-            {selectedOption === 'access_yes' && (
-                <div className="btn-wrap right mb15">
-                  <button type="button" className="btn btn-low" onClick={diviceAddRow}>추가</button>
-                </div>
-            )}
             <table className='table table-row'>
-                <caption>table caption</caption>
+                <caption>작업자 정보</caption>
+                {selectedOption === 'access_no' && (
                 <colgroup>
-                    <col style={{ width: '100%' }} />
-                </colgroup>
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '90%' }} />
+                </colgroup>)}
+                {selectedOption === 'access_yes' && (
+                <colgroup>
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '20%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '20%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '30%' }} />
+                </colgroup>)}
                 <tbody>
-                    <tr>
-                        <td className='non-pading'>
-                            <dl className='flex-wrap'>
-                            <dt scope='col'>작업자</dt>
-                                <dd>
-                                    <span className='input input_org' style={{ width: '94.5%' }}>{selectedWorker}</span>
-                                    <button type='button' className='btn btn-square ml10' onClick={() => { setWorker(true) }}>+</button>
-                                    <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
-                                        <PopupWorker onItemSelected={handleWorkerSelected} />
-                                    </Popup>
-                                    <button type='button' className='btn btn-square ml10'>-</button>
-                                </dd>
-                            </dl>
-                            {selectedOption === 'access_yes' && (
-                            <dl className='flex-wrap'>
-                                <dt scope='col'>장비정보</dt>
-                                <dd>
-                                    <span className='input input_org' style={{ width: '88%' }}>
-                                        {selectedDevice.join(', ')}
-                                    </span>
-                                    <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
-                                    <Popup open={device} close={() => { setDevice(false) }} header="장비정보 불러오기" type={'lg'}>
-                                        <PopupDivice onItemSelected={handleDeviceSelected} />
-                                    </Popup>
-                                </dd>
-                            </dl>)}
-                        </td>
-                    </tr>
-                    {selectedOption === 'access_yes' && diviceRows.map((diviceRows, index) => (
-                        <tr key={index}>
-                            <td className='non-pading'>
-                                <dl className='flex-wrap'>
-                                <dt scope='col'>작업자</dt>
-                                    <dd>
-                                        <span className='input input_org' style={{ width: '88%' }}>{selectedWorker}</span>
-                                        <button type='button' className='btn ml10' onClick={() => { setWorker(true) }}>+</button>
-                                        <button type='button' className='btn ml15'>-</button>
-                                    </dd>
-                                </dl>
-                                <dl className='flex-wrap'>
-                                    <dt scope='col'>장비정보</dt>
-                                    <dd>
-                                        <span className='input input_org' style={{ width: '88%' }}>
-                                            {selectedDevice.join(', ')}
-                                        </span>
-                                        <button className='btn btn-black btn-search ml10' onClick={() => { setDevice(true) }}>선택</button>
-                                        <button type='button' name='worker-delete' id='worker_delete' className='btn ml10' onClick={diviceRemoveRow}>삭제</button>
-                                    </dd>
-                                </dl>
-                            </td>
-                        </tr>
-                    ))}
+                {selectedOption === 'access_no' && (
+                <tr>
+                    <th>작업자</th>
+                    <td>
+                        <span className='input-btn-wrap'>
+                            <span className='input input_org input-plus-front'>{selectedWorker}</span>
+                            <button type='button' className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
+                            <button type='button' className='btn-minus-28'>빼기</button>
+                        </span>
+                        <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
+                            <PopupWorker onItemSelected={handleWorkerSelected} />
+                        </Popup>
+                    </td>
+                </tr>)}
+                {selectedOption === 'access_yes' && (
+                <tr>
+                    <th>사용자 그룹</th>
+                    <td>
+                        <select name="user_group" id="user_group">
+                            <option value="all">전체</option>
+                        </select>
+                    </td>
+                    <th>사용자</th>
+                    <td>
+                        <select name="user" id="user">
+                            <option value="all">전체</option>
+                        </select>
+                    </td>
+                    <th>장비</th>
+                    <td>
+                        <span className="input-btn-wrap">
+                            <select name="use_device" id="use_device">
+                                <option value="use_device">전체</option>
+                            </select>
+                            <button type="button" className="btn btn-low btn-md btn-add" onClick={diviceAddRow}>추가</button>
+                        </span>
+                    </td>
+                </tr>
+                )}
                 </tbody>
             </table>
+            {selectedOption === 'access_yes' && (
+            <div className='device-list'>
+                <div className='flex-wrap between'>
+                    <div>총 2개</div>
+                    <div className='btn-wrap'>
+                        <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-copy'>복사</button>
+                        <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-del' onClick={diviceRemoveRow}>삭제</button>
+                    </div>
+                </div>
+                <table className="table mt8" style={{ width: '100%' }}>
+                <caption>장비목록</caption>
+                <colgroup>
+                    <col span={5} />
+                    <col span={7} style={{ width: '3%' }} />
+                    <col span={4} />
+                </colgroup>
+                <thead>
+                    <tr>
+                    <th scope='col' rowSpan={2}></th>
+                    <th scope='col' rowSpan={2}>사용자부서</th>
+                    <th scope='col' rowSpan={2}>사용자</th>
+                    <th scope='col' rowSpan={2}>장비</th>
+                    <th scope='col' rowSpan={2}>OS</th>
+                    <th scope='col' colSpan={7}>접속Protocol</th>
+                    <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
+                    <th scope='col'>접근정책</th>
+                    <th scope='col'>시작일시</th>
+                    <th scope='col'>종료일시</th>
+                    </tr>
+                    <tr>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_1" id="ck_1" value="" />
+                        <label htmlFor="ck_1"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_2" id="ck_2" value="" />
+                        <label htmlFor="ck_2"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_3" id="ck_3" value="" />
+                        <label htmlFor="ck_3"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_4" id="ck_4" value="" />
+                        <label htmlFor="ck_4"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_5" id="ck_5" value="" />
+                        <label htmlFor="ck_5"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_6" id="ck_6" value="" />
+                        <label htmlFor="ck_6"></label>
+                     </td>
+                     <td scope='col'>
+                        <input type="checkbox" name="ck_7" id="ck_7" value="" />
+                        <label htmlFor="ck_7"></label>
+                     </td>
+                     <td scope='col'>
+                        <div className='flex-wrap between'>
+                            <select name='' id='' className='type-t'>
+                                <option>선택</option>
+                            </select>
+                            <button type='button' className='btn btn-md'>선택</button>
+                        </div>
+                     </td>
+                     <td scope='col'>
+                        <div className='flex-wrap between'>
+                            <select name='' id='' className='type-t'>
+                                <option>시간 설정</option>
+                            </select>
+                            <button type='button' className='btn btn-md'>선택</button>
+                        </div>
+                     </td>
+                     <td scope='col'>
+                        <div className='flex-wrap between'>
+                            <select name='' id='' className='type-t'>
+                                <option>시간 설정</option>
+                            </select>
+                            <button type='button' className='btn btn-md'>선택</button>
+                        </div>
+                     </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="list_1" id="list_1" value="" />
+                            <label htmlFor="list_1"></label>
+                        </td>
+                        <td>호남인프라</td>
+                        <td>
+                            <select name='' id='' className='type-t'>
+                                <option>홍길동 Hong</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name='' id='' className='type-t'>
+                                <option>Infra Core1</option>
+                            </select>
+                        </td>
+                        <td>Linux</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" name="protocol" id="ptc_4" value="" checked />
+                            <label htmlFor="ptc_4">SSH</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="protocol" id="ptc_5" value="" checked />
+                            <label htmlFor="ptc_5">Telnet</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="protocol" id="ptc_6" value="" checked />
+                            <label htmlFor="ptc_6">SFTP</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="protocol" id="ptc_7" value="" checked />
+                            <label htmlFor="ptc_7">FTP</label>
+                        </td>
+                        <td>admin</td>
+                        <td>
+                            <select name='' id='' className='type-t'>
+                                <option>L1</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name='' id='' className='type-t'>
+                                <option>2023-07-28 00:00:00</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name='' id='' className='type-t'>
+                                <option>2023-07-28 00:00:00</option>
+                            </select>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="list_4" id="list_4" value="" />
+                                <label htmlFor="list_4"></label>
+                            </td>
+                            <td>호남인프라</td>
+                            <td>
+                            <select name='' id='' className='type-t'>
+                                <option>김철수 Kim</option>
+                            </select>
+                            </td>
+                            <td>
+                                <select name='' id='' className='type-t'>
+                                    <option>Infra Core1</option>
+                                </select>
+                            </td>
+                            <td>Web</td>
+                            <td>
+                                <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                <label htmlFor="ptc_1">HTTPS</label>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>admin</td>
+                            <td>
+                                <select name='' id='' className='type-t'>
+                                    <option>L0</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name='' id='' className='type-t'>
+                                    <option>2023-07-28 00:00:00</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name='' id='' className='type-t'>
+                                    <option>2023-07-28 00:00:00</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>)}
         </div>
     </div>
     <div className='content-section'>
-         <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
+        <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
              <h3>사업자/벤더사 작업 투입 인력</h3>
                 <div className="btn-wrap">
-                    <button className={`btn-fold ${divStates[5] ? 'close' : ''}`} onClick={() => handleDivToggle(5)} id='fold-open'>검색영역 열기</button>
+                    <button className={`btn-fold ${divStates[5] ? 'close' : ''}`} onClick={() => handleDivToggle(5)} id='fold-open'>사업자/벤더사 열기</button>
                 </div>
             </div>
         <div className={`toggle-box ${divStates[5] ? 'hide' : ''} `}>
-            <div className="btn-wrap right mb15"><button type="button" className="btn btn-low" onClick={venderAddRow}>추가</button></div>
+            <div className="btn-wrap right mb15"><button type="button" className="btn btn-low btn-md btn-add" onClick={venderAddRow}>추가</button></div>
             <table className='table'>
                 <caption>table caption</caption>
                 <colgroup>
+                   <col style={{ width: '10%' }} />
                     <col style={{ width: '30%' }} />
                     <col style={{ width: '30%' }} />
                     <col style={{ width: '20%' }} />
-                    <col style={{ width: '10%' }} />
                 </colgroup>
                 <thead>
                 <tr>
+                    <th scope='col'></th>
                     <th scope='col'>담당자</th>
                     <th scope='col'>회사/소속</th>
                     <th scope='col'>핸드폰</th>
-                    <th scope='col'>삭제</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
+                    <td></td>
                     <td><input type='text' name='cooperation_worker' id='cooperation_worker' /></td>
                     <td><input type='text' name='cooperation_company' id='cooperation_company' /></td>
                     <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
-                    <td></td>
                 </tr>
                 {vendorRows.map((vendorRows, index) => (
                 <tr key={index}>
+                    <td><button type='button' name='worker-delete' id='worker_delete' className='btn-del-28' onClick={venderRemoveRow}>삭제</button></td>
                     <td><input type='text' name='cooperation_worker' id='cooperation_worker' /></td>
                     <td><input type='text' name='cooperation_company' id='cooperation_company' /></td>
                     <td><input type='text' name='cooperation_office' id='cooperation_office' /></td>
-                    <td><button type='button' name='worker-delete' id='worker_delete' className='btn' onClick={venderRemoveRow}>삭제</button></td>
                 </tr>
                 ))}
                 </tbody>
@@ -677,7 +859,7 @@ function UrgentWork() {
         <Alert open={cancle} close={() => { setCancle(false) }} >
           <div>취소 하시겠습니까?</div>
         </Alert>
-        <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>등록</button>
+        <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>자가승인</button>
         <Alert open={regist} close={() => { setRegist(false) }}>
           <div>작업을 등록 하시겠습니까?</div>
         </Alert>

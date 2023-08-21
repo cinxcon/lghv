@@ -159,7 +159,7 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org' style={{ width: '88%' }}>{selectedItem}</span>
+                    <span className='input input_org nput-search-front'>{selectedItem}</span>
                     <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
                       <Popup open={onLoad} close={() => { setOnLoad(false) }} header="등록 부서" type={'sm'}>
                           <PopupDepartment onItemSelected={handleItemSelected} />
