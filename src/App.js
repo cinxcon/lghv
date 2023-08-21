@@ -5,24 +5,17 @@ import Header from './pages/publish/layout/Header';
 import Sidebar from './pages/publish/layout/Sidebar';
 import Footer from './pages/publish/layout/Footer';
 import DynamicStyle from './assets/dynamicStyle';
-// import LoadCell from './pages/publish/popup/popupDetail/Popup_Cell';
 
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  // const isWinOpen = false;
 
   return (
     <div className='App'>
       <DynamicStyle/>
       { isLoggedIn ? (<Main/>) : (<LoginPage />) }
-      {/* { isWinOpen ? (<WinOpen/>) : (null)} */}
     </div>
   );
 };
-
-// const WinOpen = (props) => {
-//   <LoadCell isWinOpen={true} />
-// }
 
 const Main = () => {
   return (<>

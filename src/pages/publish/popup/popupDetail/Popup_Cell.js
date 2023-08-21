@@ -128,7 +128,4 @@ const LoadCell = ({ onItemSelected, isWinOpen }) => {
   );
 };
 
-// function OpenWindow() {
-//     return ReactDOM.createPortal(LoadCell, document.getElementById("open-window"));
-// }
 export default LoadCell;
