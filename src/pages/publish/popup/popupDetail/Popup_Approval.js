@@ -165,6 +165,7 @@ const ApprovalLine = ({ onItemSelected }) => {
     <div className="flex-wrap align-start">
       <div className='approval-conts'>
         <div className='tree-wrap'>
+            <div className='tree-logo'>LG hellovision</div>
               <div className='tree-conts'>
               {treeData.depts && treeData.depts.map((item) => (
                   <TreeItem

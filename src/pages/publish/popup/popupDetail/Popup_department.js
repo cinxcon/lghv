@@ -34,7 +34,8 @@ const ApprovalDepartment = ({ onItemSelected }) => {
   return (
     <>
      <div className='approval-conts'>
-        <div className='tree-wrap'>
+        <div className='tree-wrap alone'>
+          <div className='tree-logo'>LG hellovision</div>
               <div className='tree-conts'>
                 {treeData.depts && treeData.depts.map((item) => (
                   <TreeItem
@@ -46,8 +47,8 @@ const ApprovalDepartment = ({ onItemSelected }) => {
               </div>
         </div>
       </div>
-      <div className='right'>
-        <button onClick={handleConfirmClick} className='btn btn-primary ml10'>부서 설정</button>
+      <div className='right mt20'>
+        <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>부서 설정</button>
       </div>
     </>
   );

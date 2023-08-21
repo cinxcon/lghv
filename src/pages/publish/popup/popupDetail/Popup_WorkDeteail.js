@@ -90,15 +90,17 @@ const WorkDeteail = ({ onItemSelected }) => {
         </select>
       </div>
       <div className='approval-conts'>
-        <div className='tree-conts'>
-        <span>{selectedItem.name}</span>
-        {treeData.map((item) => (
-        <TreeItem
-            key={item.id}
-            item={item}
-            onItemSelected={handleItemSelected}
-        />
-        ))}
+        <div className='tree-wrap alone'>
+        <h4 className='work-title'>{selectedItem.name}</h4>
+          <div className='tree-conts'>
+          {treeData.map((item) => (
+          <TreeItem
+              key={item.id}
+              item={item}
+              onItemSelected={handleItemSelected}
+          />
+          ))}
+        </div>
       </div>
     </div>
     </>
