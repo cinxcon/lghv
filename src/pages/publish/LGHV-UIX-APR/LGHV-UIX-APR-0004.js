@@ -7,7 +7,7 @@ function ApprovalReturn() {
     <>
       <ContentTitle />
       <ApprovalSearch />
-      <ApprovalList toDetail="/approval/LGHV-UIX-APR-0004-Detail" currentStatus="결재반려" />
+      <ApprovalList toDetail="/LGHV-UIX-APR/LGHV-UIX-APR-0004-Detail" currentStatus="결재반려" />
     </>
   )
 }

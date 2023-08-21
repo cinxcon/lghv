@@ -11,7 +11,7 @@ function ApprovalTest() {
       <ApprovalBtnGroup />
       <ApprovalBotBtnGroup />
       <ApprovalSearch />
-      <ApprovalList toDetail="/approval/ApprovalDetailTest" currentStatus="테스트" />
+      <ApprovalList toDetail="/LGHV-UIX-APR/ApprovalDetailTest" currentStatus="테스트" />
     </>
   )
 }

@@ -284,6 +284,7 @@ input[type='radio'] + label.type-btn:before{content: none;}
 /* table */
 .over-flow-x { max-width: 1600px; overflow-x: scroll; }
 .table caption { border-top: 1px solid #000000; }
+.table tr.link:hover { cursor: pointer; background-color: #EAEAEA; }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
 .table th, .table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 6px 12px; text-align: center; }
 .table.table-row th, .table.table-row td { text-align: left; }
@@ -360,3 +361,6 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range { border-radius: 0; background-color: #ed174d; color: #fff; }
 .react-datepicker__week .react-datepicker__day:first-child { color: #ed174d; }
 .react-datepicker__week .react-datepicker__day:first-child.react-datepicker__day--selected { color: #fff; }
+
+.abc {display: none;}
+.new-window-wrap { padding: 50px;}
