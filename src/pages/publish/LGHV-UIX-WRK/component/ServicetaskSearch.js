@@ -13,14 +13,81 @@ function ServicetaskSearch() {
   const [onLoad, setOnLoad] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
-  //
+  //  토글
   const [isToggled, setToggled] = useState(false);
 
   const handleItemSelected = (item) => {
     setOnLoad(false);
     setSelectedItem(item.deptName);
   };
+  // 날짜 선택
+  const [selectedStday, setSelectedStday] = useState('st_user');
+  const [selectedEdday, setSelectedEdday] = useState('ed_user');
 
+  const handleStdayChange = (event) => {
+    setSelectedStday(event.target.value);
+
+    const currentDate = new Date();
+
+    // 오늘 날짜
+    if (event.target.value === 'st_user') {
+      setStartDate(null);
+      setStartEndDate(null);
+    }
+    // 오늘 날짜
+    if (event.target.value === 'st_day') {
+      setStartDate(new Date());
+      setStartEndDate(new Date());
+    }
+    // 1주일 전부터 오늘까지의 기간
+    if (event.target.value === 'st_week') {
+      const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+      setStartDate(weekAgo);
+      setStartEndDate(new Date());
+    }
+    // 1개월 전부터 오늘까지의 기간
+    if (event.target.value === 'st_month') {
+      const oneMonthAgo = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 1,
+        new Date().getDate()
+      );
+      setStartDate(oneMonthAgo);
+      setStartEndDate(new Date());
+    }
+  };
+
+  const handleEddayChange = (event) => {
+    setSelectedEdday(event.target.value);
+    const currentDate = new Date();
+
+    // 오늘 날짜
+    if (event.target.value === 'ed_user') {
+      setEndDate(null);
+      setEndEndDate(null);
+    }
+    // 오늘 날짜
+    if (event.target.value === 'ed_day') {
+      setEndDate(new Date());
+      setEndEndDate(new Date());
+    }
+    // 1주일 전부터 오늘까지의 기간
+    if (event.target.value === 'ed_week') {
+      const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+      setEndDate(weekAgo);
+      setEndEndDate(new Date());
+    }
+    // 1개월 전부터 오늘까지의 기간
+    if (event.target.value === 'ed_month') {
+      const oneMonthAgo = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 1,
+        new Date().getDate()
+      );
+      setEndDate(oneMonthAgo);
+      setEndEndDate(new Date());
+    }
+  };
   // input clear
   const [subjecValue, setSubjecValue] = useState('');
   const onSubjecInput = (e) => setSubjecValue(e.target.value);
@@ -48,7 +115,7 @@ function ServicetaskSearch() {
             <h3>검색 조건</h3>
             <button className={`btn-fold ${isToggled ? 'close' : ''}`} onClick={handleButtonToggle} id='fold-open'>검색영역 열기</button>
         </div>
-        <div className={`box ${isToggled ? 'hide' : ''} `}>
+        <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
            <table className='search'>
             <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
             <colgroup>
@@ -92,7 +159,7 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org' style={{ width: '88%' }}>{selectedItem}</span>
+                    <span className='input input_org nput-search-front'>{selectedItem}</span>
                     <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
                       <Popup open={onLoad} close={() => { setOnLoad(false) }} header="등록 부서" type={'sm'}>
                           <PopupDepartment onItemSelected={handleItemSelected} />
@@ -103,19 +170,49 @@ function ServicetaskSearch() {
               <tr>
                 <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
                 <td colSpan={4}>
-                  <span className='datepickers-wrap'>
-                    <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                    ~
-                    <span><DatePicker locale={ko} selected={startEndDate} onChange={(date) => setStartEndDate(date)} startDate={startEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                  </span>
+                  <div className='flex-wrap between'>
+                    <span className='datepickers-wrap'>
+                      <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                      ~
+                      <span><DatePicker locale={ko} selected={startEndDate} onChange={(date) => setStartEndDate(date)} startDate={startEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                    </span>
+                    <span className='radiobtn-wrap'>
+                      <fieldset>
+                        <legend>날짜 선택</legend>
+                          <input type='radio' name='start-date' id='st_day' value="st_day" checked={selectedStday === 'st_day'} onChange={handleStdayChange}/>
+                          <label htmlFor='st_day' className='type-btn'>하루</label>
+                          <input type='radio' name='start-date' id='st_week' value="st_week" checked={selectedStday === 'st_week'} onChange={handleStdayChange}/>
+                          <label htmlFor='st_week' className='type-btn'>일주일</label>
+                          <input type='radio' name='start-date' id='st_month' value="st_month" checked={selectedStday === 'st_month'} onChange={handleStdayChange}/>
+                          <label htmlFor='st_month' className='type-btn'>한달</label>
+                          <input type='radio' name='start-date' id='st_user' value="st_user" checked={selectedStday === 'st_user'} onChange={handleStdayChange}/>
+                          <label htmlFor='st_user' className='type-btn'>사용자 지정</label>
+                        </fieldset>
+                    </span>
+                   </div>
                 </td>
                 <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
                 <td colSpan={4}>
+                  <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
-                    <span><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                    ~
-                    <span><DatePicker locale={ko} selected={endEndDate} onChange={(date) => setEndEndDate(date)} endDate={endEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                  </span>
+                      <span><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                      ~
+                      <span><DatePicker locale={ko} selected={endEndDate} onChange={(date) => setEndEndDate(date)} endDate={endEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                    </span>
+                    <span className='radiobtn-wrap'>
+                        <fieldset>
+                          <legend>날짜 선택</legend>
+                            <input type='radio' name='end-date' id='ed_day' value="ed_day" checked={selectedEdday === 'ed_day'} onChange={handleEddayChange}/>
+                            <label htmlFor='ed_day' className='type-btn'>하루</label>
+                            <input type='radio' name='end-date' id='ed_week' value="ed_week" checked={selectedEdday === 'ed_week'} onChange={handleEddayChange}/>
+                            <label htmlFor='ed_week' className='type-btn'>일주일</label>
+                            <input type='radio' name='end-date' id='ed_month' value="ed_month" checked={selectedEdday === 'ed_month'} onChange={handleEddayChange}/>
+                            <label htmlFor='ed_month' className='type-btn'>한달</label>
+                            <input type='radio' name='end-date' id='ed_user' value="ed_user" checked={selectedEdday === 'ed_user'} onChange={handleEddayChange}/>
+                            <label htmlFor='ed_user' className='type-btn'>사용자 지정</label>
+                          </fieldset>
+                      </span>
+                    </div>
                 </td>
                 </tr>
                 <tr>

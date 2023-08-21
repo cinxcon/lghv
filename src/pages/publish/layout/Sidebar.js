@@ -5,16 +5,25 @@ const Sidebar = () => {
   const [menuData] = useState([
     {
       title: '대시보드',
-      path: '/DashBorad',
+      path: '/LGHV-UIX-MAN-0003',
       subMenus: []
     },
     {
       title: '작업관리',
-      subMenus: [{ title: '작업목록', path: '/servicetask/LGHV-UIX-WRK-0003' }, { title: '일반 작업등록', path: '/servicetask/LGHV-UIX-WRK-0001' }, { title: '긴급 작업등록', path: '/servicetask/LGHV-UIX-WRK-0002' }, { title: '탬플릿 등록', path: '/servicetask/ServicetaskDetail' }]
+      path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0003',
+      subMenus: [
+        { title: '작업목록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0003' },
+        { title: '일반 작업등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0001' },
+        { title: '긴급 작업등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0002' }
+      ]
     },
     {
       title: '접근제어',
-      subMenus: [{ title: '사용자 목록', path: '/accessctrl/LGHV-UIX-ACC-0003' }, { title: '장비 목록', path: '/accessctrl/LGHV-UIX-ACC-0004' }]
+      path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0003',
+      subMenus: [
+        { title: '사용자 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0003' },
+        { title: '장비 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0004' }
+      ]
     },
     {
       title: '장애관리',
@@ -22,7 +31,15 @@ const Sidebar = () => {
     },
     {
       title: '결재관리',
-      subMenus: [{ title: '결재대기함', path: '/approval/LGHV-UIX-APR-0001' }, { title: '결재완료함', path: '/approval/LGHV-UIX-APR-0002' }, { title: '공람문서함', path: '/approval/LGHV-UIX-APR-0003' }, { title: '반려함', path: '/approval/LGHV-UIX-APR-0004' }, { title: '임시보관함', path: '/approval/LGHV-UIX-APR-0005' }, { title: '버튼모음', path: '/approval/ApprovalTest' }]
+      path: '/LGHV-UIX-APR/LGHV-UIX-APR-0001',
+      subMenus: [
+        { title: '결재대기함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0001' },
+        { title: '결재완료함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0002' },
+        { title: '공람문서함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0003' },
+        { title: '반려함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0004' },
+        { title: '임시보관함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0005' },
+        { title: '버튼모음', path: '/LGHV-UIX-APR/ApprovalTest' }
+      ]
     },
     {
       title: '통계',
@@ -87,10 +104,11 @@ const MenuItemLevel1 = ({ index, title, path, subMenus, isActive, onClick }) => 
 
   return (
     <li className={`menu-item-level-1 ${isActive ? 'active' : ''}`}>
-      {hasSubMenus
+      {/* {hasSubMenus
         ? (<button className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</button>)
         : (<Link to={path} key={index} state={sendData} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>)
-        }
+        } */}
+      <Link to={path} key={index} state={sendData} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>
       {isActive && hasSubMenus && <MenuLevel2 parentTitle={title} subMenus={subMenus} />}
     </li>
   );

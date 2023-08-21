@@ -18,11 +18,13 @@ function ServicetaskRegist() {
       <ContentTitle />
       <div className='content-section'>
         <div className="detail-top-btn-group">
+          <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
           <button className='btn btn-pop' onClick={() => { setOnLoad(true) }}>불러오기</button>
           <button className='btn btn-pop' onClick={() => { setApprovalLine(true) }}>결제선 지정</button>
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
+
         </div>
         <Popup open={onLoad} close={() => { setOnLoad(false) }} type="xlg" header="불러오기">
           <PopupWorkOnLoad />
@@ -39,9 +41,8 @@ function ServicetaskRegist() {
         <Alert open={tempsave} close={() => { setTempsave(false) }}>
           <div>임시 저장 합니다.</div>
         </Alert>
-        <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
-        <RegistNomal />
       </div>
+      <RegistNomal />
     </>
   )
 }

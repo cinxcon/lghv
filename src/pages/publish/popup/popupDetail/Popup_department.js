@@ -34,21 +34,21 @@ const ApprovalDepartment = ({ onItemSelected }) => {
   return (
     <>
      <div className='approval-conts'>
-        <div className='tree-wrap'>
+        <div className='tree-wrap alone'>
+          <div className='tree-logo'>LG hellovision</div>
               <div className='tree-conts'>
-              <div className='logo'>엘지 유플러스</div>
-              {treeData.depts && treeData.depts.map((item) => (
-                <TreeItem
-                  key={item.deptId}
-                  item={item}
-                  onItemSelected={handleItemSelected}
-                />
-              ))}
+                {treeData.depts && treeData.depts.map((item) => (
+                  <TreeItem
+                    key={item.deptId}
+                    item={item}
+                    onItemSelected={handleItemSelected}
+                  />
+                ))}
               </div>
         </div>
       </div>
-      <div className='right'>
-        <button onClick={handleConfirmClick} className='btn btn-primary ml10'>부서 설정</button>
+      <div className='right mt20'>
+        <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>부서 설정</button>
       </div>
     </>
   );

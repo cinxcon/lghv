@@ -60,8 +60,7 @@ const LoadCell = ({ onItemSelected, isWinOpen }) => {
             </tbody>
         </table>
     </div>
-    <div className='approval-conts'>
-        <div className="result-pageview mb15">
+      <div className="result-pageview mb15">
             <div>
                 <span className='total-view'>총 <b>109</b>개</span>
                 <span className='select-wrap'>
@@ -123,8 +122,7 @@ const LoadCell = ({ onItemSelected, isWinOpen }) => {
             </tr>))}
             </tbody>
         </table>
-    </div>
-    </>
+     </>
   );
 };
 

@@ -37,7 +37,8 @@ function ServicetaskDetail() {
         <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
           화면인쇄
         </Popup>
-        <ServiceDetail />
+      </div>
+      <ServiceDetail />
         <div className='detail-bottom-btn-group'>
           <div>
             <button className='btn btn-lg bnt-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
@@ -76,7 +77,6 @@ function ServicetaskDetail() {
         <Popup open={approve} close={() => { setApprove(false) }} header="[승인] 의견" footer={ <PopupButtons close={() => { setApprove(false) }} /> }>
           <textarea></textarea>
         </Popup>
-      </div>
     </>
   )
 }
