@@ -1,4 +1,7 @@
-import { useState } from 'react';
+/* eslint-disable */
+import { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+// import NewWindow from 'react-new-window'
+import { Link } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
@@ -7,12 +10,87 @@ import { Popup } from '../../popup/Popup';
 import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
 import PopupTemplate from '../../popup/popupDetail/Popup_Template';
 import PopupCell from '../../popup/popupDetail/Popup_Cell';
+import WinOpen from '../../popup/windowOpenPopup';
 import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
 import PopupWorker from '../../popup/popupDetail/Popup_Worker';
 import PopupDivice from '../../popup/popupDetail/Popup_Divice';
 import DatePicker from 'react-datepicker';
+import { createPortal } from 'react-dom';
+
+// const RenderInWindow = ({ open, setOpen, children }) => {
+//   const _window = useRef(null);
+//   const [ready, setReady] = useState(false);
+
+//   useEffect(() => {
+//     if (open) {
+//       _window.current = window.open(
+//         '',
+//         '',
+//         'width=600,height=400,left=200,top=200'
+//       );
+
+//       const curWindow = _window.current;
+
+//       curWindow.onbeforeunload = () => {
+//         setReady(false);
+//         setOpen(false);
+//       };
+
+//       setReady(true);
+
+//     } else {
+//       _window.current?.close();
+//       setReady(false);
+//     }
+//   }, [open]);
+
+//   return (
+//     open && ready && createPortal(children, _window.current?.document.body)
+//   );
+// };
+
+// const RenderInWindow = (props) => {
+//   const [container, setContainer] = useState(null);
+//   const newWindow = useRef(null);
+
+//   useEffect(() => {
+//     // Create container element on client-side
+//     setContainer(document.createElement("div"));
+//   }, []);
+
+//   useEffect(() => {
+//     // When container is ready
+//     if (container) {
+//       // Create window
+//       newWindow.current = window.open(
+//         "",
+//         "",
+//         "width=600,height=400,left=200,top=200"
+//       );
+//       // Append container
+//       newWindow.current.document.body.appendChild('open-window');
+
+//       // Save reference to window for cleanup
+//       const curWindow = newWindow.current;
+
+//       // Return cleanup function
+//       return () => curWindow.close();
+//     }
+//   }, [container]);
+
+//   return container && createPortal(props.children, container);
+// };
 
 function nomal() {
+  const [open, setOpen] = useState();
+  // const OplenLoadCell = () => {
+  //   alert('pop!');
+  //   createPortal(
+  //     <LoadCell />,
+  //     document.getElementById("open-window")
+  //   )
+  // }
+
   // 팝업
   const [reviwer, setReviwer] = useState(false);
   const [template, setTemplate] = useState(false);
@@ -117,9 +195,25 @@ function nomal() {
     setSelectedOption(event.target.value);
   };
   console.log(selectedDevice);
+
+  const [isOpen, setOpenState] = useState(false);
+  const openWin = useCallback(() => setOpenState(true));
+  const closeWin = useCallback(() => setOpenState(false));
+
   return (
   <>
    {/* 결제선 저장 시 나타나는 항목 */}
+    {/* <button onClick={openWin}>CELL 등록</button>
+    <button onClick={closeWin}>Close</button>
+    {isOpen && (
+      <NewWindow close={closeWin}>
+        <PopupCell /> <button onClick={closeWin}>Close</button>
+      </NewWindow>
+    )} */}
+   {/* <button className='btn btn-pop btn-md' onClick={() => setOpen((o) => !o)}>CELL 등록</button>
+        <RenderInWindow open={open} setOpen={setOpen}>
+          <PopupCell />
+        </RenderInWindow> */}
    <div className='content-section' id='approval-line' style={{ visibility: 'hidden', height: '0', margin: '0' }}>
     <h3>결재</h3>
         <table className='table mb15'>
@@ -363,10 +457,14 @@ function nomal() {
     <div className='content-section'>
     <h3>작업 대상 지역 및 장애범위</h3>
     <div className="btn-wrap right">
-        <button type='button' className='btn btn-pop btn-md' onClick={() => { setCell(true) }}>CELL 등록</button>
-        <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
+        {/* <button className='btn btn-pop btn-md' onClick={() => setOpen((o) => !o)}>CELL 등록</button>
+        <RenderInWindow open={open} setOpen={setOpen}>
+          <PopupCell />
+        </RenderInWindow> */}
+        {/* <button type='button' className='btn btn-pop btn-md' onClick={() => {  }}>CELL 등록</button> */}
+        {/* <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
             <PopupCell onItemSelected={handleCellSelected} />
-        </Popup>
+        </Popup> */}
     </div>
     <table className='table mt8'>
         <caption>table caption</caption>
@@ -634,4 +732,39 @@ function nomal() {
     </>)
 }
 
-export default nomal;
+// const NewWindow = ({ children, closeWin, isWinOpen }) => {
+//   const newWindow = useMemo(() =>
+//     window.open(
+//       "http://localhost:3000/",
+//       "newWin",
+//       `width=400,height=300,left=${window.screen.availWidth / 2 -
+//         200},top=${window.screen.availHeight / 2 - 150}`
+//     )
+//   );
+//   isWinOpen = true;
+//   newWindow.onbeforeunload = () => {
+//     close();
+//   };
+//   useEffect(() => () => newWindow.close());
+//   return createPortal(children, newWindow.document.body);
+// };
+
+function ParentFunc() {
+  function popupFunction() {
+    let popup = window.open('../../popup/windowOpenPopup.js', '', 'width=800, height=600');
+    // let popup = window.open(<WinOpen />, '', 'width=800, height=600');
+
+    // window.parentCallback = () => {
+    //   console.log('Hello World!');
+    // }
+  }
+
+  return (
+    <div>
+      <button variant='info' type='submit' onClick={popupFunction}>popup button</button>
+    </div>
+  )
+}
+
+
+export default ParentFunc;

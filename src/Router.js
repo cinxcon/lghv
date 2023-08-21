@@ -30,6 +30,7 @@ import ServicetaskDetail from './pages/publish/servicetask/LGHV-UIX-WRK-0004';
 
 import ApprovalTest from './pages/publish/approval/_Approval';
 import ApprovalDetailTest from './pages/publish/approval/_ApprovalDetail';
+import WinOpen from './pages/publish/popup/windowOpenPopup';
 
 const AppRouter = () => {
   return (
@@ -62,6 +63,7 @@ const AppRouter = () => {
 
       <Route path="/approval/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       <Route path="/approval/ApprovalTest" element={<ApprovalTest />} />
+      <Route path="/popup/WindowOpenPopup" element={<WinOpen />} />
     </Routes>
   );
 };

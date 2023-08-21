@@ -1,4 +1,4 @@
-const LoadCell = ({ onItemSelected }) => {
+const LoadCell = ({ onItemSelected, isWinOpen }) => {
   const data = [
     { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 }
   ];
@@ -128,4 +128,7 @@ const LoadCell = ({ onItemSelected }) => {
   );
 };
 
+// function OpenWindow() {
+//     return ReactDOM.createPortal(LoadCell, document.getElementById("open-window"));
+// }
 export default LoadCell;
