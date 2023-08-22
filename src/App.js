@@ -10,7 +10,7 @@ const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
   return (
-    <div className='App'>
+    <div className='app'>
       <DynamicStyle/>
       { isLoggedIn ? (<Main/>) : (<LoginPage />) }
     </div>
