@@ -1,19 +1,14 @@
-/* eslint-disable */
-// import APProvalPopDetailContent from './component/_ApprovalPopDetailContent';
-// import '../../../assets/styles/newwin.css';
-// import '../../../assets/styles/common.css';
 import { createPortal } from 'react-dom';
 
-const ModalPortal = ({ children }) => {
-  const el = document.getElementById('modal-root');
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
   return createPortal(children, el)
 }
-
 
 function ApprovalPopDetail() {
   return (
     <>
-    <ModalPortal>
+    <PopupPortal>
       <style>
         {`
           #root {display: none;}
@@ -67,7 +62,7 @@ function ApprovalPopDetail() {
           </tbody>
         </table>
       </div>
-    </ModalPortal>
+    </PopupPortal>
     </>
   )
 }

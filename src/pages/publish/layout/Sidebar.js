@@ -38,6 +38,7 @@ const Sidebar = () => {
         { title: '공람문서함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0003' },
         { title: '반려함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0004' },
         { title: '임시보관함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0005' },
+        // ↓↓↓  테스트 ↓↓↓
         { title: '버튼모음', path: '/LGHV-UIX-APR/ApprovalTest' },
         { title: '팝업테스트', path: '/LGHV-UIX-APR/ApprovalPop' }
       ]

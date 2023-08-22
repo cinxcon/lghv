@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
@@ -14,9 +14,14 @@ export default function ApprovalList(props) {
     pathData.isDetail = 'yes';
   }, [pathData]);
 
-  const navigate = useNavigate();
-  const selectedWork = () => {
-    navigate(toDetail, { state: pathData });
+  // const navigate = useNavigate();
+  // const selectedWork = () => {
+  //   navigate(toDetail, { state: pathData });
+  // }
+
+  const onPopup = () => {
+    const url = toDetail;
+    window.open(url, '_blank', 'popup');
   }
 
   return (
@@ -55,7 +60,7 @@ export default function ApprovalList(props) {
           {
             resultList.map(function(a, i) {
               return (
-                <tr key={i} onClick={selectedWork} className='link'>
+                <tr key={i} onClick={onPopup} className='link'>
                   <td>WRK11102</td>
                   <td>작업관리</td>
                   <td>중앙방송</td>

@@ -28,11 +28,11 @@ import ServicetaskRegistUr from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0002'
 import ServicetaskAll from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0003';
 import ServicetaskDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0004';
 
+// ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
 import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
 import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
-// import NewWindowPopup from './NewWindowPopup';
 
 const AppRouter = () => {
   return (
@@ -63,11 +63,11 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0005" element={<ApprovalTempStorage />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0005-Detail" element={<ApprovalTempStorageDetail />} />
 
+      {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalTest" element={<ApprovalTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
       <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} />
-      {/* <Route path="/NewWindowPopup" element={<NewWindowPopup />} /> */}
     </Routes>
   );
 };
