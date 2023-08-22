@@ -122,7 +122,7 @@ const MenuLevel2 = ({ subMenus, parentTitle }) => {
   );
 };
 
-const MenuItemLevel2 = ({ index, parentTitle, title, path, isActive, onClick }) => {
+const MenuItemLevel2 = ({ index, title, path, isActive, onClick }) => {
   return (
     <li className={`menu-item-level-2 ${isActive ? 'active' : ''}`} onClick={() => onClick(index)} >
       <Link key={index} to={path} className='menu-item-level-2-link'>{title}</Link>
