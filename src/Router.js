@@ -31,8 +31,7 @@ import ServicetaskDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0004';
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
-import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
-import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
+import DisabilityManagement from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 
 const AppRouter = () => {
   return (
@@ -62,6 +61,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0004-Detail" element={<ApprovalReturnDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0005" element={<ApprovalTempStorage />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0005-Detail" element={<ApprovalTempStorageDetail />} />
+      <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0001" element={<DisabilityManagement />} />
 
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />

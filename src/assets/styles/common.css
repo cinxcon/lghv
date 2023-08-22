@@ -28,9 +28,12 @@ th, td { box-sizing: border-box; text-align: left; }
 body { width: 100%; color: #000; font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.03em; word-wrap: break-word; overflow-wrap: break-word; font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif, Arial, Dotum, Gulim, Verdana, Tahoma; overflow-y: scroll; }
 header { position: relative; background: #000; letter-spacing: -0.6px; }
 .container { display: flex; }
-#content { position: relative; clear: both; width: calc(100% - 220px); min-height: calc(100vh - 220px); padding: 60px 40px 40px; }
-#content.isSidebaropen { width: calc(100% - 64px); }
-.content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 40px; }
+#content { position: relative; clear: both; width: calc(100% - 220px); min-height: calc(100vh - 220px); padding: 0 40px 40px; }
+.sidebar.close + #content { width: calc(100% - 64px); }
+.content-work-info{ display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding: 10px 0;}
+.content-work-info ul li{margin-left: 10px;}
+.content-work-info ul li span{margin-left: 5px;}
+.content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-top: 60px; padding-bottom: 12px; margin-bottom: 40px; }
 .content-title h2 { font-size: 24px; font-weight: bold; display: flex; align-items: center }
 .content-title h2 span.title-detail { display: inline-block; position: relative; font-size: 18px; color: #ccc; margin-left: 10px; padding-left: 10px; }
 .content-title h2 span.title-detail::before { content: ''; display: block; position: absolute; top: 3px; left: 0; width: 2px; height: 14px; background-color: #ccc; }
@@ -155,6 +158,8 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .btn-apv-save:before{content:''; background:url('../images/common/ic_black_set_12.png') -48px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .btn-reg {padding-left: 24px; position: relative; }
 .btn-reg:before{content:''; background:url('../images/common/ic_black_set_12.png') -60px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
+.btn-reg-er {padding-left: 24px; position: relative; border-color: #ed174d; color: #ed174d;}
+.btn-reg-er:before{content:''; background:url('../images/common/ic_black_set_12.png') -60px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .btn-copy {padding-left: 24px; position: relative; }
 .btn-copy:before{content:''; background:url('../images/common/ic_black_set_12.png') -12px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .btn-del {padding-left: 24px; position: relative; }
@@ -198,7 +203,9 @@ input[type='radio'] + label.type-btn:before{content: none;}
 /* 검색결과 페이지보기 */
 .result-pageview { margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
 .result-pageview .total-view { margin-right: 8px; font-size: 12px; }
-.result-pageview .select-wrap select { width: 120px; height: 24px; padding: 3px 8px; background-position: 96px 4px; font-size: 12px; font-weight: 700; }
+.result-pageview .select-wrap{ position: relative;}
+.result-pageview .select-wrap::before{content:''; display: block; position: absolute; left: 0; top: 5px; width: 1px;height: 12px; background-color: #dbdbdb;}
+.result-pageview .select-wrap select { width: 96px; height: 24px; padding: 3px 8px; background-position: 80px 4px; font-size: 12px; font-weight: 700; border: 0; vertical-align: baseline; }
 
 /* 페이징 */
 .pagination { margin-top: 30px; font-size: 0; text-align: center; }

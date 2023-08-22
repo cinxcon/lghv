@@ -1,17 +1,11 @@
-import { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
-export default function ServicetasklList() {
-  const location = useLocation(); // 추가된 부분
-  const pathData = location.state; // 추가된 부분
+export default function ServicetasklList(data) {
+  const pathData = data; // 추가된 부분
   const navigate = useNavigate();
-
-  useEffect(() => {
-    pathData.isDetail = 'yes';
-  }, [pathData]);
 
   const selectedWork = () => {
     navigate('/LGHV-UIX-WRK/LGHV-UIX-WRK-0004', { state: pathData });
@@ -22,6 +16,8 @@ export default function ServicetasklList() {
       <div className="result-pageview">
         <ResultPageView />
         <div className='btn-wrap'>
+          <button type="button" className='btn btn-md btn-reg'>일반 등록</button>
+          <button type="button" className='btn btn-md btn-reg-er'>긴급 등록</button>
           <button type="button" className='btn btn-md btn-low btn-exel'>엑셀</button>
         </div>
       </div>

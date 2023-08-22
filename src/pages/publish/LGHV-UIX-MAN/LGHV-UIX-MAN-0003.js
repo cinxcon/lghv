@@ -4,10 +4,16 @@ import ContentTitle from '../layout/ContentTitle';
 import DashboardDetail from './component/DashboardDetail';
 
 const DashBorad = () => {
+  const pagedata = {
+    title: '대시보드',
+    subtitle: '대시보드',
+    SubMenu: 'no',
+    isDetail: 'no'
+  }
   return (
     <>
     <div className='dashboard-wrap'>
-      <ContentTitle />
+      <ContentTitle data={pagedata} />
       <DashboardSearch/>
       <div className="chart-wrap">
         <div className="chart-box">

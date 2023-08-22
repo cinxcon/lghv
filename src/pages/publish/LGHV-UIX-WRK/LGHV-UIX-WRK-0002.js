@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
+import WorkInfo from '../layout/WorkInfo';
 import { Popup, Alert } from '../popup/Popup';
 import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
 import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
@@ -12,9 +13,16 @@ function ServicetaskRegist() {
   const [notimethod, setNotimethod] = useState(false);
   const [clear, setClear] = useState(false);
   const [temp, setTemp] = useState(false);
+  const pagedata = {
+    title: '작업관리',
+    subtitle: '긴급 작업등록',
+    SubMenu: 'yes',
+    isDetail: 'no'
+  }
   return (
     <>
-      <ContentTitle />
+      <WorkInfo />
+      <ContentTitle data={pagedata} />
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>

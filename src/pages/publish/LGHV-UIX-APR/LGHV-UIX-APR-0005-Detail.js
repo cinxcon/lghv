@@ -6,6 +6,7 @@ import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
+import WorkInfo from '../layout/WorkInfo';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -20,7 +21,12 @@ function ApprovalTempStorageDetail() {
   const [modify, setModify] = useState(false);
   const [del, setDelete] = useState(false);
   const [regist, setRegist] = useState(false);
-
+  const pagedata = {
+    title: '결재관리',
+    subtitle: '임시보관함',
+    SubMenu: 'yes',
+    isDetail: 'yes'
+  }
   return (
     <PopupPortal>
       <style>
@@ -29,10 +35,7 @@ function ApprovalTempStorageDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
-        {/* <ContentTitle /> */}
-        <div className="content-title">
-          <h2>임시보관함 상세 팝업</h2>
-        </div>
+        <ContentTitle data={pagedata} />
         <div className="detail-top-btn-group">
           <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn' onClick={() => { setPrint(true) }}>화면인쇄</button>

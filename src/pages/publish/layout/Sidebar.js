@@ -27,7 +27,8 @@ const Sidebar = () => {
     },
     {
       title: '장애관리',
-      subMenus: [{ title: 'Submenu 5', path: '/Submenu5' }]
+      path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001',
+      subMenus: [{ title: '장애등록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001' }]
     },
     {
       title: '결재관리',
@@ -82,6 +83,7 @@ const Sidebar = () => {
             key={index}
             index={index}
             title={menuItem.title}
+            ptitle={menuItem.ptitle}
             path={menuItem.path}
             subMenus={menuItem.subMenus}
             isActive={activeIndex === index}
@@ -95,29 +97,20 @@ const Sidebar = () => {
 
 const MenuItemLevel1 = ({ index, title, path, subMenus, isActive, onClick }) => {
   const hasSubMenus = subMenus.length > 0;
-  const mainTitle = title;
-  const subTitle = subMenus.title;
-  const isSubMenu = hasSubMenus ? 'yse' : 'no';
-  const sendData = {
-    title: mainTitle,
-    subtitle: subTitle,
-    SubMenu: isSubMenu
-  }
-
   return (
     <li className={`menu-item-level-1 ${isActive ? 'active' : ''}`}>
       {/* {hasSubMenus
         ? (<button className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</button>)
         : (<Link to={path} key={index} state={sendData} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>)
         } */}
-      <Link to={path} key={index} state={sendData} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>
+      <Link to={path} key={index} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>
       {isActive && hasSubMenus && <MenuLevel2 parentTitle={title} subMenus={subMenus} />}
     </li>
   );
 };
 
 const MenuLevel2 = ({ subMenus, parentTitle }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleClick = (index) => {
     setActiveIndex(index);
@@ -132,17 +125,9 @@ const MenuLevel2 = ({ subMenus, parentTitle }) => {
 };
 
 const MenuItemLevel2 = ({ index, parentTitle, title, path, isActive, onClick }) => {
-  const mainTitle = parentTitle;
-  const subTitle = title;
-  const isSubMenu = 'yes';
-  const sendData = {
-    title: mainTitle,
-    subtitle: subTitle,
-    SubMenu: isSubMenu
-  }
   return (
     <li className={`menu-item-level-2 ${isActive ? 'active' : ''}`} onClick={() => onClick(index)} >
-      <Link key={index} to={path} state={sendData} className='menu-item-level-2-link'>{title}</Link>
+      <Link key={index} to={path} className='menu-item-level-2-link'>{title}</Link>
     </li>
   );
 };
