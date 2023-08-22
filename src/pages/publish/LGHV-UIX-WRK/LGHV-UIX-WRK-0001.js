@@ -5,7 +5,7 @@ import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
 import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
 import RegistNomal from './component/RegistNomal';
 import PopupLine from '../popup/popupDetail/Popup_Approval';
-
+import WorkInfo from '../layout/WorkInfo';
 function ServicetaskRegist() {
   const [onLoad, setOnLoad] = useState(false);
   const [approvalLine, setApprovalLine] = useState(false);
@@ -13,9 +13,17 @@ function ServicetaskRegist() {
   const [clear, setClear] = useState(false);
   const [tempsave, setTempsave] = useState(false);
 
+  const pagedata = {
+    title: '작업관리',
+    subtitle: '일반 작업등록',
+    SubMenu: 'yes',
+    isDetail: 'no'
+  }
+
   return (
     <>
-      <ContentTitle />
+      <WorkInfo/>
+      <ContentTitle data={ pagedata } />
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>

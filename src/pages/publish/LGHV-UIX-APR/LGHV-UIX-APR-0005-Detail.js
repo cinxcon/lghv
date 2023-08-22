@@ -5,6 +5,7 @@ import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
+import WorkInfo from '../layout/WorkInfo';
 
 function ApprovalTempStorageDetail() {
   const navigate = useNavigate();
@@ -14,11 +15,17 @@ function ApprovalTempStorageDetail() {
   const [modify, setModify] = useState(false);
   const [del, setDelete] = useState(false);
   const [regist, setRegist] = useState(false);
-
+  const pagedata = {
+    title: '결재관리',
+    subtitle: '임시보관함',
+    SubMenu: 'yes',
+    isDetail: 'yes'
+  }
   return (
     <>
+      <WorkInfo/>
       {/* 상단 타이틀 */}
-      <ContentTitle />
+      <ContentTitle data={pagedata} />
       {/* 상단 버튼 모음 */}
       {/* <ApprovalTopBtnGroup /> */}
       <div className="detail-top-btn-group">

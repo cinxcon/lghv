@@ -168,6 +168,35 @@ function ServicetaskSearch() {
                 </td>
               </tr>
               <tr>
+                  <th scope="row"><label htmlFor="type">작업종류</label></th>
+                  <td colSpan={2}>
+                    <span className='service select-wrap'>
+                      <select name="type" id="type">
+                        <option value="">선택</option>
+                      </select>
+                    </span>
+                  </td>
+                  <th scope="row"><label htmlFor="access">접근종류</label></th>
+                  <td colSpan={2}>
+                    <span className='service select-wrap'>
+                      <select name="access" id="access">
+                        <option value="">선택</option>
+                      </select>
+                    </span>
+                  </td>
+                  <th scope="row"><label htmlFor="division">작업구분/유형</label></th>
+                  <td colSpan={3}>
+                    <span className='service select-wrap'>
+                      <select name="division" id="division">
+                        <option value="">선택</option>
+                      </select>
+                      <select name="category" id="category">
+                        <option value="">선택</option>
+                      </select>
+                    </span>
+                  </td>
+              </tr>
+              <tr>
                 <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
                 <td colSpan={4}>
                   <div className='flex-wrap between'>
@@ -217,7 +246,7 @@ function ServicetaskSearch() {
                 </tr>
                 <tr>
                   <th scope="row"><label htmlFor="infra">인프라팀</label></th>
-                  <td colSpan={4}>
+                  <td colSpan={2}>
                     <span>
                       <select name="infra" id="infra">
                         <option value="">서울인프라팀</option>
@@ -226,7 +255,7 @@ function ServicetaskSearch() {
                     </span>
                   </td>
                   <th scope="row"><label htmlFor="SO ">SO </label></th>
-                  <td colSpan={4}>
+                  <td colSpan={2}>
                     <span>
                       <select name="SO" id="SO">
                         <option value="">중앙방송</option>
@@ -234,36 +263,9 @@ function ServicetaskSearch() {
                       </select>
                     </span>
                   </td>
+                  <td colSpan={4}>
+                  </td>
                 </tr>
-                <tr>
-                  <th scope="row"><label htmlFor="type">작업종류</label></th>
-                  <td colSpan={2}>
-                    <span className='service select-wrap'>
-                      <select name="type" id="type">
-                        <option value="">선택</option>
-                      </select>
-                    </span>
-                  </td>
-                  <th scope="row"><label htmlFor="access">접근종류</label></th>
-                  <td colSpan={2}>
-                    <span className='service select-wrap'>
-                      <select name="access" id="access">
-                        <option value="">선택</option>
-                      </select>
-                    </span>
-                  </td>
-                  <th scope="row"><label htmlFor="division">작업구분/유형</label></th>
-                  <td colSpan={3}>
-                    <span className='service select-wrap'>
-                      <select name="division" id="division">
-                        <option value="">선택</option>
-                      </select>
-                      <select name="category" id="category">
-                        <option value="">선택</option>
-                      </select>
-                    </span>
-                  </td>
-              </tr>
             </tbody>
           </table>
           <div className='btn-wrap right'>
