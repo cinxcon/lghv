@@ -74,7 +74,7 @@ export default function ServicetasklList(data) {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={selectedWork}>
+            <tr onClick={selectedWork} className='link'>
               <td>1111</td>
               <td>강원 인프라</td>
               <td>인프라팀 전결</td>
@@ -112,7 +112,7 @@ export default function ServicetasklList(data) {
               <td><span className='color-success'>진행중</span></td>
               <td><span className='color-success'>결제완료</span></td>
             </tr>
-            <tr onClick={selectedWork}>
+            <tr onClick={selectedWork} className='link'>
               <td>1111</td>
               <td>강원 인프라</td>
               <td>인프라팀 전결</td>
@@ -150,7 +150,7 @@ export default function ServicetasklList(data) {
               <td><span className='color-warning'>등록</span></td>
               <td><span className='color-warning'>결제대기</span></td>
             </tr>
-            <tr onClick={selectedWork}>
+            <tr onClick={selectedWork} className='link'>
               <td>1111</td>
               <td>강원 인프라</td>
               <td>인프라팀 전결</td>
