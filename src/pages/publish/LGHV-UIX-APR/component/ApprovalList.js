@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
 export default function ApprovalList(props) {
-  const location = useLocation();
-  const pathData = location.state;
-  const { toDetail, currentStatus } = props;
+  const { data, toDetail, currentStatus } = props;
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
+  const pathData = data; // 추가된 부분
   useEffect(() => {
     pathData.isDetail = 'yes';
   }, [pathData]);

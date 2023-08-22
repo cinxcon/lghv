@@ -5,6 +5,7 @@ import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
+import WorkInfo from '../layout/WorkInfo';
 
 function ApprovalCompleteDetail() {
   const navigate = useNavigate();
@@ -12,10 +13,16 @@ function ApprovalCompleteDetail() {
   const [notimethod, setNotimethod] = useState(false);
   const [print, setPrint] = useState(false);
   const [history, setHistory] = useState(false);
-
+  const pagedata = {
+    title: '결재관리',
+    subtitle: '결재완료함',
+    SubMenu: 'yes',
+    isDetail: 'yes'
+  }
   return (
     <>
-      <ContentTitle />
+      <WorkInfo/>
+      <ContentTitle data={pagedata} />
       <div className="detail-top-btn-group">
         <button className='btn' onClick={() => { setRefuse(true) }}>onTime반려</button>
         <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>

@@ -5,6 +5,7 @@ import { Popup } from '../popup/Popup';
 import { PopupNotiMethodWRK } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
 import ServiceDetail from './component/ServiceDetail';
+import WorkInfo from '../layout/WorkInfo';
 
 function ServicetaskDetail() {
   const navigate = useNavigate();
@@ -17,10 +18,16 @@ function ServicetaskDetail() {
   const [workExtend, setWorkExtend] = useState();
   const [refuse, setRefuse] = useState(false);
   const [approve, setApprove] = useState(false);
-
+  const pagedata = {
+    title: '작업관리',
+    subtitle: '작업등록',
+    SubMenu: 'yes',
+    isDetail: 'yes'
+  }
   return (
     <>
-      <ContentTitle />
+      <WorkInfo/>
+      <ContentTitle data={pagedata} />
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
