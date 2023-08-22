@@ -369,5 +369,7 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .react-datepicker__week .react-datepicker__day:first-child { color: #ed174d; }
 .react-datepicker__week .react-datepicker__day:first-child.react-datepicker__day--selected { color: #fff; }
 
-/* 팝업 */
-.new-window-wrap { padding: 50px;}
+/* 새창 팝업 */
+.new-window-wrap { padding: 50px; }
+.new-window-wrap .content-title { padding-top: 0; }
+.new-window-wrap .breadcrumb { display: none; }

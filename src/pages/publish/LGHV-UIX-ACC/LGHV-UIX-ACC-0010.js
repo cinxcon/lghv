@@ -1,11 +1,11 @@
 /* eslint-disable */
+// LGHV-UIX-ACC-0010 접근제어 정책 조회
 import ContentTitle from '../layout/ContentTitle';
 
-// LGHV-UIX-ACC-0008 장비 등록 AccEquipmentRegist
-function AccEquipmentRegist() {
+function AccPolicy() {
   const pagedata = {
     title: '접근제어',
-    subtitle: '장비 등록',
+    subtitle: '접근제어 정책 목록',
     SubMenu: 'yes',
     isDetail: 'no'
   }
@@ -17,4 +17,4 @@ function AccEquipmentRegist() {
   )
 }
 
-export default AccEquipmentRegist;
+export default AccPolicy;

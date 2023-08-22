@@ -1,13 +1,19 @@
 /* eslint-disable */
+import ContentTitle from '../layout/ContentTitle';
 import ApprovalPopList from './component/_ApprovalPopList';
 
 function ApprovalPop() {
+  const pagedata = {
+    title: '결재관리',
+    subtitle: '결재 대기함',
+    SubMenu: 'yes',
+    isDetail: 'no'
+  }
+
   return (
     <>
-      <div className="content-title">
-        <h2>팝업 테스트 목록</h2>
-      </div>
-      <ApprovalPopList toDetail="/LGHV-UIX-APR/ApprovalPopDetail" currentStatus="테스트" />
+      <ContentTitle data={pagedata} />
+      <ApprovalPopList data={pagedata} toDetail="/LGHV-UIX-APR/ApprovalPopDetail" currentStatus="테스트" />
     </>
   )
 }

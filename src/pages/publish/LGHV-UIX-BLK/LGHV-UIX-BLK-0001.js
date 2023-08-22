@@ -1,8 +1,18 @@
-const DisabilityManagement = () => {
+/* eslint-disable */
+import ContentTitle from '../layout/ContentTitle';
+
+function DisabilityMngReg() {
+  const pagedata = {
+    title: '장애관리',
+    subtitle: '장애등록',
+    SubMenu: 'yes',
+    isDetail: 'no'
+  }
+
   return (
-    <div>
-      장애 관리
-    </div>
+    <>
+      <ContentTitle data={pagedata} />
+    </>
   );
 };
-export default DisabilityManagement;
+export default DisabilityMngReg;

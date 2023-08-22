@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import ContentTitle from '../layout/ContentTitle';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -6,8 +7,14 @@ const PopupPortal = ({ children }) => {
 }
 
 function ApprovalPopDetail() {
+  const pagedata = {
+    title: '결재관리',
+    subtitle: '결제대기함',
+    SubMenu: 'yes',
+    isDetail: 'yes'
+  }
+
   return (
-    <>
     <PopupPortal>
       <style>
         {`
@@ -15,9 +22,7 @@ function ApprovalPopDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
-        <div className="content-title">
-          <h2>결재관리 상세 팝업</h2>
-        </div>
+        <ContentTitle data={pagedata} />
         <h3>결재</h3>
         <table className='table'>
           <caption>결제 라인 정보</caption>
@@ -63,7 +68,6 @@ function ApprovalPopDetail() {
         </table>
       </div>
     </PopupPortal>
-    </>
   )
 }
 
