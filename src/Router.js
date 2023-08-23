@@ -32,6 +32,9 @@ import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 
+// 새창 팝업
+import { PopupACCUserReg, PopupACCUserModi } from './pages/publish/popup/popupDetail/Popup_ACCUserRegModi';
+
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
@@ -70,6 +73,10 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0001" element={<DisabilityMngReg />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
+
+      {/* 새창 팝업 */}
+      <Route path="/popup/Popup_ACCUserReg" element={<PopupACCUserReg />} />
+      <Route path="/popup/Popup_ACCUserModi" element={<PopupACCUserModi />} />
 
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />

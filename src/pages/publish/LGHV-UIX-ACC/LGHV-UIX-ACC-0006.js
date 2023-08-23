@@ -10,6 +10,7 @@ const PopupPortal = ({ children }) => {
 }
 
 function AccEquipmentDetail() {
+  const navigate = useNavigate();
   const pagedata = {
     title: '접근제어',
     subtitle: '장비 목록',

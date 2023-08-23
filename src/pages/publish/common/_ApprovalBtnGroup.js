@@ -1,8 +1,9 @@
+/* eslint-disable */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Popup, Alert } from '../popup/Popup';
-import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
-import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
+import { PopupNotiMethod, PopupNotiMethodWRK, PopupNotiMethodBLK } from '../popup/popupDetail/Popup_NotiMethod';
+import { PopupProcessHistory, PopupProcessHistoryBLK } from '../popup/popupDetail/Popup_ProcessHistory';
 
 function ApprovalTopBtnGroup() {
   const navigate = useNavigate();
@@ -57,19 +58,27 @@ function ApprovalBtnGroup() {
         <button className='btn'>찾아보기</button>
         <button className='btn btn-low'>추가</button>
         <button className='btn btn-low'>삭제</button>
+        <button className='btn btn-add'>연결 정보 추가</button>
       </div>
       <div className="btn-wrap right mt8">
         <button type="button" className="btn btn-md btn-pop">템플릿 불러오기</button>
         <button type="button" className="btn btn-md btn-pop">CELL 등록</button>
         <button type="button" className="btn btn-md btn-apv-save">결재선저장</button>
+      </div>
+      <div className="btn-wrap right mt8">
         <button type="button" className="btn btn-md">확인</button>
-        <button type="button" className="btn btn-md btn-reg">등록</button>
-        <button type="button" className="btn btn-low btn-md">전사</button>
         <button type="button" className="btn btn-low btn-md">해당없음</button>
+        <button type="button" className="btn btn-low btn-md">전사</button>
+        <button type="button" className="btn btn-low btn-md">SO 전체선택</button>
         <button type="button" className="btn btn-low btn-md btn-add">추가</button>
         <button type="button" className="btn btn-low btn-md btn-copy">복사</button>
         <button type="button" className="btn btn-low btn-md btn-del">삭제</button>
         <button type="button" className="btn btn-low btn-md btn-exel">엑셀</button>
+        <button type="button" className="btn btn-md btn-reg">신규</button>
+        <button type="button" className="btn btn-md btn-reg">수정</button>
+        <button type="button" className="btn btn-md btn-reg">등록</button>
+        <button type="button" className="btn btn-md btn-reg">일반등록</button>
+        <button type="button" className="btn btn-md btn-reg-primary">긴급등록</button>
       </div>
     </>
   )

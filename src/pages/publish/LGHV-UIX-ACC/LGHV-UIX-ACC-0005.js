@@ -1,12 +1,14 @@
 // LGHV-UIX-ACC-0005 장비목록 AccEquipmentList
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
 function AccEquipmentList() {
+  const navigate = useNavigate();
+  const handleRegClick = () => navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0008');
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
   const pagedata = {
     title: '접근제어',
@@ -136,7 +138,7 @@ function AccEquipmentList() {
         <div className="result-pageview">
           <ResultPageView />
           <div className='btn-wrap'>
-            <button type="button" className="btn btn-md btn-reg">등록</button>
+            <button className="btn btn-md btn-reg" onClick={ handleRegClick }>등록</button>
           </div>
         </div>
         <table className="table">
