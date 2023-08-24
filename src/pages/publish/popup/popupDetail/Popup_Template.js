@@ -3,6 +3,11 @@ import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
+
 const LoadTemplate = ({ onItemSelected }) => {
   const data = [
     { category: '작업신청', formName: '작업 신청서 기본 폼', date: '2023.07.01' },
@@ -22,10 +27,6 @@ const LoadTemplate = ({ onItemSelected }) => {
 
   const handleConfirmClick = () => {
   // 템플릿 선택
-  }
-  const PopupPortal = ({ children }) => {
-    const el = document.getElementById('popup-root');
-    return createPortal(children, el)
   }
 
   return (
@@ -58,8 +59,10 @@ const LoadTemplate = ({ onItemSelected }) => {
               </td>
               <th scope="row"><label htmlFor="name_search">검색</label></th>
               <td>
-                <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: '80%' }} />
-                <button onClick={templateSearch} className='btn btn-black btn-search'>검색</button>
+                <span className='input-btn-wrap'>
+                  <input type='text' name='name-search' id='name_search' className='input-search-front' />
+                  <button onClick={templateSearch} className='btn btn-black btn-search'>검색</button>
+                </span>
               </td>
           </tr>
           </tbody>

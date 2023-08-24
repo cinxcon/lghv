@@ -30,13 +30,15 @@ function Popup(props) {
 }
 
 function Alert(props) {
-  let { open, close } = props;
+  let { open, close, type } = props;
 
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {
         open
-          ? (<section className='alert-wrap'><div className="main">{props.children}</div><div className="btn-group"><button className="btn btn-lg btn-primary">확인</button><button className="btn btn-lg btn-low" onClick={close}>닫기</button></div></section>)
+          ? (<section className='alert-wrap'><div className="main">{props.children}</div><div className="btn-group">
+            {type === 'yes' ? (<button className="btn btn-lg btn-primary">확인</button>) : null } 
+            <button className={`btn btn-lg ${type === 'yes' ? 'btn-low' : 'btn-primary'}`} onClick={close}>닫기</button></div></section>)
           : null
       }
     </div>

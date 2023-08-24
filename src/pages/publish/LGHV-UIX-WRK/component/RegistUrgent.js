@@ -4,8 +4,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup, Alert } from '../../popup/Popup';
-import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
-import PopupTemplate from '../../popup/popupDetail/Popup_Template';
+// import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
+// import PopupTemplate from '../../popup/popupDetail/Popup_Template';
 import PopupCell from '../../popup/popupDetail/Popup_Cell';
 import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
 import PopupWorker from '../../popup/popupDetail/Popup_Worker';
@@ -14,15 +14,14 @@ import { ko } from 'date-fns/esm/locale';
 
 function UrgentWork() {
   // 팝업
-  const [reviwer, setReviwer] = useState(false);
-  const [template, setTemplate] = useState(false);
+//   const [reviwer, setReviwer] = useState(false);
+
   const [cell, setCell] = useState(false);
   const [workDeteail, setWorkDeteail] = useState(false);
   const [worker, setWorker] = useState(false);
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
-  const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
 
@@ -37,13 +36,6 @@ function UrgentWork() {
   const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
   const [selectedWorker, setSelectedWorker] = useState('');
 
-  const handleItemSelected = (item) => {
-    setSelectedItem(item);
-    setReviwer(false);
-  };
-  const handleTemplateSelected = () => {
-    setTemplate(false);
-  }
   const handleCellSelected = (cell) => {
     setCell(false);
     setSelectedCell(cell);
@@ -92,11 +84,16 @@ function UrgentWork() {
     setDiviceRows([...diviceRows, {}]);
   };
   const diviceRemoveRow = () => {
-    //   if (diviceRows.length > 0) {
-    //     const newRows = diviceRows.slice(0, diviceRows.length - 1);
-    //     setDiviceRows(newRows);
-    //   }
+
   };
+  // 윈도우 팝업
+  const onPopupLarge = (url, name) => {
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  }
 
   const venderAddRow = () => {
     setVendorRows([...vendorRows, {}]);
@@ -119,6 +116,29 @@ function UrgentWork() {
     newDivStates[index] = !newDivStates[index];
     setDivStates(newDivStates);
   };
+
+  // 데이터 리스트
+  const [infraType, setInfraType] = useState(null);
+  const [soType, setSoType] = useState(null);
+  const [workType, setWorkType] = useState(null);
+  const [presenceType, setPresenceType] = useState(null);
+  const [accessPolicy, setAccessPolicy] = useState(null);
+
+  const handleInfraTypeChange = (event) => {
+    setInfraType(event.target.value);
+  };
+  const handleSoTypeChange = (event) => {
+    setSoType(event.target.value);
+  };
+  const handleWorkTypeChange = (event) => {
+    setWorkType(event.target.value);
+  };
+  const handlePresenceTypeChange = (event) => {
+    setPresenceType(event.target.value);
+  };
+  const handleAccessPolicyChange = (event) => {
+    setAccessPolicy(event.target.value);
+  }
 
   return (
   <>
@@ -229,16 +249,18 @@ function UrgentWork() {
                     <td colSpan={3}>
                         <div className='flex-wrap between'>
                             <span className='half'>
-                                <select name="infra" id="infra">
-                                    <option value="">서울인프라팀</option>
-                                    <option value="">경북인프라팀</option>
-                                </select>
+                            <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
+                            <datalist id="infra">
+                                <option value={'서울인프라팀'} />
+                                <option value={'경북인프라팀'} />
+                            </datalist>
                             </span>
                             <span className='half'>
-                                <select name="SO" id="SO">
-                                    <option value="">중앙방송</option>
-                                    <option value="">중부산방송</option>
-                                </select>
+                                <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
+                                <datalist id="SO">
+                                    <option value={'중앙방송'} />
+                                    <option value={'중부산방송'} />
+                                </datalist>
                             </span>
                         </div>
                     </td>
@@ -256,11 +278,8 @@ function UrgentWork() {
                     <td>
                         <div className='flex-wrap between'>
                             <span className='input-btn-wrap'>
-                                <span className='input input_org input-search-front'>{selectedItem}</span>
-                                <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
-                                <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
-                                    <PopupReviewer onItemSelected={handleItemSelected} />
-                                </Popup>
+                                <span className='input input_org input-search-front'></span>
+                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopupLarge('/popup/PopupReviewer', 'Reviewer') }}>선택</button>
                             </span>
                         </div>
                     </td>
@@ -322,15 +341,22 @@ function UrgentWork() {
                     </div>
                     </th>
                     <td>
-                    <select name="area" id="area">
-                        <option value="">전송망</option>
-                    </select>
+                    <input type="text" list="division" value={workType} onChange={handleWorkTypeChange} placeholder="작업유형" />
+                      <datalist id="division">
+                        <option value={'기반'} />
+                        <option value={'시스템'} />
+                        <option value={'H/E'} />
+                        <option value={'전송망'} />
+                        <option value={'기간망'} />
+                      </datalist>
                     </td>
                     <th scope='row'>작업입회 여부</th>
                     <td>
-                    <select name="area" id="area">
-                        <option value="">입회</option>
-                    </select>
+                    <input type="text" list="presence" value={presenceType} onChange={handlePresenceTypeChange} placeholder="작업유형" />
+                      <datalist id="presence">
+                        <option value={'입회'} />
+                        <option value={'미입회'} />
+                      </datalist>
                     </td>
                 </tr>
                 <tr>
@@ -350,10 +376,7 @@ function UrgentWork() {
                     <td colSpan={3}>
                         <div className='work-content'>
                             <div className='btn-wrap'>
-                                <button type='button' className='btn btn-md btn-pop' onClick={() => { setTemplate(true) }}>템플릿 불러오기</button>
-                                <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
-                                    <PopupTemplate onItemSelected={handleTemplateSelected} />
-                                </Popup>
+                                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopupLarge('/popup/PopupTemplate', 'Template') }}>템플릿 불러오기</button>
                             </div>
                             <div className='template'>
                                 <CKEditor
@@ -472,7 +495,7 @@ function UrgentWork() {
                     <th scope='row'>일정</th>
                     <td colSpan={3}>
                         <div className='flex-wrap'>
-                            <div className='flex-wrap'>
+                            <div className='date-time-wrap'>
                                 <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
                                     <div className='time-select'>
                                         <input type="text" value={startHours} readOnly />
@@ -490,7 +513,7 @@ function UrgentWork() {
                                     </div>
                             </div>
                             <span className='ml15'>~</span>
-                            <div className='flex-wrap ml15'>
+                            <div className='date-time-wrap ml15'>
                                 <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
                                     <div className='time-select'>
                                         <input type="text" value={endHours} readOnly />
@@ -598,7 +621,7 @@ function UrgentWork() {
                 </tr>)}
                 {selectedOption === 'access_yes' && (
                 <tr>
-                    <th>사용자 그룹</th>
+                    <th>사용자 그룹 <span className='color-primary'>*</span></th>
                     <td>
                         <select name="user_group" id="user_group">
                             <option value="all">전체</option>
@@ -610,13 +633,13 @@ function UrgentWork() {
                             <option value="all">전체</option>
                         </select>
                     </td>
-                    <th>장비</th>
+                    <th>장비<button type='button' className='btn btn-low ml10'>예외</button></th>
                     <td>
                         <span className="input-btn-wrap">
                             <select name="use_device" id="use_device">
                                 <option value="use_device">전체</option>
                             </select>
-                            <button type="button" className="btn btn-low btn-md btn-add" onClick={diviceAddRow}>추가</button>
+                            <button type="button" className="btn btn-add" onClick={diviceAddRow}>추가</button>
                         </span>
                     </td>
                 </tr>
@@ -632,187 +655,224 @@ function UrgentWork() {
                         <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-del' onClick={diviceRemoveRow}>삭제</button>
                     </div>
                 </div>
-                <table className="table mt8" style={{ width: '100%' }}>
-                <caption>장비목록</caption>
-                <colgroup>
-                    <col span={5} />
-                    <col span={7} style={{ width: '3%' }} />
-                    <col span={4} />
-                </colgroup>
-                <thead>
-                    <tr>
-                    <th scope='col' rowSpan={2}></th>
-                    <th scope='col' rowSpan={2}>사용자부서</th>
-                    <th scope='col' rowSpan={2}>사용자</th>
-                    <th scope='col' rowSpan={2}>장비</th>
-                    <th scope='col' rowSpan={2}>OS</th>
-                    <th scope='col' colSpan={7}>접속Protocol</th>
-                    <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
-                    <th scope='col'>접근정책</th>
-                    <th scope='col'>시작일시</th>
-                    <th scope='col'>종료일시</th>
-                    </tr>
-                    <tr>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_1" id="ck_1" value="" />
-                        <label htmlFor="ck_1"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_2" id="ck_2" value="" />
-                        <label htmlFor="ck_2"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_3" id="ck_3" value="" />
-                        <label htmlFor="ck_3"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_4" id="ck_4" value="" />
-                        <label htmlFor="ck_4"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_5" id="ck_5" value="" />
-                        <label htmlFor="ck_5"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_6" id="ck_6" value="" />
-                        <label htmlFor="ck_6"></label>
-                     </td>
-                     <td scope='col'>
-                        <input type="checkbox" name="ck_7" id="ck_7" value="" />
-                        <label htmlFor="ck_7"></label>
-                     </td>
-                     <td scope='col'>
-                        <div className='flex-wrap between'>
-                            <select name='' id='' className='type-t'>
-                                <option>선택</option>
-                            </select>
-                            <button type='button' className='btn btn-md'>선택</button>
-                        </div>
-                     </td>
-                     <td scope='col'>
-                        <div className='flex-wrap between'>
-                            <select name='' id='' className='type-t'>
-                                <option>시간 설정</option>
-                            </select>
-                            <button type='button' className='btn btn-md'>선택</button>
-                        </div>
-                     </td>
-                     <td scope='col'>
-                        <div className='flex-wrap between'>
-                            <select name='' id='' className='type-t'>
-                                <option>시간 설정</option>
-                            </select>
-                            <button type='button' className='btn btn-md'>선택</button>
-                        </div>
-                     </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="list_1" id="list_1" value="" />
-                            <label htmlFor="list_1"></label>
-                        </td>
-                        <td>호남인프라</td>
-                        <td>
-                            <select name='' id='' className='type-t'>
-                                <option>홍길동 Hong</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name='' id='' className='type-t'>
-                                <option>Infra Core1</option>
-                            </select>
-                        </td>
-                        <td>Linux</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <input type="checkbox" name="protocol" id="ptc_4" value="" checked />
-                            <label htmlFor="ptc_4">SSH</label>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="protocol" id="ptc_5" value="" checked />
-                            <label htmlFor="ptc_5">Telnet</label>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="protocol" id="ptc_6" value="" checked />
-                            <label htmlFor="ptc_6">SFTP</label>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="protocol" id="ptc_7" value="" checked />
-                            <label htmlFor="ptc_7">FTP</label>
-                        </td>
-                        <td>admin</td>
-                        <td>
-                            <select name='' id='' className='type-t'>
-                                <option>L1</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name='' id='' className='type-t'>
-                                <option>2023-07-28 00:00:00</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name='' id='' className='type-t'>
-                                <option>2023-07-28 00:00:00</option>
-                            </select>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="list_4" id="list_4" value="" />
-                                <label htmlFor="list_4"></label>
-                            </td>
-                            <td>호남인프라</td>
-                            <td>
-                            <select name='' id='' className='type-t'>
-                                <option>김철수 Kim</option>
-                            </select>
-                            </td>
-                            <td>
-                                <select name='' id='' className='type-t'>
-                                    <option>Infra Core1</option>
-                                </select>
-                            </td>
-                            <td>Web</td>
-                            <td>
-                                <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
-                                <label htmlFor="ptc_1">HTTPS</label>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>admin</td>
-                            <td>
-                                <select name='' id='' className='type-t'>
-                                    <option>L0</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name='' id='' className='type-t'>
-                                    <option>2023-07-28 00:00:00</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name='' id='' className='type-t'>
-                                    <option>2023-07-28 00:00:00</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className='over-flow-x'>
+                    <table className="table mt8" style={{ width: '110%' }}>
+                        <caption>장비목록</caption>
+                        <colgroup>
+                            <col span={5} />
+                            <col span={8} style={{ width: '3%' }} />
+                            <col span={4} />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope='col' rowSpan={2}></th>
+                                <th scope='col' rowSpan={2}>사용자부서</th>
+                                <th scope='col' rowSpan={2}>사용자</th>
+                                <th scope='col' rowSpan={2}>장비</th>
+                                <th scope='col' rowSpan={2}>OS</th>
+                                <th scope='col' ></th>
+                                <th scope='col' colSpan={7}>접속Protocol</th>
+                                <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
+                                <th scope='col'>접근정책</th>
+                                <th scope='col'>시작일시</th>
+                                <th scope='col'>종료일시</th>
+                                </tr>
+                                <tr>
+                                <td scope='col'>
+                                    All
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_1" id="ck_1" value="" checked />
+                                    <label htmlFor="ck_1"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_2" id="ck_2" value="" checked />
+                                    <label htmlFor="ck_2"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_3" id="ck_3" value="" checked />
+                                    <label htmlFor="ck_3"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_4" id="ck_4" value="" checked />
+                                    <label htmlFor="ck_4"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_5" id="ck_5" value="" checked />
+                                    <label htmlFor="ck_5"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_6" id="ck_6" value="" checked />
+                                    <label htmlFor="ck_6"></label>
+                                </td>
+                                <td scope='col'>
+                                    <input type="checkbox" name="ck_7" id="ck_7" value="" checked />
+                                    <label htmlFor="ck_7"></label>
+                                </td>
+                                <td scope='col'>
+                                    <div className='input-btn-wrap'>
+                                            <input type="text" list="access_policy" value={accessPolicy} onChange={handleAccessPolicyChange} placeholder="선택" multiple style={{ width: '70px', padding: '3px' }} />
+                                            <datalist id="access_policy">
+                                                <option value={'L0'} />
+                                                <option value={'L1'} />
+                                                <option value={'L2'} />
+                                            </datalist>
+                                        <button type='button' className='btn btn-md'>적용</button>
+                                    </div>
+                                </td>
+                                <td scope='col'>
+                                    <div className='date-time-wrap sm'>
+                                            <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" className='time' />
+                                                <div className='time-select'>
+                                                    <input type="text" value={startHours} readOnly />
+                                                    <span>
+                                                        <button onClick={handleStartHourIncrease}>▲</button>
+                                                        <button onClick={handleStartHourDecrease}>▼</button>
+                                                    </span>
+                                                </div> :
+                                                <div className='time-select'>
+                                                    <input type="text" value={startMinutes} readOnly />
+                                                    <span>
+                                                        <button onClick={handleStartMinuteIncrease}>▲</button>
+                                                        <button onClick={handleStartMinuteDecrease}>▼</button>
+                                                    </span>
+                                                </div>
+                                        </div>
+                                    <button type='button' className='btn btn-md'>적용</button>
+                                </td>
+                                <td scope='col'>
+                                    <div className='date-time-wrap sm'>
+                                            <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
+                                                <div className='time-select'>
+                                                    <input type="text" value={startHours} readOnly />
+                                                    <span>
+                                                        <button onClick={handleStartHourIncrease}>▲</button>
+                                                        <button onClick={handleStartHourDecrease}>▼</button>
+                                                    </span>
+                                                </div> :
+                                                <div className='time-select'>
+                                                    <input type="text" value={startMinutes} readOnly />
+                                                    <span>
+                                                        <button onClick={handleStartMinuteIncrease}>▲</button>
+                                                        <button onClick={handleStartMinuteDecrease}>▼</button>
+                                                    </span>
+                                                </div>
+                                        </div>
+                                    <button type='button' className='btn btn-md'>적용</button>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_1" id="list_1" value="" />
+                                    <label htmlFor="list_1"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                홍길동 Hong
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Linux</td>
+                                <td>
+                                    <input type="checkbox" name="all_1" id="all_1" value="" checked/>
+                                    <label htmlFor="all_1"></label>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_4" value="" checked />
+                                    <label htmlFor="ptc_4">SSH</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_5" value="" checked />
+                                    <label htmlFor="ptc_5">Telnet</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_6" value="" checked />
+                                    <label htmlFor="ptc_6">SFTP</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_7" value="" checked />
+                                    <label htmlFor="ptc_7">FTP</label>
+                                </td>
+                                <td>admin</td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>L1</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_4" id="list_4" value="" />
+                                        <label htmlFor="list_4"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    김철수 Kim
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Web</td>
+                                    <td>
+                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
+                                        <label htmlFor="all_2"></label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                        <label htmlFor="ptc_1">HTTPS</label>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>admin</td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>L0</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>)}
         </div>
     </div>
     <div className='content-section'>
         <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
-             <h3>사업자/벤더사 작업 투입 인력</h3>
+            <h3>사업자/벤더사 작업 투입 인력</h3>
                 <div className="btn-wrap">
                     <button className={`btn-fold ${divStates[5] ? 'close' : ''}`} onClick={() => handleDivToggle(5)} id='fold-open'>사업자/벤더사 열기</button>
                 </div>
@@ -822,7 +882,7 @@ function UrgentWork() {
             <table className='table'>
                 <caption>table caption</caption>
                 <colgroup>
-                   <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
                     <col style={{ width: '30%' }} />
                     <col style={{ width: '30%' }} />
                     <col style={{ width: '20%' }} />

@@ -21,7 +21,7 @@
 .approval-top .line-select input[type='checkbox'] + label, .line-select input[type='radio'] + label { margin-right: 10px; }
 .approval-conts { display: flex; height: 580px; min-height: 580px; padding: 15px 16px; overflow: hidden; border: 1px solid #dbdbdb; border-top: 1px solid #000;}
 .approval-conts.half{width: 50%;}
-.tree-wrap { width: 50%; height: 300px; overflow-y: scroll; min-height: inherit; padding-bottom: 30px;}
+.tree-wrap { width: 55%; height: 300px; overflow-y: scroll; min-height: inherit; padding-bottom: 30px;}
 .tree-wrap.alone{width: 100%;}
 .tree-wrap .tree-logo{width: 120px; height: 20px; background: url('../../../assets/images/layout/LGHV_logo_20@2x.png') 0 0 no-repeat; background-size: 100%; z-index: 100; font-size: 0;}
 .tree-wrap .tree-conts {overflow: hidden; padding-top: 20px;}
@@ -40,7 +40,7 @@
 .tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -15px; top: 10px; width: 20px; height: 1px; background-color: #dbdbdb; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 10px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
-.list-item { width: 50%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
+.list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
 .list-item ul { list-style: none; }
 .list-item ul li { margin: 0 16px; padding: 8px 20px; border-bottom: 1px dotted #dbdbdb; cursor: pointer; display:flex; justify-content: space-between; }
 .list-item ul li.active {background: url('../../../assets/images/common/ic_check_set_16.png') -16px 12px no-repeat; }
@@ -74,7 +74,7 @@
 .popup-table label.hide { margin: 0; font-size: 0; text-indent: 18px; }
 .popup-table td.active { color: #ED174D; }
 .popup-table.center th, .popup-table.center td{ text-align: center !important;}
-
+.popup-table.bt{}
 
 .pop-search-wrap{ margin-bottom: 40px;}
 .pop-search-wrap .select-item{width: 80%; margin-left: 20px;}
