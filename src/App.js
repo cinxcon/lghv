@@ -25,6 +25,7 @@ const Main = () => {
       <div className='container'>
         <Sidebar></Sidebar>
         <article id='content'>
+          <WorkInfo />
           <AppRouter />
           <Footer />
         </article>

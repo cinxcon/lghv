@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardSearch from './component/DashboardSearch';
 import ContentTitle from '../layout/ContentTitle';
 import DashboardDetail from './component/DashboardDetail';
+import DashBoradTable from './component/DashBoradTable';
 
 const DashBorad = () => {
   const pagedata = {
@@ -16,22 +17,23 @@ const DashBorad = () => {
       <ContentTitle data={pagedata} />
       <DashboardSearch/>
       <div className="chart-wrap">
-        <div className="chart-box">
-          <DashboardDetail type={'bar'} />
-        </div>
-        <div className="chart-box">
-          <DashboardDetail type={'bar'} />
-        </div>
-        <div className="chart-box">
-          <DashboardDetail type={'pie'} />
+      <div className="chart-box">
+          <DashboardDetail type={'pie'} index={'1'} />
         </div>
         <div className='chart-box'>
-          <DashboardDetail type={'pie'} />
+          <DashboardDetail type={'pie'} index={'2'} />
         </div>
-        <div className='chart-box wide'>
+        <div className="chart-box">
           <DashboardDetail type={'line'} />
         </div>
+        <div className="chart-box">
+          <DashboardDetail type={'bar'} />
+        </div>
+        <div className='chart-box wide'>
+          <DashboardDetail type={'wideline'} />
+        </div>
       </div>
+      <DashBoradTable />
     </div>
     </>
   );

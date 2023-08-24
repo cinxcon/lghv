@@ -14,7 +14,11 @@ export default function ApprovalList(props) {
 
   const onPopup = () => {
     const url = toDetail;
-    window.open(url, '_blank', 'popup');
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, '_blank', 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
 
   return (

@@ -111,7 +111,7 @@ const Worker = ({ onItemSelected }) => {
 
   const handleConfirmClick = () => {
     if (selectedName === null) {
-      alert('검토자를 선택하지 않으셨습니다.');
+      alert('작업자를 선택하지 않으셨습니다.');
     } else {
       onItemSelected(selectedName);
     }

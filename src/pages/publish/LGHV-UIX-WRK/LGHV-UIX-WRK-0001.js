@@ -5,7 +5,6 @@ import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
 import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
 import RegistNomal from './component/RegistNomal';
 import PopupLine from '../popup/popupDetail/Popup_Approval';
-import WorkInfo from '../layout/WorkInfo';
 function ServicetaskRegist() {
   const [onLoad, setOnLoad] = useState(false);
   const [approvalLine, setApprovalLine] = useState(false);
@@ -19,16 +18,23 @@ function ServicetaskRegist() {
     SubMenu: 'yes',
     isDetail: 'no'
   }
+  // 윈도우 팝업
+  const onPopupLarge = (url, name) => {
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  }
 
   return (
     <>
-      <WorkInfo/>
       <ContentTitle data={ pagedata } />
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
-          <button className='btn btn-pop' onClick={() => { setOnLoad(true) }}>불러오기</button>
-          <button className='btn btn-pop' onClick={() => { setApprovalLine(true) }}>결제선 지정</button>
+          <button className='btn btn-pop' onClick={() => { onPopupLarge('/popup/PopupWorkOnLoad', 'WorkOnLoad') }}>불러오기</button>
+          <button className='btn btn-pop' onClick={() => { onPopupLarge('/popup/PopupLine', 'Line') }}>결제선 지정</button>
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>

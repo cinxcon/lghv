@@ -35,6 +35,12 @@ import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-
 // 새창 팝업
 import { PopupACCUserReg, PopupACCUserModi } from './pages/publish/popup/popupDetail/Popup_ACCUserRegModi';
 
+// 팝업
+import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer.js';
+import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template.js';
+import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad.js';
+import PopupLine from './pages/publish/popup/popupDetail/Popup_Approval';
+
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
@@ -45,7 +51,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/LGHV-UIX-MAN-0003" element={<DashBorad />} />
+      <Route path="/LGHV-UIX-MAN/LGHV-UIX-MAN-0003" element={<DashBorad />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0001" element={<ServicetaskRegistNm />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0002" element={<ServicetaskRegistUr />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0003" element={<ServicetaskAll />} />
@@ -78,11 +84,17 @@ const AppRouter = () => {
       <Route path="/popup/Popup_ACCUserReg" element={<PopupACCUserReg />} />
       <Route path="/popup/Popup_ACCUserModi" element={<PopupACCUserModi />} />
 
+      {/* 팝업 */}
+      <Route path="/popup/PopupReviewer" element={<PopupReviewer />} />
+      <Route path="/popup/PopupTemplate" element={<PopupTemplate />} />
+      <Route path="/popup/PopupWorkOnLoad" element={<PopupWorkOnLoad />} />
+      <Route path="/popup/PopupLine" element={<PopupLine />} />
+
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalTest" element={<ApprovalTest />} />
-      <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
-      <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} />
+      {/* <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
+      <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} /> */}
     </Routes>
   );
 };

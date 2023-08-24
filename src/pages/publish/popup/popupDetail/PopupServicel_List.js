@@ -64,7 +64,83 @@ export default function PopupServiceList() {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={selectedWork}>
+            <tr className='link' onClick={selectedWork}>
+                <td>1111</td>
+                <td>강원 인프라</td>
+                <td>인프라팀 전결</td>
+                <td>시스템</td>
+                <td>입회</td>
+                <td>홍길동</td>
+                <td>영서 방송</td>
+                <td>작업 제목 작업 제목작업 제목작업 제목 작업 제목</td>
+                <td>2023-01-01 02:00</td>
+                <td>2023-01-01 03:00</td>
+                <td>1H</td>
+                <td>2023-01-01 10:00</td>
+                <td>2023-01-01 20:00</td>
+                <td>2023-01-01</td>
+                <td>작업내용</td>
+                <td>원인</td>
+                <td>이슈 사항</td>
+                <td>강원인프라</td>
+                <td>강원인프라<br />심재완</td>
+                <td>130</td>
+                <td>100</td>
+                <td>10</td>
+                <td>5</td>
+                <td>5</td>
+                <td>5</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>3m</td>
+                <td>등록</td>
+                <td>결제<br />완료</td>
+            </tr>
+            <tr className='link' onClick={selectedWork}>
+                <td>1111</td>
+                <td>강원 인프라</td>
+                <td>인프라팀 전결</td>
+                <td>시스템</td>
+                <td>입회</td>
+                <td>홍길동</td>
+                <td>영서 방송</td>
+                <td>작업 제목 작업 제목작업 제목작업 제목 작업 제목</td>
+                <td>2023-01-01 02:00</td>
+                <td>2023-01-01 03:00</td>
+                <td>1H</td>
+                <td>2023-01-01 10:00</td>
+                <td>2023-01-01 20:00</td>
+                <td>2023-01-01</td>
+                <td>작업내용</td>
+                <td>원인</td>
+                <td>이슈 사항</td>
+                <td>강원인프라</td>
+                <td>강원인프라<br />심재완</td>
+                <td>130</td>
+                <td>100</td>
+                <td>10</td>
+                <td>5</td>
+                <td>5</td>
+                <td>5</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>3m</td>
+                <td>등록</td>
+                <td>결제<br />완료</td>
+            </tr>
+            <tr className='link' onClick={selectedWork}>
                 <td>1111</td>
                 <td>강원 인프라</td>
                 <td>인프라팀 전결</td>

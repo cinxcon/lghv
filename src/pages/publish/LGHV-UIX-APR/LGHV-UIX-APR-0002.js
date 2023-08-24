@@ -1,7 +1,6 @@
 import ContentTitle from '../layout/ContentTitle';
 import ApprovalSearch from './component/ApprovalSearch';
 import ApprovalList from './component/ApprovalList';
-import WorkInfo from '../layout/WorkInfo';
 
 function ApprovalComplete() {
   const pagedata = {
@@ -12,7 +11,6 @@ function ApprovalComplete() {
   }
   return (
     <>
-      <WorkInfo/>
       <ContentTitle data={pagedata} />
       <ApprovalSearch />
       <ApprovalList data={pagedata} toDetail="/LGHV-UIX-APR/LGHV-UIX-APR-0002-Detail" currentStatus="결재완료" />

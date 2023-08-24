@@ -8,8 +8,13 @@ const CustomLegendCircle = ({ data, labels }) => {
     <div className='custom-legend vertical'>
       {labels.map((label, index) => (
         <div key={index} className='legend-item'>
-          <span style={{ backgroundColor: data.datasets[0].backgroundColor[index] }} className='color-box'></span>
-          <span className='label-item'>{label}</span><span>{percentages[index]}%</span>
+          <div>
+            <span style={{ backgroundColor: data.datasets[0].backgroundColor[index] }} className='color-box'></span>
+            <span className='label-item'>{label}</span>
+          </div>
+          <div>
+            <span className='label-number'>{percentages[index]}%</span>
+          </div>
         </div>
       ))}
     </div>

@@ -1,7 +1,6 @@
 import ContentTitle from '../layout/ContentTitle';
 import ServicetaskSearch from './component/ServicetaskSearch';
 import ServicetasklList from './component/ServicetasklList';
-import WorkInfo from '../layout/WorkInfo';
 
 function ApprovalList() {
   const pagedata = {
@@ -12,7 +11,6 @@ function ApprovalList() {
   }
   return (
     <>
-      <WorkInfo />
       <ContentTitle data={pagedata} />
       <ServicetaskSearch />
       <ServicetasklList data={pagedata} />

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { createPortal } from 'react-dom';
 
 const Rreviewer = ({ onItemSelected }) => {
   const [treeData, setTreeData] = useState([]);
+  const PopupPortal = ({ children }) => {
+    const el = document.getElementById('popup-root');
+    return createPortal(children, el)
+  }
 
   useEffect(() => {
     fetchData();
@@ -113,7 +118,7 @@ const Rreviewer = ({ onItemSelected }) => {
     if (selectedName === null) {
       alert('검토자를 선택하지 않으셨습니다.');
     } else {
-      onItemSelected(selectedName);
+      // onItemSelected(selectedName);
     }
   };
 
@@ -127,55 +132,68 @@ const Rreviewer = ({ onItemSelected }) => {
 
   return (
     <>
-    <div className='flex-wrap align-start'>
-     <div className='approval-conts'>
-        <div className='tree-wrap'>
-        <div className='tree-logo'>LG hellovision</div>
-              <div className='tree-conts'>
-              {treeData.depts && treeData.depts.map((item) => (
-                  <TreeItem
-                    key={item.deptId}
-                    item={item}
-                    onItemSelected={handleItemSelected}
-                  />
-              ))}
-              </div>
-        </div>
-        <div className='list-item'>
-              <ul>
-                {getMenuItems()}
-              </ul>
-        </div>
+    <PopupPortal>
+      <style>
+        {`
+          #root {display: none;}
+        `}
+      </style>
+      <div className='new-window-wrap'>
+      <div className="content-title">
+        <h2>검토자 지정</h2>
       </div>
-      <div className='selected-item'>
-            <table className="popup-table">
-              <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
-                <col style={{ width: '40%' }} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">부서</th>
-                  <th scope="col">성명</th>
+      <div className='flex-wrap align-start'>
+        <div className='approval-conts'>
+          <div className='tree-wrap'>
+          <div className='tree-logo'>LG hellovision</div>
+                <div className='tree-conts'>
+                {treeData.depts && treeData.depts.map((item) => (
+                    <TreeItem
+                      key={item.deptId}
+                      item={item}
+                      onItemSelected={handleItemSelected}
+                    />
+                ))}
+                </div>
+          </div>
+          <div className='list-item'>
+                <ul>
+                  {getMenuItems()}
+                </ul>
+          </div>
+      </div>
+        <div className='selected-item'>
+              <table className="popup-table">
+                <caption>검토자 리스트</caption>
+                <colgroup>
+                  <col style={{ width: '10%' }} />
+                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '40%' }} />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">부서</th>
+                    <th scope="col">성명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {tableData.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
+                  <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
+                  <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
                 </tr>
-              </thead>
-              <tbody>
-              {tableData.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
-              </tr>
-              ))}
-              </tbody>
-            </table>
+                ))}
+                </tbody>
+              </table>
+        </div>
       </div>
-    </div>
       <div className='right'>
-        <button onClick={handleConfirmClick} className='btn btn-primary ml10'>검토자 설정</button>
+        <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>검토자 설정</button>
       </div>
+      </div>
+      </PopupPortal>
     </>
   );
 };

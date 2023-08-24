@@ -18,17 +18,15 @@ const DashboardSearch = () => {
             <div className='title'>날짜검색</div>
             <div className="date-wrap">
                 <div className='date-box'>
-                    <label>시작일 :</label>
                     <DatePicker selected={startDate} onChange={handleStartDateChange} dateFormat="yyyy.MM.dd" />
                 </div>
                 ~
                 <div className='date-box'>
-                    <label>종료일 :</label>
                     <DatePicker selected={endDate} onChange={handleEndDateChange} dateFormat="yyyy.MM.dd" />
                 </div>
             </div>
             <div className='btn-box'>
-                <button type='button' className='btn btn-black'>검색</button>
+                <button type='button' className='btn btn-search-txt'>검색</button>
             </div>
         </div>
     </>
