@@ -21,15 +21,14 @@ const App = () => {
 const Main = () => {
   return (<>
     <Header></Header>
-    <WorkInfo />
-      <div className='container'>
-        <Sidebar></Sidebar>
-        <article id='content'>
-          <WorkInfo />
-          <AppRouter />
-          <Footer />
-        </article>
-      </div>
+    <div className='container'>
+      <Sidebar></Sidebar>
+      <article id='content'>
+        <WorkInfo />
+        <AppRouter />
+        <Footer />
+      </article>
+    </div>
   </>)
 }
 

@@ -105,10 +105,10 @@ function ApprovalBotBtnGroup() {
         <button className='btn btn-lg btn-primary' onClick={() => { setApprove(true) }}>승인</button>
         <button className='btn btn-lg' onClick={() => { setModify(true) }}>수정</button>
         <button className='btn btn-lg' onClick={() => { setDelete(true) }}>삭제</button>
-        <button className='btn btn-lg' onClick={() => { setRegist(true) }}>등록</button>
 
         <button className='btn' onClick={() => { setWorkStop(true) }}>작업중단</button>
         <button className='btn' onClick={() => { setWorkCancel(true) }}>작업취소</button>
+        <button className='btn btn-lg' onClick={() => { setRegist(true) }}>등록</button>
         <button className='btn' onClick={() => { setWorkFin(true) }}>작업완료</button>
         <button className='btn' onClick={() => { setWorkExtend(true) }}>작업연장</button>
       </div>
