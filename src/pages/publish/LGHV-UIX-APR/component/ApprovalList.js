@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
@@ -13,14 +12,13 @@ export default function ApprovalList(props) {
     pathData.isDetail = 'yes';
   }, [pathData]);
 
-  // const navigate = useNavigate();
-  // const selectedWork = () => {
-  //   navigate(toDetail, { state: pathData });
-  // }
-
   const onPopup = () => {
     const url = toDetail;
-    window.open(url, '_blank', 'popup');
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, '_blank', 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
 
   return (

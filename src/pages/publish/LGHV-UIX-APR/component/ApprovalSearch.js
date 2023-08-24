@@ -157,7 +157,7 @@ function ApprovalSearch() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="infra">인프라팀</label></th>
-                <td colSpan={4}>
+                <td colSpan={2}>
                   <span>
                     <select name="infra" id="infra">
                       <option value="">서울인프라팀</option>
@@ -166,7 +166,7 @@ function ApprovalSearch() {
                   </span>
                 </td>
                 <th scope="row"><label htmlFor="SO ">SO </label></th>
-                <td colSpan={4}>
+                <td colSpan={2}>
                   <span>
                     <select name="SO" id="SO">
                       <option value="">중앙방송</option>
@@ -174,10 +174,12 @@ function ApprovalSearch() {
                     </select>
                   </span>
                 </td>
+                <td colSpan={4}>
+                </td>
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="regdate">등록일</label></th>
-                <td colSpan={9}>
+                <td colSpan={3}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -199,17 +201,15 @@ function ApprovalSearch() {
                     </span>
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <th scope="row"><label htmlFor="findate">종료일</label></th>
-                <td colSpan={4}>
+                <td colSpan={2}>
                   <span className='input-btn-wrap'>
                     <DatePicker selected={endeDate} onChange={(date) => setEndeDate(date)} isClearable />
                     <button className='btn btn-low' >삭제</button>
                   </span>
                 </td>
                 <th scope="row"><label htmlFor="compdate">완료 예정일</label></th>
-                <td colSpan={4}>
+                <td colSpan={2}>
                   <span className='input-btn-wrap'>
                     <DatePicker selected={compDate} onChange={(date) => setCompDate(date)} isClearable />
                     <button className='btn btn-low'>삭제</button>

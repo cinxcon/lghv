@@ -5,7 +5,6 @@ import { Popup } from '../popup/Popup';
 import { PopupNotiMethodWRK } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
 import ServiceDetail from './component/ServiceDetail';
-import WorkInfo from '../layout/WorkInfo';
 
 function ServicetaskDetail() {
   const navigate = useNavigate();
@@ -26,7 +25,6 @@ function ServicetaskDetail() {
   }
   return (
     <>
-      <WorkInfo/>
       <ContentTitle data={pagedata} />
       <div className='content-section'>
         <div className="detail-top-btn-group">
