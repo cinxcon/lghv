@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
 import { Popup } from '../popup/Popup';
 import { PopupNotiMethodWRK } from '../popup/popupDetail/Popup_NotiMethod';
-import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
+import { PopupProcessHistory } from '../popup/popupDetail/Popup_ProcessHistory';
 import ServiceDetail from './component/ServiceDetail';
 
 function ServicetaskDetail() {

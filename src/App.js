@@ -6,11 +6,12 @@ import Sidebar from './pages/publish/layout/Sidebar';
 import Footer from './pages/publish/layout/Footer';
 import DynamicStyle from './assets/dynamicStyle';
 import WorkInfo from './pages/publish/layout/WorkInfo';
+
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
   return (
-    <div className='app'>
+    <div className='App'>
       <DynamicStyle/>
       { isLoggedIn ? (<Main/>) : (<LoginPage />) }
     </div>
@@ -20,6 +21,7 @@ const App = () => {
 const Main = () => {
   return (<>
     <Header></Header>
+    <WorkInfo />
       <div className='container'>
         <Sidebar></Sidebar>
         <article id='content'>

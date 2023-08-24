@@ -38,7 +38,6 @@ function ServicetaskRegist() {
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
-
         </div>
         <Popup open={onLoad} close={() => { setOnLoad(false) }} type="xlg" header="불러오기">
           <PopupWorkOnLoad />

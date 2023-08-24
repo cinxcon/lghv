@@ -184,7 +184,7 @@ function ServiceDetail() {
             <tr>
               <th scope='row'>파일첨부</th>
               <td colSpan={3}>
-                작업 등록건에 대하여.pdf
+                <span className='ico_attach'></span>작업 등록건에 대하여.pdf
               </td>
             </tr>
           </tbody>

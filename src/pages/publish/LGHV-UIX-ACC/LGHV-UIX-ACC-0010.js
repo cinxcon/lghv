@@ -1,11 +1,11 @@
 /* eslint-disable */
-// LGHV-UIX-ACC-0009 금칙어 조회
+// LGHV-UIX-ACC-0010 접근제어 정책 조회
 import ContentTitle from '../layout/ContentTitle';
 
-function AccBanWords() {
+function AccPolicy() {
   const pagedata = {
     title: '접근제어',
-    subtitle: '금칙어 조회',
+    subtitle: '접근제어 정책 목록',
     SubMenu: 'yes',
     isDetail: 'no'
   }
@@ -17,4 +17,4 @@ function AccBanWords() {
   )
 }
 
-export default AccBanWords;
+export default AccPolicy;

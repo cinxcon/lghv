@@ -19,16 +19,21 @@ const Sidebar = ({ activeMenu }) => {
     },
     {
       title: '접근제어',
-      path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0003',
+      path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0001',
       subMenus: [
-        { title: '사용자 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0003' },
-        { title: '장비 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0004' }
+        { title: '사용자 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0001' },
+        { title: '장비 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0005' },
+        { title: '사용자 등록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0007' },
+        { title: '장비 등록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0008' },
+        { title: '접근제어정책목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0010' }
       ]
     },
     {
       title: '장애관리',
-      path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001',
-      subMenus: [{ title: '장애등록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001' }]
+      path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0002',
+      subMenus: [{ title: '장애목록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0002' },
+        { title: '장애등록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001' }
+      ]
     },
     {
       title: '결재관리',

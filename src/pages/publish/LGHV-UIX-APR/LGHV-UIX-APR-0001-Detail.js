@@ -5,8 +5,7 @@ import ContentTitle from '../layout/ContentTitle';
 import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
-import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
-
+import { PopupProcessHistory } from '../popup/popupDetail/Popup_ProcessHistory';
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
   return createPortal(children, el)

@@ -262,7 +262,7 @@ function NomalWork() {
                 <tr>
                     <th scope='row'>대상 서비스  <span className='color-primary'>*</span></th>
                     <td colSpan={3}>
-                        <fieldset className='mb15'>
+                        <fieldset>
                             <legend>대상 서비스</legend>
                             <input type="checkbox" name="service" id="ser_1" value="" />
                             <label htmlFor="ser_1">DTV</label>
@@ -291,7 +291,9 @@ function NomalWork() {
                             <input type="checkbox" name="service" id="ser_13" value="" />
                             <label htmlFor="ser_13" className='color-info'>전체</label>
                         </fieldset>
-                        <p className='notice color-info'>*청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</p>
+                        <ul className='list-desc'>
+                            <li className='color-info'>청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -373,22 +375,20 @@ function NomalWork() {
                         <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
                         <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                             <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
-                            <span className="input-addon ml10">
+                            <span className="input-addon">
                                 <label htmlFor="File" className="btn">찾아보기</label>
                             </span>
-                            <span className="input-addon ml10">
-                                <button className="btn btn-black">추가</button>
+                            <span className="input-addon">
+                                <button className="btn btn-low">추가</button>
                             </span>
-                            <span className="input-addon ml10">
+                            <span className="input-addon">
                                 <button className="btn btn-low">삭제</button>
                             </span>
                         </div>
-                        <p className="color-gray">
-                        *구성도, 상세 시나리오 등을 첨부(예시)
-                        </p>
-                        <p className='color-primary'>
-                        * 업로드 할 수 있는 파일의 용량은 총 20MB 입니다.
-                        </p>
+                        <ul className='list-desc'>
+                            <li>구성도, 상세 시나리오 등을 첨부(예시)</li>
+                            <li className='color-primary'>업로드 할 수 있는 파일의 용량은 총 20MB 입니다.</li>
+                        </ul>
                     </td>
                 </tr>
                 </tbody>
