@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
-import WorkInfo from '../layout/WorkInfo';
 import { Popup, Alert } from '../popup/Popup';
 import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
 import PopupWorkOnLoad from '../popup/popupDetail/Popup_WorkOnLoad';
@@ -21,7 +20,6 @@ function ServicetaskRegist() {
   }
   return (
     <>
-      <WorkInfo />
       <ContentTitle data={pagedata} />
       <div className='content-section'>
         <div className="detail-top-btn-group">

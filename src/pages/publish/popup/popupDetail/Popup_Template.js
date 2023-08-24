@@ -1,3 +1,8 @@
+import { createPortal } from 'react-dom';
+import ResultPageView from '../../common/ResultPageView';
+import ResultNoData from '../../common/ResultNoData';
+import ResultListPaging from '../../common/ResultListPaging';
+
 const LoadTemplate = ({ onItemSelected }) => {
   const data = [
     { category: '작업신청', formName: '작업 신청서 기본 폼', date: '2023.07.01' },
@@ -18,13 +23,26 @@ const LoadTemplate = ({ onItemSelected }) => {
   const handleConfirmClick = () => {
   // 템플릿 선택
   }
+  const PopupPortal = ({ children }) => {
+    const el = document.getElementById('popup-root');
+    return createPortal(children, el)
+  }
 
   return (
     <>
-     <div className='mb15'>
-        <table className='popup-table'>
+      <PopupPortal>
+      <style>
+        {`
+          #root {display: none;}
+        `}
+      </style>
+      <div className='new-window-wrap'>
+        <div className="content-title">
+          <h2>템플릿 불러오기</h2>
+        </div>
+        <table className='popup-table mb15'>
         <caption>템플릿 분류</caption>
-           <colgroup>
+          <colgroup>
             <col style={{ width: '15%' }} />
             <col style={{ width: '35%' }} />
             <col style={{ width: '10%' }} />
@@ -35,7 +53,7 @@ const LoadTemplate = ({ onItemSelected }) => {
               <th scope="row"><label htmlFor='category'>템플릿 분류</label></th>
               <td>
                 <select name="category" id="category">
-                 <option value="">선택</option>
+                <option value="">선택</option>
                 </select>
               </td>
               <th scope="row"><label htmlFor="name_search">검색</label></th>
@@ -43,11 +61,13 @@ const LoadTemplate = ({ onItemSelected }) => {
                 <input type='text' name='name-search' id='name_search' className='ml10' style={{ width: '80%' }} />
                 <button onClick={templateSearch} className='btn btn-black btn-search'>검색</button>
               </td>
-           </tr>
-           </tbody>
+          </tr>
+          </tbody>
         </table>
-     </div>
-        <table className="popup-table">
+        <div className="result-pageview">
+            <ResultPageView />
+        </div>
+        <table className="table">
             <caption>템플릿 리스트</caption>
               <colgroup>
               <col style={{ width: '15%' }} />
@@ -65,7 +85,7 @@ const LoadTemplate = ({ onItemSelected }) => {
             </thead>
             <tbody>
               {data.map((item, index) => (
-              <tr key={item.id} onClick={handleConfirmClick}>
+              <tr className='link' key={item.id} onClick={handleConfirmClick}>
               <td className="center">{index + 1}</td>
               <td>{item.category}</td>
               <td>{item.formName}</td>
@@ -73,6 +93,10 @@ const LoadTemplate = ({ onItemSelected }) => {
               </tr>))}
             </tbody>
         </table>
+        <ResultNoData />
+        <ResultListPaging />
+      </div>
+      </PopupPortal>
     </>
   );
 };

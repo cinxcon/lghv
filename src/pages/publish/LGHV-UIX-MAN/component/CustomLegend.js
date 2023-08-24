@@ -6,7 +6,7 @@ const CustomLegend = ({ datasets }) => {
         {datasets.map((dataset) => (
         <div key={dataset.label} className='legend-item'>
             <div style={{ backgroundColor: dataset.color }} className='color-box'></div>
-                <span>{dataset.label}</span>
+            <span>{dataset.label}</span>
         </div>
         ))}
     </div>

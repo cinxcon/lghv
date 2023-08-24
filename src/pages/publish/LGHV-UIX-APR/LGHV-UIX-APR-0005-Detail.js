@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
-// import ContentTitle from '../layout/ContentTitle';
+import ContentTitle from '../layout/ContentTitle';
 import ApprovalDetailContent from './component/ApprovalDetailContent';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
 import PopupProcessHistory from '../popup/popupDetail/Popup_ProcessHistory';
-import WorkInfo from '../layout/WorkInfo';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');

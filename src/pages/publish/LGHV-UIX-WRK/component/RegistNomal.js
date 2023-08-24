@@ -4,8 +4,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Popup, Alert } from '../../popup/Popup';
-import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
-import PopupTemplate from '../../popup/popupDetail/Popup_Template';
+// import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
+// import PopupTemplate from '../../popup/popupDetail/Popup_Template';
 import PopupCell from '../../popup/popupDetail/Popup_Cell';
 import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
 import PopupWorker from '../../popup/popupDetail/Popup_Worker';
@@ -14,15 +14,14 @@ import { ko } from 'date-fns/esm/locale';
 
 function NomalWork() {
   // 팝업
-  const [reviwer, setReviwer] = useState(false);
-  const [template, setTemplate] = useState(false);
+//   const [reviwer, setReviwer] = useState(false);
+
   const [cell, setCell] = useState(false);
   const [workDeteail, setWorkDeteail] = useState(false);
   const [worker, setWorker] = useState(false);
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
-  const [selectedItem, setSelectedItem] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endeDate, setEndeDate] = useState(null);
 
@@ -37,13 +36,6 @@ function NomalWork() {
   const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
   const [selectedWorker, setSelectedWorker] = useState('');
 
-  const handleItemSelected = (item) => {
-    setSelectedItem(item);
-    setReviwer(false);
-  };
-  const handleTemplateSelected = () => {
-    setTemplate(false);
-  }
   const handleCellSelected = (cell) => {
     setCell(false);
     setSelectedCell(cell);
@@ -92,11 +84,16 @@ function NomalWork() {
     setDiviceRows([...diviceRows, {}]);
   };
   const diviceRemoveRow = () => {
-    //   if (diviceRows.length > 0) {
-    //     const newRows = diviceRows.slice(0, diviceRows.length - 1);
-    //     setDiviceRows(newRows);
-    //   }
+
   };
+  // 윈도우 팝업
+  const onPopupLarge = (url, name) => {
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  }
 
   const venderAddRow = () => {
     setVendorRows([...vendorRows, {}]);
@@ -256,11 +253,8 @@ function NomalWork() {
                     <td>
                         <div className='flex-wrap between'>
                             <span className='input-btn-wrap'>
-                                <span className='input input_org input-search-front'>{selectedItem}</span>
-                                <button className='btn btn-black btn-search ml10' onClick={() => { setReviwer(true) }}>선택</button>
-                                <Popup open={reviwer} close={() => { setReviwer(false) }} header="검토자 지정" type={'lg'}>
-                                    <PopupReviewer onItemSelected={handleItemSelected} />
-                                </Popup>
+                                <span className='input input_org input-search-front'></span>
+                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopupLarge('/popup/PopupReviewer', 'Reviewer') }}>선택</button>
                             </span>
                         </div>
                     </td>
@@ -348,10 +342,7 @@ function NomalWork() {
                     <td colSpan={3}>
                         <div className='work-content'>
                             <div className='btn-wrap'>
-                                <button type='button' className='btn btn-md btn-pop' onClick={() => { setTemplate(true) }}>템플릿 불러오기</button>
-                                <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
-                                    <PopupTemplate onItemSelected={handleTemplateSelected} />
-                                </Popup>
+                                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopupLarge('/popup/PopupTemplate', 'Template') }}>템플릿 불러오기</button>
                             </div>
                             <div className='template'>
                                 <CKEditor

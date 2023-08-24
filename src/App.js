@@ -5,7 +5,7 @@ import Header from './pages/publish/layout/Header';
 import Sidebar from './pages/publish/layout/Sidebar';
 import Footer from './pages/publish/layout/Footer';
 import DynamicStyle from './assets/dynamicStyle';
-
+import WorkInfo from './pages/publish/layout/WorkInfo';
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
@@ -23,6 +23,7 @@ const Main = () => {
       <div className='container'>
         <Sidebar></Sidebar>
         <article id='content'>
+          <WorkInfo />
           <AppRouter />
           <Footer />
         </article>

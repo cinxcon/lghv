@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = ({ activeMenu }) => {
   const [menuData] = useState([
     {
       title: '대시보드',
-      path: '/LGHV-UIX-MAN-0003',
+      path: '/LGHV-UIX-MAN/LGHV-UIX-MAN-0003',
       subMenus: []
     },
     {
@@ -46,15 +46,12 @@ const Sidebar = () => {
     },
     {
       title: '통계',
+      path: '/LGHV-UIX-STA/LGHV-UIX-STA-0001',
       subMenus: [{ title: 'Submenu 6', path: '/Submenu6' }]
     },
     {
-      title: '팝업 게시판',
-      path: '/Submenu8',
-      subMenus: []
-    },
-    {
       title: '시스템관리',
+      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001',
       subMenus: [{ title: 'Submenu 7', path: '/Submenu7' }]
     }
   ]);
@@ -65,11 +62,8 @@ const Sidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleClick = (index) => {
-    setActiveIndex(index);
-  };
+  const location = useLocation();
+  const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
 
   return (
     <div className={`sidebar ${isSidebarOpen ? 'open' : 'close'}`}>
@@ -86,8 +80,7 @@ const Sidebar = () => {
             ptitle={menuItem.ptitle}
             path={menuItem.path}
             subMenus={menuItem.subMenus}
-            isActive={activeIndex === index}
-            onClick={handleClick}
+            pathSegments={pathSegments}
           />
         ))}
       </ul>
@@ -95,38 +88,34 @@ const Sidebar = () => {
   );
 };
 
-const MenuItemLevel1 = ({ index, title, path, subMenus, isActive, onClick }) => {
+const MenuItemLevel1 = ({ index, title, path, subMenus, pathSegments }) => {
   const hasSubMenus = subMenus.length > 0;
+  const isActive = pathSegments[0] === path.split('/')[1];
   return (
     <li className={`menu-item-level-1 ${isActive ? 'active' : ''}`}>
-      {/* {hasSubMenus
-        ? (<button className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</button>)
-        : (<Link to={path} key={index} state={sendData} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>)
-        } */}
-      <Link to={path} key={index} className='toggle-button-level-1' onClick={() => onClick(index)}>{title}</Link>
-      {isActive && hasSubMenus && <MenuLevel2 parentTitle={title} subMenus={subMenus} />}
+      {isActive
+        ? (<button className='toggle-button-level-1'>{title}</button>)
+        : (<Link to={path} key={index} className='toggle-button-level-1'>{title}</Link>)
+        }
+      {isActive && hasSubMenus && <MenuLevel2 parentTitle={title} subMenus={subMenus} pathSegments={pathSegments} />}
     </li>
   );
 };
 
-const MenuLevel2 = ({ subMenus, parentTitle }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleClick = (index) => {
-    setActiveIndex(index);
-  };
+const MenuLevel2 = ({ subMenus, parentTitle, pathSegments }) => {
   return (
     <ul className='menu-level-2'>
       {subMenus.map((submenu, index) => (
-        <MenuItemLevel2 key={index} parentTitle={parentTitle} title={submenu.title} index={index} path={submenu.path} isActive={activeIndex === index} onClick={handleClick} />
+        <MenuItemLevel2 key={index} parentTitle={parentTitle} title={submenu.title} index={index} path={submenu.path} pathSegments={pathSegments} />
       ))}
     </ul>
   );
 };
 
-const MenuItemLevel2 = ({ index, parentTitle, title, path, isActive, onClick }) => {
+const MenuItemLevel2 = ({ index, title, path, pathSegments }) => {
+  const isActive = pathSegments[1] === path.split('/')[2];
   return (
-    <li className={`menu-item-level-2 ${isActive ? 'active' : ''}`} onClick={() => onClick(index)} >
+    <li className={`menu-item-level-2 ${isActive ? 'active' : ''}`} >
       <Link key={index} to={path} className='menu-item-level-2-link'>{title}</Link>
     </li>
   );
