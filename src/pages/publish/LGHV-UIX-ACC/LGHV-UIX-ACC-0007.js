@@ -1,10 +1,8 @@
-/* eslint-disable */
 // LGHV-UIX-ACC-0007 사용자 등록 AccUserRegist
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
 import { Popup, Alert } from '../popup/Popup';
 import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
-import PopupLine from '../popup/popupDetail/Popup_Approval';
 
 function AccUserRegist() {
   const pagedata = {
@@ -15,21 +13,19 @@ function AccUserRegist() {
   }
 
   // 새창 팝업
-  const onPopupReg = () => {
-    const url = '/popup/Popup_ACCUserReg';
-    window.open(url, '_blank', 'popup');
-  }
-  const onPopupModi = () => {
-    const url = '/popup/Popup_ACCUserModi';
-    window.open(url, '_blank', 'popup');
+  const onPopupLarge = (url, name, popupHeight) => {
+    const popupWidth = 1280;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
 
   // 팝업
-  const [onLoad, setOnLoad] = useState(false);
-  const [approvalLine, setApprovalLine] = useState(false);
   const [notimethod, setNotimethod] = useState(false);
   const [clear, setClear] = useState(false);
   const [tempsave, setTempsave] = useState(false);
+  const [regist, setRegist] = useState(false);
+  const [workCancel, setWorkCancel] = useState();
 
   //  토글
   const [divStates, setDivStates] = useState([false, false, false, false, false, false]);
@@ -45,19 +41,11 @@ function AccUserRegist() {
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
-          <button className='btn btn-pop' onClick={() => { setOnLoad(true) }}>불러오기</button>
-          <button className='btn btn-pop' onClick={() => { setApprovalLine(true) }}>결제선 지정</button>
+          <button className='btn btn-pop' onClick={() => { onPopupLarge('/popup/PopupLine', 'Line', 800) }}>결제선 지정</button>
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
         </div>
-        <Popup open={onLoad} close={() => { setOnLoad(false) }} type="xlg" header="불러오기">
-          {/* <PopupWorkOnLoad /> */}
-          불러오기
-        </Popup>
-        <Popup open={approvalLine} close={() => { setApprovalLine(false) }} type="xlg" header="결제선 지정">
-          <PopupLine />
-        </Popup>
         <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethod />
         </Popup>
@@ -182,60 +170,24 @@ function AccUserRegist() {
           </table>
         </div>
       </div>
-      <div className='flex-wrap between'>
-        <div className='content-section half'>
-          <h3>접근제어 사용자 검색</h3>
-          <div className='flex-wrap between'>
-            <select name="user_group" id="user_group" style={{ width: '20%' }}>
-              <option value="all">전체</option>
-            </select>
-            <input type='text' style={{ width: '70%' }} />
-            <button className='btn btn-black'>검색</button>
-          </div>
-          <table className='table mt8'>
-            <caption>접근제어 사용자 검색: 아이디, 이름, 그룹, 계정상태</caption>
-            <colgroup>
-              <col span={4} />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope='col'>아이디</th>
-                <th scope='col'>이름</th>
-                <th scope='col'>그룹</th>
-                <th scope='col'>계정상태</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>test01</td>
-                <td>홍길동</td>
-                <td>테스트그룹</td>
-                <td>사용중</td>
-              </tr>
-              <tr>
-                <td>test02</td>
-                <td>박길동</td>
-                <td>테스트그룹</td>
-                <td>잠금</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div style={{ margin: '0 40px' }}>
-          <button className='btn'> → </button>
-        </div>
-        <div className='content-section half'>
+      <div className='content-section'>
+        <div className={`flex-wrap between ${divStates[2] ? 'under-line' : ''}`}>
           <h3>접근제어 사용자 신청 정보</h3>
+          <div className="btn-wrap">
+            <button className={`btn-fold ${divStates[2] ? 'close' : ''}`} onClick={() => handleDivToggle(2)} id='fold-open'>접근제어 사용자 신청 정보 열기</button>
+          </div>
+        </div>
+        <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
           <div className='right'>
-            <button className='btn' onClick={onPopupReg}>신규</button>
-            <button className='btn' onClick={onPopupModi}>수정</button>
-            <button className='btn'>삭제</button>
+            <button className='btn' onClick={() => { onPopupLarge('/popup/PopupAccUserReg', 'AccUserReg', 550) }}>신규</button>
+            <button className='btn ml4' onClick={() => { onPopupLarge('/popup/PopupAccUserModi', 'AccUserModi', 550) }}>수정</button>
+            <button className='btn ml4' onClick={() => { onPopupLarge('/popup/PopupAccUserDel', 'AccUserDel', 550) }}>삭제</button>
           </div>
           <table className='table mt8'>
-            <caption>접근제어 사용자 신청: 아이디, 이름, 그룹, 계정상태</caption>
+            <caption>접근제어 사용자 신청: 아이디, 이름, 그룹, 상태</caption>
             <colgroup>
-              <col style={{ width: '10%' }} />
-              <col span={5} />
+              <col style={{ width: '5%' }} />
+              <col span={4} />
             </colgroup>
             <thead>
               <tr>
@@ -243,31 +195,45 @@ function AccUserRegist() {
                 <th scope='col'>아이디</th>
                 <th scope='col'>이름</th>
                 <th scope='col'>그룹</th>
-                <th scope='col'>계정상태</th>
                 <th scope='col'>상태</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><button class="btn-del-28">삭제</button></td>
+                <td><button className="btn-del-28">삭제</button></td>
                 <td>test01</td>
                 <td>홍길동</td>
                 <td>테스트그룹</td>
-                <td>사용중</td>
-                <td>신규</td>
+                <td>수정</td>
               </tr>
               <tr>
-                <td><button class="btn-del-28">삭제</button></td>
+                <td><button className="btn-del-28">삭제</button></td>
                 <td>test02</td>
                 <td>박길동</td>
                 <td>테스트그룹</td>
-                <td>잠금</td>
+                <td>신규</td>
+              </tr>
+              <tr>
+                <td><button className="btn-del-28">삭제</button></td>
+                <td>test02</td>
+                <td>김길동</td>
+                <td>테스트그룹</td>
                 <td>삭제</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+      <div className='detail-bottom-btn-group mt20 mb15'>
+        <button className='btn btn-lg' onClick={() => { setWorkCancel(true) }}>취소</button>
+        <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
+      </div>
+      <Alert open={workCancel} close={() => { setWorkCancel(false) }}>
+      <div>기안 등록을 취소 하시겠습니까?</div>
+      </Alert>
+      <Alert open={regist} close={() => { setRegist(false) }}>
+        <div>기안을 등록하시겠습니까?</div>
+      </Alert>
     </>
   )
 }

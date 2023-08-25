@@ -32,10 +32,8 @@ import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 
-// 새창 팝업
-import { PopupACCUserReg, PopupACCUserModi } from './pages/publish/popup/popupDetail/Popup_ACCUserRegModi';
-
 // 팝업
+
 import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer';
 import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template';
 import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad';
@@ -44,11 +42,14 @@ import PopupNotiMethodSet from './pages/publish/popup/popupDetail/Popup_NotiMeth
 import PopupCell from './pages/publish/popup/popupDetail/Popup_Cell';
 import PopupWorkDeteail from './pages/publish/popup/popupDetail/Popup_WorkDeteail';
 
+import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
+import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
+
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
-// import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
-// import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
+import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
+import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 const AppRouter = () => {
   return (
@@ -83,10 +84,6 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
 
-      {/* 새창 팝업 */}
-      <Route path="/popup/Popup_ACCUserReg" element={<PopupACCUserReg />} />
-      <Route path="/popup/Popup_ACCUserModi" element={<PopupACCUserModi />} />
-
       {/* 팝업 */}
       <Route path="/popup/PopupReviewer" element={<PopupReviewer />} />
       <Route path="/popup/PopupTemplate" element={<PopupTemplate />} />
@@ -95,12 +92,17 @@ const AppRouter = () => {
       <Route path="/popup/PopupNotiMethodSet" element={<PopupNotiMethodSet />} />
       <Route path="/popup/PopupCell" element={<PopupCell />} />
       <Route path="/popup/PopupWorkDeteail" element={<PopupWorkDeteail />} />
+      <Route path="/popup/PopupAccUserReg" element={<PopupAccUserReg />} />
+      <Route path="/popup/PopupAccUserModi" element={<PopupAccUserModi />} />
+      <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />
+      <Route path="/popup/PopupAccEqReg" element={<PopupAccEqReg />} />
+      <Route path="/popup/PopupAccEqDel" element={<PopupAccEqDel />} />
 
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalTest" element={<ApprovalTest />} />
-      {/* <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
-      <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} /> */}
+      <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
+      <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} />
     </Routes>
   );
 };

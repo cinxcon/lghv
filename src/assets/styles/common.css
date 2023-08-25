@@ -55,6 +55,8 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .mt8 { margin-top: 8px !important; }
 .mt20 { margin-top: 20px !important; }
 .mb15 { margin-bottom: 15px !important; }
+.mb24 { margin-bottom: 24px !important; }
+.ml4 { margin-left: 4px !important; }
 .ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
 .flex-wrap { display: flex; align-items: center; }
@@ -87,6 +89,7 @@ select.type-t{ border: 0; padding: 0; padding-right: 16px; background-position-x
 .textarea { height: 206px; overflow-y: auto; }
 .textarea::-webkit-scrollbar { width: 6px; }
 .textarea::-webkit-scrollbar-thumb { border-radius: 4px; background: #cccccc; }
+.textarea-readonly { height: 80px; border: 1px solid #dbdbdb; background-color: #f7f7f7; padding: 8px 12px; }
 .react-datepicker-wrapper { position: relative; width: 100%; }
 .react-datepicker-wrapper:before { content: ''; z-index: 1; display: inline-block; position: absolute; top: 1px; right: 32px; width: 1px; height: 27px; background-color: #dbdbdb; }
 .react-datepicker-wrapper:after { content: ''; display: inline-block; position: absolute; top: 6px; right: 8px; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -664px 0; background-repeat: no-repeat; background-size: auto; }
@@ -198,16 +201,22 @@ input[type='radio'] + label.type-btn:before{content: none;}
 /* 글꼴, 색상 */
 .color-primary { color: #ed174d !important; }
 .color-default { color: #000 !important; }
-.color-gray { color: #767676; }
-.color-white { color: #fff; }
-.color-error, .color-fail { color: #E72323; }
-.color-warning, .color-ongoing { color: #f78809; }
-.color-success { color: #1ea51e; }
+.color-gray { color: #767676 !important; }
+.color-white { color: #fff !important; }
+.color-error, .color-fail { color: #E72323 !important; }
+.color-warning, .color-ongoing { color: #f78809 !important; }
+.color-success { color: #1ea51e !important; }
 .color-info, .color-order { color: #2C68FF !important; }
 
 .size-sm { font-size: 12px; line-height: 21px; }
 .size-lg { font-size: 16px; line-height: 21px; }
 .link:focus, .link:hover { color: #ed174d !important; border-bottom: 1px solid #ed174d; }
+
+/* 안내문구 */
+.notice { position: relative; padding-left: 16px; color: #767676 }
+.notice:before { content:''; position: absolute; top: 5px; left: 0; width: 12px; height: 12px; border-radius: 15px; background:url('../images/common/ic_notice_12.png') 0 0 no-repeat; background-size: auto; background-color: #cccccc; }
+.notice.color-error:before { background-color: #e72323; }
+.notice.color-success:before { background-color: #1ea51e; }
 
 /* 검색결과 페이지보기 */
 .result-pageview { margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
@@ -307,6 +316,7 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .table.table-row th, .table.table-row td { text-align: left; }
 .table th:last-child, .table td:last-child { border-right: none; }
 .table th:last-child.bd-right, .table td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
+.table .bd-right-none { border-right: 0; }
 .table td dl dt, .table td dl dd { padding: 8px 12px; height: 45px; border-bottom:1px solid #EAEAEA ; }
 .table td dl dt { width: 10%; background-color: #f7f7f7; }
 .table td dl dd { width: 90%; text-align: left; }
@@ -332,6 +342,7 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .input-btn-wrap .input-search-front { width: calc(100% - 32px); }
 .input-btn-wrap .input-repeatcheck-front { width: calc(100% - 79px); }
 .input-btn-wrap .input-w-80{width: 80%;}
+.input-btn-wrap .input-sz50-front { width: calc(100% - 50px); }
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 60px; padding: 16px; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }
@@ -383,7 +394,8 @@ input[type='radio'] + label.type-btn:before{content: none;}
 
 /* 팝업 */
 .new-window-wrap { padding: 24px;}
-.new-window-wrap .content-title{padding-top: 0;}
+
+.new-window-wrap .content-title{padding-top: 0; margin-bottom: 23px;}
 .new-window-wrap .breadcrumb { display: none;}
 
 /* 아래의 모든 코드는 영역::코드로 사용 */
