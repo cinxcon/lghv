@@ -62,9 +62,9 @@ function DisabilityMngDetail() {
           <table className='table table-row'>
             <caption>기본 정보</caption>
             <colgroup>
-              <col style={{ width: '15%' }} />
-              <col style={{ width: '35%' }} />
-              <col style={{ width: '15%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '40%' }} />
+              <col style={{ width: '10%' }} />
               <col />
             </colgroup>
             <tbody>
@@ -128,7 +128,7 @@ function DisabilityMngDetail() {
               </tr>
               <tr>
                 <th scope='row'>파일첨부</th>
-                <td colSpan={3}><span className='ico_attach'></span>장애 등록건에 대하여.pdf</td>
+                <td colSpan={3}><span className='ico_attach'>장애 등록건에 대하여.pdf</span></td>
               </tr>
             </tbody>
           </table>

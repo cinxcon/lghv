@@ -37,6 +37,22 @@ function DisabilityMngReg() {
   const [notimethod, setNotimethod] = useState(false);
   const [workCancel, setWorkCancel] = useState();
   const [regist, setRegist] = useState(false);
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
+  // 데이터 리스트
+  const [infraType, setInfraType] = useState(null);
+  const [soType, setSoType] = useState(null);
+
+  const handleInfraTypeChange = (event) => {
+    setInfraType(event.target.value);
+  };
+  const handleSoTypeChange = (event) => {
+    setSoType(event.target.value);
+  };
 
   return (
     <>
@@ -75,16 +91,18 @@ function DisabilityMngReg() {
                 <td colSpan={3}>
                   <div className='flex-wrap between'>
                     <span className='half'>
-                      <select name="infra" id="infra">
-                        <option value="">서울인프라팀</option>
-                        <option value="">경북인프라팀</option>
-                      </select>
+                      <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
+                      <datalist id="infra">
+                        <option value={'서울인프라팀'} />
+                        <option value={'경북인프라팀'} />
+                      </datalist>
                     </span>
                     <span className='half'>
-                      <select name="SO" id="SO">
-                        <option value="">중앙방송</option>
-                        <option value="">중부산방송</option>
-                      </select>
+                      <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
+                      <datalist id="SO">
+                        <option value={'중앙방송'} />
+                        <option value={'중부산방송'} />
+                      </datalist>
                     </span>
                   </div>
                 </td>
@@ -157,7 +175,7 @@ function DisabilityMngReg() {
                 <td colSpan={3}>
                   <div className='work-content'>
                     <div className='btn-wrap'>
-                      <button type='button' className='btn btn-md btn-pop' onClick={() => { setTemplate(true) }}>템플릿 불러오기</button>
+                      <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupTemplate', 'Template', 1280, 800) }}>템플릿 불러오기</button>
                       <Popup open={template} close={() => { setTemplate(false) }} header="템플릿 불러오기" type={'lg'}>
                         <PopupTemplate onItemSelected={handleTemplateSelected} />
                       </Popup>

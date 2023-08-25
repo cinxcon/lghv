@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import DatePicker from 'react-datepicker';
@@ -17,63 +16,61 @@ function PopupAccEqReg() {
   const [startMinutes, setStartMinutes] = useState(0);
   const [endHours, setEndHours] = useState(0);
   const [endMinutes, setEndMinutes] = useState(0);
-  const [diviceRows, setDiviceRows] = useState([]);
-  const [vendorRows, setVendorRows] = useState([]);
 
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
   };
-
   const handleStartHourDecrease = () => {
     setStartHours(prevHours => (prevHours - 1 + 24) % 24);
   };
-
   const handleStartMinuteIncrease = () => {
     setStartMinutes(prevMinutes => (prevMinutes + 1) % 60);
   };
-
   const handleStartMinuteDecrease = () => {
     setStartMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
   };
-
   const handleEndHourIncrease = () => {
     setEndHours(prevHours => (prevHours + 1) % 24);
   };
-
   const handleEndHourDecrease = () => {
     setEndHours(prevHours => (prevHours - 1 + 24) % 24);
   };
-
   const handleEndMinuteIncrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes + 1) % 60);
   };
-
   const handleEndMinuteDecrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
   };
-  // 윈도우 팝업
-  const onPopupLarge = (url, name) => {
-    const popupWidth = 1280;
-    const popupHeight = 800;
-    const popupX = (window.screen.width / 2) - (popupWidth / 2);
-    const popupY = (window.screen.height / 2) - (popupHeight / 2);
-    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+
+  // 데이터 리스트
+  const [eqType1, setEqType1] = useState('Linux');
+  const [eqType2, setEqType2] = useState('Window');
+  const [eqType3, setEqType3] = useState('Network');
+  const [eqType4, setEqType4] = useState('Web');
+  const [banWord, setBanWord] = useState('');
+
+  const handleEqTypeChange1 = (event) => {
+    setEqType1(event.target.value);
+  };
+  const handleEqTypeChange2 = (event) => {
+    setEqType2(event.target.value);
+  };
+  const handleEqTypeChange3 = (event) => {
+    setEqType3(event.target.value);
+  };
+  const handleEqTypeChange4 = (event) => {
+    setEqType4(event.target.value);
+  };
+  const handleBanWordChange = (event) => {
+    setBanWord(event.target.value);
+  };
+
+  // 새창 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
-
-  const venderAddRow = () => {
-    setVendorRows([...vendorRows, {}]);
-  };
-  const venderRemoveRow = () => {
-    if (vendorRows.length > 0) {
-      const newRows = vendorRows.slice(0, vendorRows.length - 1);
-      setVendorRows(newRows);
-    }
-  };
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
 
   //  토글
   const [divStates, setDivStates] = useState([false, true, true, true, false]);
@@ -129,9 +126,13 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <select name='type' id='type'>
-                      <option selected>Linux</option>
-                    </select>
+                    <input type="text" list="eqType1" value={eqType1} onChange={handleEqTypeChange1} />
+                    <datalist id="eqType1">
+                      <option value={'Linux'} />
+                      <option value={'HPUX'} />
+                      <option value={'AIX'} />
+                      <option value={'Solaris'} />
+                    </datalist>
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -297,9 +298,10 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <select name='type' id='type'>
-                      <option selected>Windows</option>
-                    </select>
+                    <input type="text" list="eqType2" value={eqType2} onChange={handleEqTypeChange2} />
+                    <datalist id="eqType2">
+                      <option value={'Windows'} />
+                    </datalist>
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -456,9 +458,10 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <select name='type' id='type'>
-                      <option selected>Network</option>
-                    </select>
+                    <input type="text" list="eqType3" value={eqType3} onChange={handleEqTypeChange3} />
+                    <datalist id="eqType3">
+                      <option value={'Network'} />
+                    </datalist>
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -653,9 +656,10 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <select name='type' id='type'>
-                      <option selected>Web</option>
-                    </select>
+                    <input type="text" list="eqType4" value={eqType4} onChange={handleEqTypeChange4} />
+                    <datalist id="eqType4">
+                      <option value={'Web'} />
+                    </datalist>
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -760,7 +764,7 @@ function PopupAccEqReg() {
                   <td>
                     <span className='input-btn-wrap'>
                       <input type='text' name='userGroup' id='userGroup' className='input-sz50-front' />
-                      <button className='btn btn-black'>선택</button>
+                      <button className='btn btn-black'onClick={() => { onPopup('/popup/PopupUserGroupSelect', 'UserGroupSelect', 1280, 800) }}>선택</button>
                     </span>
                   </td>
                   <th scope='row'><label htmlFor="eqOs">장비 OS 접속 계정</label> <span aria-label="required" className='color-primary'>*</span></th>
@@ -843,11 +847,12 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="ban">금칙어</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <select name='ban' id='ban'>
-                      <option>L0</option>
-                      <option>L1</option>
-                      <option>L2</option>
-                    </select>
+                    <input type="text" list="banWord" value={banWord} onChange={handleBanWordChange} />
+                    <datalist id="banWord">
+                      <option value={'L0'} />
+                      <option value={'L1'} />
+                      <option value={'L2'} />
+                    </datalist>
                   </td>
                   <td colSpan={2}></td>
                 </tr>
@@ -872,9 +877,12 @@ function PopupAccEqReg() {
 
 // 장비 삭제
 function PopupAccEqDel() {
-  const [endDate, setEndDate] = useState(new Date());
-  const [endEndDate, setEndEndDate] = useState(new Date());
+  // 데이터 리스트
+  const [eqType1, setEqType1] = useState('Linux');
 
+  const handleEqTypeChange1 = (event) => {
+    setEqType1(event.target.value);
+  };
   return (
     <PopupPortal>
       <style>
@@ -890,9 +898,11 @@ function PopupAccEqDel() {
           <table className='table table-row'>
             <caption>장비 삭제</caption>
             <colgroup>
-              <col style={{ width: '15%' }} />
-              <col style={{ width: '35%' }} />
-              <col style={{ width: '15%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '23%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '23%' }} />
+              <col style={{ width: '10%' }} />
               <col />
             </colgroup>
             <tbody>
@@ -914,9 +924,13 @@ function PopupAccEqDel() {
               <tr>
                 <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td className='bd-right-none'>
-                  <select name='type' id='type' readOnly>
-                    <option selected>Linux</option>
-                  </select>
+                  <input type="text" list="eqType1" value={eqType1} onChange={handleEqTypeChange1} readOnly />
+                  <datalist id="eqType1">
+                    <option value={'Linux'} />
+                    <option value={'HPUX'} />
+                    <option value={'AIX'} />
+                    <option value={'Solaris'} />
+                  </datalist>
                 </td>
                 <td colSpan={4}></td>
               </tr>
@@ -927,37 +941,37 @@ function PopupAccEqDel() {
                 </td>
                 <th scope='row'><label htmlFor="telnetPort">TELNET 포트번호</label></th>
                 <td>
-                  <input type='text' name='telnetPort' id='telnetPort' />
+                  <input type='text' name='telnetPort' id='telnetPort' value={'21'} readOnly />
                 </td>
                 <th scope='row'><label htmlFor="ftpPort">FTP 포트번호</label></th>
                 <td>
-                  <input type='text' name='ftpPort' id='ftpPort' />
+                  <input type='text' name='ftpPort' id='ftpPort' readOnly />
                 </td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="accName">접속계정이름</label></th>
                 <td>
-                  <input type='text' name='accName' id='accName' />
+                  <input type='text' name='accName' id='accName' readOnly />
                 </td>
                 <th scope='row'><label htmlFor="accPw">접속계정비밀번호</label></th>
                 <td>
-                  <input type='text' name='accPw' id='accPw' />
+                  <input type='text' name='accPw' id='accPw' readOnly />
                 </td>
                 <th scope='row'><label htmlFor="timeout">타임아웃(초)</label></th>
                 <td>
-                  <input type='text' name='timeout' id='timeout' />
+                  <input type='text' name='timeout' id='timeout' readOnly />
                 </td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="key">접속 계정 키</label></th>
                 <td colSpan={5}>
-                  <input type='text' name='key' id='key' />
+                  <input type='text' name='key' id='key' readOnly />
                 </td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="prompt">쉘프롬프트정규표현</label></th>
                 <td colSpan={5}>
-                <input type='text' name='prompt' id='prompt' />
+                <input type='text' name='prompt' id='prompt' readOnly />
                 </td>
               </tr>
               <tr>
@@ -965,9 +979,9 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>Sudo 사용자</legend>
-                    <input type="radio" name="sudo" id="sudo_yes" />
+                    <input type="radio" name="sudo" id="sudo_yes" checked readOnly />
                     <label htmlFor="sudo_yes">Y</label>
-                    <input type="radio" name="sudo" id="sudo_no" />
+                    <input type="radio" name="sudo" id="sudo_no" disabled />
                     <label htmlFor="sudo_no">N</label>
                   </fieldset>
                 </td>
@@ -975,9 +989,9 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>등록전용</legend>
-                    <input type="radio" name="reg" id="reg_yes" />
+                    <input type="radio" name="reg" id="reg_yes" checked readOnly />
                     <label htmlFor="reg_yes">Y</label>
-                    <input type="radio" name="reg" id="reg_no" />
+                    <input type="radio" name="reg" id="reg_no" disabled />
                     <label htmlFor="reg_no">N</label>
                   </fieldset>
                 </td>
@@ -985,9 +999,9 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>링크전용</legend>
-                    <input type="radio" name="link" id="link_yes" />
+                    <input type="radio" name="link" id="link_yes" checked readOnly />
                     <label htmlFor="link_yes">Y</label>
-                    <input type="radio" name="link" id="link_no" />
+                    <input type="radio" name="link" id="link_no" disabled />
                     <label htmlFor="link_no">N</label>
                   </fieldset>
                 </td>
@@ -997,138 +1011,58 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>접속 계정 로그인 테스트 무시</legend>
-                    <input type="radio" name="acclog" id="acclog_yes" />
+                    <input type="radio" name="acclog" id="acclog_yes" checked readOnly />
                     <label htmlFor="acclog_yes">Y</label>
-                    <input type="radio" name="acclog" id="acclog_no" />
+                    <input type="radio" name="acclog" id="acclog_no" disabled />
                     <label htmlFor="acclog_no">N</label>
                   </fieldset>
                 </td>
                 <th scope='row'><label htmlFor="session">동시접속 세션 최대값</label></th>
                 <td>
-                  <input type='text' name='session' id='session' value={0} />
+                  <input type='text' name='session' id='session' value={0} disabled />
                 </td>
                 <th scope='row'><label htmlFor="org">조직</label></th>
                 <td>
-                  <input type='text' name='org' id='org' />
+                  <input type='text' name='org' id='org' disabled />
                 </td>
               </tr>
               <tr>
                 <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
                 <td>
-                  <input type='text' name='assetId' id='assetId' />
+                  <input type='text' name='assetId' id='assetId' disabled />
                 </td>
                 <th scope='row'><label htmlFor="assetName">자산이름</label></th>
                 <td>
-                  <input type='text' name='assetName' id='assetName' />
+                  <input type='text' name='assetName' id='assetName' disabled />
                 </td>
                 <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
                 <td>
-                  <input type='text' name='assetPos' id='assetPos' />
+                  <input type='text' name='assetPos' id='assetPos' disabled />
                 </td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="compId">구성아이디</label></th>
                 <td>
-                  <input type='text' name='compId' id='compId' />
+                  <input type='text' name='compId' id='compId' disabled />
                 </td>
                 <th scope='row'><label htmlFor="compName">구성이름</label></th>
                 <td className='bd-right-none'>
-                  <input type='text' name='compName' id='compName' />
+                  <input type='text' name='compName' id='compName' disabled />
                 </td>
                 <td colSpan={2}></td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="text">설명</label></th>
                 <td colSpan={5}>
-                  <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row"><label htmlFor='userId'>아이디</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <span className='input-btn-wrap'>
-                    <input type='text' name='userId' id='userId' className='input-repeatcheck-front' value={'test11'} readOnly />
-                    <button className='btn btn-black'>사용자조회</button>
-                  </span>
-                </td>
-                <th scope="row"><label htmlFor='userName'>이름</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <input type='text' name='userName' id='userName' value={'김철수'} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='userOrg'>조직</label></th>
-                <td>
-                  <input type='text' name='userOrg' id='userOrg' value={'기간망운영팀'} readOnly />
-                </td>
-                <th scope="row"><label htmlFor='userTitle'>직함</label></th>
-                <td>
-                  <input type='text' name='userTitle' id='userTitle' value={'사원'} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='userEmail'>이메일</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                    <input type='text' name='userEmail' id='userEmail' value={'test01@lghv.co.kr'} readOnly />
-                </td>
-                <th scope="row"><label htmlFor='userPhone'>휴대폰 번호</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <input type='text' name='userPhone' id='userPhone' value={'010-1234-5678'} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='userPw'>비밀번호</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <input type='text' name='userPw' id='userPw' value={'***************'} readOnly />
-                </td>
-                <th scope="row"><label htmlFor='userPwCheck'>비밀번호 확인</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <input type='text' name='userPwCheck' id='userPwCheck' value={'***************'} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
-                <td>
-                    <select name='userGroup' id='userGroup' readOnly>
-                      <option selected>기본</option>
-                      <option>그룹1</option>
-                    </select>
-                </td>
-                <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                  <div className='flex-wrap between'>
-                    <span className='half'><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" readOnly /></span>
-                    <span style={{ margin: '0 10px' }}>~</span>
-                    <span className='half'><DatePicker locale={ko} selected={endEndDate} onChange={(date) => setEndEndDate(date)} endDate={endEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" readOnly /></span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
-                <td>
-                    <select name='statu' id='statu' readOnly>
-                      <option selected>정상</option>
-                    </select>
-                </td>
-                <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
-                <td>
-                  <input type='text' name='ip' id='ip' value={'198.23.123.156.22'} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label htmlFor='text'>설명</label></th>
-                <td colSpan={3}>
-                    <div className='textarea-readonly'>테스트 입력</div>
+                  <div className='textarea-readonly'>테스트 입력</div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      <div className='center'>
-        <button className='btn btn-lg btn-primary'>확인</button>
+        <div className='center'>
+          <button className='btn btn-lg btn-primary'>등록</button>
+        </div>
       </div>
     </PopupPortal>
   );

@@ -1,8 +1,7 @@
 // LGHV-UIX-ACC-0007 사용자 등록 AccUserRegist
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
-import { Popup, Alert } from '../popup/Popup';
-import PopupNotiMethod from '../popup/popupDetail/Popup_NotiMethod_Set';
+import { Alert } from '../popup/Popup';
 
 function AccUserRegist() {
   const pagedata = {
@@ -13,15 +12,13 @@ function AccUserRegist() {
   }
 
   // 새창 팝업
-  const onPopupLarge = (url, name, popupHeight) => {
-    const popupWidth = 1280;
-    const popupX = (window.screen.width / 2) - (popupWidth / 2);
-    const popupY = (window.screen.height / 2) - (popupHeight / 2);
-    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
 
   // 팝업
-  const [notimethod, setNotimethod] = useState(false);
   const [clear, setClear] = useState(false);
   const [tempsave, setTempsave] = useState(false);
   const [regist, setRegist] = useState(false);
@@ -41,14 +38,11 @@ function AccUserRegist() {
       <div className='content-section'>
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
-          <button className='btn btn-pop' onClick={() => { onPopupLarge('/popup/PopupLine', 'Line', 800) }}>결제선 지정</button>
-          <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
+          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
+          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupNotiMethod', 'Line', 1280, 800) }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
         </div>
-        <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
-          <PopupNotiMethod />
-        </Popup>
         <Alert open={clear} close={() => { setClear(false) }}>
           <div>저장된 내용이 사라집니다. <br /> 새로 작성 하시겠습니까?</div>
         </Alert>
@@ -153,6 +147,18 @@ function AccUserRegist() {
                 <td>
                   <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="기안첨부" />
                   <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                    <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly="readOnly" value={'기안첨부.xlsx'}/>
+                    <span className="input-addon">
+                      <label htmlFor="File" className="btn">찾아보기</label>
+                    </span>
+                    <span className="input-addon">
+                      <button className="btn btn-low">추가</button>
+                    </span>
+                    <span className="input-addon">
+                      <button className="btn btn-low">삭제</button>
+                    </span>
+                  </div>
+                  <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly=""/>
                     <span className="input-addon">
                       <label htmlFor="File" className="btn">찾아보기</label>
@@ -179,9 +185,9 @@ function AccUserRegist() {
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
           <div className='right'>
-            <button className='btn' onClick={() => { onPopupLarge('/popup/PopupAccUserReg', 'AccUserReg', 550) }}>신규</button>
-            <button className='btn ml4' onClick={() => { onPopupLarge('/popup/PopupAccUserModi', 'AccUserModi', 550) }}>수정</button>
-            <button className='btn ml4' onClick={() => { onPopupLarge('/popup/PopupAccUserDel', 'AccUserDel', 550) }}>삭제</button>
+            <button className='btn' onClick={() => { onPopup('/popup/PopupAccUserReg', 'AccUserReg', 1280, 550) }}>신규</button>
+            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccUserModi', 'AccUserModi', 1280, 550) }}>수정</button>
+            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccUserDel', 'AccUserDel', 1280, 550) }}>삭제</button>
           </div>
           <table className='table mt8'>
             <caption>접근제어 사용자 신청: 아이디, 이름, 그룹, 상태</caption>

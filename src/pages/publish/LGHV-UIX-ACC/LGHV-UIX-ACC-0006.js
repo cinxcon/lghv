@@ -1,9 +1,6 @@
-/* eslint-disable */
-// LGHV-UIX-ACC-0006 장비목록 > 장비상세
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ContentTitle from '../layout/ContentTitle';
-import { useNavigate } from 'react-router';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -11,7 +8,6 @@ const PopupPortal = ({ children }) => {
 }
 
 function AccEquipmentDetail() {
-  const navigate = useNavigate();
   const pagedata = {
     title: '접근제어',
     subtitle: '장비 목록',
@@ -41,7 +37,6 @@ function AccEquipmentDetail() {
           <div className={`flex-wrap between ${divStates[0] ? 'under-line' : ''}`}>
             <h3>장비 기본 정보 <span className='size-sm color-primary'>(Linux, HPUX, AIX, Solaris 시)</span></h3>
             <div className="btn-wrap">
-              <button type="button" className="btn btn-md btn-reg">등록</button>
               <button className={`btn-fold ${divStates[0] ? 'close' : ''}`} onClick={() => handleDivToggle(0)} id='fold-open'>장비 기본 정보 열기, 닫기</button>
             </div>
           </div>
@@ -170,7 +165,6 @@ function AccEquipmentDetail() {
           <div className={`flex-wrap between ${divStates[1] ? 'under-line' : ''}`}>
             <h3>장비 기본 정보 <span className='size-sm color-primary'>(Windows 시)</span></h3>
             <div className="btn-wrap">
-              <button type="button" className="btn btn-md btn-reg">등록</button>
               <button className={`btn-fold ${divStates[1] ? 'close' : ''}`} onClick={() => handleDivToggle(1)} id='fold-open'>장비 기본 정보 열기, 닫기</button>
             </div>
           </div>
@@ -259,7 +253,6 @@ function AccEquipmentDetail() {
           <div className={`flex-wrap between ${divStates[2] ? 'under-line' : ''}`}>
             <h3>장비 기본 정보 <span className='size-sm color-primary'>(Network 시)</span></h3>
             <div className="btn-wrap">
-              <button type="button" className="btn btn-md btn-reg">등록</button>
               <button className={`btn-fold ${divStates[2] ? 'close' : ''}`} onClick={() => handleDivToggle(2)} id='fold-open'>장비 기본 정보 열기, 닫기</button>
             </div>
           </div>
@@ -376,7 +369,6 @@ function AccEquipmentDetail() {
           <div className={`flex-wrap between ${divStates[3] ? 'under-line' : ''}`}>
             <h3>장비 기본 정보 <span className='size-sm color-primary'>(Web 시)</span></h3>
             <div className="btn-wrap">
-              <button type="button" className="btn btn-md btn-reg">등록</button>
               <button className={`btn-fold ${divStates[3] ? 'close' : ''}`} onClick={() => handleDivToggle(3)} id='fold-open'>장비 기본 정보 열기, 닫기</button>
             </div>
           </div>
@@ -554,6 +546,9 @@ function AccEquipmentDetail() {
               </tbody>
             </table>
           </div>
+        </div>
+        <div className='center'>
+          <button className='btn btn-lg btn-primary'>등록</button>
         </div>
       </div>
     </PopupPortal>
