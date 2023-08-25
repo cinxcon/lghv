@@ -3,15 +3,11 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Popup, Alert } from '../../popup/Popup';
-import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
-import PopupWorker from '../../popup/popupDetail/Popup_Worker';
+import { Alert } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
 function UrgentWork() {
-  const [workDeteail, setWorkDeteail] = useState(false);
-  const [worker, setWorker] = useState(false);
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
@@ -25,18 +21,7 @@ function UrgentWork() {
   const [diviceRows, setDiviceRows] = useState([]);
   const [vendorRows, setVendorRows] = useState([]);
   const [selectedOption, setSelectedOption] = useState('access_no');
-  const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
-  const [selectedWorker, setSelectedWorker] = useState('');
 
-  const handleWorkDeteailSelected = (name) => {
-    setWorkDeteail(false);
-    setSelectedWorkDeteail(name);
-  }
-
-  const handleWorkerSelected = (name) => {
-    setWorker(false);
-    setSelectedWorker(name);
-  }
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
   };
@@ -566,11 +551,8 @@ function UrgentWork() {
                     <th scope='row'>작업세부</th>
                     <td colSpan={3}>
                        <span className='input-btn-wrap'>
-                       <span className='input input_org input-search-front'>{selectedWorkDeteail}</span>
-                       <button className='btn btn-black btn-search' onClick={() => { setWorkDeteail(true) }}>작업세부 찾기</button>
-                        <Popup open={workDeteail} close={() => { setWorkDeteail(false) }} header="작업세부" type={'sm'}>
-                            <PopupWorkDeteail onItemSelected={handleWorkDeteailSelected} />
-                        </Popup>
+                       <span className='input input_org input-search-front'></span>
+                        <button className='btn btn-black btn-search' onClick={() => { onPopup('/popup/PopupWorkDeteail', 'workDeteail', '460', '700') }}>작업세부 찾기</button>
                        </span>
                     </td>
                 </tr>
@@ -608,13 +590,10 @@ function UrgentWork() {
                     <th>작업자</th>
                     <td>
                         <span className='input-btn-wrap'>
-                            <span className='input input_org input-plus-front'>{selectedWorker}</span>
-                            <button type='button' className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
+                            <span className='input input_org input-plus-front'></span>
+                            <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button>
                             <button type='button' className='btn-minus-28'>빼기</button>
                         </span>
-                        <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
-                            <PopupWorker onItemSelected={handleWorkerSelected} />
-                        </Popup>
                     </td>
                 </tr>)}
                 {selectedOption === 'access_yes' && (

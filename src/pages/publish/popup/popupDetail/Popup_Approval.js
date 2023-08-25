@@ -178,7 +178,7 @@ const ApprovalLine = ({ onItemSelected }) => {
             </div>
         </div>
         <div className="flex-wrap align-start">
-          <div className='approval-conts half'>
+          <div className='approval-conts'>
             <div className='tree-wrap'>
                 <div className='tree-logo'>LG hellovision</div>
                   <div className='tree-conts'>

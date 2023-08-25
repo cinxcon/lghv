@@ -35,7 +35,9 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-work-info ul li a{ display: inline-block; font-size: 12px; }
 .content-work-info ul li span + span{margin-left: 4px; font-weight: bold;}
 .content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-top: 60px; padding-bottom: 12px; margin-bottom: 40px; }
-.content-title h2 { font-size: 24px; font-weight: bold; display: flex; align-items: center }
+.content-title h2 { font-size: 24px; font-weight: bold; }
+.content-title h2 span {display: flex; align-items: center }
+.content-title h2 span > em{ font-size: 18px; color: #5a5a5a; margin-left:12px; padding-left: 12px;  border-left: 1px solid #dbdbdb; }
 .content-title h2 span.title-detail { display: inline-block; position: relative; font-size: 18px; color: #ccc; margin-left: 10px; padding-left: 10px; }
 .content-title h2 span.title-detail::before { content: ''; display: block; position: absolute; top: 3px; left: 0; width: 2px; height: 14px; background-color: #ccc; }
 .breadcrumb { font-size: 12px; }
@@ -353,7 +355,8 @@ input[type='radio'] + label.type-btn:before{content: none;}
 
 .device-list{margin-top: 40px;}
 .device-list select{ font-size: 12px;}
-
+.cheked-item{padding-left: 18px; vertical-align: bottom; background: url('../images/common/ic_check_set_16.png') -15px 2px no-repeat; }
+.cheked-item em{font-weight: bold;}
 /* toogle-box */
 
 .toggle-box{ visibility: visible; height: auto; opacity: 1; transition: all 0.1s ease-out;}

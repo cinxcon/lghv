@@ -40,7 +40,10 @@ import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad'
 import PopupApproval from './pages/publish/popup/popupDetail/Popup_Approval';
 import PopupNotiMethodSet from './pages/publish/popup/popupDetail/Popup_NotiMethod_Set';
 import PopupCell from './pages/publish/popup/popupDetail/Popup_Cell';
+import PopupCellList from './pages/publish/popup/popupDetail/Popup_Cell_List';
 import PopupWorkDeteail from './pages/publish/popup/popupDetail/Popup_WorkDeteail';
+import PopupWorker from './pages/publish/popup/popupDetail/Popup_Worker';
+import PopupDepartment from './pages/publish/popup/popupDetail/Popup_department';
 
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
@@ -91,7 +94,10 @@ const AppRouter = () => {
       <Route path="/popup/PopupApproval" element={<PopupApproval />} />
       <Route path="/popup/PopupNotiMethodSet" element={<PopupNotiMethodSet />} />
       <Route path="/popup/PopupCell" element={<PopupCell />} />
+      <Route path="/popup/PopupCellList" element={<PopupCellList />} />
       <Route path="/popup/PopupWorkDeteail" element={<PopupWorkDeteail />} />
+      <Route path="/popup/PopupWorker" element={<PopupWorker />} />
+      <Route path="/popup/PopupDepartment" element={<PopupDepartment />} />
       <Route path="/popup/PopupAccUserReg" element={<PopupAccUserReg />} />
       <Route path="/popup/PopupAccUserModi" element={<PopupAccUserModi />} />
       <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />

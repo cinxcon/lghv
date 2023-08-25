@@ -11,7 +11,8 @@ function ServicetaskRegist() {
     title: '작업관리',
     subtitle: '일반 작업등록',
     SubMenu: 'yes',
-    isDetail: 'no'
+    isDetail: 'no',
+    isUserRegist: 'yes'
   }
   // 윈도우 팝업
   const onPopup = (url, name, width, height) => {

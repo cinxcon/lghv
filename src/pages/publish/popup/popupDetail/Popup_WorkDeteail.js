@@ -102,7 +102,7 @@ const WorkDeteail = ({ onItemSelected }) => {
             ))}
           </select>
         </div>
-        <div className='approval-conts'>
+        <div className='approval-conts alone'>
           <div className='tree-wrap alone'>
           <h4 className='work-title'>전체({selectedItem.name})</h4>
             <div className='tree-conts'>

@@ -1,17 +1,12 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
-import { Popup } from '../../popup/Popup';
-import PopupDepartment from '../../popup/popupDetail/Popup_department';
 
 function ServicetaskSearch() {
   const [startDate, setStartDate] = useState(null);
   const [startEndDate, setStartEndDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [endEndDate, setEndEndDate] = useState(null);
-  // 등록부서 팝업
-  const [onLoad, setOnLoad] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
 
   //  토글
   const [isToggled, setToggled] = useState(false);
@@ -46,11 +41,6 @@ function ServicetaskSearch() {
     setSoType(event.target.value);
   };
 
-  //
-  const handleItemSelected = (item) => {
-    setOnLoad(false);
-    setSelectedItem(item.deptName);
-  };
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const [selectedEdday, setSelectedEdday] = useState('ed_user');
@@ -139,6 +129,15 @@ function ServicetaskSearch() {
     setToggled(prevState => !prevState);
   };
 
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupWidth = width;
+    const popupHeight = height;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  }
+
   return (
     <div className='content-section'>
       <div className='search-wrap'>
@@ -190,11 +189,8 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org nput-search-front'>{selectedItem}</span>
-                    <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
-                      <Popup open={onLoad} close={() => { setOnLoad(false) }} header="등록 부서" type={'sm'}>
-                          <PopupDepartment onItemSelected={handleItemSelected} />
-                      </Popup>
+                    <span className='input input_org nput-search-front'></span>
+                    <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                   </span>
                 </td>
               </tr>
