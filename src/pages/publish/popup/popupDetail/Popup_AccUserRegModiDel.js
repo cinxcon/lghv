@@ -13,6 +13,17 @@ function PopupAccUserReg() {
   const [endDate, setEndDate] = useState(null);
   const [endEndDate, setEndEndDate] = useState(null);
 
+  // 데이터 리스트
+  const [userGroup, setUserGroup] = useState('');
+  const [statu, setStatu] = useState('');
+
+  const handleUserGroupChange = (event) => {
+    setUserGroup(event.target.value);
+  };
+  const handleStatuChange = (event) => {
+    setStatu(event.target.value);
+  };
+
   return (
     <PopupPortal>
       <style>
@@ -88,10 +99,11 @@ function PopupAccUserReg() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                    <select name='userGroup' id='userGroup'>
-                      <option selected>기본</option>
-                      <option>그룹1</option>
-                    </select>
+                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' />
+                  <datalist id="userGroup">
+                    <option value={'그룹1'} />
+                    <option value={'그룹2'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -105,9 +117,10 @@ function PopupAccUserReg() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                    <select name='statu' id='statu'>
-                      <option selected>정상</option>
-                    </select>
+                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' />
+                  <datalist id="statu">
+                    <option value={'정상'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>
@@ -135,6 +148,17 @@ function PopupAccUserReg() {
 function PopupAccUserModi() {
   const [endDate, setEndDate] = useState(new Date());
   const [endEndDate, setEndEndDate] = useState(new Date());
+
+  // 데이터 리스트
+  const [userGroup, setUserGroup] = useState('그룹1');
+  const [statu, setStatu] = useState('정상');
+
+  const handleUserGroupChange = (event) => {
+    setUserGroup(event.target.value);
+  };
+  const handleStatuChange = (event) => {
+    setStatu(event.target.value);
+  };
 
   return (
     <PopupPortal>
@@ -211,10 +235,11 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                    <select name='userGroup' id='userGroup'>
-                      <option selected>기본</option>
-                      <option>그룹1</option>
-                    </select>
+                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' />
+                  <datalist id="userGroup">
+                    <option value={'그룹1'} />
+                    <option value={'그룹2'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -228,9 +253,10 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                    <select name='statu' id='statu'>
-                      <option selected>정상</option>
-                    </select>
+                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' />
+                  <datalist id="statu">
+                    <option value={'정상'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>
@@ -240,7 +266,7 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='text'>설명</label></th>
                 <td colSpan={3}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}>테스트 입력</textarea>
+                  <textarea name='text' id='text' style={{ height: '80px' }}>테스트 입력</textarea>
                 </td>
               </tr>
             </tbody>
@@ -258,6 +284,17 @@ function PopupAccUserModi() {
 function PopupAccUserDel() {
   const [endDate, setEndDate] = useState(new Date());
   const [endEndDate, setEndEndDate] = useState(new Date());
+
+  // 데이터 리스트
+  const [userGroup, setUserGroup] = useState('그룹1');
+  const [statu, setStatu] = useState('정상');
+
+  const handleUserGroupChange = (event) => {
+    setUserGroup(event.target.value);
+  };
+  const handleStatuChange = (event) => {
+    setStatu(event.target.value);
+  };
 
   return (
     <PopupPortal>
@@ -326,10 +363,11 @@ function PopupAccUserDel() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                    <select name='userGroup' id='userGroup' readOnly>
-                      <option selected>기본</option>
-                      <option>그룹1</option>
-                    </select>
+                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' readOnly />
+                  <datalist id="userGroup">
+                    <option value={'그룹1'} />
+                    <option value={'그룹2'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -343,9 +381,10 @@ function PopupAccUserDel() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                    <select name='statu' id='statu' readOnly>
-                      <option selected>정상</option>
-                    </select>
+                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' readOnly />
+                  <datalist id="statu">
+                    <option value={'정상'} />
+                  </datalist>
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>

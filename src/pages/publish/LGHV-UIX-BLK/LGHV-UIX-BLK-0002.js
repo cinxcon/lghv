@@ -34,20 +34,34 @@ function DisabilityMngList(props) {
 
   //  토글
   const [isToggled, setToggled] = useState(false);
-
   const handleItemSelected = (item) => {
     setOnLoad(false);
     setSelectedItem(item.deptName);
   };
+  // 데이터 리스트
+  const [infraType, setInfraType] = useState(null);
+  const [soType, setSoType] = useState(null);
+  const [type, setType] = useState(null);
+  const [access, setAccess] = useState(null);
+
+  const handleInfraTypeChange = (event) => {
+    setInfraType(event.target.value);
+  };
+  const handleSoTypeChange = (event) => {
+    setSoType(event.target.value);
+  };
+  const handleTypeChange = (event) => {
+    setType(event.target.value);
+  };
+  const handleAccessChange = (event) => {
+    setAccess(event.target.value);
+  };
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const [selectedEdday, setSelectedEdday] = useState('ed_user');
-
   const handleStdayChange = (event) => {
     setSelectedStday(event.target.value);
-
     const currentDate = new Date();
-
     // 오늘 날짜
     if (event.target.value === 'st_user') {
       setStartDate(null);
@@ -75,11 +89,9 @@ function DisabilityMngList(props) {
       setStartEndDate(new Date());
     }
   };
-
   const handleEddayChange = (event) => {
     setSelectedEdday(event.target.value);
     const currentDate = new Date();
-
     // 오늘 날짜
     if (event.target.value === 'ed_user') {
       setEndDate(null);
@@ -171,7 +183,7 @@ function DisabilityMngList(props) {
                   <th scope="row"><label htmlFor="regdep">접수부서</label></th>
                   <td colSpan={3}>
                     <span className='input-btn-wrap'>
-                      <span className='input input_org nput-search-front'>{selectedItem}</span>
+                      <span className='input input_org input-search-front'>{selectedItem}</span>
                       <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
                       <Popup open={onLoad} close={() => { setOnLoad(false) }} header="접수 부서" type={'sm'}>
                         <PopupDepartment onItemSelected={handleItemSelected} />
@@ -230,44 +242,40 @@ function DisabilityMngList(props) {
                   <tr>
                     <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                     <td colSpan={4}>
-                      <span>
-                        <select name="infra" id="infra">
-                          <option value="">서울인프라팀</option>
-                          <option value="">경북인프라팀</option>
-                        </select>
-                      </span>
+                      <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
+                      <datalist id="infra">
+                        <option value={'서울인프라팀'} />
+                        <option value={'경북인프라팀'} />
+                      </datalist>
                     </td>
                     <th scope="row"><label htmlFor="SO ">SO </label></th>
                     <td colSpan={4}>
-                      <span>
-                        <select name="SO" id="SO">
-                          <option value="">중앙방송</option>
-                          <option value="">중부산방송</option>
-                        </select>
-                      </span>
+                      <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
+                      <datalist id="SO">
+                        <option value={'중앙방송'} />
+                        <option value={'중부산방송'} />
+                      </datalist>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row"><label htmlFor="type">장애등급</label></th>
                     <td colSpan={4}>
-                      <span className='service select-wrap'>
-                        <select name="type" id="type">
-                          <option value="">지정안함</option>
-                          <option value="">A등급</option>
-                          <option value="">B등급</option>
-                          <option value="">C등급</option>
-                        </select>
-                      </span>
+                      <input type="text" list="type" value={type} onChange={handleTypeChange} placeholder="장애등급" />
+                      <datalist id="type">
+                        <option value={'지정안함'} />
+                        <option value={'A등급'} />
+                        <option value={'B등급'} />
+                        <option value={'C등급'} />
+                      </datalist>
                     </td>
                     <th scope="row"><label htmlFor="access">장애귀책</label></th>
                     <td colSpan={4}>
-                      <span className='service select-wrap'>
-                        <select name="access" id="access">
-                          <option value="">지정안함</option>
-                          <option value="">내부</option>
-                          <option value="">외부</option>
-                        </select>
-                      </span>
+                      <input type="text" list="access" value={access} onChange={handleAccessChange} placeholder="장애귀책" />
+                      <datalist id="access">
+                        <option value={'지정안함'} />
+                        <option value={'내부'} />
+                        <option value={'외부'} />
+                      </datalist>
                     </td>
                   </tr>
                   <tr>

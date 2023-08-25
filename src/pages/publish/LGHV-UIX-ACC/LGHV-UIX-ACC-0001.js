@@ -1,6 +1,4 @@
-// LGHV-UIX-ACC-0001 사용자조회
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import ContentTitle from '../layout/ContentTitle';
@@ -8,19 +6,13 @@ import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
-function AccUser(props) {
-  const { data } = props;
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+function AccUser() {
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '접근제어',
     subtitle: '사용자 목록',
     SubMenu: 'yes',
     isDetail: 'no'
-  }
-  const pathData = data;
-  const navigate = useNavigate();
-  const selectedWork = () => {
-    navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', { state: pathData });
   }
 
   //  토글
@@ -28,6 +20,13 @@ function AccUser(props) {
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
+
+  // 새창 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
 
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
@@ -81,6 +80,17 @@ function AccUser(props) {
     setOrgValue('');
   }
 
+  // 데이터 리스트
+  const [accState, setAccState] = useState('');
+  const [userGroup, setUserGroup] = useState('');
+
+  const handleAccStateChange = (event) => {
+    setAccState(event.target.value);
+  };
+  const handleUserGroupChange = (event) => {
+    setUserGroup(event.target.value);
+  };
+
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -123,27 +133,26 @@ function AccUser(props) {
                 </tr>
                 <tr>
                   <th scope="row"><label htmlFor="accstate">계정상태</label></th>
-                  <td colSpan={4}>
-                    <span>
-                      <select name="accstate" id="accstate">
-                        <option value="">정상</option>
-                        <option value="">잠금</option>
-                      </select>
-                    </span>
+                  <td colSpan={2}>
+                    <input type="text" list="accState" value={accState} onChange={handleAccStateChange} placeholder='선택' />
+                    <datalist id="accState">
+                      <option value={'정상'} />
+                      <option value={'잠금'} />
+                    </datalist>
                   </td>
                   <th scope="row"><label htmlFor="userGroup ">그룹</label></th>
-                  <td colSpan={4}>
-                    <span>
-                      <select name="userGroup" id="userGroup">
-                        <option value="">그룹1</option>
-                        <option value="">그룹2</option>
-                      </select>
-                    </span>
+                  <td colSpan={2} className='bd-right-none'>
+                    <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='선택' />
+                    <datalist id="userGroup">
+                      <option value={'그룹1'} />
+                      <option value={'그룹2'} />
+                    </datalist>
                   </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope="row"><label htmlFor="usedate">사용기간</label></th>
-                  <td colSpan={9}>
+                  <td colSpan={5} className='bg-right-none'>
                     <div className='flex-wrap between'>
                       <span className='datepickers-wrap'>
                         <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -165,6 +174,7 @@ function AccUser(props) {
                       </span>
                     </div>
                   </td>
+                  <td colSpan={4}></td>
                 </tr>
               </tbody>
             </table>
@@ -205,10 +215,21 @@ function AccUser(props) {
             </tr>
           </thead>
           <tbody>
+            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', 'detail', 1280, 800) }} className='link'>
+              <td>S102020</td>
+              <td>홍길동</td>
+              <td>기간망운영팀</td>
+              <td>과장</td>
+              <td>그룹1</td>
+              <td>test01@lghv.co.kr</td>
+              <td>2023-01-01</td>
+              <td>2023-01-01</td>
+              <td><span className='color-success'>정상</span></td>
+            </tr>
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={selectedWork} className='link'>
+                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', 'detail', 1280, 800) }} className='link'>
                     <td>S102020</td>
                     <td>홍길동</td>
                     <td>기간망운영팀</td>

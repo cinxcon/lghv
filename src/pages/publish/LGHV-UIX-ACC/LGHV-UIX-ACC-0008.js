@@ -1,7 +1,6 @@
-/* eslint-disable */
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
-import { Popup, Alert } from '../popup/Popup';
+import { Alert } from '../popup/Popup';
 
 // LGHV-UIX-ACC-0008 장비 등록 AccEquipmentRegist
 function AccEquipmentRegist() {
@@ -13,15 +12,16 @@ function AccEquipmentRegist() {
   }
 
   // 새창 팝업
-  const onPopupLarge = (url, name, popupHeight) => {
-    const popupWidth = 1280;
-    const popupX = (window.screen.width / 2) - (popupWidth / 2);
-    const popupY = (window.screen.height / 2) - (popupHeight / 2);
-    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
 
   // 팝업
   const [tempsave, setTempsave] = useState(false);
+  const [regist, setRegist] = useState(false);
+  const [workCancel, setWorkCancel] = useState();
 
   //  토글
   const [divStates, setDivStates] = useState([false, false, false]);
@@ -36,7 +36,7 @@ function AccEquipmentRegist() {
       <ContentTitle data={pagedata} />
       <div className='content-section'>
         <div className="detail-top-btn-group">
-          <button className='btn btn-pop' onClick={() => { onPopupLarge('/popup/PopupLine', 'Line', 800) }}>결제선 지정</button>
+          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
           <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
         </div>
         <Alert open={tempsave} close={() => { setTempsave(false) }}>
@@ -154,6 +154,18 @@ function AccEquipmentRegist() {
                 <td>
                   <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="기안첨부" />
                   <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                    <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly="readOnly" value={'기안첨부.xlsx'}/>
+                    <span className="input-addon">
+                      <label htmlFor="File" className="btn">찾아보기</label>
+                    </span>
+                    <span className="input-addon">
+                      <button className="btn btn-low">추가</button>
+                    </span>
+                    <span className="input-addon">
+                      <button className="btn btn-low">삭제</button>
+                    </span>
+                  </div>
+                  <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
                     <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly=""/>
                     <span className="input-addon">
                       <label htmlFor="File" className="btn">찾아보기</label>
@@ -180,8 +192,8 @@ function AccEquipmentRegist() {
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
           <div className='right'>
-            <button className='btn' onClick={() => { onPopupLarge('/popup/PopupAccEqReg', 'AccEqReg', 800) }}>신규</button>
-            <button className='btn ml4' onClick={() => { onPopupLarge('/popup/PopupAccEqDel', 'AccEqDel', 800) }}>삭제</button>
+            <button className='btn' onClick={() => { onPopup('/popup/PopupAccEqReg', 'AccEqReg', 1280, 800) }}>신규</button>
+            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccEqDel', 'AccEqDel', 1280, 800) }}>삭제</button>
           </div>
           <table className='table mt8'>
           <caption>접근제어 장비명 검색: 장비명, IP 주소, 기종, 종류, 상태</caption>
@@ -201,7 +213,7 @@ function AccEquipmentRegist() {
             </thead>
             <tbody>
               <tr>
-                <td><button class="btn-del-28">삭제</button></td>
+                <td><button className="btn-del-28">삭제</button></td>
                 <td>InfraCore1</td>
                 <td>102.15.222.44</td>
                 <td>Linux</td>
@@ -209,7 +221,7 @@ function AccEquipmentRegist() {
                 <td>신규</td>
               </tr>
               <tr>
-                <td><button class="btn-del-28">삭제</button></td>
+                <td><button className="btn-del-28">삭제</button></td>
                 <td>InfraCore1</td>
                 <td>102.15.222.44</td>
                 <td>Linux</td>
@@ -220,6 +232,16 @@ function AccEquipmentRegist() {
           </table>
         </div>
       </div>
+      <div className='detail-bottom-btn-group mt20 mb15'>
+        <button className='btn btn-lg' onClick={() => { setWorkCancel(true) }}>취소</button>
+        <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
+      </div>
+      <Alert open={workCancel} close={() => { setWorkCancel(false) }}>
+        <div>기안 등록을 취소 하시겠습니까?</div>
+      </Alert>
+      <Alert open={regist} close={() => { setRegist(false) }}>
+        <div>기안을 등록하시겠습니까?</div>
+      </Alert>
     </>
   )
 }

@@ -1,4 +1,3 @@
-// LGHV-UIX-ACC-0005 장비목록 AccEquipmentList
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContentTitle from '../layout/ContentTitle';
