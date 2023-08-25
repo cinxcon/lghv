@@ -331,6 +331,7 @@ input[type='radio'] + label.type-btn:before{content: none;}
 .input-btn-wrap .input-plus-front { width: calc(100% - 64px); }
 .input-btn-wrap .input-search-front { width: calc(100% - 32px); }
 .input-btn-wrap .input-repeatcheck-front { width: calc(100% - 79px); }
+.input-btn-wrap .input-w-80{width: 80%;}
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 60px; padding: 16px; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }

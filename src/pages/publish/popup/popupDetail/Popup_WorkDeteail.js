@@ -1,4 +1,10 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
+
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
 
 const WorkDeteail = ({ onItemSelected }) => {
   const treeData = [
@@ -79,30 +85,39 @@ const WorkDeteail = ({ onItemSelected }) => {
 
   return (
     <>
-      <div className='pop-search-wrap'>
-          <label htmlFor='work-type'>선택 :</label>
-          <select name='work-type' id='work_type' onChange={handleSelectChange} className='select-item'>
-          {data.map((item, index) => (
-            <option key={index} value={index}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className='approval-conts'>
-        <div className='tree-wrap alone'>
-        <h4 className='work-title'>{selectedItem.name}</h4>
-          <div className='tree-conts'>
-          {treeData.map((item) => (
-          <TreeItem
-              key={item.id}
-              item={item}
-              onItemSelected={handleItemSelected}
-          />
-          ))}
+      <PopupPortal>
+        <style>
+          {`
+            #root {display: none;}
+          `}
+        </style>
+        <div className='new-window-wrap'>
+        <div className='pop-search-wrap'>
+            <label htmlFor='work-type'>선택 :</label>
+            <select name='work-type' id='work_type' onChange={handleSelectChange} className='select-item'>
+            {data.map((item, index) => (
+              <option key={index} value={index}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='approval-conts'>
+          <div className='tree-wrap alone'>
+          <h4 className='work-title'>전체({selectedItem.name})</h4>
+            <div className='tree-conts'>
+            {treeData.map((item) => (
+            <TreeItem
+                key={item.id}
+                item={item}
+                onItemSelected={handleItemSelected}
+            />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+      </PopupPortal>
     </>
   );
 };

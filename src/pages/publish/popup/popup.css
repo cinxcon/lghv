@@ -62,7 +62,10 @@
 .tree-wrap::-webkit-scrollbar-track, .list-item::-webkit-scrollbar-track, .selected-item::-webkit-scrollbar-track {
   background: #eaeaea;  /*스크롤바 뒷 배경 색상*/
 }
-
+.template-top { margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7; }
+.template-top label{font-weight: 500; margin-right: 8px;}
+.template-top > .flex-wrap{flex: 1;}
+.template-top > .flex-wrap + .flex-wrap{flex: 2;}
 /*  팝업 레이 아웃   */
 .popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; }
 .popup-content { background-color: #fff; padding: 20px; border-radius: 8px; }

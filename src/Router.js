@@ -41,6 +41,8 @@ import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template';
 import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad';
 import PopupApproval from './pages/publish/popup/popupDetail/Popup_Approval';
 import PopupNotiMethodSet from './pages/publish/popup/popupDetail/Popup_NotiMethod_Set';
+import PopupCell from './pages/publish/popup/popupDetail/Popup_Cell';
+import PopupWorkDeteail from './pages/publish/popup/popupDetail/Popup_WorkDeteail';
 
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
@@ -91,6 +93,9 @@ const AppRouter = () => {
       <Route path="/popup/PopupWorkOnLoad" element={<PopupWorkOnLoad />} />
       <Route path="/popup/PopupApproval" element={<PopupApproval />} />
       <Route path="/popup/PopupNotiMethodSet" element={<PopupNotiMethodSet />} />
+      <Route path="/popup/PopupCell" element={<PopupCell />} />
+      <Route path="/popup/PopupWorkDeteail" element={<PopupWorkDeteail />} />
+
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalTest" element={<ApprovalTest />} />

@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
+import { useState } from 'react';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -21,6 +22,13 @@ const LoadTemplate = ({ onItemSelected }) => {
     { category: '보고', formName: '기간 망 작업 신청서', date: '2023.07.01' },
     { category: '작업신청', formName: '선로 작업 신청서', date: '2023.07.01' }
   ];
+
+  const [templateType, setTemplateType] = useState('');
+
+  const handleTemplateTypeChange = (event) => {
+    setTemplateType(event.target.value)
+  }
+
   const templateSearch = () => {
     // 템플릿 검색
   }
@@ -41,42 +49,36 @@ const LoadTemplate = ({ onItemSelected }) => {
         <div className="content-title">
           <h2>템플릿 불러오기</h2>
         </div>
-        <table className='popup-table mb15'>
-        <caption>템플릿 분류</caption>
-          <colgroup>
-            <col style={{ width: '15%' }} />
-            <col style={{ width: '35%' }} />
-            <col style={{ width: '10%' }} />
-            <col style={{ width: '40%' }} />
-          </colgroup>
-          <tbody>
-            <tr>
-              <th scope="row"><label htmlFor='category'>템플릿 분류</label></th>
-              <td>
-                <select name="category" id="category">
-                <option value="">선택</option>
-                </select>
-              </td>
-              <th scope="row"><label htmlFor="name_search">검색</label></th>
-              <td>
+        <div className='template-top flex-wrap'>
+            <div className='flex-wrap'>
+                <label htmlFor='category'>템플릿 분류</label>
+                <input type="text" list="template_Type" value={templateType} onChange={handleTemplateTypeChange} placeholder="인프라팀" style={{ width: '70%' }} />
+                <datalist id="template_Type">
+                  <option value={'업무1'} />
+                  <option value={'업무2'} />
+                </datalist>
+            </div>
+            <div className='flex-wrap'>
+              <label htmlFor="name_search">이름</label>
                 <span className='input-btn-wrap'>
-                  <input type='text' name='name-search' id='name_search' className='input-search-front' />
-                  <button onClick={templateSearch} className='btn btn-black btn-search'>검색</button>
+                  <input type='text' name='name-search' id='name_search' className='input-w-80' />
+                   <div className='btn-wrap'>
+                    <button className='btn btn-ref'>초기화</button>
+                    <button onClick={templateSearch} className='btn btn-black btn-search'>검색</button>
+                   </div>
                 </span>
-              </td>
-          </tr>
-          </tbody>
-        </table>
+            </div>
+        </div>
         <div className="result-pageview">
             <ResultPageView />
         </div>
         <table className="table">
             <caption>템플릿 리스트</caption>
               <colgroup>
+              <col style={{ width: '5%' }} />
               <col style={{ width: '15%' }} />
+              <col style={{ width: '65%' }} />
               <col style={{ width: '15%' }} />
-              <col style={{ width: '50%' }} />
-              <col style={{ width: '20%' }} />
               </colgroup>
             <thead>
             <tr>
