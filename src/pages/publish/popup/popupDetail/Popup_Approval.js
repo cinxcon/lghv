@@ -4,12 +4,13 @@ import { createPortal } from 'react-dom';
 import { Popup } from '../../popup/Popup';
 import PopupSave from '../popupDetail/Popup_Save';
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
+
 const ApprovalLine = ({ onItemSelected }) => {
   const [treeData, setTreeData] = useState([]);
-  const PopupPortal = ({ children }) => {
-    const el = document.getElementById('popup-root');
-    return createPortal(children, el)
-  }
 
   useEffect(() => {
     fetchData();
