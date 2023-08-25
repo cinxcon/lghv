@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { createPortal } from 'react-dom';
+import { Alert } from '../../popup/Popup';
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
 const ApprovalDepartment = ({ onItemSelected }) => {
+  const [regist, setRegist] = useState(false);
   const [treeData, setTreeData] = useState([]);
 
   useEffect(() => {
@@ -25,37 +32,52 @@ const ApprovalDepartment = ({ onItemSelected }) => {
 
   const handleConfirmClick = () => {
     if (selectedName === null) {
-      alert('등록 부서를 선택하지 않으셨습니다.');
+      setRegist(true) // 등록 부서를 선택하지 않으셨습니다.
     } else {
-      onItemSelected(selectedName);
+      // onItemSelected(selectedName);
     }
   };
 
   return (
     <>
-     <div className='approval-conts'>
-        <div className='tree-wrap alone'>
-          <div className='tree-logo'>LG hellovision</div>
-              <div className='tree-conts'>
-                {treeData.depts && treeData.depts.map((item) => (
-                  <TreeItem
-                    key={item.deptId}
-                    item={item}
-                    onItemSelected={handleItemSelected}
-                  />
-                ))}
-              </div>
+    <PopupPortal>
+      <style>
+        {`
+          #root {display: none;}
+        `}
+      </style>
+      <div className='new-window-wrap'>
+        <div className="content-title">
+          <h2>조직검색</h2>
         </div>
+        <div className='approval-conts alone'>
+          <div className='tree-wrap alone'>
+            <div className='tree-logo'>LG hellovision</div>
+                <div className='tree-conts'>
+                  {treeData.depts && treeData.depts.map((item) => (
+                    <TreeItem
+                      key={item.deptId}
+                      item={item}
+                      onItemSelected={handleItemSelected}
+                    />
+                  ))}
+                </div>
+          </div>
       </div>
       <div className='right mt20'>
         <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>부서 설정</button>
+          <Alert open={regist} close={() => { setRegist(false) }} type={'no'}>
+            <div>등록 부서를 선택하지 않으셨습니다.</div>
+          </Alert>
       </div>
+      </div>
+      </PopupPortal>
     </>
   );
 };
 
 const TreeItem = ({ item, onItemSelected }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);

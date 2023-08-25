@@ -3,22 +3,11 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Popup, Alert } from '../../popup/Popup';
-// import PopupReviewer from '../../popup/popupDetail/Popup_Reviewer';
-// import PopupTemplate from '../../popup/popupDetail/Popup_Template';
-import PopupCell from '../../popup/popupDetail/Popup_Cell';
-import PopupWorkDeteail from '../../popup/popupDetail/Popup_WorkDeteail';
-import PopupWorker from '../../popup/popupDetail/Popup_Worker';
+import { Alert } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
 function UrgentWork() {
-  // 팝업
-//   const [reviwer, setReviwer] = useState(false);
-
-  const [cell, setCell] = useState(false);
-  const [workDeteail, setWorkDeteail] = useState(false);
-  const [worker, setWorker] = useState(false);
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
@@ -32,23 +21,7 @@ function UrgentWork() {
   const [diviceRows, setDiviceRows] = useState([]);
   const [vendorRows, setVendorRows] = useState([]);
   const [selectedOption, setSelectedOption] = useState('access_no');
-  const [selectedCell, setSelectedCell] = useState('');
-  const [selectedWorkDeteail, setSelectedWorkDeteail] = useState('');
-  const [selectedWorker, setSelectedWorker] = useState('');
 
-  const handleCellSelected = (cell) => {
-    setCell(false);
-    setSelectedCell(cell);
-  }
-  const handleWorkDeteailSelected = (name) => {
-    setWorkDeteail(false);
-    setSelectedWorkDeteail(name);
-  }
-
-  const handleWorkerSelected = (name) => {
-    setWorker(false);
-    setSelectedWorker(name);
-  }
   const handleStartHourIncrease = () => {
     setStartHours(prevHours => (prevHours + 1) % 24);
   };
@@ -87,9 +60,9 @@ function UrgentWork() {
 
   };
   // 윈도우 팝업
-  const onPopupLarge = (url, name) => {
-    const popupWidth = 1280;
-    const popupHeight = 800;
+  const onPopup = (url, name, width, height) => {
+    const popupWidth = width;
+    const popupHeight = height;
     const popupX = (window.screen.width / 2) - (popupWidth / 2);
     const popupY = (window.screen.height / 2) - (popupHeight / 2);
     window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
@@ -124,6 +97,10 @@ function UrgentWork() {
   const [presenceType, setPresenceType] = useState(null);
   const [accessPolicy, setAccessPolicy] = useState(null);
 
+  const [userGroup, setUserGroup] = useState(null);
+  const [user, setUser] = useState(null);
+  const [useDevice, setUseDevice] = useState(null);
+
   const handleInfraTypeChange = (event) => {
     setInfraType(event.target.value);
   };
@@ -138,6 +115,15 @@ function UrgentWork() {
   };
   const handleAccessPolicyChange = (event) => {
     setAccessPolicy(event.target.value);
+  }
+  const handleUserGroupChange = (event) => {
+    setUserGroup(event.target.value);
+  }
+  const handleUserChange = (event) => {
+    setUser(event.target.value);
+  }
+  const handleUseDeviceChange = (event) => {
+    setUseDevice(event.target.value);
   }
 
   return (
@@ -279,7 +265,7 @@ function UrgentWork() {
                         <div className='flex-wrap between'>
                             <span className='input-btn-wrap'>
                                 <span className='input input_org input-search-front'></span>
-                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopupLarge('/popup/PopupReviewer', 'Reviewer') }}>선택</button>
+                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button>
                             </span>
                         </div>
                     </td>
@@ -376,7 +362,7 @@ function UrgentWork() {
                     <td colSpan={3}>
                         <div className='work-content'>
                             <div className='btn-wrap'>
-                                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopupLarge('/popup/PopupTemplate', 'Template') }}>템플릿 불러오기</button>
+                                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupTemplate', 'Template', '1200', '800') }}>템플릿 불러오기</button>
                             </div>
                             <div className='template'>
                                 <CKEditor
@@ -436,10 +422,7 @@ function UrgentWork() {
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
             <div className="btn-wrap right mb15">
-                <button type='button' className='btn btn-md btn-pop' onClick={() => { setCell(true) }}>CELL 등록</button>
-                <Popup open={cell} close={() => { setCell(false) }} header="CELL 등록" type={'lg'}>
-                    <PopupCell onItemSelected={handleCellSelected} />
-                </Popup>
+                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupCell', 'cell', '1200', '800') }}>CELL 등록</button>
             </div>
             <table className='table'>
                 <caption>table caption</caption>
@@ -462,13 +445,13 @@ function UrgentWork() {
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
-                    <td>{selectedCell}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -568,11 +551,8 @@ function UrgentWork() {
                     <th scope='row'>작업세부</th>
                     <td colSpan={3}>
                        <span className='input-btn-wrap'>
-                       <span className='input input_org input-search-front'>{selectedWorkDeteail}</span>
-                       <button className='btn btn-black btn-search' onClick={() => { setWorkDeteail(true) }}>작업세부 찾기</button>
-                        <Popup open={workDeteail} close={() => { setWorkDeteail(false) }} header="작업세부" type={'sm'}>
-                            <PopupWorkDeteail onItemSelected={handleWorkDeteailSelected} />
-                        </Popup>
+                       <span className='input input_org input-search-front'></span>
+                        <button className='btn btn-black btn-search' onClick={() => { onPopup('/popup/PopupWorkDeteail', 'workDeteail', '460', '700') }}>작업세부 찾기</button>
                        </span>
                     </td>
                 </tr>
@@ -610,35 +590,35 @@ function UrgentWork() {
                     <th>작업자</th>
                     <td>
                         <span className='input-btn-wrap'>
-                            <span className='input input_org input-plus-front'>{selectedWorker}</span>
-                            <button type='button' className='btn-plus-28' onClick={() => { setWorker(true) }}>더하기</button>
+                            <span className='input input_org input-plus-front'></span>
+                            <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button>
                             <button type='button' className='btn-minus-28'>빼기</button>
                         </span>
-                        <Popup open={worker} close={() => { setWorker(false) }} header="작업자 불러오기" type={'lg'}>
-                            <PopupWorker onItemSelected={handleWorkerSelected} />
-                        </Popup>
                     </td>
                 </tr>)}
                 {selectedOption === 'access_yes' && (
                 <tr>
                     <th>사용자 그룹 <span className='color-primary'>*</span></th>
                     <td>
-                        <select name="user_group" id="user_group">
-                            <option value="all">전체</option>
-                        </select>
+                        <input type="text" list="user_group" value={userGroup} onChange={handleUserGroupChange} placeholder="사용자 그룹" />
+                        <datalist id="user_group">
+                            <option value={'전체'} />
+                        </datalist>
                     </td>
                     <th>사용자</th>
                     <td>
-                        <select name="user" id="user">
-                            <option value="all">전체</option>
-                        </select>
+                        <input type="text" list="user" value={user} onChange={handleUserChange} placeholder="사용자" />
+                        <datalist id="user">
+                            <option value={'전체'} />
+                        </datalist>
                     </td>
                     <th>장비<button type='button' className='btn btn-low ml10'>예외</button></th>
                     <td>
                         <span className="input-btn-wrap">
-                            <select name="use_device" id="use_device">
-                                <option value="use_device">전체</option>
-                            </select>
+                            <input type="text" list="use_device" value={useDevice} onChange={handleUseDeviceChange} placeholder="장비" />
+                            <datalist id="use_device">
+                                <option value={'전체'} />
+                            </datalist>
                             <button type="button" className="btn btn-add" onClick={diviceAddRow}>추가</button>
                         </span>
                     </td>

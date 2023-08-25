@@ -1,222 +1,227 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+import ResultPageView from '../../common/ResultPageView';
+import ResultNoData from '../../common/ResultNoData';
+import ResultListPaging from '../../common/ResultListPaging';
+
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
 
 const Worker = ({ onItemSelected }) => {
-  const [treeData, setTreeData] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('../data/response_1692163585947.json'); // JSON 파일 경로를 넣어주세요
-      setTreeData(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-  const listData = {
-    N00: [
-      { id: 'da', title: '대표이사', name: '김헬로' },
-      { id: 'db', title: '품질혁신팀', name: '손혁신' },
-      { id: 'dc', title: '미디어운영팀', name: '이디어' },
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' },
-      { id: 'df', title: 'OMC팀', name: '권큐엠' },
-      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
-    ],
-    N000A00001: [
-      { id: 'da', title: '대표이사', name: '김헬로' }
-    ],
-    N000C00020: [
-      { id: 'db', title: '품질혁신팀', name: '손혁신' }
-    ],
-    N000D00404: [
-      { id: 'db', title: '품질혁신팀', name: '손혁신' }
-    ],
-    N000F00100: [
-      { id: 'dc', title: '미디어운영팀', name: '이디어' },
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' }
-    ],
-    N000D00211: [
-      { id: 'dc', title: '미디어운영팀', name: '이디어' }
-    ],
-    N000D00130: [
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' }
-    ],
-    N000001301: [
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' }
-    ],
-    N00G000240: [
-      { id: 'de', title: '품질안전협력', name: '박안전' }
-    ],
-    N00G000261: [
-      { id: 'df', title: 'OMC팀', name: '권큐엠' }
-    ],
-    N00G000282: [
-      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
-    ],
-    N00cjworld: [
-      { id: 'dh', title: '가상부서', name: '김나니' }
-    ],
-    N00G000308: [
-      { id: 'dh', title: '가상부서', name: '김나니' }
-    ]
-  };
-
-  const [selectedTree, setSelectedTree] = useState(null);
-  const [selectedName, setSelectedName] = useState(null);
-  const [tableData, setTableData] = useState([]);
-  const [trActive, setTrActive] = useState('');
-
-  const handleItemSelected = (item) => {
-    setSelectedTree(item.deptId);
-  };
-  const listItemSelect = (item) => {
-    const newRow = { id: item.id, title: item.title, name: item.name };
-    const activeListItem = document.getElementById(item.id);
-    console.log(activeListItem);
-    activeListItem.classList.add('active');
-    if (!isDuplicate(newRow)) {
-      setTableData([...tableData, newRow]);
-    }
-  };
-  const isDuplicate = (newRow) => {
-    // newRow와 rows에 이미 있는 데이터를 비교하여 중복 여부 확인
-    return tableData.some((tableData) => tableData.name === newRow.name);
-  };
-
-  const deleteRow = (id) => {
-    const updatedData = tableData.filter(row => row.id !== id);
-    const listItem = document.getElementById(id);
-    console.log('row;', id);
-    if (tableData.length === 1) {
-      alert('선택 내용이 사라 집니다.');
-      setSelectedName(null);
-    }
-    setTableData(updatedData);
-    // setTrActive(null);
-    if (listItem !== null) {
-      listItem.classList.remove('active');
-    }
-  };
-
-  const reviewerSelect = (name, rowIndex) => {
-    setTrActive(rowIndex);
-    setSelectedName(name); // 선택된 항목의 이름을 부모 컴포넌트로 전달
-  };
+  const data = [
+    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 }
+  ];
 
   const handleConfirmClick = () => {
-    if (selectedName === null) {
-      alert('작업자를 선택하지 않으셨습니다.');
-    } else {
-      onItemSelected(selectedName);
-    }
+  // 템플릿 선택
+  }
+  //  토글
+  const [isToggled, setToggled] = useState(false);
+
+  // input clear
+  const handleButtonToggle = () => {
+    setToggled(prevState => !prevState);
   };
 
-  const getMenuItems = () => {
-    if (selectedTree === null) return null;
+  // 데이터 리스트
+  const [userType, setUserType] = useState(null);
+  const [companyType, setCompanyType] = useState(null);
+  const [positionType, setPositionType] = useState(null);
+  const [rankType, setRankType] = useState(null);
 
-    return listData[selectedTree].map((item) => (
-      <li key={item.id} id={item.id} onClick={() => listItemSelect(item)} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
-    ));
+  const handleCompanyTypeChange = (event) => {
+    setCompanyType(event.target.value);
   };
+  const handleUserTypeChange = (event) => {
+    setUserType(event.target.value);
+  };
+  const handlePositionTypeChange = (event) => {
+    setPositionType(event.target.value);
+  };
+  const handleRankypeChange = (event) => {
+    setRankType(event.target.value);
+  };
+  const [checkboxStates, setCheckboxStates] = useState(false);
 
+  const handleCheckboxChange = (event) => {
+    const { id, checked } = event.target;
+    setCheckboxStates((prevState) => ({
+      ...prevState,
+      [id]: checked
+    }));
+  };
+  const selectedCount = Object.values(checkboxStates).filter(Boolean).length;
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupWidth = width;
+    const popupHeight = height;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  }
   return (
     <>
-    <div className='flex-wrap align-start'>
-     <div className='approval-conts'>
-        <div className='tree-wrap'>
-              <div className='tree-conts'>
-              {treeData.depts && treeData.depts.map((item) => (
-                  <TreeItem
-                    key={item.deptId}
-                    item={item}
-                    onItemSelected={handleItemSelected}
-                  />
-              ))}
-              </div>
-        </div>
-        <div className='list-item'>
-              <ul>
-                {getMenuItems()}
-              </ul>
-        </div>
-      </div>
-      <div className='selected-item'>
-            <table className="popup-table">
-              <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
-                <col style={{ width: '40%' }} />
-              </colgroup>
-              <thead>
+     <PopupPortal>
+        <style>
+            {`
+            #root {display: none;}
+            `}
+        </style>
+        <div className='new-window-wrap'>
+            <div className='content-title'>
+             <h2>사용자 선택</h2>
+            </div>
+            <div className='content-section'>
+                <div className='search-wrap'>
+                    <div className='title flex-wrap between'>
+                        <h3>검색 조건</h3>
+                        <button className={`btn-fold ${isToggled ? 'close' : ''}`} onClick={handleButtonToggle} id='fold-open'>검색영역 열기</button>
+                    </div>
+                    <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
+                    <table className='search'>
+                        <caption>템플릿 검색 영역</caption>
+                        <colgroup>
+                            <col style={{ width: '9%' }} />
+                            <col style={{ width: '25%' }} />
+                            <col style={{ width: '8%' }} />
+                            <col style={{ width: '25%' }} />
+                            <col style={{ width: '8%' }} />
+                            <col style={{ width: '25%' }} />
+                        </colgroup>
+                        <tbody>
+                              <tr>
+                                <th scope='row'><label htmlFor='company'>회사</label></th>
+                                <td>
+                                    <span>
+                                    <input type='text' list='company' value={companyType} onChange={handleCompanyTypeChange} placeholder='LG헬로비전' />
+                                    <datalist id='company'>
+                                        <option value={'LG헬로비전'} />
+                                    </datalist>
+                                    </span>
+                                </td>
+                                <th scope='row'><label htmlFor='position'>직책</label></th>
+                                <td>
+                                    <span>
+                                    <input type='text' list='position' value={positionType} onChange={handlePositionTypeChange} placeholder='전체' />
+                                    <datalist id='position'>
+                                        <option value={'팀장'} />
+                                        <option value={'부팀장'} />
+                                    </datalist>
+                                    </span>
+                                </td>
+                                <th scope='row'><label htmlFor='rank'>직급</label></th>
+                                <td>
+                                    <span className='input-btn-wrap'>
+                                        <input type='text' list='rank' value={rankType} onChange={handleRankypeChange} placeholder='전체' />
+                                        <datalist id='rank'>
+                                            <option value={'사원'} />
+                                            <option value={'대리'} />
+                                        </datalist>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope='row'><label htmlFor='user_id'>사용자ID</label></th>
+                                <td>
+                                    <input type='text' name='user_id' id='user_name' placeholder='사용자ID' />
+                                </td>
+                                <th scope='row'><label htmlFor='user_name'>이름 </label></th>
+                                <td>
+                                    <input type='text' name='user_name' id='user_name' placeholder='이름' />
+                                </td>
+                                <th scope='row'><label htmlFor='user_email'>이메일</label></th>
+                                <td>
+                                  <input type='text' name='user_email' id='user_email' placeholder='이메일' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope='row'><label htmlFor='user_type'>사용자구분</label></th>
+                                <td>
+                                    <span>
+                                    <input type='text' list='user_type' value={userType} onChange={handleUserTypeChange} placeholder='사용자' />
+                                    <datalist id='user_type'>
+                                        <option value={'전체'} />
+                                    </datalist>
+                                    </span>
+                                </td>
+                                <th scope='row'><label htmlFor='cell '>부서</label></th>
+                                <td colSpan={3}>
+                                    <span className='input-btn-wrap'>
+                                        <span className='input input_org input-search-front'></span>
+                                        <button type='button' className='btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>찾기</button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div className='btn-wrap right'>
+                        <button className='btn btn-low btn-ref'>초기화</button>
+                        <button className='btn btn-black btn-search-txt'>검색</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            <div className='result-pageview mb15'>
+                <ResultPageView />
+                <div className='btn-wrap'>
+                    <span className='cheked-item'><em>{ selectedCount }</em>개 선택</span>
+                    <button type='button' className='btn btn-md ml10'>확인</button>
+                </div>
+            </div>
+            <table className='popup-table center'>
+                <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
+                <colgroup>
+                    <col style={{ width: '5%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '35%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                </colgroup>
+                <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col">부서</th>
-                  <th scope="col">성명</th>
+                    <th rowSpan={2}></th>
+                    <th rowSpan={2}>CELL</th>
+                    <th rowSpan={2}>주소</th>
+                    <th colSpan={4}>가입자 모수</th>
+                    <th rowSpan={2}>합</th>
                 </tr>
-              </thead>
-              <tbody>
-              {tableData.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                <td><button onClick={() => deleteRow(row.id)} className='btn btn-delete'>x</button></td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.title}</td>
-                <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
-              </tr>
-              ))}
-              </tbody>
+                <tr>
+                    <th>DTN</th>
+                    <th>NET</th>
+                    <th>VOIP</th>
+                    <th>ATV</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.map((row, index) => (
+                <tr key={row.id} onClick={handleConfirmClick} className='link'>
+                    <td>
+                        <input type='checkbox' name={`service ${index}`} id={`ser_${index}`} onChange={handleCheckboxChange} />
+                        <label htmlFor={`ser_${index}`} style={{ margin: '0' }}></label>
+                    </td>
+                    <td>{row.cell}</td>
+                    <td>{row.address}</td>
+                    <td>{row.dtn}</td>
+                    <td>{row.net}</td>
+                    <td>{row.voip}</td>
+                    <td>{row.atv}</td>
+                    <td>{row.total}</td>
+                </tr>))}
+                </tbody>
             </table>
-      </div>
-    </div>
-      <div className='right'>
-        <button onClick={handleConfirmClick} className='btn btn-primary ml10'>작업자 선택</button>
-      </div>
-    </>
-  );
-};
-
-const TreeItem = ({ item, onItemSelected }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const handleItemSelected = (item) => {
-    const treeitem = document.querySelectorAll('.item-name');
-    const activeItem = document.getElementById(item.deptId);
-    console.log(treeitem, activeItem);
-    treeitem.forEach(element => {
-      element.classList.remove('active');
-    });
-    activeItem.classList.add('active');
-    onItemSelected(item);
-  };
-
-  return (
-    <div className={`tree-item ${item.depts.length === 0 ? 'close' : 'open'}`}>
-      <div className="tree-content">
-        {item.depts.length !== 0
-          ? (<button onClick={handleToggle} className={isExpanded
-              ? 'open'
-              : ''} />)
-          : null}
-        {item.depts.length !== 0
-          ? (<span id={item.deptId} className='item-name' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
-          : (<span id={item.deptId} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
-        }
-      </div>
-      {isExpanded &&
-        item.depts &&
-        item.depts.map((child) => (
-          <div key={child.deptId} className="tree-children">
-            <TreeItem item={child} onItemSelected={onItemSelected} />
-          </div>
-        ))}
-  </div>
+            <ResultNoData />
+            <ResultListPaging />
+        </div>
+        </PopupPortal>
+     </>
   );
 };
 

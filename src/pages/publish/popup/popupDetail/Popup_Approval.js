@@ -178,7 +178,7 @@ const ApprovalLine = ({ onItemSelected }) => {
             </div>
         </div>
         <div className="flex-wrap align-start">
-          <div className='approval-conts half'>
+          <div className='approval-conts'>
             <div className='tree-wrap'>
                 <div className='tree-logo'>LG hellovision</div>
                   <div className='tree-conts'>
@@ -263,7 +263,7 @@ const ApprovalLine = ({ onItemSelected }) => {
         </div>
         <div className='btn-wrap right'>
           <button onClick={handleConfirmClick} className='btn btn-lg btn-primary'>확인</button>
-          <Alert open={regist} close={() => { setRegist(false) }}>
+          <Alert open={regist} close={() => { setRegist(false) }} type={'no'}>
             <div>결재자를 지정해주십시오.</div>
           </Alert>
         </div>
