@@ -33,21 +33,20 @@ import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 
 // 팝업
-
 import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer';
 import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template';
 import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad';
 import PopupApproval from './pages/publish/popup/popupDetail/Popup_Approval';
 import PopupNotiMethodSet from './pages/publish/popup/popupDetail/Popup_NotiMethod_Set';
-
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
+import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
 
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
-// import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
-// import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
+import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
+import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 const AppRouter = () => {
   return (
@@ -93,6 +92,7 @@ const AppRouter = () => {
       <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />
       <Route path="/popup/PopupAccEqReg" element={<PopupAccEqReg />} />
       <Route path="/popup/PopupAccEqDel" element={<PopupAccEqDel />} />
+      <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
 
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
