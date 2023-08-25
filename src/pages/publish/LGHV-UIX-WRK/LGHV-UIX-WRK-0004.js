@@ -5,7 +5,12 @@ import { Popup } from '../popup/Popup';
 import { PopupNotiMethodWRK } from '../popup/popupDetail/Popup_NotiMethod';
 import { PopupProcessHistory } from '../popup/popupDetail/Popup_ProcessHistory';
 import ServiceDetail from './component/ServiceDetail';
+import { createPortal } from 'react-dom';
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
 function ServicetaskDetail() {
   const navigate = useNavigate();
   const [notimethod, setNotimethod] = useState(false);
@@ -19,14 +24,20 @@ function ServicetaskDetail() {
   const [approve, setApprove] = useState(false);
   const pagedata = {
     title: '작업관리',
-    subtitle: '작업등록',
+    subtitle: '작업상세',
     SubMenu: 'yes',
     isDetail: 'yes'
   }
   return (
     <>
+      <PopupPortal>
+      <style>
+        {`
+          #root {display: none;}
+        `}
+      </style>
+      <div className='new-window-wrap'>
       <ContentTitle data={pagedata} />
-      <div className='content-section'>
         <div className="detail-top-btn-group">
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-pop' onClick={() => { setHistory(true) }}>처리내역</button>
@@ -42,8 +53,7 @@ function ServicetaskDetail() {
         <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
           화면인쇄
         </Popup>
-      </div>
-      <ServiceDetail />
+        <ServiceDetail />
         <div className='detail-bottom-btn-group'>
           <div>
             <button className='btn btn-lg bnt-low' onClick={() => { setWorkStop(true) }}>작업중단</button>
@@ -82,6 +92,8 @@ function ServicetaskDetail() {
         <Popup open={approve} close={() => { setApprove(false) }} header="[승인] 의견" footer={ <PopupButtons close={() => { setApprove(false) }} /> }>
           <textarea></textarea>
         </Popup>
+        </div>
+        </PopupPortal>
     </>
   )
 }
