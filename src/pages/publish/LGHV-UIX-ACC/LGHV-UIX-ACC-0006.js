@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ContentTitle from '../layout/ContentTitle';
+import { useNavigate } from 'react-router';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');

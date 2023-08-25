@@ -21,7 +21,7 @@ const App = () => {
 const Main = () => {
   return (<>
     <Header></Header>
-      <div className='container'>
+     <div className='container'>
         <Sidebar></Sidebar>
         <article id='content'>
           <WorkInfo />
