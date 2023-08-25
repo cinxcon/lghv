@@ -1,12 +1,13 @@
 import PopupServiceSearch from './Popup_ServiceSearch';
 import PopupServicelList from './PopupServicel_List';
 import { createPortal } from 'react-dom';
-function PopupWorkOnLoad() {
-  const PopupPortal = ({ children }) => {
-    const el = document.getElementById('popup-root');
-    return createPortal(children, el)
-  }
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
+
+function PopupWorkOnLoad() {
   return (
     <>
       <PopupPortal>

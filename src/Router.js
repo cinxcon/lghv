@@ -33,18 +33,21 @@ import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 
 // 팝업
-import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer.js';
-import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template.js';
-import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad.js';
-import PopupLine from './pages/publish/popup/popupDetail/Popup_Approval';
+
+import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer';
+import PopupTemplate from './pages/publish/popup/popupDetail/Popup_Template';
+import PopupWorkOnLoad from './pages/publish/popup/popupDetail/Popup_WorkOnLoad';
+import PopupApproval from './pages/publish/popup/popupDetail/Popup_Approval';
+import PopupNotiMethodSet from './pages/publish/popup/popupDetail/Popup_NotiMethod_Set';
+
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
 
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
 import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
-import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
-import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
+// import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
+// import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 const AppRouter = () => {
   return (
@@ -83,7 +86,8 @@ const AppRouter = () => {
       <Route path="/popup/PopupReviewer" element={<PopupReviewer />} />
       <Route path="/popup/PopupTemplate" element={<PopupTemplate />} />
       <Route path="/popup/PopupWorkOnLoad" element={<PopupWorkOnLoad />} />
-      <Route path="/popup/PopupLine" element={<PopupLine />} />
+      <Route path="/popup/PopupApproval" element={<PopupApproval />} />
+      <Route path="/popup/PopupNotiMethodSet" element={<PopupNotiMethodSet />} />
       <Route path="/popup/PopupAccUserReg" element={<PopupAccUserReg />} />
       <Route path="/popup/PopupAccUserModi" element={<PopupAccUserModi />} />
       <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />

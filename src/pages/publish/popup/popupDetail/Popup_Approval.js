@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createPortal } from 'react-dom';
-import { Popup } from '../../popup/Popup';
+import { Popup, Alert } from '../../popup/Popup';
 import PopupSave from '../popupDetail/Popup_Save';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
   return createPortal(children, el)
 }
-
 const ApprovalLine = ({ onItemSelected }) => {
   const [treeData, setTreeData] = useState([]);
-
+  const [regist, setRegist] = useState(false);
   useEffect(() => {
     fetchData();
   }, []);
@@ -78,10 +77,10 @@ const ApprovalLine = ({ onItemSelected }) => {
   const [selectedTree, setSelectedTree] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
   const [approvalType, setApprovalType] = useState('기안');
+  const [selectedType, setSelectedType] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [trActive, setTrActive] = useState('');
   const [onSave, setOnSave] = useState(false);
-  const [isActive, setIsActive] = useState(false);
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.deptId);
@@ -89,7 +88,10 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const listItemSelect = (item, index) => {
     const newRow = { id: item.id, title: item.title, name: item.name };
-    setIsActive(index)
+    const activeListItem = document.getElementById(item.id);
+    activeListItem.classList.add('active');
+    selectedType[index] = approvalType;
+    setSelectedType([...selectedType]);
     if (!isDuplicate(newRow)) {
       setTableData([...tableData, newRow]);
     }
@@ -102,7 +104,7 @@ const ApprovalLine = ({ onItemSelected }) => {
   const deleteRow = (id) => {
     const updatedData = tableData.filter(row => row.id !== id);
     const listItem = document.getElementById(id);
-    console.log(tableData.length);
+    console.log('row;', tableData.length);
     if (tableData.length < 1) {
       alert('선택 내용이 사라 집니다.');
     }
@@ -122,7 +124,7 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const handleConfirmClick = () => {
     if (selectedName === null) {
-      alert('결제 라인을 선택하지 않으셨습니다.');
+      setRegist(true)
     } else {
       // onItemSelected(selectedName);
     }
@@ -135,7 +137,7 @@ const ApprovalLine = ({ onItemSelected }) => {
     if (selectedTree === null) return null;
 
     return listData[selectedTree].map((item, index) => (
-      <li key={index} id={item.id} onClick={() => { listItemSelect(item, index); }} className={`${isActive === index ? 'active' : ''}`}><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
+      <li key={item.id} id={item.id} onClick={(e) => { e.stopPropagation(); listItemSelect(item, index) }} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
     ));
   };
 
@@ -196,14 +198,15 @@ const ApprovalLine = ({ onItemSelected }) => {
             </div>
           </div>
           <div className='selected-item'>
-            <div className="right mb15">
+            <div className="right">
               <button onClick={() => { setOnSave(true) }} className='btn btn-md btn-apv-save'>결제선 저장</button>
                   <Popup open={onSave} close={() => { setOnSave(false) }} header="[결제선 저장] 이름" type={'sm'}>
                       <PopupSave onItemSelected={approvalLineSave} />
                   </Popup>
             </div>
-            <div className='overflow'>
-              <table className="popup-table bt">
+            <div className='overflow mt8'>
+              <table className="popup-table">
+              <caption>결제선 선택 정보</caption>
                   <colgroup>
                     <col style={{ width: '10%' }} />
                     <col style={{ width: '25%' }} />
@@ -222,9 +225,9 @@ const ApprovalLine = ({ onItemSelected }) => {
                   </thead>
                   <tbody>
                   {tableData.map((row, rowIndex) => (
-                  <tr key={rowIndex} data-name={row.id}>
+                  <tr key={rowIndex}>
                     <td><button onClick={() => deleteRow(row.id)} className='btn-del-28'>삭제</button></td>
-                    <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{approvalType}</td>
+                    <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{selectedType[rowIndex]}</td>
                     <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
                     <td>
                       <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
@@ -239,7 +242,8 @@ const ApprovalLine = ({ onItemSelected }) => {
                   </tbody>
                 </table>
               </div>
-              <table className="popup-table bt">
+              <table className="popup-table">
+                <caption>자주쓰는 결제선 정보</caption>
                   <colgroup>
                     <col span={2}/>
                   </colgroup>
@@ -259,6 +263,9 @@ const ApprovalLine = ({ onItemSelected }) => {
         </div>
         <div className='btn-wrap right'>
           <button onClick={handleConfirmClick} className='btn btn-lg btn-primary'>확인</button>
+          <Alert open={regist} close={() => { setRegist(false) }}>
+            <div>결재자를 지정해주십시오.</div>
+          </Alert>
         </div>
       </div>
       </PopupPortal>

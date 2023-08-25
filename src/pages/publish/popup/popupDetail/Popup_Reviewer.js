@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createPortal } from 'react-dom';
 
+const PopupPortal = ({ children }) => {
+  const el = document.getElementById('popup-root');
+  return createPortal(children, el)
+}
+
 const Rreviewer = ({ onItemSelected }) => {
   const [treeData, setTreeData] = useState([]);
-  const PopupPortal = ({ children }) => {
-    const el = document.getElementById('popup-root');
-    return createPortal(children, el)
-  }
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -97,7 +97,6 @@ const Rreviewer = ({ onItemSelected }) => {
   const deleteRow = (id) => {
     const updatedData = tableData.filter(row => row.id !== id);
     const listItem = document.getElementById(id);
-    console.log('row;', id);
     if (tableData.length === 1) {
       alert('선택 내용이 사라 집니다.');
       setSelectedName(null);
@@ -143,7 +142,7 @@ const Rreviewer = ({ onItemSelected }) => {
         <h2>검토자 지정</h2>
       </div>
       <div className='flex-wrap align-start'>
-        <div className='approval-conts'>
+        <div className='approval-conts half'>
           <div className='tree-wrap'>
           <div className='tree-logo'>LG hellovision</div>
                 <div className='tree-conts'>
@@ -189,9 +188,9 @@ const Rreviewer = ({ onItemSelected }) => {
               </table>
         </div>
       </div>
-      <div className='right'>
-        <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>검토자 설정</button>
-      </div>
+        <div className='right'>
+          <button onClick={handleConfirmClick} className='btn btn-lg btn-primary ml10'>검토자 설정</button>
+        </div>
       </div>
       </PopupPortal>
     </>
@@ -199,7 +198,7 @@ const Rreviewer = ({ onItemSelected }) => {
 };
 
 const TreeItem = ({ item, onItemSelected }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
@@ -207,7 +206,6 @@ const TreeItem = ({ item, onItemSelected }) => {
   const handleItemSelected = (item) => {
     const treeitem = document.querySelectorAll('.item-name');
     const activeItem = document.getElementById(item.deptId);
-    console.log(treeitem, activeItem);
     treeitem.forEach(element => {
       element.classList.remove('active');
     });
