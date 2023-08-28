@@ -10,7 +10,7 @@ function ContentTitle({ data }) {
         <h2>{isSubMenu === 'yes' ? (<span>{data.title}<em>{data.subtitle}</em></span>) : (<span>{data.title}</span>) }</h2>
         <div className="breadcrumb">
           <Link to='/'className="home-link">홈</Link>
-          <span className='color-success'>{data.title}</span>
+          <span>{data.title}</span>
           {isSubMenu !== undefined && isSubMenu === 'yes' ? (<span>{ data.subtitle }</span>) : '' }
         </div>
       </div>

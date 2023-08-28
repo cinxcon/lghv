@@ -8,7 +8,7 @@ import ContentTitle from '../layout/ContentTitle';
 function DisabilityMngDetail() {
   const pagedata = {
     title: '장애관리',
-    subtitle: '장애목록',
+    subtitle: '장애상세',
     SubMenu: 'yes',
     isDetail: 'yes'
   }

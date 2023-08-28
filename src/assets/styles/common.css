@@ -31,10 +31,13 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 #content { position: relative; clear: both; width: calc(100% - 220px); min-height: calc(100vh - 220px); padding: 0 40px 40px; }
 .sidebar.close + #content { width: calc(100% - 64px); }
 .content-work-info{ display: flex; justify-content: flex-end; align-items: center; margin: 0 -40px; padding: 10px 40px; background-color: #fef6f8;}
-.content-work-info ul li{margin-left: 10px; border: 1px solid #dbdbdb; background: #fff; border-radius: 16px; padding: 1px 8px 2px;}
+.content-work-info h3 { position: relative; margin-right: 8px; font-size: 14px; }
+.content-work-info h3::before { content:''; position: absolute; top: 0; left: -20px; width: 16px; height: 16px; background: url('../images/common/ic_check_set_16.png') 0 0 no-repeat; }
+.content-work-info ul li{margin-left: 8px; border: 1px solid #dbdbdb; background: #fff; border-radius: 16px; padding: 1px 12px 2px;}
 .content-work-info ul li a{ display: inline-block; font-size: 12px; }
 .content-work-info ul li span + span{margin-left: 4px; font-weight: bold;}
-.content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-top: 60px; padding-bottom: 12px; margin-bottom: 40px; }
+.content-work-info ul li span.color-primary {text-decoration: underline;}
+.content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-top: 24px; padding-bottom: 12px; margin-bottom: 35px; }
 .content-title h2 { font-size: 24px; font-weight: bold; }
 .content-title h2 span {display: flex; align-items: center }
 .content-title h2 span > em{ font-size: 18px; color: #5a5a5a; margin-left:12px; padding-left: 12px;  border-left: 1px solid #dbdbdb; }
@@ -50,7 +53,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .breadcrumb > span:nth-last-of-type(1):after{content:none;}
 
 .content-section { margin-bottom: 40px; }
-.content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 8px; }
+.content-section h3 { font-size: 18px; font-weight: 500; line-height: 27px; margin-bottom: 9px; padding-top: 12px; }
 .content-row-wrap { display: flex; justify-content: space-between; align-items: flex-start; }
 .content-row-wrap table { width: 49%; }
 .mt6 { margin-top: 6px !important; }
@@ -183,7 +186,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .btn-del-28{background:url('../images/common/ic_black_set_28.png') -84px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
-.btn-wrap .btn + .btn{margin-left: 8px;}
+.btn-wrap .btn + .btn{margin-left: 4px;}
 .work-content .btn-wrap {margin-bottom: 6px; text-align: right;}
 .more-link{position: relative; font-size: 12px; padding-right: 16px;}
 .more-link:after{content:''; position: absolute; top: 1px; display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -302px 0; background-repeat: no-repeat; background-size: auto;}
@@ -191,7 +194,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 /* 아이콘 */
 .ico_attach {text-decoration: underline; position: relative; padding-left: 28px;}
 .ico_attach:before {content:''; width: 24px; height: 24px; background:url('../images/common/ic_attach_24.png') 0 0 no-repeat; background-size: auto; position: absolute; top: -1px; left: 0; }
-.ico_check { position: relative; padding-left: 24px; font-size: 12px;}
+.ico_check { position: relative; margin-right: 8px; padding-left: 24px; font-size: 12px;}
 .ico_check:before {content:''; width: 16px; height: 16px; background:url('../images/common/ic_check_set_16.png') -16px 0 no-repeat; background-size: auto; position: absolute; top: 0; left: 0; }
 
 /* 목록, 블릿 */
@@ -211,10 +214,10 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .color-gray { color: #767676 !important; }
 .color-white { color: #fff !important; }
 .color-error, .color-fail { color: #E72323 !important; }
-.color-warning, .color-ongoing { color: #f78809 !important; }
-.color-success { color: #1ea51e !important; }
+.color-warning, .color-ongoing, .color-modify { color: #f78809 !important; }
+.color-success, .color-new { color: #1ea51e !important; }
 .color-info, .color-order { color: #2C68FF !important; }
-.color-disable { color: #959595 !important; }
+.color-disable, .color-delete { color: #959595 !important; }
 
 .size-sm { font-size: 12px; line-height: 21px; }
 .size-lg { font-size: 16px; line-height: 21px; }
@@ -318,7 +321,8 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .over-flow-x { max-width: 1600px; overflow-x: scroll; }
 .over-flow-x > table{margin-bottom: 10px;}
 .table caption { border-top: 1px solid #000000; }
-.table tr.link:hover { cursor: pointer; background-color: #EAEAEA; }
+.table tr.link:hover { cursor: pointer; background-color: #EAEAEA; color: #000000!important; }
+.table tr.checked { background-color: rgba(237, 23, 77, 0.04);  }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
 .table th, .table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 6px 12px; text-align: center; }
 .table.table-row th, .table.table-row td { text-align: left; }
@@ -333,9 +337,10 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .result-nodata i { display: block; width: 64px; height: 64px; margin: 0 auto 16px; background-image: url('../images/common/ic_nodata.png'); background-position: 0 0; background-size: auto; background-repeat: no-repeat; }
 .approval-result-none { padding: 50px; background-color: #d9d9d9; text-align: center; }
 .flex-wrap .half{ width: 49%;}
+.flex-wrap.approval .half:first-child{ width: 54%;}
+.flex-wrap.approval .half:last-child{ width: 44%;}
 /* search */
 .search-wrap { background-color: #f7f7f7; padding: 12px 24px; }
-.search-wrap .title { }
 .search-wrap .title h3 { margin-bottom: 0; }
 .search-wrap .toggle-box  { border-top: 1px solid #000; margin: 12px 0 0 0; padding-top: 6px; }
 .search-wrap .toggle-box .btn-wrap { border-top: 1px solid #dbdbdb; margin-top: 4px; padding-top: 12px; }
@@ -353,7 +358,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .input-btn-wrap .input-sz50-front { width: calc(100% - 50px); }
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
-.detail-top-btn-group { height: 60px; padding: 16px; margin-top: -40px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }
+.detail-top-btn-group { height: 60px; padding: 16px; margin-top: -35px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }
 .detail-top-btn-group button { margin-left: 8px; }
 .detail-top-btn-group .noti{position: absolute; left: 16px; font-size: 12px;}
 .detail-bottom-btn-group { margin-top: -16px; text-align: right; }
@@ -406,6 +411,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 
 .new-window-wrap .content-title{padding-top: 0; margin-bottom: 23px;}
 .new-window-wrap .breadcrumb { display: none;}
+.new-window-wrap .content-title h2 { font-size: 20px; }
 
 /* 아래의 모든 코드는 영역::코드로 사용 */
 .over-flow-x::-webkit-scrollbar {
