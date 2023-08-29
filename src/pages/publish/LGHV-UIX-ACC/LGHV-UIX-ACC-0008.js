@@ -34,15 +34,13 @@ function AccEquipmentRegist() {
   return (
     <>
       <ContentTitle data={pagedata} />
-      <div className='content-section'>
-        <div className="detail-top-btn-group">
-          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
-          <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
-        </div>
-        <Alert open={tempsave} close={() => { setTempsave(false) }}>
-          <div>임시 저장 합니다.</div>
-        </Alert>
+      <div className="detail-top-btn-group">
+        <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
+        <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
       </div>
+      <Alert open={tempsave} close={() => { setTempsave(false) }}>
+        <div>임시 저장 합니다.</div>
+      </Alert>
       {/* 결재선 지정 */}
       <div className='content-section'>
         <div className={`flex-wrap between ${divStates[0] ? 'under-line' : ''}`}>
@@ -52,15 +50,15 @@ function AccEquipmentRegist() {
           </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-          <div className='flex-wrap between align-start'>
+          <div className='flex-wrap between align-start approval'>
               <table className='table half'>
                 <caption>결제 라인 정보</caption>
                 <colgroup>
                   <col style={{ width: '8%' }} />
                   <col style={{ width: '20%' }} />
-                  <col style={{ width: '12%' }} />
-                  <col style={{ width: '20%' }} />
-                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '9%' }} />
+                  <col style={{ width: '21%' }} />
+                  <col />
                 </colgroup>
                 <thead>
                   <tr>
@@ -191,9 +189,9 @@ function AccEquipmentRegist() {
           </div>
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
-          <div className='right'>
-            <button className='btn' onClick={() => { onPopup('/popup/PopupAccEqReg', 'AccEqReg', 1280, 800) }}>신규</button>
-            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccEqDel', 'AccEqDel', 1280, 800) }}>삭제</button>
+          <div className='right btn-wrap'>
+            <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccEqReg', 'AccEqReg', 1280, 800) }}>신규</button>
+            <button className='btn btn-low btn-md btn-del' onClick={() => { onPopup('/popup/PopupAccEqDel', 'AccEqDel', 1280, 800) }}>삭제</button>
           </div>
           <table className='table mt8'>
           <caption>접근제어 장비명 검색: 장비명, IP 주소, 기종, 종류, 상태</caption>
@@ -218,7 +216,7 @@ function AccEquipmentRegist() {
                 <td>102.15.222.44</td>
                 <td>Linux</td>
                 <td>프록시</td>
-                <td>신규</td>
+                <td><span className='color-new'>신규</span></td>
               </tr>
               <tr>
                 <td><button className="btn-del-28">삭제</button></td>
@@ -226,7 +224,7 @@ function AccEquipmentRegist() {
                 <td>102.15.222.44</td>
                 <td>Linux</td>
                 <td>프록시</td>
-                <td>삭제</td>
+                <td><span className='color-delete'>삭제</span></td>
               </tr>
             </tbody>
           </table>

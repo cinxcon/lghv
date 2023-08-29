@@ -9,8 +9,8 @@ const PopupPortal = ({ children }) => {
 
 function AccEquipmentDetail() {
   const pagedata = {
-    title: '접근제어',
-    subtitle: '장비 목록',
+    title: '접근제어 장비 정보',
+    subtitle: '',
     SubMenu: 'yes',
     isDetail: 'yes'
   }
@@ -44,11 +44,11 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>기종 Linux, HPUX, AIX, Solaris에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -123,7 +123,7 @@ function AccEquipmentDetail() {
                   </td>
                 </tr>
                 <tr>
-                  <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                  <th scope='row'>접속 계정 로그인 <br/>테스트 무시</th>
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
@@ -172,11 +172,11 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>기종 Windows에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -217,7 +217,7 @@ function AccEquipmentDetail() {
                   <td>N</td>
                   <th scope='row'>링크전용</th>
                   <td>N</td>
-                  <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                  <th scope='row'>접속 계정 로그인 <br />테스트 무시</th>
                   <td>N</td>
                 </tr>
                 <tr>
@@ -260,11 +260,11 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>기종 Network 에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
+                <col style={{ width: '21%' }} />
+                <col style={{ width: '12%' }} />
+                <col style={{ width: '21%' }} />
+                <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -311,7 +311,7 @@ function AccEquipmentDetail() {
                   <td>N</td>
                   <th scope='row'>링크전용</th>
                   <td>N</td>
-                  <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                  <th scope='row'>접속 계정 로그인 <br/>테스트 무시</th>
                   <td>N</td>
                 </tr>
                 <tr>
@@ -329,7 +329,7 @@ function AccEquipmentDetail() {
                 <tr>
                   <th scope='row'>계정삭제 스크립트</th>
                   <td><input type='text' disabled /></td>
-                  <th scope='row'>계정비밀번호변경 스크립트</th>
+                  <th scope='row'>계정비밀번호변경 <br/>스크립트</th>
                   <td><input type='text' disabled /></td>
                   <th scope='row'>계정잠금 스크립트</th>
                   <td><input type='text' disabled /></td>
@@ -376,11 +376,11 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>기종 Web 에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -446,10 +446,10 @@ function AccEquipmentDetail() {
             <table className='table table-row mb15'>
               <caption>table caption</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '37%' }} />
+                <col style={{ width: '11%' }} />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
@@ -497,10 +497,10 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>table caption</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
+                <col style={{ width: '11%' }} />
+                <col style={{ width: '37%' }} />
+                <col style={{ width: '11%' }} />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
