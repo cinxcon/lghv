@@ -7,7 +7,7 @@ import ContentTitle from '../layout/ContentTitle';
 function NomalWork() {
   const pagedata = {
     title: '템플릿생성',
-    subtitle: '템플릿 목록',
+    subtitle: '템플릿 등록',
     SubMenu: 'yes'
   }
   const today = new Date();
