@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import CustomEditor from 'ckeditor5-custom-build/build/ckeditor';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Alert } from '../../popup/Popup';
@@ -366,7 +366,7 @@ function UrgentWork() {
                             </div>
                             <div className='template'>
                                 <CKEditor
-                                editor={ ClassicEditor }
+                                editor={ CustomEditor }
                                 data="<p>Hello from CKEditor 5!</p>"
                                 onReady={ editor => {
                                 // You can store the "editor" and use when it is needed
@@ -483,15 +483,15 @@ function UrgentWork() {
                                     <div className='time-select'>
                                         <input type="text" value={startHours} readOnly />
                                         <span>
-                                            <button onClick={handleStartHourIncrease}>▲</button>
-                                            <button onClick={handleStartHourDecrease}>▼</button>
+                                            <button onClick={handleStartHourIncrease}>증가</button>
+                                            <button onClick={handleStartHourDecrease} className='down'>감소</button>
                                         </span>
                                     </div> :
                                     <div className='time-select'>
                                         <input type="text" value={startMinutes} readOnly />
                                         <span>
-                                            <button onClick={handleStartMinuteIncrease}>▲</button>
-                                            <button onClick={handleStartMinuteDecrease}>▼</button>
+                                            <button onClick={handleStartMinuteIncrease}>증가</button>
+                                            <button onClick={handleStartMinuteDecrease} className='down'>감소</button>
                                         </span>
                                     </div>
                             </div>
@@ -501,15 +501,15 @@ function UrgentWork() {
                                     <div className='time-select'>
                                         <input type="text" value={endHours} readOnly />
                                         <span>
-                                            <button onClick={handleEndHourIncrease}>▲</button>
-                                            <button onClick={handleEndHourDecrease}>▼</button>
+                                            <button onClick={handleEndHourIncrease}>증가</button>
+                                            <button onClick={handleEndHourDecrease} className='down'>감소</button>
                                         </span>
                                     </div> :
                                     <div className='time-select'>
                                         <input type="text" value={endMinutes} readOnly />
                                         <span>
-                                            <button onClick={handleEndMinuteIncrease}>▲</button>
-                                            <button onClick={handleEndMinuteDecrease}>▼</button>
+                                            <button onClick={handleEndMinuteIncrease}>증가</button>
+                                            <button onClick={handleEndMinuteDecrease} className='down'>감소</button>
                                         </span>
                                     </div>
                             </div>
@@ -706,15 +706,15 @@ function UrgentWork() {
                                                 <div className='time-select'>
                                                     <input type="text" value={startHours} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartHourIncrease}>▲</button>
-                                                        <button onClick={handleStartHourDecrease}>▼</button>
+                                                        <button onClick={handleStartHourIncrease}>증가</button>
+                                                        <button onClick={handleStartHourDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div> :
                                                 <div className='time-select'>
                                                     <input type="text" value={startMinutes} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartMinuteIncrease}>▲</button>
-                                                        <button onClick={handleStartMinuteDecrease}>▼</button>
+                                                        <button onClick={handleStartMinuteIncrease}>증가</button>
+                                                        <button onClick={handleStartMinuteDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div>
                                         </div>
@@ -726,15 +726,15 @@ function UrgentWork() {
                                                 <div className='time-select'>
                                                     <input type="text" value={startHours} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartHourIncrease}>▲</button>
-                                                        <button onClick={handleStartHourDecrease}>▼</button>
+                                                        <button onClick={handleStartHourIncrease}>증가</button>
+                                                        <button onClick={handleStartHourDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div> :
                                                 <div className='time-select'>
                                                     <input type="text" value={startMinutes} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartMinuteIncrease}>▲</button>
-                                                        <button onClick={handleStartMinuteDecrease}>▼</button>
+                                                        <button onClick={handleStartMinuteIncrease}>증가</button>
+                                                        <button onClick={handleStartMinuteDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div>
                                         </div>

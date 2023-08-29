@@ -115,7 +115,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .input-group.file-attach { margin-bottom: 6px;}
 .input-group.file-attach:last-child { margin-bottom: 0;}
 .input-group.file-attach > span {margin-left: 4px;}
-.input-wrap {display: flex; justify-content: start; margin-right: 24px; }
+.input-wrap {display: flex; justify-content: flex-start; margin-right: 24px; }
 .input-wrap > span {margin-right: 8px; line-height: 28px;}
 .input-wrap > input {width: 80px;}
 
@@ -335,11 +335,13 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .flex-wrap .half{ width: 49%;}
 /* search */
 .search-wrap { background-color: #f7f7f7; padding: 12px 24px; }
-.search-wrap .title { }
+.search-wrap.type-s{padding: 7px 24px;}
+.search-wrap.type-s > table.bdt{ border-top: 1px solid #000;}
 .search-wrap .title h3 { margin-bottom: 0; }
 .search-wrap .toggle-box  { border-top: 1px solid #000; margin: 12px 0 0 0; padding-top: 6px; }
 .search-wrap .toggle-box .btn-wrap { border-top: 1px solid #dbdbdb; margin-top: 4px; padding-top: 12px; }
 .search th { padding: 8px 0 8px 20px; }
+.search th:first-child{padding-left: 0;}
 .search td { padding: 8px 20px 8px 0; }
 .search .react-datepicker-wrapper input, .input-btn-wrap .react-datepicker-wrapper, .input-btn-wrap .react-datepicker-wrapper input { width: 100%; }
 .search .datepickers-wrap > span { display: block; width: 48%; }

@@ -14,7 +14,9 @@ const Sidebar = ({ activeMenu }) => {
       subMenus: [
         { title: '작업목록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0003' },
         { title: '일반 작업등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0001' },
-        { title: '긴급 작업등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0002' }
+        { title: '긴급 작업등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0002' },
+        { title: '템플릿 목록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0011' },
+        { title: '템플릿 등록', path: '/LGHV-UIX-WRK/LGHV-UIX-WRK-0012' }
       ]
     },
     {
