@@ -6,17 +6,27 @@
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
-import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
+import { Bold, Code, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
+import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
+import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
+import { Highlight } from '@ckeditor/ckeditor5-highlight';
+import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
-import { GeneralHtmlSupport, HtmlComment } from '@ckeditor/ckeditor5-html-support';
+import {
+	DataFilter,
+	DataSchema,
+	GeneralHtmlSupport,
+	HtmlComment
+} from '@ckeditor/ckeditor5-html-support';
 import {
 	Image,
 	ImageCaption,
 	ImageInsert,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload
@@ -27,12 +37,16 @@ import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { SelectAll } from '@ckeditor/ckeditor5-select-all';
+import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
+import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
+import { SpecialCharacters, SpecialCharactersArrows } from '@ckeditor/ckeditor5-special-characters';
+import { Style } from '@ckeditor/ckeditor5-style';
 import {
 	Table,
 	TableCaption,
 	TableCellProperties,
 	TableColumnResize,
-	TableProperties,
 	TableToolbar
 } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
@@ -46,14 +60,25 @@ class Editor extends ClassicEditor {
 		BlockQuote,
 		Bold,
 		CloudServices,
+		Code,
+		CodeBlock,
+		DataFilter,
+		DataSchema,
 		Essentials,
+		FontBackgroundColor,
+		FontColor,
+		FontFamily,
+		FontSize,
 		GeneralHtmlSupport,
 		Heading,
+		Highlight,
+		HorizontalLine,
 		HtmlComment,
 		HtmlEmbed,
 		Image,
 		ImageCaption,
 		ImageInsert,
+		ImageResize,
 		ImageStyle,
 		ImageToolbar,
 		ImageUpload,
@@ -65,11 +90,16 @@ class Editor extends ClassicEditor {
 		MediaEmbed,
 		Paragraph,
 		PasteFromOffice,
+		SelectAll,
+		ShowBlocks,
+		SourceEditing,
+		SpecialCharacters,
+		SpecialCharactersArrows,
+		Style,
 		Table,
 		TableCaption,
 		TableCellProperties,
 		TableColumnResize,
-		TableProperties,
 		TableToolbar,
 		TextTransformation
 	];
@@ -94,8 +124,16 @@ class Editor extends ClassicEditor {
 				'mediaEmbed',
 				'undo',
 				'redo',
+				'fontBackgroundColor',
+				'fontColor',
+				'fontFamily',
+				'fontSize',
+				'highlight',
 				'htmlEmbed',
-				'imageInsert'
+				'imageInsert',
+				'sourceEditing',
+				'style',
+				'code'
 			]
 		},
 		language: 'ko',
@@ -114,8 +152,7 @@ class Editor extends ClassicEditor {
 				'tableColumn',
 				'tableRow',
 				'mergeTableCells',
-				'tableCellProperties',
-				'tableProperties'
+				'tableCellProperties'
 			]
 		}
 	};
