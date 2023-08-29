@@ -1,14 +1,17 @@
-import { useNavigate } from 'react-router-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
 export default function ServicetasklList(data) {
-  const pathData = data; // 추가된 부분
-  const navigate = useNavigate();
+  const toDetail = '/LGHV-UIX-WRK/LGHV-UIX-WRK-0004'
 
-  const selectedWork = () => {
-    navigate('/LGHV-UIX-WRK/LGHV-UIX-WRK-0004', { state: pathData });
+  const onPopup = () => {
+    const url = toDetail;
+    const popupWidth = 1280;
+    const popupHeight = 800;
+    const popupX = (window.screen.width / 2) - (popupWidth / 2);
+    const popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open(url, '_blank', 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
 
   return (
@@ -76,7 +79,7 @@ export default function ServicetasklList(data) {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={selectedWork} className='link'>
+            <tr onClick={onPopup} className='link'>
               <td>T23080700000151</td>
               <td>강원 인프라팀</td>
               <td>일반작업</td>
@@ -116,7 +119,7 @@ export default function ServicetasklList(data) {
               <td><span className='color-success'>진행중</span></td>
               <td><span className='color-success'>결제완료</span></td>
             </tr>
-            <tr onClick={selectedWork} className='link'>
+            <tr onClick={onPopup} className='link'>
               <td>T23080700000152</td>
               <td>강원 인프라</td>
               <td>인프라팀 전결</td>
@@ -156,7 +159,7 @@ export default function ServicetasklList(data) {
               <td><span className='color-warning'>등록</span></td>
               <td><span className='color-warning'>결제대기</span></td>
             </tr>
-            <tr onClick={selectedWork} className='link'>
+            <tr onClick={onPopup} className='link'>
               <td>T23080700000153</td>
               <td>강원 인프라</td>
               <td>인프라팀 전결</td>

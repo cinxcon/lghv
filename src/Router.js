@@ -28,6 +28,9 @@ import ServicetaskRegistNm from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0001'
 import ServicetaskRegistUr from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0002';
 import ServicetaskAll from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0003';
 import ServicetaskDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0004';
+import TemplateList from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0011';
+import TemplateListRegist from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0012';
+import TemplateListDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-Detail';
 import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
@@ -62,6 +65,9 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0002" element={<ServicetaskRegistUr />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0003" element={<ServicetaskAll />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0004" element={<ServicetaskDetail />} />
+      <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0011" element={<TemplateList />} />
+      <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0012" element={<TemplateListRegist />} />
+      <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-00012-Detail" element={<TemplateListDetail />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0001" element={<AccUser />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0002" element={<AccUserDetail />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0003" element={<AccUserGroupList />} />

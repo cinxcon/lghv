@@ -79,6 +79,7 @@
 
 
 .pop-search-wrap{ margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7;}
+.pop-search-wrap{}
 .pop-search-wrap .select-item{width: 80%; margin-left: 20px;}
 .modal > section.popup-wrap .table, .modal > section.popup-wrap .search, .modal > section.popup-wrap .search .input-btn-wrap button{ font-size: 12px; }
 .modal > section.popup-wrap .search-wrap{padding: 12px;}
