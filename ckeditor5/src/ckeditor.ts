@@ -37,6 +37,7 @@ import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { StandardEditingMode } from '@ckeditor/ckeditor5-restricted-editing';
 import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
@@ -47,6 +48,7 @@ import {
 	TableCaption,
 	TableCellProperties,
 	TableColumnResize,
+	TableProperties,
 	TableToolbar
 } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
@@ -95,11 +97,13 @@ class Editor extends ClassicEditor {
 		SourceEditing,
 		SpecialCharacters,
 		SpecialCharactersArrows,
+		StandardEditingMode,
 		Style,
 		Table,
 		TableCaption,
 		TableCellProperties,
 		TableColumnResize,
+		TableProperties,
 		TableToolbar,
 		TextTransformation
 	];
@@ -131,9 +135,7 @@ class Editor extends ClassicEditor {
 				'highlight',
 				'htmlEmbed',
 				'imageInsert',
-				'sourceEditing',
-				'style',
-				'code'
+				'sourceEditing'
 			]
 		},
 		language: 'ko',
@@ -152,7 +154,8 @@ class Editor extends ClassicEditor {
 				'tableColumn',
 				'tableRow',
 				'mergeTableCells',
-				'tableCellProperties'
+				'tableCellProperties',
+				'tableProperties'
 			]
 		}
 	};
