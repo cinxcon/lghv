@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import ContentTitle from '../layout/ContentTitle';
@@ -6,7 +7,7 @@ import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
-function AccUser() {
+function AccUser(data) {
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '접근제어',
@@ -14,19 +15,18 @@ function AccUser() {
     SubMenu: 'yes',
     isDetail: 'no'
   }
+  const pathData = data; // 추가된 부분
+  const navigate = useNavigate();
+  const handleRegClick = () => navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0007');
+  const selectedWork = () => {
+    navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', { state: pathData });
+  }
 
   //  토글
   const [isToggled, setToggled] = useState(false);
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
-
-  // 새창 팝업
-  const onPopup = (url, name, width, height) => {
-    const popupX = (window.screen.width / 2) - (width / 2);
-    const popupY = (window.screen.height / 2) - (height / 2);
-    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
-  }
 
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
@@ -190,7 +190,7 @@ function AccUser() {
         <div className="result-pageview">
           <ResultPageView />
           <div className='btn-wrap'>
-            <button type="button" className="btn btn-md btn-reg">등록</button>
+            <button type="button" className="btn btn-md btn-reg" onClick={ handleRegClick }>등록</button>
           </div>
         </div>
         <table className="table">
@@ -215,7 +215,7 @@ function AccUser() {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', 'detail', 1280, 800) }} className='link'>
+            <tr onClick={ selectedWork } className='link'>
               <td>S102020</td>
               <td>홍길동</td>
               <td>기간망운영팀</td>
@@ -229,7 +229,7 @@ function AccUser() {
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', 'detail', 1280, 800) }} className='link'>
+                  <tr key={i} onClick={ selectedWork } className='link'>
                     <td>S102020</td>
                     <td>홍길동</td>
                     <td>기간망운영팀</td>
@@ -238,7 +238,7 @@ function AccUser() {
                     <td>test01@lghv.co.kr</td>
                     <td>2023-01-01</td>
                     <td>2023-01-01</td>
-                    <td>잠금</td>
+                    <td><span className='color-disable'>잠금</span></td>
                   </tr>
                 )
               })

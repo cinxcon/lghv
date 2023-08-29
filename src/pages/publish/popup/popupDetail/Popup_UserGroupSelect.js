@@ -55,7 +55,7 @@ function PopupUserGroupSelect() {
             <ResultPageView />
             <div className='btn-wrap'>
               <span className='ico_check'><b>0</b>개 선택</span>
-              <button className='btn btn-primary ml8'>확인</button>
+              <button className='btn btn-md'>확인</button>
             </div>
           </div>
           <table className="table">
@@ -67,7 +67,10 @@ function PopupUserGroupSelect() {
             </colgroup>
             <thead>
               <tr>
-                <th>선택</th>
+                <th>
+                  <input type="checkbox" name="checked" id="checkedAll" />
+                  <label htmlFor="checkedAll" className='invisible'>전체선택</label>
+                </th>
                 <th>그룹명</th>
                 <th>담당자</th>
                 <th>활성</th>
@@ -76,10 +79,10 @@ function PopupUserGroupSelect() {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className='checked'>
                 <td>
-                  <input type="checkbox" name="checked" id="checked" />
-                  <label htmlFor="checked" className='invisible'>선택</label>
+                  <input type="checkbox" name="checked" id="checked1" checked />
+                  <label htmlFor="checked1" className='invisible'>선택</label>
                 </td>
                 <td>group01</td>
                 <td>gildong</td>
@@ -89,8 +92,8 @@ function PopupUserGroupSelect() {
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="checked" id="checked" />
-                  <label htmlFor="checked" className='invisible'>선택</label>
+                  <input type="checkbox" name="checked" id="checked2" />
+                  <label htmlFor="checked2" className='invisible'>선택</label>
                 </td>
                 <td>group01</td>
                 <td>gildong</td>

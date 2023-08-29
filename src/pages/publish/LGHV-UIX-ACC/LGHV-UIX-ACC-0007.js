@@ -19,7 +19,6 @@ function AccUserRegist() {
   }
 
   // 팝업
-  const [clear, setClear] = useState(false);
   const [tempsave, setTempsave] = useState(false);
   const [regist, setRegist] = useState(false);
   const [workCancel, setWorkCancel] = useState();
@@ -35,21 +34,13 @@ function AccUserRegist() {
   return (
     <>
       <ContentTitle data={pagedata} />
-      <div className='content-section'>
-        <div className="detail-top-btn-group">
-          <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
-          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
-          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupNotiMethod', 'Line', 1280, 800) }}>통보방법</button>
-          <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
-          <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
-        </div>
-        <Alert open={clear} close={() => { setClear(false) }}>
-          <div>저장된 내용이 사라집니다. <br /> 새로 작성 하시겠습니까?</div>
-        </Alert>
-        <Alert open={tempsave} close={() => { setTempsave(false) }}>
-          <div>임시 저장 합니다.</div>
-        </Alert>
+      <div className="detail-top-btn-group">
+        <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
+        <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
       </div>
+      <Alert open={tempsave} close={() => { setTempsave(false) }}>
+        <div>임시 저장 합니다.</div>
+      </Alert>
       {/* 결재선 지정 */}
       <div className='content-section'>
         <div className={`flex-wrap between ${divStates[0] ? 'under-line' : ''}`}>
@@ -59,15 +50,15 @@ function AccUserRegist() {
           </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-          <div className='flex-wrap between align-start'>
+          <div className='flex-wrap between align-start approval'>
               <table className='table half'>
                 <caption>결제 라인 정보</caption>
                 <colgroup>
                   <col style={{ width: '8%' }} />
                   <col style={{ width: '20%' }} />
-                  <col style={{ width: '12%' }} />
-                  <col style={{ width: '20%' }} />
-                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '9%' }} />
+                  <col style={{ width: '21%' }} />
+                  <col />
                 </colgroup>
                 <thead>
                   <tr>
@@ -184,10 +175,10 @@ function AccUserRegist() {
           </div>
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
-          <div className='right'>
-            <button className='btn' onClick={() => { onPopup('/popup/PopupAccUserReg', 'AccUserReg', 1280, 550) }}>신규</button>
-            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccUserModi', 'AccUserModi', 1280, 550) }}>수정</button>
-            <button className='btn ml4' onClick={() => { onPopup('/popup/PopupAccUserDel', 'AccUserDel', 1280, 550) }}>삭제</button>
+          <div className='right btn-wrap'>
+            <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccUserReg', 'AccUserReg', 1280, 550) }}>신규</button>
+            <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccUserModi', 'AccUserModi', 1280, 550) }}>수정</button>
+            <button className='btn btn-low btn-md btn-del' onClick={() => { onPopup('/popup/PopupAccUserDel', 'AccUserDel', 1280, 550) }}>삭제</button>
           </div>
           <table className='table mt8'>
             <caption>접근제어 사용자 신청: 아이디, 이름, 그룹, 상태</caption>
@@ -210,21 +201,21 @@ function AccUserRegist() {
                 <td>test01</td>
                 <td>홍길동</td>
                 <td>테스트그룹</td>
-                <td>수정</td>
+                <td><span className='color-modify'>수정</span></td>
               </tr>
               <tr>
                 <td><button className="btn-del-28">삭제</button></td>
                 <td>test02</td>
                 <td>박길동</td>
                 <td>테스트그룹</td>
-                <td>신규</td>
+                <td><span className='color-new'>신규</span></td>
               </tr>
               <tr>
                 <td><button className="btn-del-28">삭제</button></td>
                 <td>test02</td>
                 <td>김길동</td>
                 <td>테스트그룹</td>
-                <td>삭제</td>
+                <td><span className='color-delete'>삭제</span></td>
               </tr>
             </tbody>
           </table>
