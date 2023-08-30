@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
+import Select from 'react-select';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -35,19 +36,26 @@ const LoadCell = ({ onItemSelected }) => {
   };
 
   // 데이터 리스트
-  const [infraType, setInfraType] = useState(null);
-  const [soType, setSoType] = useState(null);
-  const [cellType, setCellType] = useState(null);
+  const optionsIfraType = [
+    { value: 'all', label: '전체' },
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
 
-  const handleInfraTypeChange = (event) => {
-    setInfraType(event.target.value);
-  };
-  const handleSoTypeChange = (event) => {
-    setSoType(event.target.value);
-  };
-  const handlecellTypeChange = (event) => {
-    setCellType(event.target.value);
-  };
+  const optionsSoType = [
+    { value: 'all', label: '전체' },
+    { value: 'so', label: 'SO' }
+  ];
+
+  const optionsCellType = [
+    { value: 'all', label: '전체' },
+    { value: 'Cell', label: 'Cell' }
+  ];
+
+  const [infraType, setInfraType] = useState(optionsIfraType[0]);
+  const [soType, setSoType] = useState(optionsSoType[0]);
+  const [cellType, setCellType] = useState(optionsCellType[0]);
+
   const [checkboxStates, setCheckboxStates] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -94,32 +102,16 @@ const LoadCell = ({ onItemSelected }) => {
                             <tr>
                                 <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                                 <td colSpan={2}>
-                                    <span>
-                                    <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
-                                    <datalist id="infra">
-                                        <option value={'서울인프라팀'} />
-                                        <option value={'경북인프라팀'} />
-                                    </datalist>
-                                    </span>
+                                   <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                                 <th scope="row"><label htmlFor="SO ">SO </label></th>
                                 <td colSpan={2}>
-                                    <span>
-                                    <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
-                                    <datalist id="SO">
-                                        <option value={'중앙방송'} />
-                                        <option value={'중부산방송'} />
-                                    </datalist>
-                                    </span>
+                                    <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                                 <th scope="row"><label htmlFor="cell ">CELL</label></th>
                                 <td colSpan={3}>
                                     <span className='input-btn-wrap'>
-                                        <input type="text" list="Scell" className='input-plus-front' value={cellType} onChange={handlecellTypeChange} placeholder="CELL" />
-                                        <datalist id="cell">
-                                            <option value={'중앙방송'} />
-                                            <option value={'중부산방송'} />
-                                        </datalist>
+                                        <Select defaultValue={optionsCellType[0]} value={cellType} onChange={setCellType} options={optionsCellType} className='react-select-container w80' classNamePrefix="react-select" />
                                         <button type='button' className='btn-check-28' onClick={() => { onPopup('/popup/PopupCellList', 'CellList', '800', '600') }}>찾기</button>
                                         <button type='button' className='btn-del-28'>삭제</button>
                                     </span>

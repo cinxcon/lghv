@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import { Popup } from '../Popup';
 import PopupDepartment from '../popupDetail/Popup_department';
+import Select from 'react-select';
 
 function PopupServiceSearch() {
   const [startDate, setStartDate] = useState(null);
@@ -108,35 +109,41 @@ function PopupServiceSearch() {
     setToggled(prevState => !prevState);
   };
 
-  // 데이터 리스트
-  const [workType, setWorkType] = useState(null);
-  const [acessType, setAcessType] = useState(null);
-  const [divisionType, setDivisionType] = useState(null);
-  const [categoryType, setCategoryType] = useState(null);
-  const [infraType, setInfraType] = useState(null);
-  const [soType, setSoType] = useState(null);
+  // 셀렉트 박스
+  const optionsWorkType = [
+    { value: 'all', label: '전체' },
+    { value: '긴급작업', label: '긴급작업' },
+    { value: '일반작업', label: '일반작업' }
+  ];
+  const optionAcess = [
+    { value: 'all', label: '전체' },
+    { value: '접근제어', label: '접근제어' },
+    { value: '비접근제어', label: '비접근제어' }
+  ];
+  const optionDivision = [
+    { value: 'all', label: '전체' },
+    { value: '인프라팀 전결', label: '인프라팀 전결' },
+    { value: '플랫폼운영담당 전결', label: '플랫폼운영담당 전결' }
+  ];
+  const optionInfraType = [
+    { value: 'all', label: '전체' },
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
+  const optionSoType = [
+    { value: 'all', label: '전체' },
+    { value: 'so', label: 'SO' }
+  ];
+  const optionCategory = [
+    { value: 'all', label: '전체' }
+  ];
 
-  const handleWorkTypeChange = (event) => {
-    setWorkType(event.target.value);
-  };
-
-  const handleAcessTypeChange = (event) => {
-    setAcessType(event.target.value);
-  };
-
-  const handleDivisionTypeChange = (event) => {
-    setDivisionType(event.target.value);
-  };
-
-  const handleCategoryTypeChange = (event) => {
-    setCategoryType(event.target.value);
-  };
-  const handleInfraTypeChange = (event) => {
-    setInfraType(event.target.value);
-  };
-  const handleSoTypeChange = (event) => {
-    setSoType(event.target.value);
-  };
+  const [workType, setWorkType] = useState(optionsWorkType[0]);
+  const [acess, setAcess] = useState(optionAcess[0]);
+  const [division, setDivision] = useState(optionDivision[0]);
+  const [category, setCategory] = useState(optionCategory[0]);
+  const [infraType, setInfraType] = useState(optionInfraType[0]);
+  const [soType, setSoType] = useState(optionSoType[0]);
 
   return (
     <div className='content-section'>
@@ -191,36 +198,17 @@ function PopupServiceSearch() {
               <tr>
                   <th scope="row"><label htmlFor="type">작업종류</label></th>
                   <td colSpan={2}>
-                    <span className='service select-wrap'>
-                    <input type="text" list="work_type" value={workType} onChange={handleWorkTypeChange} placeholder="작업 종류" />
-                      <datalist id="work_type">
-                        <option value={'일반작업'} />
-                        <option value={'긴급작업'} />
-                      </datalist>
-                    </span>
+                      <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="access">접근종류</label></th>
                   <td colSpan={2}>
-                    <span className='service select-wrap'>
-                    <input type="text" list="access" value={acessType} onChange={handleAcessTypeChange} placeholder="접근종류" />
-                      <datalist id="access">
-                        <option value={'접근제어'} />
-                        <option value={'비접근제어'} />
-                      </datalist>
-                    </span>
+                      <Select defaultValue={optionAcess[0]} value={acess} onChange={setAcess} options={optionAcess} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="division">작업구분/유형</label></th>
                   <td colSpan={3}>
                     <span className='service select-wrap'>
-                      <input type="text" list="division" value={divisionType} onChange={handleDivisionTypeChange} placeholder="작업구분" />
-                      <datalist id="division">
-                        <option value={'인프라팀 전결'} />
-                        <option value={'플랫폼운영담당 전결'} />
-                      </datalist>
-                      <input type="text" list="category" value={categoryType} onChange={handleCategoryTypeChange} placeholder="유형" className='ml10' />
-                      <datalist id="category">
-                        <option value={'선택'} />
-                      </datalist>
+                      <Select defaultValue={optionDivision[0]} value={division} onChange={setDivision} options={optionDivision} className='react-select-container' classNamePrefix="react-select" />
+                      <Select defaultValue={optionCategory[0]} value={category} onChange={setCategory} options={optionCategory} className='react-select-container ml10' classNamePrefix="react-select" />
                     </span>
                   </td>
               </tr>
@@ -281,23 +269,11 @@ function PopupServiceSearch() {
                 <tr>
                   <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                   <td colSpan={2}>
-                    <span>
-                      <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
-                      <datalist id="infra">
-                        <option value={'서울인프라팀'} />
-                        <option value={'경북인프라팀'} />
-                      </datalist>
-                    </span>
+                    <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="SO ">SO </label></th>
                   <td colSpan={2}>
-                    <span>
-                      <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
-                      <datalist id="SO">
-                        <option value={'중앙방송'} />
-                        <option value={'중부산방송'} />
-                      </datalist>
-                    </span>
+                    <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}>
                   </td>
