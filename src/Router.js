@@ -67,7 +67,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0004" element={<ServicetaskDetail />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0011" element={<TemplateList />} />
       <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0012" element={<TemplateListRegist />} />
-      <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-00012-Detail" element={<TemplateListDetail />} />
+      <Route path="/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-Detail" element={<TemplateListDetail />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0001" element={<AccUser />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0002" element={<AccUserDetail />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0003" element={<AccUserGroupList />} />

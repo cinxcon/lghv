@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import ContentTitle from '../layout/ContentTitle';
@@ -21,7 +22,6 @@ function AccUser(data) {
   const selectedWork = () => {
     navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', { state: pathData });
   }
-
   //  토글
   const [isToggled, setToggled] = useState(false);
   const handleButtonToggle = () => {
@@ -79,17 +79,17 @@ function AccUser(data) {
   const onOrgClear = () => {
     setOrgValue('');
   }
-
-  // 데이터 리스트
-  const [accState, setAccState] = useState('');
-  const [userGroup, setUserGroup] = useState('');
-
-  const handleAccStateChange = (event) => {
-    setAccState(event.target.value);
-  };
-  const handleUserGroupChange = (event) => {
-    setUserGroup(event.target.value);
-  };
+  // SelectBox
+  const optionAccState = [
+    { value: '정상', label: '정상' },
+    { value: '잠금', label: '잠금' }
+  ];
+  const [accState, setAccState] = useState(optionAccState[0]);
+  const optionUserGroup = [
+    { value: '그룹1', label: '그룹1' },
+    { value: '그룹2', label: '그룹2' }
+  ];
+  const [userGroup, setUserGroup] = useState(optionUserGroup[0]);
 
   return (
     <>
@@ -134,19 +134,11 @@ function AccUser(data) {
                 <tr>
                   <th scope="row"><label htmlFor="accstate">계정상태</label></th>
                   <td colSpan={2}>
-                    <input type="text" list="accState" value={accState} onChange={handleAccStateChange} placeholder='선택' />
-                    <datalist id="accState">
-                      <option value={'정상'} />
-                      <option value={'잠금'} />
-                    </datalist>
+                    <Select defaultValue={optionAccState[0]} value={accState} onChange={setAccState} options={optionAccState} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="userGroup ">그룹</label></th>
                   <td colSpan={2} className='bd-right-none'>
-                    <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='선택' />
-                    <datalist id="userGroup">
-                      <option value={'그룹1'} />
-                      <option value={'그룹2'} />
-                    </datalist>
+                    <Select defaultValue={optionUserGroup[0]} value={userGroup} onChange={setUserGroup} options={optionUserGroup} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
-import { Popup } from '../popup/Popup';
-import PopupDepartment from '../popup/popupDetail/Popup_department';
 import ContentTitle from '../layout/ContentTitle';
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
@@ -28,34 +27,14 @@ function DisabilityMngList(props) {
   const [startEndDate, setStartEndDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [endEndDate, setEndEndDate] = useState(null);
-  // 등록부서 팝업
-  const [onLoad, setOnLoad] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
-
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
   //  토글
   const [isToggled, setToggled] = useState(false);
-  const handleItemSelected = (item) => {
-    setOnLoad(false);
-    setSelectedItem(item.deptName);
-  };
-  // 데이터 리스트
-  const [infraType, setInfraType] = useState(null);
-  const [soType, setSoType] = useState(null);
-  const [type, setType] = useState(null);
-  const [access, setAccess] = useState(null);
-
-  const handleInfraTypeChange = (event) => {
-    setInfraType(event.target.value);
-  };
-  const handleSoTypeChange = (event) => {
-    setSoType(event.target.value);
-  };
-  const handleTypeChange = (event) => {
-    setType(event.target.value);
-  };
-  const handleAccessChange = (event) => {
-    setAccess(event.target.value);
-  };
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const [selectedEdday, setSelectedEdday] = useState('ed_user');
@@ -138,6 +117,30 @@ function DisabilityMngList(props) {
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
+  // SelectBox
+  const optionInfraType = [
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
+  const [infraType, setInfraType] = useState(optionInfraType[0]);
+  const optionSoType = [
+    { value: '중앙방송', label: '중앙방송' },
+    { value: '중부산방송', label: '중부산방송' }
+  ];
+  const [soType, setSoType] = useState(optionSoType[0]);
+  const optionType = [
+    { value: '지정안함', label: '지정안함' },
+    { value: 'A등급', label: 'A등급' },
+    { value: 'B등급', label: 'B등급' },
+    { value: 'C등급', label: 'C등급' }
+  ];
+  const [type, setType] = useState(optionType[0]);
+  const optionAccess = [
+    { value: '지정안함', label: '지정안함' },
+    { value: '내부', label: '내부' },
+    { value: '외부', label: '외부' }
+  ];
+  const [access, setAccess] = useState(optionAccess[0]);
 
   return (
     <>
@@ -183,11 +186,8 @@ function DisabilityMngList(props) {
                   <th scope="row"><label htmlFor="regdep">접수부서</label></th>
                   <td colSpan={3}>
                     <span className='input-btn-wrap'>
-                      <span className='input input_org input-search-front'>{selectedItem}</span>
-                      <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
-                      <Popup open={onLoad} close={() => { setOnLoad(false) }} header="접수 부서" type={'sm'}>
-                        <PopupDepartment onItemSelected={handleItemSelected} />
-                      </Popup>
+                      <span className='input input_org input-search-front'></span>
+                      <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                     </span>
                   </td>
                 </tr>
@@ -242,40 +242,21 @@ function DisabilityMngList(props) {
                   <tr>
                     <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                     <td colSpan={4}>
-                      <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
-                      <datalist id="infra">
-                        <option value={'서울인프라팀'} />
-                        <option value={'경북인프라팀'} />
-                      </datalist>
+                      <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                     <th scope="row"><label htmlFor="SO ">SO </label></th>
                     <td colSpan={4}>
-                      <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
-                      <datalist id="SO">
-                        <option value={'중앙방송'} />
-                        <option value={'중부산방송'} />
-                      </datalist>
+                      <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                   </tr>
                   <tr>
                     <th scope="row"><label htmlFor="type">장애등급</label></th>
                     <td colSpan={4}>
-                      <input type="text" list="type" value={type} onChange={handleTypeChange} placeholder="장애등급" />
-                      <datalist id="type">
-                        <option value={'지정안함'} />
-                        <option value={'A등급'} />
-                        <option value={'B등급'} />
-                        <option value={'C등급'} />
-                      </datalist>
+                      <Select defaultValue={optionType[0]} value={type} onChange={setType} options={optionType} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                     <th scope="row"><label htmlFor="access">장애귀책</label></th>
                     <td colSpan={4}>
-                      <input type="text" list="access" value={access} onChange={handleAccessChange} placeholder="장애귀책" />
-                      <datalist id="access">
-                        <option value={'지정안함'} />
-                        <option value={'내부'} />
-                        <option value={'외부'} />
-                      </datalist>
+                      <Select defaultValue={optionAccess[0]} value={access} onChange={setAccess} options={optionAccess} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                   </tr>
                   <tr>
