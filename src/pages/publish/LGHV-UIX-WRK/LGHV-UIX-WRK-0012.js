@@ -4,7 +4,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { Alert } from '../popup/Popup';
 import ContentTitle from '../layout/ContentTitle';
 
-function NomalWork() {
+function TemplateRegist() {
   const pagedata = {
     title: '템플릿생성',
     subtitle: '템플릿 등록',
@@ -130,4 +130,4 @@ function NomalWork() {
     </>)
 }
 
-export default NomalWork;
+export default TemplateRegist;

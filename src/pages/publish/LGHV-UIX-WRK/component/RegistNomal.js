@@ -6,6 +6,8 @@ import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 import { Alert } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
+import Select from 'react-select';
+import ResultListPaging from '../../common/ResultListPaging';
 
 function NomalWork() {
   const [cancle, setCancle] = useState(false);
@@ -90,41 +92,53 @@ function NomalWork() {
     setDivStates(newDivStates);
   };
 
-  // 데이터 리스트
-  const [infraType, setInfraType] = useState(null);
-  const [soType, setSoType] = useState(null);
-  const [workType, setWorkType] = useState(null);
-  const [presenceType, setPresenceType] = useState(null);
-  const [accessPolicy, setAccessPolicy] = useState(null);
+  // 셀렉트 박스
+  const optionsIfraType = [
+    { value: 'all', label: '전체' },
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
+  const optionsSoType = [
+    { value: 'all', label: '전체' },
+    { value: 'so', label: 'SO' }
+  ];
+  const optionsWorkType = [
+    { value: 'all', label: '전체' },
+    { value: '기반', label: '기반' },
+    { value: '시스템', label: '시스템' },
+    { value: 'H/E', label: 'H/E' },
+    { value: '전송망', label: '전송망' },
+    { value: '기간망', label: '기간망' }
+  ];
+  const optionsPresence = [
+    { value: 'all', label: '전체' },
+    { value: '입회', label: '입회' },
+    { value: '미입회', label: '미입회' }
+  ];
+  const optionsAccessPolicy = [
+    { value: 'all', label: '전체' },
+    { value: 'L0', label: 'L0' },
+    { value: 'L1', label: 'L1' },
+    { value: 'L2', label: 'L2' }
+  ];
+  const optionsUserGroup = [
+    { value: 'all', label: '전체' }
+  ];
+  const optionsUser = [
+    { value: 'all', label: '전체' }
+  ];
+  const optionsUseDevice = [
+    { value: 'all', label: '전체' }
+  ];
 
-  const [userGroup, setUserGroup] = useState(null);
-  const [user, setUser] = useState(null);
-  const [useDevice, setUseDevice] = useState(null);
-
-  const handleInfraTypeChange = (event) => {
-    setInfraType(event.target.value);
-  };
-  const handleSoTypeChange = (event) => {
-    setSoType(event.target.value);
-  };
-  const handleWorkTypeChange = (event) => {
-    setWorkType(event.target.value);
-  };
-  const handlePresenceTypeChange = (event) => {
-    setPresenceType(event.target.value);
-  };
-  const handleAccessPolicyChange = (event) => {
-    setAccessPolicy(event.target.value);
-  }
-  const handleUserGroupChange = (event) => {
-    setUserGroup(event.target.value);
-  }
-  const handleUserChange = (event) => {
-    setUser(event.target.value);
-  }
-  const handleUseDeviceChange = (event) => {
-    setUseDevice(event.target.value);
-  }
+  const [infraType, setInfraType] = useState(optionsIfraType[0]);
+  const [workType, setWorkType] = useState(optionsWorkType[0]);
+  const [soType, setSoType] = useState(optionsSoType[0]);
+  const [presenceType, setPresence] = useState(optionsPresence[0]);
+  const [accessPolicy, setAccessPolicy] = useState(optionsAccessPolicy[0]);
+  const [userGroup, setUserGroup] = useState(optionsUserGroup[0]);
+  const [user, setUser] = useState(optionsUser[0]);
+  const [useDevice, setUseDevice] = useState(optionsUseDevice[0]);
 
   return (
   <>
@@ -235,18 +249,10 @@ function NomalWork() {
                     <td colSpan={3}>
                         <div className='flex-wrap between'>
                             <span className='half'>
-                            <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
-                            <datalist id="infra">
-                                <option value={'서울인프라팀'} />
-                                <option value={'경북인프라팀'} />
-                            </datalist>
+                                <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
                             </span>
                             <span className='half'>
-                                <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
-                                <datalist id="SO">
-                                    <option value={'중앙방송'} />
-                                    <option value={'중부산방송'} />
-                                </datalist>
+                                <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
                             </span>
                         </div>
                     </td>
@@ -327,22 +333,11 @@ function NomalWork() {
                     </div>
                     </th>
                     <td>
-                    <input type="text" list="division" value={workType} onChange={handleWorkTypeChange} placeholder="작업유형" />
-                      <datalist id="division">
-                        <option value={'기반'} />
-                        <option value={'시스템'} />
-                        <option value={'H/E'} />
-                        <option value={'전송망'} />
-                        <option value={'기간망'} />
-                      </datalist>
+                    <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                     <th scope='row'>작업입회 여부</th>
                     <td>
-                    <input type="text" list="presence" value={presenceType} onChange={handlePresenceTypeChange} placeholder="작업유형" />
-                      <datalist id="presence">
-                        <option value={'입회'} />
-                        <option value={'미입회'} />
-                      </datalist>
+                    <Select defaultValue={optionsPresence[0]} value={presenceType} onChange={setPresence} options={optionsPresence} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                 </tr>
                 <tr>
@@ -600,26 +595,17 @@ function NomalWork() {
                 <tr>
                     <th>사용자 그룹 <span className='color-primary'>*</span></th>
                     <td>
-                        <input type="text" list="user_group" value={userGroup} onChange={handleUserGroupChange} placeholder="사용자 그룹" />
-                        <datalist id="user_group">
-                            <option value={'전체'} />
-                        </datalist>
+                        <Select defaultValue={optionsUserGroup[0]} value={userGroup} onChange={setUserGroup} options={optionsUserGroup} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                     <th>사용자</th>
                     <td>
-                        <input type="text" list="user" value={user} onChange={handleUserChange} placeholder="사용자" />
-                        <datalist id="user">
-                            <option value={'전체'} />
-                        </datalist>
+                        <Select defaultValue={optionsUser[0]} value={user} onChange={setUser} options={optionsUser} className='react-select-container' classNamePrefix="react-select" />
                     </td>
                     <th>장비<button type='button' className='btn btn-low ml10'>예외</button></th>
                     <td>
                         <span className="input-btn-wrap">
-                            <input type="text" list="use_device" value={useDevice} onChange={handleUseDeviceChange} placeholder="장비" />
-                            <datalist id="use_device">
-                                <option value={'전체'} />
-                            </datalist>
-                            <button type="button" className="btn btn-add" onClick={diviceAddRow}>추가</button>
+                         <Select defaultValue={optionsUseDevice[0]} value={useDevice} onChange={setUseDevice} options={optionsUseDevice} styles={{ width: '80%' }} className='react-select-container' classNamePrefix="react-select" />
+                         <button type="button" className="btn btn-add" onClick={diviceAddRow}>추가</button>
                         </span>
                     </td>
                 </tr>
@@ -636,7 +622,7 @@ function NomalWork() {
                     </div>
                 </div>
                 <div className='over-flow-x'>
-                    <table className="table mt8" style={{ width: '110%' }}>
+                    <table className="table mt8" style={{ width: '150%' }}>
                         <caption>장비목록</caption>
                         <colgroup>
                             <col span={5} />
@@ -691,12 +677,7 @@ function NomalWork() {
                                 </td>
                                 <td scope='col'>
                                     <div className='input-btn-wrap'>
-                                            <input type="text" list="access_policy" value={accessPolicy} onChange={handleAccessPolicyChange} placeholder="선택" multiple style={{ width: '70px', padding: '3px' }} />
-                                            <datalist id="access_policy">
-                                                <option value={'L0'} />
-                                                <option value={'L1'} />
-                                                <option value={'L2'} />
-                                            </datalist>
+                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" />
                                         <button type='button' className='btn btn-md'>적용</button>
                                     </div>
                                 </td>
@@ -846,6 +827,7 @@ function NomalWork() {
                                 </tr>
                         </tbody>
                     </table>
+                    <ResultListPaging />
                 </div>
             </div>)}
         </div>
