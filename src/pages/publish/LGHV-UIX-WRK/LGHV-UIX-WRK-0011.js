@@ -3,6 +3,7 @@ import ContentTitle from '../layout/ContentTitle'
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
+import Select from 'react-select';
 
 function TemplateList() {
   const pagedata = {
@@ -22,10 +23,11 @@ function TemplateList() {
     { category: '보고', formName: '기간 망 작업 신청서', date: '2023.07.01' },
     { category: '작업신청', formName: '선로 작업 신청서', date: '2023.07.01' }
   ];
-  const [templateType, setTemplateType] = useState('');
-  const handleTemplateTypeChange = (event) => {
-    setTemplateType(event.target.value);
-  };
+  const optionsTemplateType = [
+    { value: 'all', label: '전체' },
+    { value: '작업신청', label: '작업신청' }
+  ];
+  const [templateType, setTemplateType] = useState(optionsTemplateType[0]);
   const onPopup = () => {
     const url = '/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-Detail';
     const popupWidth = 1280;
@@ -51,13 +53,7 @@ function TemplateList() {
                   <tr>
                   <th scope="row"><label htmlFor="type">작업종류</label></th>
                       <td>
-                          <span className='service select-wrap'>
-                            <input type="text" list="work_type" value={templateType} onChange={handleTemplateTypeChange} placeholder="템플릿 분류" />
-                            <datalist id="work_type">
-                                <option value={'작업신청'} />
-                                <option value={'보고'} />
-                            </datalist>
-                          </span>
+                          <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
                       </td>
                       <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                       <td>

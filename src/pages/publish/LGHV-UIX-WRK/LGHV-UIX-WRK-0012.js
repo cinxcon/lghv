@@ -3,6 +3,7 @@ import CustomEditor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { Alert } from '../popup/Popup';
 import ContentTitle from '../layout/ContentTitle';
+import Select from 'react-select';
 
 function TemplateRegist() {
   const pagedata = {
@@ -19,10 +20,11 @@ function TemplateRegist() {
   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
-  const [templateType, setTemplateType] = useState('');
-  const handleTemplateTypeChange = (event) => {
-    setTemplateType(event.target.value);
-  };
+  const optionsTemplateType = [
+    { value: 'all', label: '전체' },
+    { value: '작업신청', label: '작업신청' }
+  ];
+  const [templateType, setTemplateType] = useState(optionsTemplateType[0]);
 
   const [initialHtml, setEditorData] = useState('');
 
@@ -53,11 +55,7 @@ function TemplateRegist() {
                 <th scope="row"><label htmlFor="type">분류</label></th>
                     <td>
                     <span className='service select-wrap'>
-                        <input type="text" list="type" value={templateType} onChange={handleTemplateTypeChange} placeholder="작업신청" />
-                        <datalist id="type">
-                            <option value={'작업신청'} />
-                            <option value={'보고'} />
-                        </datalist>
+                      <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
                     </span>
                     </td>
                     <th scope="row">등록일</th>
