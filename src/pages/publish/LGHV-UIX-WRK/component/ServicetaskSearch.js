@@ -269,11 +269,11 @@ function ServicetaskSearch() {
                 <tr>
                   <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                   <td colSpan={2}>
-                      <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container ml10' classNamePrefix="react-select" />
+                      <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="SO ">SO </label></th>
                   <td colSpan={2}>
-                    <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container ml10' classNamePrefix="react-select" />
+                    <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}>
                   </td>

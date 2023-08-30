@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
+import Select from 'react-select';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -29,25 +30,32 @@ const Worker = ({ onItemSelected }) => {
   };
 
   // 데이터 리스트
-  const [userType, setUserType] = useState(null);
-  const [companyType, setCompanyType] = useState(null);
-  const [positionType, setPositionType] = useState(null);
-  const [rankType, setRankType] = useState(null);
+  const optionsUserType = [
+    { value: 'all', label: '전체' },
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
 
-  const handleCompanyTypeChange = (event) => {
-    setCompanyType(event.target.value);
-  };
-  const handleUserTypeChange = (event) => {
-    setUserType(event.target.value);
-  };
-  const handlePositionTypeChange = (event) => {
-    setPositionType(event.target.value);
-  };
-  const handleRankypeChange = (event) => {
-    setRankType(event.target.value);
-  };
+  const optionsCompanyType = [
+    { value: 'all', label: '전체' },
+    { value: 'so', label: 'SO' }
+  ];
+
+  const optionsPositionType = [
+    { value: 'all', label: '전체' },
+    { value: 'Cell', label: 'Cell' }
+  ];
+  const optionsRankType = [
+    { value: 'all', label: '전체' },
+    { value: 'Cell', label: 'Cell' }
+  ];
+
+  const [userType, setUserType] = useState(optionsUserType[0]);
+  const [companyType, setCompanyType] = useState(optionsCompanyType[0]);
+  const [positionType, setPositionType] = useState(optionsPositionType[0]);
+  const [rankType, setRankType] = useState(optionsRankType[0]);
+
   const [checkboxStates, setCheckboxStates] = useState(false);
-
   const handleCheckboxChange = (event) => {
     const { id, checked } = event.target;
     setCheckboxStates((prevState) => ({
@@ -94,35 +102,18 @@ const Worker = ({ onItemSelected }) => {
                             <col style={{ width: '25%' }} />
                         </colgroup>
                         <tbody>
-                              <tr>
+                            <tr>
                                 <th scope='row'><label htmlFor='company'>회사</label></th>
                                 <td>
-                                    <span>
-                                    <input type='text' list='company' value={companyType} onChange={handleCompanyTypeChange} placeholder='LG헬로비전' />
-                                    <datalist id='company'>
-                                        <option value={'LG헬로비전'} />
-                                    </datalist>
-                                    </span>
+                                    <Select defaultValue={optionsCompanyType[0]} value={companyType} onChange={setCompanyType} options={optionsCompanyType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                                 <th scope='row'><label htmlFor='position'>직책</label></th>
                                 <td>
-                                    <span>
-                                    <input type='text' list='position' value={positionType} onChange={handlePositionTypeChange} placeholder='전체' />
-                                    <datalist id='position'>
-                                        <option value={'팀장'} />
-                                        <option value={'부팀장'} />
-                                    </datalist>
-                                    </span>
+                                    <Select defaultValue={optionsPositionType[0]} value={positionType} onChange={setPositionType} options={optionsPositionType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                                 <th scope='row'><label htmlFor='rank'>직급</label></th>
                                 <td>
-                                    <span className='input-btn-wrap'>
-                                        <input type='text' list='rank' value={rankType} onChange={handleRankypeChange} placeholder='전체' />
-                                        <datalist id='rank'>
-                                            <option value={'사원'} />
-                                            <option value={'대리'} />
-                                        </datalist>
-                                    </span>
+                                    <Select defaultValue={optionsRankType[0]} value={rankType} onChange={setRankType} options={optionsRankType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                             </tr>
                             <tr>
@@ -136,18 +127,13 @@ const Worker = ({ onItemSelected }) => {
                                 </td>
                                 <th scope='row'><label htmlFor='user_email'>이메일</label></th>
                                 <td>
-                                  <input type='text' name='user_email' id='user_email' placeholder='이메일' />
+                                    <input type='text' name='user_email' id='user_email' placeholder='이메일' />
                                 </td>
                             </tr>
                             <tr>
                                 <th scope='row'><label htmlFor='user_type'>사용자구분</label></th>
                                 <td>
-                                    <span>
-                                    <input type='text' list='user_type' value={userType} onChange={handleUserTypeChange} placeholder='사용자' />
-                                    <datalist id='user_type'>
-                                        <option value={'전체'} />
-                                    </datalist>
-                                    </span>
+                                    <Select defaultValue={optionsUserType[0]} value={userType} onChange={setUserType} options={optionsUserType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                                 <th scope='row'><label htmlFor='cell '>부서</label></th>
                                 <td colSpan={3}>

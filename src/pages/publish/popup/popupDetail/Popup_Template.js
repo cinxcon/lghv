@@ -3,6 +3,7 @@ import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 import { useState } from 'react';
+import Select from 'react-select';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -23,11 +24,11 @@ const LoadTemplate = ({ onItemSelected }) => {
     { category: '작업신청', formName: '선로 작업 신청서', date: '2023.07.01' }
   ];
 
-  const [templateType, setTemplateType] = useState('');
-
-  const handleTemplateTypeChange = (event) => {
-    setTemplateType(event.target.value)
-  }
+  const optionsTemplateType = [
+    { value: 'all', label: '전체' },
+    { value: '작업신청', label: '작업신청' }
+  ];
+  const [templateType, setTemplateType] = useState(optionsTemplateType[0]);
 
   const templateSearch = () => {
     // 템플릿 검색
@@ -51,12 +52,8 @@ const LoadTemplate = ({ onItemSelected }) => {
         </div>
         <div className='template-top flex-wrap'>
             <div className='flex-wrap'>
-                <label htmlFor='category'>템플릿 분류</label>
-                <input type="text" list="template_Type" value={templateType} onChange={handleTemplateTypeChange} placeholder="인프라팀" style={{ width: '70%' }} />
-                <datalist id="template_Type">
-                  <option value={'업무1'} />
-                  <option value={'업무2'} />
-                </datalist>
+              <label htmlFor='category'>템플릿 분류</label>
+              <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container w60' classNamePrefix="react-select" />
             </div>
             <div className='flex-wrap'>
               <label htmlFor="name_search">이름</label>

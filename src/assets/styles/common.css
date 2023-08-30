@@ -431,19 +431,22 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
      background: #eaeaea;  /*스크롤바 뒷 배경 색상*/
 }
 /*  에디터   */
+.ck.ck-editor{z-index: 0;}
 .ck-editor__editable_inline {
      min-height: 400px;
 }
 
 /* 셀렉트 박스 */
 .react-select-container{width: 100%;}
-.react-select__control{border: 1px solid #dbdbdb; height: 28px; min-height: 28px; border-radius: 0;}
-.react-select__control--is-focused, .react-select__control--menu-is-open:hover{ border-color: #000 !important; box-shadow: none; height: 28px; min-height: 28px;border-radius: 0;}
+.react-select-container.w60{width: 60%;}
+.react-select-container.w80{width: 80%;}  
+.react-select__control{border: 1px solid #dbdbdb; height: 28px; min-height: 28px; line-height: 28px; border-radius: 0;}
+.react-select__control--is-focused, .react-select__control--menu-is-open:hover{ border-color: #000 !important; box-shadow: none; height: 28px; min-height: 28px; line-height: 28px; border-radius: 0;}
 .react-select__indicator {padding: 4px; color: #000;}
 .react-select__indicator:hover{color: #000;}
 .react-select__value-container, .react-select__input-container{margin:0; padding: 0;}
 .react-select__single-value{padding: 0 10px;}
-.react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; display: block !important;}
+.react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; display: block !important; z-index: 2;}
 .react-select__menu-list:hover{}
 .react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea;}
 .react-select__option--is-selected {background-color:#dbdbdb; color: #000;}
