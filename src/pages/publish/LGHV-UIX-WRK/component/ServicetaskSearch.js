@@ -196,7 +196,7 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org nput-search-front'></span>
+                    <span className='input input_org input-search-front'></span>
                     <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                   </span>
                 </td>
