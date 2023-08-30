@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import Select from 'react-select';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CustomEditor from 'ckeditor5-custom-build/build/ckeditor';
 import ContentTitle from '../layout/ContentTitle';
 import { Popup, Alert } from '../popup/Popup';
 import { PopupNotiMethod } from '../popup/popupDetail/Popup_NotiMethod';
-import PopupDepartment from '../popup/popupDetail/Popup_department';
 import PopupTemplate from '../popup/popupDetail/Popup_Template';
 
 function DisabilityMngReg() {
@@ -21,13 +21,6 @@ function DisabilityMngReg() {
     newDivStates[index] = !newDivStates[index];
     setDivStates(newDivStates);
   };
-  // 등록부서 팝업
-  const [onLoad, setOnLoad] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
-  const handleItemSelected = (item) => {
-    setOnLoad(false);
-    setSelectedItem(item.deptName);
-  };
   // 템플릿
   const [template, setTemplate] = useState(false);
   const handleTemplateSelected = () => {
@@ -43,16 +36,17 @@ function DisabilityMngReg() {
     const popupY = (window.screen.height / 2) - (height / 2);
     window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
-  // 데이터 리스트
-  const [infraType, setInfraType] = useState(null);
-  const [soType, setSoType] = useState(null);
-
-  const handleInfraTypeChange = (event) => {
-    setInfraType(event.target.value);
-  };
-  const handleSoTypeChange = (event) => {
-    setSoType(event.target.value);
-  };
+  // SelectBox
+  const optionInfraType = [
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
+  const [infraType, setInfraType] = useState(optionInfraType[0]);
+  const optionSoType = [
+    { value: '중앙방송', label: '중앙방송' },
+    { value: '중부산방송', label: '중부산방송' }
+  ];
+  const [soType, setSoType] = useState(optionSoType[0]);
 
   return (
     <>
@@ -91,18 +85,10 @@ function DisabilityMngReg() {
                 <td colSpan={3}>
                   <div className='flex-wrap between'>
                     <span className='half'>
-                      <input type="text" list="infra" value={infraType} onChange={handleInfraTypeChange} placeholder="인프라팀" />
-                      <datalist id="infra">
-                        <option value={'서울인프라팀'} />
-                        <option value={'경북인프라팀'} />
-                      </datalist>
+                      <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                     </span>
                     <span className='half'>
-                      <input type="text" list="SO" value={soType} onChange={handleSoTypeChange} placeholder="SO" />
-                      <datalist id="SO">
-                        <option value={'중앙방송'} />
-                        <option value={'중부산방송'} />
-                      </datalist>
+                      <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container' classNamePrefix="react-select" />
                     </span>
                   </div>
                 </td>
@@ -117,11 +103,8 @@ function DisabilityMngReg() {
                 <th scope='row'>처리부서 <span aria-label="required" className='color-primary'>*</span></th>
                 <td colSpan={3}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org nput-search-front'>{selectedItem}</span>
-                    <button className='btn btn-search' onClick={() => { setOnLoad(true) }}>조회</button>
-                      <Popup open={onLoad} close={() => { setOnLoad(false) }} header="처리 부서" type={'sm'}>
-                        <PopupDepartment onItemSelected={handleItemSelected} />
-                      </Popup>
+                    <span className='input input_org nput-search-front'></span>
+                    <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                   </span>
                 </td>
               </tr>

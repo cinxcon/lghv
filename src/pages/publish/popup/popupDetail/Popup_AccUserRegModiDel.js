@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
@@ -12,17 +13,17 @@ const PopupPortal = ({ children }) => {
 function PopupAccUserReg() {
   const [endDate, setEndDate] = useState(null);
   const [endEndDate, setEndEndDate] = useState(null);
-
-  // 데이터 리스트
-  const [userGroup, setUserGroup] = useState('');
-  const [statu, setStatu] = useState('');
-
-  const handleUserGroupChange = (event) => {
-    setUserGroup(event.target.value);
-  };
-  const handleStatuChange = (event) => {
-    setStatu(event.target.value);
-  };
+  // SelectBox
+  const optionAccState = [
+    { value: '정상', label: '정상' },
+    { value: '잠금', label: '잠금' }
+  ];
+  const [accState, setAccState] = useState(optionAccState[0]);
+  const optionUserGroup = [
+    { value: '그룹1', label: '그룹1' },
+    { value: '그룹2', label: '그룹2' }
+  ];
+  const [userGroup, setUserGroup] = useState(optionUserGroup[0]);
 
   return (
     <PopupPortal>
@@ -99,11 +100,7 @@ function PopupAccUserReg() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' />
-                  <datalist id="userGroup">
-                    <option value={'그룹1'} />
-                    <option value={'그룹2'} />
-                  </datalist>
+                  <Select defaultValue={optionUserGroup[0]} value={userGroup} onChange={setUserGroup} options={optionUserGroup} className='react-select-container' classNamePrefix="react-select" />
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -117,10 +114,7 @@ function PopupAccUserReg() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' />
-                  <datalist id="statu">
-                    <option value={'정상'} />
-                  </datalist>
+                  <Select defaultValue={optionAccState[0]} value={accState} onChange={setAccState} options={optionAccState} className='react-select-container' classNamePrefix="react-select" />
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>
@@ -148,17 +142,17 @@ function PopupAccUserReg() {
 function PopupAccUserModi() {
   const [endDate, setEndDate] = useState(new Date());
   const [endEndDate, setEndEndDate] = useState(new Date());
-
-  // 데이터 리스트
-  const [userGroup, setUserGroup] = useState('그룹1');
-  const [statu, setStatu] = useState('정상');
-
-  const handleUserGroupChange = (event) => {
-    setUserGroup(event.target.value);
-  };
-  const handleStatuChange = (event) => {
-    setStatu(event.target.value);
-  };
+  // SelectBox
+  const optionAccState = [
+    { value: '정상', label: '정상' },
+    { value: '잠금', label: '잠금' }
+  ];
+  const [accState, setAccState] = useState(optionAccState[0]);
+  const optionUserGroup = [
+    { value: '그룹1', label: '그룹1' },
+    { value: '그룹2', label: '그룹2' }
+  ];
+  const [userGroup, setUserGroup] = useState(optionUserGroup[0]);
 
   return (
     <PopupPortal>
@@ -235,11 +229,7 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' />
-                  <datalist id="userGroup">
-                    <option value={'그룹1'} />
-                    <option value={'그룹2'} />
-                  </datalist>
+                  <Select defaultValue={optionUserGroup[0]} value={userGroup} onChange={setUserGroup} options={optionUserGroup} className='react-select-container' classNamePrefix="react-select" />
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -253,10 +243,7 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' />
-                  <datalist id="statu">
-                    <option value={'정상'} />
-                  </datalist>
+                  <Select defaultValue={optionAccState[0]} value={accState} onChange={setAccState} options={optionAccState} className='react-select-container' classNamePrefix="react-select" />
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>
@@ -284,17 +271,17 @@ function PopupAccUserModi() {
 function PopupAccUserDel() {
   const [endDate, setEndDate] = useState(new Date());
   const [endEndDate, setEndEndDate] = useState(new Date());
-
-  // 데이터 리스트
-  const [userGroup, setUserGroup] = useState('그룹1');
-  const [statu, setStatu] = useState('정상');
-
-  const handleUserGroupChange = (event) => {
-    setUserGroup(event.target.value);
-  };
-  const handleStatuChange = (event) => {
-    setStatu(event.target.value);
-  };
+  // SelectBox
+  const optionAccState = [
+    { value: '정상', label: '정상' },
+    { value: '잠금', label: '잠금' }
+  ];
+  const [accState, setAccState] = useState(optionAccState[0]);
+  const optionUserGroup = [
+    { value: '그룹1', label: '그룹1' },
+    { value: '그룹2', label: '그룹2' }
+  ];
+  const [userGroup, setUserGroup] = useState(optionUserGroup[0]);
 
   return (
     <PopupPortal>
@@ -363,11 +350,7 @@ function PopupAccUserDel() {
               <tr>
                 <th scope="row"><label htmlFor='userGroup'>사용자 그룹 이름</label></th>
                 <td>
-                  <input type="text" list="userGroup" value={userGroup} onChange={handleUserGroupChange} placeholder='그룹을 선택하세요' readOnly />
-                  <datalist id="userGroup">
-                    <option value={'그룹1'} />
-                    <option value={'그룹2'} />
-                  </datalist>
+                  <Select defaultValue={optionUserGroup[0]} value={userGroup} onChange={setUserGroup} options={optionUserGroup} className='react-select-container' classNamePrefix="react-select" isDisabled />
                 </td>
                 <th scope="row"><label htmlFor='date'>사용가능 기간</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
@@ -381,10 +364,7 @@ function PopupAccUserDel() {
               <tr>
                 <th scope="row"><label htmlFor='statu'>상태</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type="text" list="statu" value={statu} onChange={handleStatuChange} placeholder='상태를 선택하세요' readOnly />
-                  <datalist id="statu">
-                    <option value={'정상'} />
-                  </datalist>
+                  <Select defaultValue={optionAccState[0]} value={accState} onChange={setAccState} options={optionAccState} className='react-select-container' classNamePrefix="react-select" isDisabled />
                 </td>
                 <th scope="row"><label htmlFor='ip'>접속 로그인 IP</label></th>
                 <td>

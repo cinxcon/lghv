@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
@@ -41,37 +42,34 @@ function PopupAccEqReg() {
   const handleEndMinuteDecrease = () => {
     setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
   };
-
-  // 데이터 리스트
-  const [eqType1, setEqType1] = useState('Linux');
-  const [eqType2, setEqType2] = useState('Window');
-  const [eqType3, setEqType3] = useState('Network');
-  const [eqType4, setEqType4] = useState('Web');
-  const [banWord, setBanWord] = useState('');
-
-  const handleEqTypeChange1 = (event) => {
-    setEqType1(event.target.value);
-  };
-  const handleEqTypeChange2 = (event) => {
-    setEqType2(event.target.value);
-  };
-  const handleEqTypeChange3 = (event) => {
-    setEqType3(event.target.value);
-  };
-  const handleEqTypeChange4 = (event) => {
-    setEqType4(event.target.value);
-  };
-  const handleBanWordChange = (event) => {
-    setBanWord(event.target.value);
-  };
-
+  // SelectBox
+  const optionEqType1 = [
+    { value: 'Linux', label: 'Linux' }
+  ];
+  const [eqType1, setEqType1] = useState(optionEqType1[0]);
+  const optionEqType2 = [
+    { value: 'Windows', label: 'Windows' }
+  ];
+  const [eqType2, setEqType2] = useState(optionEqType2[0]);
+  const optionEqType3 = [
+    { value: 'Network', label: 'Network' }
+  ];
+  const [eqType3, setEqType3] = useState(optionEqType3[0]);
+  const optionEqType4 = [
+    { value: 'Web', label: 'Web' }
+  ];
+  const [eqType4, setEqType4] = useState(optionEqType4[0]);
+  const optionBanWord = [
+    { value: 'L0', label: 'L0' },
+    { value: 'L1', label: 'L1' }
+  ];
+  const [banWord, setBanWord] = useState(optionBanWord[0]);
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
     const popupY = (window.screen.height / 2) - (height / 2);
     window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
-
   //  토글
   const [divStates, setDivStates] = useState([false, true, true, true, false]);
   const handleDivToggle = (index) => {
@@ -126,13 +124,7 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <input type="text" list="eqType1" value={eqType1} onChange={handleEqTypeChange1} />
-                    <datalist id="eqType1">
-                      <option value={'Linux'} />
-                      <option value={'HPUX'} />
-                      <option value={'AIX'} />
-                      <option value={'Solaris'} />
-                    </datalist>
+                    <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -298,10 +290,7 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <input type="text" list="eqType2" value={eqType2} onChange={handleEqTypeChange2} />
-                    <datalist id="eqType2">
-                      <option value={'Windows'} />
-                    </datalist>
+                    <Select defaultValue={optionEqType2[0]} value={eqType2} onChange={setEqType2} options={optionEqType2} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -458,10 +447,7 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <input type="text" list="eqType3" value={eqType3} onChange={handleEqTypeChange3} />
-                    <datalist id="eqType3">
-                      <option value={'Network'} />
-                    </datalist>
+                    <Select defaultValue={optionEqType3[0]} value={eqType3} onChange={setEqType3} options={optionEqType3} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -656,10 +642,7 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <input type="text" list="eqType4" value={eqType4} onChange={handleEqTypeChange4} />
-                    <datalist id="eqType4">
-                      <option value={'Web'} />
-                    </datalist>
+                    <Select defaultValue={optionEqType4[0]} value={eqType4} onChange={setEqType4} options={optionEqType4} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -847,12 +830,7 @@ function PopupAccEqReg() {
                 <tr>
                   <th scope='row'><label htmlFor="ban">금칙어</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <input type="text" list="banWord" value={banWord} onChange={handleBanWordChange} />
-                    <datalist id="banWord">
-                      <option value={'L0'} />
-                      <option value={'L1'} />
-                      <option value={'L2'} />
-                    </datalist>
+                    <Select defaultValue={optionBanWord[0]} value={banWord} onChange={setBanWord} options={optionBanWord} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={2}></td>
                 </tr>
@@ -877,12 +855,11 @@ function PopupAccEqReg() {
 
 // 장비 삭제
 function PopupAccEqDel() {
-  // 데이터 리스트
-  const [eqType1, setEqType1] = useState('Linux');
-
-  const handleEqTypeChange1 = (event) => {
-    setEqType1(event.target.value);
-  };
+  // SelectBox
+  const optionEqType1 = [
+    { value: 'Linux', label: 'Linux' }
+  ];
+  const [eqType1, setEqType1] = useState(optionEqType1[0]);
   return (
     <PopupPortal>
       <style>
@@ -924,13 +901,7 @@ function PopupAccEqDel() {
               <tr>
                 <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td className='bd-right-none'>
-                  <input type="text" list="eqType1" value={eqType1} onChange={handleEqTypeChange1} readOnly />
-                  <datalist id="eqType1">
-                    <option value={'Linux'} />
-                    <option value={'HPUX'} />
-                    <option value={'AIX'} />
-                    <option value={'Solaris'} />
-                  </datalist>
+                  <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" isDisabled />
                 </td>
                 <td colSpan={4}></td>
               </tr>
