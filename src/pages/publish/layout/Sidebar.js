@@ -52,14 +52,19 @@ const Sidebar = ({ activeMenu }) => {
       ]
     },
     {
-      title: '통계',
+      title: '셀관리',
       path: '/LGHV-UIX-STA/LGHV-UIX-STA-0001',
       subMenus: [{ title: 'Submenu 6', path: '/Submenu6' }]
     },
     {
+      title: '공지사항',
+      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001',
+      subMenus: [{ title: '공지사항', path: '/Submenu7' }]
+    },
+    {
       title: '시스템관리',
       path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001',
-      subMenus: [{ title: 'Submenu 7', path: '/Submenu7' }]
+      subMenus: [{ title: '시스템 관리', path: '/Submenu7' }]
     }
   ]);
 

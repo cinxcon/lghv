@@ -287,7 +287,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .menu-item-level-1 { position: relative; }
 .menu-level-1 .toggle-button-level-1, .menu-level-2 { display: none; transition: opacity 0.3s ease; opacity: 0; }
 .sidebar.open .toggle-button-level-1, .sidebar.open .menu-level-2 { opacity: 1; display: block; }
-.sidebar.open .menu-item-level-1.active .menu-level-2 { background-color: rgba(255, 255, 255, 0.1); }
+.sidebar.open .menu-item-level-1.active .menu-level-2 { background-color: rgba(255, 255, 255, 0.2); }
 .sidebar.open .menu-item-level-1 .toggle-button-level-1 { width: 100%; padding: 16px 0 16px 60px; text-align: left; }
 .sidebar.close .menu-item-level-1 { height: 56px; }
 .sidebar.close .toggle-button { background-image: url('../images/common/lnb/ic_lnb_open_32.png'); }
@@ -430,3 +430,20 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .over-flow-x::-webkit-scrollbar-track {
      background: #eaeaea;  /*스크롤바 뒷 배경 색상*/
 }
+/*  에디터   */
+.ck-editor__editable_inline {
+     min-height: 400px;
+}
+
+/* 셀렉트 박스 */
+.react-select-container{width: 100%;}
+.react-select__control{border: 1px solid #dbdbdb; height: 28px; min-height: 28px; border-radius: 0;}
+.react-select__control--is-focused, .react-select__control--menu-is-open:hover{ border-color: #000 !important; box-shadow: none; height: 28px; min-height: 28px;border-radius: 0;}
+.react-select__indicator {padding: 4px; color: #000;}
+.react-select__indicator:hover{color: #000;}
+.react-select__value-container, .react-select__input-container{margin:0; padding: 0;}
+.react-select__single-value{padding: 0 10px;}
+.react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; display: block !important;}
+.react-select__menu-list:hover{}
+.react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea;}
+.react-select__option--is-selected {background-color:#dbdbdb; color: #000;}
