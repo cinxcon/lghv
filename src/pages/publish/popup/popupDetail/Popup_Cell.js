@@ -12,10 +12,10 @@ const PopupPortal = ({ children }) => {
 
 const LoadCell = ({ onItemSelected }) => {
   const data = [
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 }
+    { infra: '강원인프라팀', so: '영서방송', cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { infra: '강원인프라팀', so: '영서방송', cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { infra: '강원인프라팀', so: '영서방송', cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
+    { infra: '강원인프라팀', so: '영서방송', cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 }
   ];
 
   const handleConfirmClick = () => {
@@ -151,16 +151,20 @@ const LoadCell = ({ onItemSelected }) => {
                 <colgroup>
                     <col style={{ width: '5%' }} />
                     <col style={{ width: '10%' }} />
-                    <col style={{ width: '35%' }} />
                     <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '5%' }} />
+                    <col style={{ width: '30%' }} />
+                    <col style={{ width: '8%' }} />
+                    <col style={{ width: '8%' }} />
+                    <col style={{ width: '8%' }} />
+                    <col style={{ width: '8%' }} />
+                    <col style={{ width: '8%' }} />
                 </colgroup>
                 <thead>
                 <tr>
                     <th rowSpan={2}></th>
+                    <th rowSpan={2}>인프라팀</th>
+                    <th rowSpan={2}>SO</th>
                     <th rowSpan={2}>CELL</th>
                     <th rowSpan={2}>주소</th>
                     <th colSpan={4}>가입자 모수</th>
@@ -180,6 +184,8 @@ const LoadCell = ({ onItemSelected }) => {
                         <input type="checkbox" name={`service ${index}`} id={`ser_${index}`} onChange={handleCheckboxChange} />
                         <label htmlFor={`ser_${index}`} style={{ margin: '0' }}></label>
                     </td>
+                    <td>{row.infra}</td>
+                    <td>{row.so}</td>
                     <td>{row.cell}</td>
                     <td>{row.address}</td>
                     <td>{row.dtn}</td>

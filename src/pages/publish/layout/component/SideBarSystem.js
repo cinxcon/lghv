@@ -68,7 +68,7 @@ const MenuItemLevel1 = ({ index, title, path, subMenus, pathSegments }) => {
   const hasSubMenus = subMenus.length > 0;
   const isActive = pathSegments[0] === path.split('/')[1];
   return (
-    <li className={`menu-item-level-1 ${isActive ? 'active' : ''}`}>
+    <li className={`menu-item-level-1 ${isActive ? 'active' : ''} ${hasSubMenus ? 'has-sub' : ''}`}>
       {isActive
         ? (<button className='toggle-button-level-1'>{title}</button>)
         : (<Link to={path} key={index} className='toggle-button-level-1'>{title}</Link>)

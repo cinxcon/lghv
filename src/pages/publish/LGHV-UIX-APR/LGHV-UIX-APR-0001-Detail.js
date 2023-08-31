@@ -28,6 +28,9 @@ function ApprovalStandbyDetail() {
     SubMenu: 'yes',
     isDetail: 'yes'
   }
+  const handlePrint = () => {
+    window.print();
+  };
   return (
     <PopupPortal>
       <style>
@@ -40,7 +43,7 @@ function ApprovalStandbyDetail() {
         <div className="detail-top-btn-group">
           <button className='btn' onClick={() => { setRefuse(true) }}>onTime반려</button>
           <button className='btn' onClick={() => { setNotimethod(true) }}>통보방법</button>
-          <button className='btn' onClick={() => { setPrint(true) }}>화면인쇄</button>
+          <button className='btn' onClick={handlePrint}>화면인쇄</button>
           <button className='btn' onClick={() => { setHistory(true) }}>처리내역</button>
           <button className='btn btn-low' onClick={() => { navigate(-1) }}>목록</button>
         </div>
