@@ -34,6 +34,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className={`system-management ${divStates ? 'hide' : 'show'}` }>
+        <h3 className='tit'>시스템 관리</h3>
         <SideBarSystem />
         <div className='fix-btn-wrap'>
           <button type='button' onClick={handleDivToggle} className='toggle-btn'>마이데스크</button>

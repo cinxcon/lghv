@@ -3,7 +3,17 @@ import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
 
-function PopupServiceSearch() {
+import ContentTitle from '../layout/ContentTitle';
+import ResultPageView from '../../common/ResultPageView';
+import ResultNoData from '../../common/ResultNoData';
+import ResultListPaging from '../../common/ResultListPaging';
+
+function AccessLogList() {
+  const pagedata = {
+    title: '로그 관리',
+    subtitle: '접속 로그',
+    SubMenu: 'yes'
+  }
   const [startDate, setStartDate] = useState(null);
   const [startEndDate, setStartEndDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -11,6 +21,43 @@ function PopupServiceSearch() {
 
   //  토글
   const [isToggled, setToggled] = useState(false);
+
+  // 셀렉트 박스
+  const optionsWorkType = [
+    { value: 'all', label: '전체' },
+    { value: '긴급작업', label: '긴급작업' },
+    { value: '일반작업', label: '일반작업' }
+  ];
+  const optionAcess = [
+    { value: 'all', label: '전체' },
+    { value: '접근제어', label: '접근제어' },
+    { value: '비접근제어', label: '비접근제어' }
+  ];
+  const optionDivision = [
+    { value: 'all', label: '전체' },
+    { value: '인프라팀 전결', label: '인프라팀 전결' },
+    { value: '플랫폼운영담당 전결', label: '플랫폼운영담당 전결' }
+  ];
+  const optionInfraType = [
+    { value: 'all', label: '전체' },
+    { value: '서울인프라팀', label: '서울인프라팀' },
+    { value: '경북인프라팀', label: '경북인프라팀' }
+  ];
+  const optionSoType = [
+    { value: 'all', label: '전체' },
+    { value: 'so', label: 'SO' }
+  ];
+  const optionCategory = [
+    { value: 'all', label: '전체' }
+  ];
+
+  const [workType, setWorkType] = useState(optionsWorkType[0]);
+  const [acess, setAcess] = useState(optionAcess[0]);
+  const [division, setDivision] = useState(optionDivision[0]);
+  const [category, setCategory] = useState(optionCategory[0]);
+  const [infraType, setInfraType] = useState(optionInfraType[0]);
+  const [soType, setSoType] = useState(optionSoType[0]);
+
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const [selectedEdday, setSelectedEdday] = useState('ed_user');
@@ -99,42 +146,6 @@ function PopupServiceSearch() {
     setToggled(prevState => !prevState);
   };
 
-  // 셀렉트 박스
-  const optionsWorkType = [
-    { value: 'all', label: '전체' },
-    { value: '긴급작업', label: '긴급작업' },
-    { value: '일반작업', label: '일반작업' }
-  ];
-  const optionAcess = [
-    { value: 'all', label: '전체' },
-    { value: '접근제어', label: '접근제어' },
-    { value: '비접근제어', label: '비접근제어' }
-  ];
-  const optionDivision = [
-    { value: 'all', label: '전체' },
-    { value: '인프라팀 전결', label: '인프라팀 전결' },
-    { value: '플랫폼운영담당 전결', label: '플랫폼운영담당 전결' }
-  ];
-  const optionInfraType = [
-    { value: 'all', label: '전체' },
-    { value: '서울인프라팀', label: '서울인프라팀' },
-    { value: '경북인프라팀', label: '경북인프라팀' }
-  ];
-  const optionSoType = [
-    { value: 'all', label: '전체' },
-    { value: 'so', label: 'SO' }
-  ];
-  const optionCategory = [
-    { value: 'all', label: '전체' }
-  ];
-
-  const [workType, setWorkType] = useState(optionsWorkType[0]);
-  const [acess, setAcess] = useState(optionAcess[0]);
-  const [division, setDivision] = useState(optionDivision[0]);
-  const [category, setCategory] = useState(optionCategory[0]);
-  const [infraType, setInfraType] = useState(optionInfraType[0]);
-  const [soType, setSoType] = useState(optionSoType[0]);
-
   // 윈도우 팝업
   const onPopup = (url, name, width, height) => {
     const popupWidth = width;
@@ -143,9 +154,10 @@ function PopupServiceSearch() {
     const popupY = (window.screen.height / 2) - (popupHeight / 2);
     window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
-
   return (
-    <div className='content-section'>
+    <>
+      <ContentTitle data={pagedata} />
+      <div className='content-section'>
       <div className='search-wrap'>
         <div className='title flex-wrap between'>
             <h3>검색 조건</h3>
@@ -155,7 +167,16 @@ function PopupServiceSearch() {
            <table className='search'>
             <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
             <colgroup>
-              <col span={10} style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '10%' }} />
               </colgroup>
             <tbody>
               <tr>
@@ -186,8 +207,8 @@ function PopupServiceSearch() {
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
                 <td colSpan={4}>
                   <span className='input-btn-wrap'>
-                    <span className='input input_org' style={{ width: '88%' }}></span>
-                    <button className='btn btn-black' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
+                    <span className='input input_org input-search-front'></span>
+                    <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                   </span>
                 </td>
               </tr>
@@ -198,7 +219,7 @@ function PopupServiceSearch() {
                   </td>
                   <th scope="row"><label htmlFor="access">접근종류</label></th>
                   <td colSpan={2}>
-                      <Select defaultValue={optionAcess[0]} value={acess} onChange={setAcess} options={optionAcess} className='react-select-container' classNamePrefix="react-select" />
+                    <Select defaultValue={optionAcess[0]} value={acess} onChange={setAcess} options={optionAcess} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="division">작업구분/유형</label></th>
                   <td colSpan={3}>
@@ -210,7 +231,7 @@ function PopupServiceSearch() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
-                <td colSpan={5}>
+                <td colSpan={4}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -230,14 +251,10 @@ function PopupServiceSearch() {
                           <label htmlFor='st_user' className='type-btn'>사용자 지정</label>
                         </fieldset>
                     </span>
-                  </div>
+                   </div>
                 </td>
-                <td colSpan={4}>
-                </td>
-                </tr>
-                <tr>
                 <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
-                <td colSpan={5}>
+                <td colSpan={4}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} endDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -259,13 +276,11 @@ function PopupServiceSearch() {
                       </span>
                     </div>
                 </td>
-                <td colSpan={4}>
-                </td>
                 </tr>
                 <tr>
                   <th scope="row"><label htmlFor="infra">인프라팀</label></th>
                   <td colSpan={2}>
-                    <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
+                      <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="SO ">SO </label></th>
                   <td colSpan={2}>
@@ -283,7 +298,198 @@ function PopupServiceSearch() {
         </div>
       </div>
     </div>
+    <div className='content-section'>
+      <div className="result-pageview">
+        <ResultPageView />
+        <div className='btn-wrap'>
+          <button type="button" className='btn btn-md btn-reg'>일반 등록</button>
+          <button type="button" className='btn btn-md btn-reg-er'>긴급 등록</button>
+          <button type="button" className='btn btn-md btn-low btn-exel'>엑셀</button>
+        </div>
+      </div>
+      {/* 목록 영역 */}
+      <div className='over-flow-x'>
+        <table className="table" style={{ width: '200%' }}>
+          <caption>작업 목록 리스트</caption>
+          <colgroup>
+            <col span="38" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th rowSpan={2}>등록번호</th>
+              <th rowSpan={2}>등록부서</th>
+              <th rowSpan={2}>작업종류</th>
+              <th rowSpan={2}>접근구분</th>
+              <th rowSpan={2}>작업구분</th>
+              <th rowSpan={2}>작업유형</th>
+              <th rowSpan={2}>작업입회여부</th>
+              <th rowSpan={2}>등록자</th>
+              <th rowSpan={2}>구역명</th>
+              <th rowSpan={2}>제목</th>
+              <th colSpan={3}>작업일시</th>
+              <th rowSpan={2}>작업등록일</th>
+              <th rowSpan={2}>작업종료일</th>
+              <th rowSpan={2}>완료예정일</th>
+              <th rowSpan={2}>작업내용</th>
+              <th rowSpan={2}>원인및목적</th>
+              <th rowSpan={2}>이슈사항</th>
+              <th rowSpan={2}>작업대상지역</th>
+              <th rowSpan={2}>작업자</th>
+              <th colSpan={15}>서비스장애</th>
+              <th colSpan={2}>상태</th>
+            </tr>
+            <tr>
+              <th>시작일시</th>
+              <th>종료일시</th>
+              <th>소요시간</th>
+              <th>DTV</th>
+              <th>NET</th>
+              <th>VOIP</th>
+              <th>ATV</th>
+              <th>VOD</th>
+              <th>ESS</th>
+              <th>클라우드</th>
+              <th>전송망</th>
+              <th>국간망</th>
+              <th>기간망</th>
+              <th>기반</th>
+              <th>기타</th>
+              <th>순단</th>
+              <th>중단</th>
+              <th>중단시간</th>
+              <th>작업상태</th>
+              <th>결제 상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onClick={onPopup} className='link'>
+              <td>T23080700000151</td>
+              <td>강원 인프라팀</td>
+              <td>일반작업</td>
+              <td>비접근제어</td>
+              <td>인프라팀 전결</td>
+              <td>전송망</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>안동 AD16-6 긴급점검</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라 심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-success'>진행중</span></td>
+              <td><span className='color-success'>결제완료</span></td>
+            </tr>
+            <tr onClick={onPopup} className='link'>
+              <td>T23080700000152</td>
+              <td>강원 인프라</td>
+              <td>인프라팀 전결</td>
+              <td>시스템</td>
+              <td>인프라팀 전결</td>
+              <td>전송망</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>안동 AD16-6 긴급점검</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라 심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-warning'>등록</span></td>
+              <td><span className='color-warning'>결제대기</span></td>
+            </tr>
+            <tr onClick={onPopup} className='link'>
+              <td>T23080700000153</td>
+              <td>강원 인프라</td>
+              <td>인프라팀 전결</td>
+              <td>시스템</td>
+              <td>인프라팀 전결</td>
+              <td>전송망</td>
+              <td>입회</td>
+              <td>홍길동</td>
+              <td>영서 방송</td>
+              <td>안동 AD16-6 긴급점검</td>
+              <td>2023-01-01 02:00</td>
+              <td>2023-01-01 03:00</td>
+              <td>1H</td>
+              <td>2023-01-01 10:00</td>
+              <td>2023-01-01 20:00</td>
+              <td>2023-01-01</td>
+              <td>작업내용</td>
+              <td>원인</td>
+              <td>이슈 사항</td>
+              <td>강원인프라</td>
+              <td>강원인프라 심재완</td>
+              <td>130</td>
+              <td>100</td>
+              <td>10</td>
+              <td>5</td>
+              <td>5</td>
+              <td>5</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>○</td>
+              <td>3m</td>
+              <td><span className='color-error'>작업취소</span></td>
+              <td><span className='color-error'>결재반려</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ResultNoData />
+      <ResultListPaging />
+    </div>
+    </>
   )
 }
 
-export default PopupServiceSearch;
+export default AccessLogList;

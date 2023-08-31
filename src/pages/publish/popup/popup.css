@@ -36,8 +36,8 @@
 .tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') 3px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
-.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -15px; top: 10px; width: 20px; height: 1px; background-color: #dbdbdb; }
-.tree-item.open::before { content: ""; display: block; position: absolute; left: 10px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
+.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 24px; height: 1px; background-color: #dbdbdb; }
+.tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
 .list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
 .list-item ul { list-style: none; }
