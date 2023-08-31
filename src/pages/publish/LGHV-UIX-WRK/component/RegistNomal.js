@@ -622,11 +622,11 @@ function NomalWork() {
                     </div>
                 </div>
                 <div className='over-flow-x'>
-                    <table className="table mt8" style={{ width: '150%' }}>
+                    <table className="table mt8" style={{ width: '130%' }}>
                         <caption>장비목록</caption>
                         <colgroup>
                             <col span={5} />
-                            <col span={8} style={{ width: '3%' }} />
+                            <col span={8} style={{ width: '5%' }} />
                             <col span={4} />
                         </colgroup>
                         <thead>
@@ -703,19 +703,19 @@ function NomalWork() {
                                 </td>
                                 <td scope='col'>
                                     <div className='date-time-wrap sm'>
-                                            <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
+                                            <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
                                                 <div className='time-select'>
-                                                    <input type="text" value={startHours} readOnly />
+                                                    <input type="text" value={endHours} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartHourIncrease}>증가</button>
-                                                        <button onClick={handleStartHourDecrease}>▼</button>
+                                                        <button onClick={handleEndHourIncrease}>증가</button>
+                                                        <button onClick={handleEndHourDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div> :
                                                 <div className='time-select'>
-                                                    <input type="text" value={startMinutes} readOnly />
+                                                    <input type="text" value={endMinutes} readOnly />
                                                     <span>
-                                                        <button onClick={handleStartMinuteIncrease}>증가</button>
-                                                        <button onClick={handleStartMinuteDecrease}>▼</button>
+                                                        <button onClick={handleEndMinuteIncrease}>증가</button>
+                                                        <button onClick={handleEndMinuteDecrease} className='down'>감소</button>
                                                     </span>
                                                 </div>
                                         </div>

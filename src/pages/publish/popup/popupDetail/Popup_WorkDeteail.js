@@ -92,6 +92,10 @@ const WorkDeteail = ({ onItemSelected }) => {
           `}
         </style>
         <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
+        <div className='content-title'>
+            <h2>작업 상세</h2>
+        </div>
         <div className='pop-search-wrap'>
             <label htmlFor='work-type'>선택 :</label>
             <select name='work-type' id='work_type' onChange={handleSelectChange} className='select-item'>

@@ -10,7 +10,7 @@ const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
   return createPortal(children, el)
 }
-function ServicetaskDetail() {
+function SysSendCustomTxtMsgLogDetail() {
   const [notimethod, setNotimethod] = useState(false);
   const [history, setHistory] = useState(false);
   const [workStop, setWorkStop] = useState();
@@ -20,8 +20,8 @@ function ServicetaskDetail() {
   const [refuse, setRefuse] = useState(false);
   const [approve, setApprove] = useState(false);
   const pagedata = {
-    title: '작업관리',
-    subtitle: '작업상세',
+    title: '고객문자발송로그',
+    subtitle: '상세',
     SubMenu: 'yes',
     isDetail: 'yes'
   }
@@ -104,4 +104,4 @@ function PopupButtons(props) {
   )
 }
 
-export default ServicetaskDetail;
+export default SysSendCustomTxtMsgLogDetail;

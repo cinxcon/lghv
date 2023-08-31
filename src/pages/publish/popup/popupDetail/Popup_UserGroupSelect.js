@@ -17,6 +17,7 @@ function PopupUserGroupSelect() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title flex-wrap between">
           <h2>사용자 그룹 선택</h2>
         </div>

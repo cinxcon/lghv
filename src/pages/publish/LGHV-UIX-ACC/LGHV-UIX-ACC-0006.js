@@ -31,6 +31,7 @@ function AccEquipmentDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         {/* 장비상세(Linux, HPUX, AIX, Solaris 시) */}
         <div className='content-section'>
