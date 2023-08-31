@@ -16,7 +16,7 @@ const Sidebar = () => {
     console.log(divStates);
     setDivStates(!divStates);
     if (divStates === true) {
-      navigate('/LGHV-UIX-SYS/LGHV-UIX-SYS-0001');
+      navigate('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001');
     } else {
       navigate('/LGHV-UIX-MAN/LGHV-UIX-MAN-0003');
     }

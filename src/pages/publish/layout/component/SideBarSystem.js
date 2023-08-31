@@ -5,41 +5,41 @@ const Sidebar = () => {
   const [systemData] = useState([
     {
       title: '계정관리',
-      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001',
+      path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001',
       subMenus: [
-        { title: '부서관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001' },
-        { title: '사용자관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0002' },
-        { title: '수신거부 사용자관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0003' },
-        { title: 'SMS 수신거부 가입자관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0004' }
+        { title: '부서관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001' },
+        { title: '사용자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002' },
+        { title: '수신거부 사용자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0003' },
+        { title: 'SMS 수신거부 가입자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0004' }
       ]
     },
     {
       title: '로그관리',
-      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0005',
+      path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005',
       subMenus: [
-        { title: '접속로그', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0005' },
-        { title: '개인정보 조회로그', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0006' },
-        { title: '문자발송로그', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0007' },
-        { title: '메일발송로그', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0008' },
-        { title: '고객문자 발송로그', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0009' },
-        { title: '장애 발생 서비스 가입자 문자 발송', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0010' }
+        { title: '접속로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005' },
+        { title: '개인정보 조회로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0006' },
+        { title: '문자발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007' },
+        { title: '메일발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008' },
+        { title: '고객문자 발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009' },
+        { title: '장애 발생 서비스 가입자 문자 발송', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010' }
       ]
     },
     {
       title: '공통관리',
-      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0011',
+      path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011',
       subMenus: [
-        { title: '코드관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0011' },
-        { title: '권한관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0012' },
-        { title: '메뉴권한관리', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0013' }
+        { title: '코드관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011' },
+        { title: '권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012' },
+        { title: '메뉴권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013' }
       ]
     },
     {
       title: '보고서',
-      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0014',
+      path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014',
       subMenus: [
-        { title: '주간보고서', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0014' },
-        { title: '원갈보고서', path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0015' }
+        { title: '주간보고서', path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014' },
+        { title: '원갈보고서', path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015' }
       ]
     }
   ]);

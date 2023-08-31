@@ -58,7 +58,9 @@ import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
+import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-detail';
 import SysUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002';
+import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-detail';
 import SysUnsubscribeUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0003';
 import SysSmsUnsubscribeMemberMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0004';
 import SysConnectLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0005';
@@ -134,21 +136,27 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} />
 
       {/* 시스템관리 */}
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0001" element={<SysDepartmentMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0002" element={<SysUserMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0003" element={<SysUnsubscribeUserMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0004" element={<SysSmsUnsubscribeMemberMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0005" element={<SysConnectLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0006" element={<SysPsnInfoInquiryLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0007" element={<SysSendTxtMsgLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0008" element={<SysSendMailLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0009" element={<SysSendCustomTxtMsgLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0010" element={<SysSendBlockingMemberTxtMsgLog/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0011" element={<SysCodeMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0012" element={<SysAuthorityMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0014" element={<SysWeeklyReport/>} />
-      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0015" element={<SysMonthlyReport/>} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001" element={<SysDepartmentMng />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-detail" element={<SysDepartmentMngDetail />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-regist" element={<SysDepartmentMngReg />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify" element={<SysDepartmentMngModi />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002" element={<SysUserMng />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-detail" element={<SysUserMngDetail />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-regist" element={<SysUserMngReg />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-modify" element={<SysUserMngModi />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0003" element={<SysUnsubscribeUserMng />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0004" element={<SysSmsUnsubscribeMemberMng />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005" element={<SysConnectLog />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0006" element={<SysPsnInfoInquiryLog />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007" element={<SysSendTxtMsgLog />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008" element={<SysSendMailLog />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009" element={<SysSendCustomTxtMsgLog />} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010" element={<SysSendBlockingMemberTxtMsgLog />} />
+      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011" element={<SysCodeMng />} />
+      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012" element={<SysAuthorityMng />} />
+      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng />} />
+      <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014" element={<SysWeeklyReport />} />
+      <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015" element={<SysMonthlyReport />} />
     </Routes>
   );
 };

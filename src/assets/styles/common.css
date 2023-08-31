@@ -58,13 +58,16 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-row-wrap table { width: 49%; }
 .mt6 { margin-top: 6px !important; }
 .mt8 { margin-top: 8px !important; }
+.mt16 { margin-top: 16px !important; }
 .mt20 { margin-top: 20px !important; }
 .mb15 { margin-bottom: 15px !important; }
 .mb24 { margin-bottom: 24px !important; }
+.mb30 { margin-bottom: 30px !important; }
 .ml4 { margin-left: 4px !important; }
 .ml8 { margin-left: 8px !important; }
 .ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
+.mr25 { margin-right: 25px !important; }
 .flex-wrap { display: flex; align-items: center; }
 .between { justify-content: space-between; }
 .align-start { align-items: flex-start; }
@@ -292,13 +295,13 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .sidebar.open .menu-item-level-1 .toggle-button-level-1 { width: 100%; padding: 16px 0 16px 60px; text-align: left; }
 .sidebar.close .menu-item-level-1, .sidebar.close .fix-btn-wrap { height: 56px; }
 .sidebar.close .toggle-button { background-image: url('../images/common/lnb/ic_lnb_open_32.png'); }
-.sidebar .work-space.show{display: block;} 
-.sidebar .work-space.hide{display: none;} 
-.sidebar .system-management.show{display: block;} 
+.sidebar .work-space.show{display: block;}
+.sidebar .work-space.hide{display: none;}
+.sidebar .system-management.show{display: block;}
 .sidebar .system-management.hide{display: none;}
 .fix-btn-wrap {position: fixed; bottom: 100px; padding: 16px 0 16px 60px;}
-.fix-btn-wrap::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); } 
-.sidebar.open .fix-btn-wrap .toggle-btn{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; } 
+.fix-btn-wrap::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
+.sidebar.open .fix-btn-wrap .toggle-btn{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; }
 .fix-btn-wrap .toggle-btn:hover{color: #ed174d; font-weight: bold;}
 .menu-item-level-1.active .toggle-button-level-1, .sidebar.close .menu-item-level-1.active, .menu-item-level-1 .toggle-button-level-1:hover { background-color: #ed174d; }
 .work-space .menu-item-level-1::before { content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; }
@@ -358,6 +361,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .search th { padding: 8px 0 8px 20px; }
 .search th:first-child{padding-left: 0;}
 .search td { padding: 8px 20px 8px 0; }
+.search td.bd-right-pd0 { padding-right: 0; }
 .search .react-datepicker-wrapper input, .input-btn-wrap .react-datepicker-wrapper, .input-btn-wrap .react-datepicker-wrapper input { width: 100%; }
 .search .datepickers-wrap > span { display: block; width: 48%; }
 .search .radiobtn-wrap{margin-left: 5px;}
@@ -448,7 +452,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 /* 셀렉트 박스 */
 .react-select-container{width: 100%;}
 .react-select-container.w60{width: 60%;}
-.react-select-container.w80{width: 80%;}  
+.react-select-container.w80{width: 80%;}
 .react-select__control{border: 1px solid #dbdbdb; height: 28px; min-height: 28px; line-height: 28px; border-radius: 0;}
 .react-select__control--is-focused, .react-select__control--menu-is-open:hover{ border-color: #000 !important; box-shadow: none; height: 28px; min-height: 28px; line-height: 28px; border-radius: 0;}
 .react-select__indicator {padding: 4px; color: #000;}
