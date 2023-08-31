@@ -2,7 +2,7 @@ import ContentTitle from '../layout/ContentTitle';
 import ServicetaskSearch from './component/ServicetaskSearch';
 import ServicetasklList from './component/ServicetasklList';
 
-function ApprovalList() {
+function WorkList() {
   const pagedata = {
     title: '작업 관리',
     subtitle: '작업 목록',
@@ -18,4 +18,4 @@ function ApprovalList() {
   )
 }
 
-export default ApprovalList;
+export default WorkList;
