@@ -42,7 +42,7 @@ function SysUnsubscribeUserMng() {
                 <td>
                   <input type="text" id="detailAddress" name="detailAddress" />
                 </td>
-                <td className="right bd-right-pd0">
+                <td className="right">
                   <span className='btn-wrap'>
                     <button className='btn btn-black btn-search-txt'>검색</button>
                     <button className='btn'>등록</button>
@@ -74,7 +74,7 @@ function SysUnsubscribeUserMng() {
                 <td>
                   <input type="text" id="detailAddress" name="detailAddress" />
                 </td>
-                <td className="right bd-right-pd0">
+                <td className="right">
                   <span className='btn-wrap'>
                     <button className='btn btn-black btn-search-txt'>검색</button>
                   </span>
