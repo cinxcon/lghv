@@ -76,6 +76,7 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const [selectedTree, setSelectedTree] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
+  const [selectedDepart, setSelectedDepart] = useState(null);
   const [approvalType, setApprovalType] = useState('기안');
   const [selectedType, setSelectedType] = useState([]);
   const [tableData, setTableData] = useState([]);
@@ -84,6 +85,7 @@ const ApprovalLine = ({ onItemSelected }) => {
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.deptId);
+    setSelectedDepart(item.deptName);
   };
 
   const listItemSelect = (item, index) => {
@@ -150,6 +152,7 @@ const ApprovalLine = ({ onItemSelected }) => {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>결재 지정</h2>
         </div>
@@ -192,9 +195,13 @@ const ApprovalLine = ({ onItemSelected }) => {
                   </div>
             </div>
             <div className='list-item'>
-                  <ul>
-                    {getMenuItems()}
-                  </ul>
+                <ul>
+                  <li>
+                    <input type="checkbox" name="ck_1" id="ck_1" value="" />
+                    <label htmlFor='ck_1'>[{selectedDepart}] 전체선택</label>
+                  </li>
+                  {getMenuItems()}
+                </ul>
             </div>
           </div>
           <div className='selected-item'>
@@ -242,23 +249,25 @@ const ApprovalLine = ({ onItemSelected }) => {
                   </tbody>
                 </table>
               </div>
-              <table className="popup-table">
-                <caption>자주쓰는 결제선 정보</caption>
-                  <colgroup>
-                    <col span={2}/>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col" colSpan={2}><span className="bookmark">자주쓰는 결제선</span></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><button onClick={() => deleteRow()} className='btn-del-28'>삭제</button></td>
-                      <td>홍길동 테스트</td>
-                    </tr>
-                  </tbody>
-              </table>
+              <div className='overflow'>
+                <table className="popup-table">
+                  <caption>자주쓰는 결제선 정보</caption>
+                    <colgroup>
+                      <col span={2}/>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" colSpan={2}><span className="bookmark">자주쓰는 결제선</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><button onClick={() => deleteRow()} className='btn-del-28'>삭제</button></td>
+                        <td>홍길동 테스트</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
             </div>
         </div>
         <div className='btn-wrap right'>

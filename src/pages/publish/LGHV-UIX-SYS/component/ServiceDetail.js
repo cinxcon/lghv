@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import TooltipMsg from '../../tooltip/tooltip';
-import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
 
 function ServiceDetail() {
   //  토글
@@ -21,7 +19,8 @@ function ServiceDetail() {
           </div>
       </div>
       <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-          <table className='table'>
+        <div className='flex-wrap between align-start'>
+          <table className='table half'>
               <caption>결제 라인 정보</caption>
               <colgroup>
                 <col span={5} style={{ width: '20%' }} />
@@ -59,7 +58,7 @@ function ServiceDetail() {
                 </tr>
               </tbody>
           </table>
-          <table className='table mt20'>
+          <table className='table half'>
               <caption>합의 수신 정보</caption>
               <colgroup>
                 <col style={{ width: '10%' }} />
@@ -76,11 +75,12 @@ function ServiceDetail() {
                 </tr>
               </tbody>
           </table>
+        </div>
       </div>
     </div>
     <div className='content-section'>
       <div className={`flex-wrap between ${divStates[1] ? 'under-line' : ''}`}>
-        <h3>작업 개요</h3>
+        <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
         <div className="btn-wrap">
             <button className={`btn-fold ${divStates[1] ? 'close' : ''}`} onClick={() => handleDivToggle(1)} id='fold-open'>검색영역 열기</button>
         </div>
@@ -158,7 +158,6 @@ function ServiceDetail() {
               <th scope='row'>
                 <div className='tooltip-area'>
                   작업 유형
-                  <TooltipMsg message={ <TooltipMsgWorkType /> } ><button className='btn-tooltip'>tooltip?</button></TooltipMsg>
                 </div>
               </th>
               <td>
