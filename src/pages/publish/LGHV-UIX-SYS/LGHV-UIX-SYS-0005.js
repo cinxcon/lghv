@@ -4,9 +4,9 @@ import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
 
 import ContentTitle from '../layout/ContentTitle';
-import ResultPageView from '../../common/ResultPageView';
-import ResultNoData from '../../common/ResultNoData';
-import ResultListPaging from '../../common/ResultListPaging';
+import ResultPageView from '../common/ResultPageView';
+import ResultNoData from '../common/ResultNoData';
+import ResultListPaging from '../common/ResultListPaging';
 
 function SysConnectLog() {
   const pagedata = {
