@@ -56,6 +56,23 @@ import ApprovalDetailTest from './pages/publish/LGHV-UIX-APR/_ApprovalDetail';
 import ApprovalPop from './pages/publish/LGHV-UIX-APR/_ApprovalPop';
 import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
+// 시스템관리
+import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
+import SysUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002';
+import SysUnsubscribeUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0003';
+import SysSmsUnsubscribeMemberMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0004';
+import SysConnectLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0005';
+import SysPsnInfoInquiryLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0006';
+import SysSendTxtMsgLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0007';
+import SysSendMailLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0008';
+import SysSendCustomTxtMsgLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0009';
+import SysSendBlockingMemberTxtMsgLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0010';
+import SysCodeMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0011';
+import SysAuthorityMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0012';
+import SysMenuAuthMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0013';
+import SysWeeklyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0014';
+import SysMonthlyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0015';
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -115,6 +132,23 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/ApprovalTest" element={<ApprovalTest />} />
       <Route path="/LGHV-UIX-APR/ApprovalPop" element={<ApprovalPop />} />
       <Route path="/LGHV-UIX-APR/ApprovalPopDetail" element={<ApprovalPopDetail />} />
+
+      {/* 시스템관리 */}
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0001" element={<SysDepartmentMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0002" element={<SysUserMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0003" element={<SysUnsubscribeUserMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0004" element={<SysSmsUnsubscribeMemberMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0005" element={<SysConnectLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0006" element={<SysPsnInfoInquiryLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0007" element={<SysSendTxtMsgLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0008" element={<SysSendMailLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0009" element={<SysSendCustomTxtMsgLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0010" element={<SysSendBlockingMemberTxtMsgLog/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0011" element={<SysCodeMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0012" element={<SysAuthorityMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0014" element={<SysWeeklyReport/>} />
+      <Route path="/LGHV-UIX-SYS/LGHV-UIX-SYS-0015" element={<SysMonthlyReport/>} />
     </Routes>
   );
 };

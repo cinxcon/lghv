@@ -8,7 +8,7 @@ import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
-function AccessLogList() {
+function SysConnectLog() {
   const pagedata = {
     title: '로그 관리',
     subtitle: '접속 로그',
@@ -491,5 +491,4 @@ function AccessLogList() {
     </>
   )
 }
-
-export default AccessLogList;
+export default SysConnectLog;
