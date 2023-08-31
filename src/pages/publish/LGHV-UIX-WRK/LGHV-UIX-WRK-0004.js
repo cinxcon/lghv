@@ -15,7 +15,6 @@ function ServicetaskDetail() {
   const navigate = useNavigate();
   const [notimethod, setNotimethod] = useState(false);
   const [history, setHistory] = useState(false);
-  const [print, setPrint] = useState(false);
   const [workStop, setWorkStop] = useState();
   const [workCancel, setWorkCancel] = useState();
   const [workFin, setWorkFin] = useState();
@@ -28,6 +27,9 @@ function ServicetaskDetail() {
     SubMenu: 'yes',
     isDetail: 'yes'
   }
+  const handlePrint = () => {
+    window.print();
+  };
   return (
     <>
       <PopupPortal>
@@ -41,7 +43,7 @@ function ServicetaskDetail() {
         <div className="detail-top-btn-group">
           <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
           <button className='btn btn-pop' onClick={() => { setHistory(true) }}>처리내역</button>
-          <button className='btn btn-print' onClick={() => { setPrint(true) }}>화면인쇄</button>
+          <button className='btn btn-print' onClick={handlePrint}>화면인쇄</button>
           <button className='btn btn-list' onClick={() => { navigate(-1) }}>목록</button>
         </div>
         <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
@@ -49,9 +51,6 @@ function ServicetaskDetail() {
         </Popup>
         <Popup open={history} close={() => { setHistory(false) }} header="처리내역">
           <PopupProcessHistory />
-        </Popup>
-        <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
-          화면인쇄
         </Popup>
         <ServiceDetail />
         <div className='detail-bottom-btn-group'>

@@ -26,7 +26,9 @@ function DisabilityMngDetail() {
   const [notimethod, setNotimethod] = useState(false);
   const [print, setPrint] = useState(false);
   const [history, setHistory] = useState(false);
-
+  const handlePrint = () => {
+    window.print();
+  };
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -36,7 +38,7 @@ function DisabilityMngDetail() {
         <button className='btn btn-pop' onClick={() => { setDesabilityReport(true) }}>장애보고서</button>
         <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
         <button className='btn btn-pop' onClick={() => { setHistory(true) }}>처리내역</button>
-        <button className='btn btn-print' onClick={() => { setPrint(true) }}>화면인쇄</button>
+        <button className='btn btn-print' onClick={handlePrint}>화면인쇄</button>
         <button className='btn btn-list' onClick={() => { navigate(-1) }}>목록</button>
       </div>
       <Popup open={desabilityReport} close={() => { setDesabilityReport(false) }} header="장애보고서">

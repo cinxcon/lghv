@@ -279,7 +279,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .header-wrap .user-info .logout-btn::before { content: ''; display: block; position: absolute; left: 0; top: -2px; width: 24px; height: 24px; background-image: url('../images/common/ic_logout_white_24.png'); }
 
 /* 레프트 메뉴  */
-.sidebar { background-color: #000; width: 64px; transition: transform 0.3s ease-in-out; color: #fff; position: relative; height:calc(100vh - 48px) ; }
+.sidebar { background-color: #000; width: 64px; transition: transform 0.3s ease-in-out; color: #fff; position: relative; min-height:calc(100vh - 48px) ; }
 .sidebar.open { width: 220px; transition: transform 0.3s ease-in-out; }
 .sidebar.closed { width: 64px; transition: transform 0.3s ease-in-out; }
 .sidebar-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 31px 16px 30px; border-top: 1px solid #333; border-bottom: 2px solid #333; text-align: left; }
@@ -299,6 +299,9 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .sidebar .work-space.hide{display: none;}
 .sidebar .system-management.show{display: block;}
 .sidebar .system-management.hide{display: none;}
+.sidebar .system-management .tit{ display: none; transition: opacity 0.3s ease; opacity: 0;}
+.sidebar.open .system-management .tit{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; padding: 16px 0 16px 60px;}
+.sidebar.open .system-management .tit::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 13px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }  
 .fix-btn-wrap {position: fixed; bottom: 100px; padding: 16px 0 16px 60px;}
 .fix-btn-wrap::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
 .sidebar.open .fix-btn-wrap .toggle-btn{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; }
@@ -313,7 +316,11 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .work-space .menu-item-level-1:nth-child(6)::before { background-image: url('../images/common/lnb/ic_lnb6_32.png'); }
 .work-space .menu-item-level-1:nth-child(7)::before { background-image: url('../images/common/lnb/ic_lnb7_32.png'); }
 .work-space .menu-item-level-1:nth-child(8)::before { background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
+.menu-item-level-1.has-sub::after{content: ''; display: block; width: 16px; height: 16px; position: absolute; top: 20px; right: 16px; background: url('../images/common/ic_white_set_16.png') -90px 0 no-repeat;}
+.menu-item-level-1.active.has-sub::after{background-position: -16px 0;}
 .toggle-button-level-1 { display: inline-block; cursor: pointer; color: #fff; font-size: 16px; line-height: 24px; }
+
+
 .menu-item-level-1.active .toggle-button-level-1 { font-weight: bold; }
 .menu-level-2 { list-style-type: none; padding: 0; margin: 0; text-align: center; }
 .menu-item-level-2 { text-align: left; position: relative; }
@@ -460,6 +467,5 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .react-select__value-container, .react-select__input-container{margin:0; padding: 0;}
 .react-select__single-value{padding: 0 10px;}
 .react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; display: block !important; z-index: 2;}
-.react-select__menu-list:hover{}
 .react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea;}
 .react-select__option--is-selected {background-color:#dbdbdb; color: #000;}
