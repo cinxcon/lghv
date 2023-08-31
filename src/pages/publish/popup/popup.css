@@ -33,21 +33,21 @@
 .tree-item > .tree-content button.open { background: url('../../../assets/images/common/btn_minus_13.png') 0 0 no-repeat; }
 .tree-item > .tree-content .item-name { padding-left: 24px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/ic_folder_16.png') 0 2px no-repeat; z-index: 1; }
 .tree-item > .tree-content .item-name.active, .tree-item > .tree-content .item-name:hover { color: #ED174D; }
-.tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') 3px 2px no-repeat; }
+.tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') -2px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
-.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 24px; height: 1px; background-color: #dbdbdb; }
+.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
 .list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
 .list-item ul { list-style: none; }
 .list-item ul li { margin: 0 16px; padding: 8px 20px; border-bottom: 1px dotted #dbdbdb; cursor: pointer; display:flex; justify-content: space-between; }
+.list-item ul li:first-child{padding: 8px 0; border-bottom:1px solid #dbdbdb ;}
 .list-item ul li.active {background: url('../../../assets/images/common/ic_check_set_16.png') -16px 12px no-repeat; }
 .list-item ul li span + span { margin-left: 16px; }
 .selected-item {width: 45%; padding: 0 0 0 20px;  }
-.selected-item .overflow + table { margin-top: 30px; }
-.selected-item .overflow{height: 320px; overflow-y: scroll;}
-
+.selected-item .overflow{height: 300px; overflow-y: scroll;}
+.selected-item .overflow + .overflow { margin-top: 30px; height: 200px; }
 /* 아래의 모든 코드는 영역::코드로 사용 */
 .tree-wrap::-webkit-scrollbar, .list-item::-webkit-scrollbar, .selected-item::-webkit-scrollbar {
   width: 6px;  /* 스크롤바의 너비 */

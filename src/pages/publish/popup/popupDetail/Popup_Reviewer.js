@@ -74,11 +74,13 @@ const Rreviewer = ({ onItemSelected }) => {
 
   const [selectedTree, setSelectedTree] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
+  const [selectedDepart, setSelectedDepart] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [trActive, setTrActive] = useState('');
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.deptId);
+    setSelectedDepart(item.deptName);
   };
   const listItemSelect = (item) => {
     const newRow = { id: item.id, title: item.title, name: item.name };
@@ -138,6 +140,7 @@ const Rreviewer = ({ onItemSelected }) => {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
       <div className="content-title">
         <h2>검토자 지정</h2>
       </div>
@@ -157,6 +160,10 @@ const Rreviewer = ({ onItemSelected }) => {
           </div>
           <div className='list-item'>
                 <ul>
+                  <li>
+                    <input type="checkbox" name="ck_1" id="ck_1" value="" />
+                    <label htmlFor='ck_1'>[{selectedDepart}] 전체선택</label>
+                  </li>
                   {getMenuItems()}
                 </ul>
           </div>

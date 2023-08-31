@@ -17,6 +17,10 @@ function PopupWorkOnLoad() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
+        <div className="content-title">
+          <h2>불러오기</h2>
+        </div>
         <PopupServiceSearch />
         <PopupServicelList />
       </div>
