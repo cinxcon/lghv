@@ -60,9 +60,9 @@ import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
-import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-Detail';
+import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-detail';
 import SysUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002';
-import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-Detail';
+import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-detail';
 import SysUnsubscribeUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0003';
 import SysSmsUnsubscribeMemberMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0004';
 import SysConnectLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0005';
