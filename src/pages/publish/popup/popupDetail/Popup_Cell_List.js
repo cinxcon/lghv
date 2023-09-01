@@ -95,10 +95,12 @@ const CellList = ({ onItemSelected }) => {
                     <button type="button" className='btn btn-md'>확인</button>
                 </div>
             </div>
-            <table className="popup-table center">
-                <caption>cell 정보</caption>
-                <tbody>{checkboxRows}</tbody>
-            </table>
+            <div className='overflow'>
+              <table className="popup-table center">
+                  <caption>cell 정보</caption>
+                  <tbody>{checkboxRows}</tbody>
+              </table>
+            </div>
         </div>
         </PopupPortal>
      </>

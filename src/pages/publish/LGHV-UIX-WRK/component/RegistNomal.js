@@ -10,7 +10,7 @@ import Select from 'react-select';
 import ResultListPaging from '../../common/ResultListPaging';
 
 function NomalWork() {
-  const [cancle, setCancle] = useState(false);
+//   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
   const [startDate, setStartDate] = useState(null);
@@ -270,8 +270,8 @@ function NomalWork() {
                     <td>
                         <div className='flex-wrap between'>
                             <span className='input-btn-wrap'>
-                                <span className='input input_org input-search-front'></span>
-                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button>
+                                <span className='input input_org'></span>
+                                {/* <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button> */}
                             </span>
                         </div>
                     </td>
@@ -547,7 +547,7 @@ function NomalWork() {
                     <td colSpan={3}>
                        <span className='input-btn-wrap'>
                        <span className='input input_org input-search-front'></span>
-                        <button className='btn btn-black btn-search' onClick={() => { onPopup('/popup/PopupWorkDeteail', 'workDeteail', '460', '700') }}>작업세부 찾기</button>
+                        <button className='btn btn-black btn-search' onClick={() => { onPopup('/popup/PopupWorkDeteail', 'workDeteail', '464', '764') }}>작업세부 찾기</button>
                        </span>
                     </td>
                 </tr>
@@ -877,10 +877,10 @@ function NomalWork() {
         </div>
     </div>
     <div className="detail-bottom-btn-group">
-        <button className="btn btn-lg btn-low" onClick={() => { setCancle(true) }}>취소</button>
+        {/* <button className="btn btn-lg btn-low" onClick={() => { setCancle(true) }}>취소</button>
         <Alert open={cancle} close={() => { setCancle(false) }} >
           <div>취소 하시겠습니까?</div>
-        </Alert>
+        </Alert> */}
         <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>등록</button>
         <Alert open={regist} close={() => { setRegist(false) }}>
           <div>작업을 등록 하시겠습니까?</div>

@@ -26,9 +26,9 @@ const Main = () => {
         <article id='content'>
           <WorkInfo />
           <AppRouter />
-          <Footer />
         </article>
       </div>
+      <Footer />
   </>)
 }
 

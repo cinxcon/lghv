@@ -35,7 +35,7 @@ const LoadCell = ({ onItemSelected }) => {
     setToggled(prevState => !prevState);
   };
 
-  // 데이터 리스트
+  // 셀렏트 리스트
   const optionsIfraType = [
     { value: 'all', label: '전체' },
     { value: '서울인프라팀', label: '서울인프라팀' },
@@ -47,14 +47,8 @@ const LoadCell = ({ onItemSelected }) => {
     { value: 'so', label: 'SO' }
   ];
 
-  const optionsCellType = [
-    { value: 'all', label: '전체' },
-    { value: 'Cell', label: 'Cell' }
-  ];
-
   const [infraType, setInfraType] = useState(optionsIfraType[0]);
   const [soType, setSoType] = useState(optionsSoType[0]);
-  const [cellType, setCellType] = useState(optionsCellType[0]);
 
   const [checkboxStates, setCheckboxStates] = useState(false);
 
@@ -112,7 +106,7 @@ const LoadCell = ({ onItemSelected }) => {
                                 <th scope="row"><label htmlFor="cell ">CELL</label></th>
                                 <td colSpan={3}>
                                     <span className='input-btn-wrap'>
-                                        <Select defaultValue={optionsCellType[0]} value={cellType} onChange={setCellType} options={optionsCellType} className='react-select-container w80' classNamePrefix="react-select" />
+                                        <span className='input input_org input-plus-front'></span>
                                         <button type='button' className='btn-check-28' onClick={() => { onPopup('/popup/PopupCellList', 'CellList', '800', '600') }}>찾기</button>
                                         <button type='button' className='btn-del-28'>삭제</button>
                                     </span>

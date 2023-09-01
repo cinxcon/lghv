@@ -12,10 +12,10 @@ const PopupPortal = ({ children }) => {
 
 const Worker = ({ onItemSelected }) => {
   const data = [
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 },
-    { cell: 'DG1', address: '태백~도계 국간망', dtn: 83, net: 29, voip: 8, atv: 12, total: 132 }
+    { userid: '123456', name: '홍길동', type: '직원', depart: '미디어 운영팀', position: '', rank: '사원', email: 'hellovision@lghv.net' },
+    { userid: '123456', name: '홍길동', type: '직원', depart: '미디어 운영팀', position: '', rank: '사원', email: 'hellovision@lghv.net' },
+    { userid: '123456', name: '홍길동', type: '직원', depart: '미디어 운영팀', position: '', rank: '사원', email: 'hellovision@lghv.net' },
+    { userid: '123456', name: '홍길동', type: '직원', depart: '미디어 운영팀', position: '', rank: '사원', email: 'hellovision@lghv.net' }
   ];
 
   const handleConfirmClick = () => {
@@ -29,16 +29,11 @@ const Worker = ({ onItemSelected }) => {
     setToggled(prevState => !prevState);
   };
 
-  // 데이터 리스트
+  // 셀렏트 박스
   const optionsUserType = [
     { value: 'all', label: '전체' },
     { value: '서울인프라팀', label: '서울인프라팀' },
     { value: '경북인프라팀', label: '경북인프라팀' }
-  ];
-
-  const optionsCompanyType = [
-    { value: 'all', label: '전체' },
-    { value: 'so', label: 'SO' }
   ];
 
   const optionsPositionType = [
@@ -51,19 +46,9 @@ const Worker = ({ onItemSelected }) => {
   ];
 
   const [userType, setUserType] = useState(optionsUserType[0]);
-  const [companyType, setCompanyType] = useState(optionsCompanyType[0]);
   const [positionType, setPositionType] = useState(optionsPositionType[0]);
   const [rankType, setRankType] = useState(optionsRankType[0]);
 
-  const [checkboxStates, setCheckboxStates] = useState(false);
-  const handleCheckboxChange = (event) => {
-    const { id, checked } = event.target;
-    setCheckboxStates((prevState) => ({
-      ...prevState,
-      [id]: checked
-    }));
-  };
-  const selectedCount = Object.values(checkboxStates).filter(Boolean).length;
   // 윈도우 팝업
   const onPopup = (url, name, width, height) => {
     const popupWidth = width;
@@ -104,10 +89,6 @@ const Worker = ({ onItemSelected }) => {
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th scope='row'><label htmlFor='company'>회사</label></th>
-                                <td>
-                                    <Select defaultValue={optionsCompanyType[0]} value={companyType} onChange={setCompanyType} options={optionsCompanyType} className='react-select-container' classNamePrefix="react-select" />
-                                </td>
                                 <th scope='row'><label htmlFor='position'>직책</label></th>
                                 <td>
                                     <Select defaultValue={optionsPositionType[0]} value={positionType} onChange={setPositionType} options={optionsPositionType} className='react-select-container' classNamePrefix="react-select" />
@@ -115,6 +96,10 @@ const Worker = ({ onItemSelected }) => {
                                 <th scope='row'><label htmlFor='rank'>직급</label></th>
                                 <td>
                                     <Select defaultValue={optionsRankType[0]} value={rankType} onChange={setRankType} options={optionsRankType} className='react-select-container' classNamePrefix="react-select" />
+                                </td>
+                                <th scope='row'><label htmlFor='user_type'>사용자구분</label></th>
+                                <td>
+                                    <Select defaultValue={optionsUserType[0]} value={userType} onChange={setUserType} options={optionsUserType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>
                             </tr>
                             <tr>
@@ -132,17 +117,17 @@ const Worker = ({ onItemSelected }) => {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope='row'><label htmlFor='user_type'>사용자구분</label></th>
-                                <td>
-                                    <Select defaultValue={optionsUserType[0]} value={userType} onChange={setUserType} options={optionsUserType} className='react-select-container' classNamePrefix="react-select" />
-                                </td>
                                 <th scope='row'><label htmlFor='cell '>부서</label></th>
-                                <td colSpan={3}>
+                                <td>
                                     <span className='input-btn-wrap'>
                                         <span className='input input_org input-search-front'></span>
                                         <button type='button' className='btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>찾기</button>
                                     </span>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,52 +140,33 @@ const Worker = ({ onItemSelected }) => {
                 </div>
             <div className='result-pageview mb15'>
                 <ResultPageView />
-                <div className='btn-wrap'>
-                    <span className='cheked-item'><em>{ selectedCount }</em>개 선택</span>
-                    <button type='button' className='btn btn-md ml10'>확인</button>
-                </div>
             </div>
             <table className='popup-table center'>
                 <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
                 <colgroup>
-                    <col style={{ width: '5%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '35%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '10%' }} />
+                    <col span={7} />
                 </colgroup>
                 <thead>
                 <tr>
-                    <th rowSpan={2}></th>
-                    <th rowSpan={2}>CELL</th>
-                    <th rowSpan={2}>주소</th>
-                    <th colSpan={4}>가입자 모수</th>
-                    <th rowSpan={2}>합</th>
-                </tr>
-                <tr>
-                    <th>DTN</th>
-                    <th>NET</th>
-                    <th>VOIP</th>
-                    <th>ATV</th>
+                    <th>사용자 ID</th>
+                    <th>이름</th>
+                    <th>사용자구분</th>
+                    <th>소속부서</th>
+                    <th>직책</th>
+                    <th>직급</th>
+                    <th>이메일</th>
                 </tr>
                 </thead>
                 <tbody>
                 {data.map((row, index) => (
-                <tr key={row.id} onClick={handleConfirmClick} className='link'>
-                    <td>
-                        <input type='checkbox' name={`service ${index}`} id={`ser_${index}`} onChange={handleCheckboxChange} />
-                        <label htmlFor={`ser_${index}`} style={{ margin: '0' }}></label>
-                    </td>
-                    <td>{row.cell}</td>
-                    <td>{row.address}</td>
-                    <td>{row.dtn}</td>
-                    <td>{row.net}</td>
-                    <td>{row.voip}</td>
-                    <td>{row.atv}</td>
-                    <td>{row.total}</td>
+                <tr key={index} onClick={handleConfirmClick} className='link'>
+                    <td>{row.userid}</td>
+                    <td>{row.name}</td>
+                    <td>{row.type}</td>
+                    <td>{row.depart}</td>
+                    <td>{row.position}</td>
+                    <td>{row.rank}</td>
+                    <td>{row.email}</td>
                 </tr>))}
                 </tbody>
             </table>
