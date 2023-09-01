@@ -10,7 +10,7 @@ import Select from 'react-select';
 function SysSendCustomTxtMsgLog() {
   const pagedata = {
     title: '로그 관리',
-    subtitle: '고객문자발송로그',
+    subtitle: '고객문자 발송내역',
     SubMenu: 'yes'
   }
   const [startDate, setStartDate] = useState(null);

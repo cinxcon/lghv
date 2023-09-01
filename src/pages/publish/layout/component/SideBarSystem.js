@@ -21,7 +21,7 @@ const Sidebar = () => {
         { title: '개인정보 조회로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0006' },
         { title: '문자발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007' },
         { title: '메일발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008' },
-        { title: '고객문자 발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009' },
+        { title: '고객문자 발송내역', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009' },
         { title: '장애 발생 서비스 가입자 문자 발송', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010' }
       ]
     },

@@ -3,14 +3,14 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CustomEditor from 'ckeditor5-custom-build/build/ckeditor';
 import TooltipMsg from '../../tooltip/tooltip';
 import TooltipMsgWorkType from '../tooltipDetail/tooltip_worktype';
-import { Alert } from '../../popup/Popup';
+import { Popup } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
 import ResultListPaging from '../../common/ResultListPaging';
 
 function UrgentWork() {
-  const [cancle, setCancle] = useState(false);
+//   const [cancle, setCancle] = useState(false);
   const [regist, setRegist] = useState(false);
 
   const [startDate, setStartDate] = useState(null);
@@ -271,7 +271,7 @@ function UrgentWork() {
                         <div className='flex-wrap between'>
                             <span className='input-btn-wrap'>
                                 <span className='input input_org input-search-front'></span>
-                                <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button>
+                                {/* <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button> */}
                             </span>
                         </div>
                     </td>
@@ -877,17 +877,30 @@ function UrgentWork() {
         </div>
     </div>
     <div className="detail-bottom-btn-group">
-        <button className="btn btn-lg btn-low" onClick={() => { setCancle(true) }}>취소</button>
+        {/* <button className="btn btn-lg btn-low" onClick={() => { setCancle(true) }}>취소</button>
         <Alert open={cancle} close={() => { setCancle(false) }} >
           <div>취소 하시겠습니까?</div>
-        </Alert>
+        </Alert> */}
         <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>자가승인</button>
-        <Alert open={regist} close={() => { setRegist(false) }}>
-          <div>작업을 등록 하시겠습니까?</div>
-        </Alert>
+        <Popup open={regist} close={() => { setRegist(false) }} header="긴급작업등록" footer={ <PopupButtons close={() => { setRegist(false) }} /> } type={'sm'}>
+          <p className='center mb15'>작업을 자가 승인 하시겠습니까?</p>
+          <textarea></textarea>
+          <ul className="list-desc left">
+            <li className="color-primary">검토 완료시 바로 권한을 획득합니다.</li>
+          </ul>
+        </Popup>
     </div>
 
     </>)
+}
+
+function PopupButtons(props) {
+  return (
+      <div className="btn-group">
+        <button className="btn btn-lg btn-low" onClick={props.close}>취소</button>
+        <button className="btn btn-lg btn-primary">확인</button>
+      </div>
+  )
 }
 
 export default UrgentWork;

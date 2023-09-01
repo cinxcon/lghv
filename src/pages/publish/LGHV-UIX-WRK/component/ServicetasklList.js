@@ -19,17 +19,15 @@ export default function ServicetasklList(data) {
       <div className="result-pageview">
         <ResultPageView />
         <div className='btn-wrap'>
-          <button type="button" className='btn btn-md btn-reg'>일반 등록</button>
-          <button type="button" className='btn btn-md btn-reg-er'>긴급 등록</button>
           <button type="button" className='btn btn-md btn-low btn-exel'>엑셀</button>
         </div>
       </div>
       {/* 목록 영역 */}
       <div className='over-flow-x'>
-        <table className="table" style={{ width: '200%' }}>
+        <table className="table" style={{ width: '220%' }}>
           <caption>작업 목록 리스트</caption>
           <colgroup>
-            <col span="38" />
+            <col span="39" />
           </colgroup>
           <thead>
             <tr>
@@ -54,6 +52,7 @@ export default function ServicetasklList(data) {
               <th rowSpan={2}>작업자</th>
               <th colSpan={15}>서비스장애</th>
               <th colSpan={2}>상태</th>
+              <th rowSpan={2}>성공여부</th>
             </tr>
             <tr>
               <th>시작일시</th>
@@ -118,6 +117,7 @@ export default function ServicetasklList(data) {
               <td>3m</td>
               <td><span className='color-success'>진행중</span></td>
               <td><span className='color-success'>결제완료</span></td>
+              <td></td>
             </tr>
             <tr onClick={onPopup} className='link'>
               <td>T23080700000152</td>
@@ -158,6 +158,7 @@ export default function ServicetasklList(data) {
               <td>3m</td>
               <td><span className='color-warning'>등록</span></td>
               <td><span className='color-warning'>결제대기</span></td>
+              <td>3/4</td>
             </tr>
             <tr onClick={onPopup} className='link'>
               <td>T23080700000153</td>
@@ -198,6 +199,7 @@ export default function ServicetasklList(data) {
               <td>3m</td>
               <td><span className='color-error'>작업취소</span></td>
               <td><span className='color-error'>결재반려</span></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
