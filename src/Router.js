@@ -49,6 +49,8 @@ import PopupDepartment from './pages/publish/popup/popupDetail/Popup_department'
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
+import PopupSysComSort from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
+import { PopupSysCodeAdd, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
 
 // ↓↓↓  테스트 ↓↓↓
 import ApprovalTest from './pages/publish/LGHV-UIX-APR/_Approval';
@@ -58,9 +60,9 @@ import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
-import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-detail';
+import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-Detail';
 import SysUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002';
-import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-detail';
+import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-Detail';
 import SysUnsubscribeUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0003';
 import SysSmsUnsubscribeMemberMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0004';
 import SysConnectLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0005';
@@ -72,6 +74,7 @@ import SysSendCustomTxtMsgLogDetail from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-
 import SysSendBlockingMemberTxtMsgLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0010';
 import SysCodeMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0011';
 import SysAuthorityMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0012';
+import SysAuthorityMngUserList from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0012-UserList';
 import SysMenuAuthMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0013';
 import SysWeeklyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0014';
 import SysMonthlyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0015';
@@ -129,6 +132,9 @@ const AppRouter = () => {
       <Route path="/popup/PopupAccEqReg" element={<PopupAccEqReg />} />
       <Route path="/popup/PopupAccEqDel" element={<PopupAccEqDel />} />
       <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
+      <Route path="/popup/PopupSysComSort" element={<PopupSysComSort />} />
+      <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />
+      <Route path="/popup/PopupSysGroupAdd" element={<PopupSysGroupAdd />} />
 
       {/* ↓↓↓  테스트 ↓↓↓ */}
       <Route path="/LGHV-UIX-APR/ApprovalDetailTest" element={<ApprovalDetailTest />} />
@@ -152,10 +158,11 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007" element={<SysSendTxtMsgLog />} />
       <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008" element={<SysSendMailLog />} />
       <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009" element={<SysSendCustomTxtMsgLog />} />
-         <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009-Detail" element={<SysSendCustomTxtMsgLogDetail/>} />
+      <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009-Detail" element={<SysSendCustomTxtMsgLogDetail/>} />
       <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010" element={<SysSendBlockingMemberTxtMsgLog />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011" element={<SysCodeMng />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012" element={<SysAuthorityMng />} />
+      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012-UserList" element={<SysAuthorityMngUserList />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng />} />
       <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014" element={<SysWeeklyReport />} />
       <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015" element={<SysMonthlyReport />} />
