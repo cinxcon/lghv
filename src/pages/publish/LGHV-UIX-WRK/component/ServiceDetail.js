@@ -21,10 +21,14 @@ function ServiceDetail() {
           </div>
       </div>
       <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-          <table className='table'>
+          <table className='table table-row'>
               <caption>결제 라인 정보</caption>
               <colgroup>
-                <col span={5} style={{ width: '20%' }} />
+                <col style={{ width: '5%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '65%' }} />
               </colgroup>
               <thead>
                 <tr>
@@ -51,25 +55,28 @@ function ServiceDetail() {
                   <td></td>
                 </tr>
                 <tr>
-                  <td>결재</td>
-                  <td>김철수(123456)</td>
+                  <td>합의</td>
+                  <td>정유리(123567)</td>
                   <td><span className='color-success'>승인</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+                <tr>
+                  <td>결재</td>
+                  <td>김철수(123456)</td>
+                  <td><span className='color-success'>승인</span></td>
+                  <td></td>
+                  <td>안전에 유의하여 작업해 주세요.</td>
+                </tr>
               </tbody>
           </table>
-          <table className='table mt20'>
-              <caption>합의 수신 정보</caption>
+          <table className='table table-row mt20'>
+              <caption>수신 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '90%' }} />
+                <col style={{ width: '5%' }} />
+                <col style={{ width: '95%' }} />
               </colgroup>
               <tbody>
-                <tr>
-                  <th scope='row'>합의</th>
-                  <td>김영희(666666)</td>
-                </tr>
                 <tr>
                   <th scope='row'>수신</th>
                   <td>김순자(111111)</td>
@@ -95,6 +102,10 @@ function ServiceDetail() {
             <col style={{ width: '30%' }} />
           </colgroup>
           <tbody>
+          <tr>
+              <th scope='row'>등록번호</th>
+              <td colSpan={3}>T01234567891012</td>
+            </tr>
             <tr>
               <th scope='row'>구분</th>
               <td colSpan={3}>비접근제어</td>
@@ -145,9 +156,6 @@ function ServiceDetail() {
                   <input type="checkbox" name="service" id="ser_13" value="" disabled />
                   <label htmlFor="ser_13" className='color-info'>전체</label>
                 </fieldset>
-                <ul className='list-desc'>
-                  <li className='color-info'>청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</li>
-                </ul>
               </td>
             </tr>
             <tr>
@@ -321,7 +329,7 @@ function ServiceDetail() {
       <div className={`toggle-box ${divStates[4] ? 'hide' : ''} `}>
           <div> 총 4개</div>
           <div className='over-flow-x'>
-            <table className="table" style={{ width: '200%' }}>
+            <table className="table" style={{ width: '130%' }}>
               <caption>table caption</caption>
               <colgroup>
                 <col span={4} />
@@ -521,14 +529,14 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <div className={`flex-wrap between ${divStates[6] ? 'under-line' : ''}`}>
-          <h3>세부 작업 결과(접근제어)</h3>
+          <h3>작업자 정보 결과(접근제어)</h3>
             <div className="btn-wrap">
                 <button className={`btn-fold ${divStates[6] ? 'close' : ''}`} onClick={() => handleDivToggle(6)} id='fold-open'>검색영역 열기</button>
             </div>
       </div>
       <div className={`toggle-box ${divStates[6] ? 'hide' : ''} `}>
         <div className='over-flow-x'>
-              <table className="table" style={{ width: '200%' }}>
+              <table className="table" style={{ width: '130%' }}>
                 <caption>table caption</caption>
                 <colgroup>
                   <col span={4} />

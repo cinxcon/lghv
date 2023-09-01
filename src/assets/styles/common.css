@@ -15,6 +15,7 @@ textarea { overflow-y: auto; }
 header, section, article, aside, footer, nav { display: block; }
 h1, h2, h3, h4, h5 { font-weight: 500; line-height: 1.1; }
 strong, b { font-weight: 700; }
+strong{display: inline-block;}
 dt, th { font-weight: 500; color: #000; }
 caption, legend { height: 0; font-size: 0; line-height: 0; overflow: hidden; }
 pre { white-space: pre-wrap; }
@@ -62,6 +63,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .mt20 { margin-top: 20px !important; }
 .mt30 { margin-top: 30px !important; }
 .mb8 { margin-bottom: 8px !important; }
+.mt40 { margin-top: 40px !important; }
 .mb15 { margin-bottom: 15px !important; }
 .mb24 { margin-bottom: 24px !important; }
 .mb30 { margin-bottom: 30px !important; }
@@ -145,6 +147,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .btn-md { height: 22px; padding: 0 8px; font-size: 12px; line-height: 18px; }
 .btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
+.btn-txt-underline{ border-bottom: 1px solid #000;} 
 .btn-txt:after { content: ''; display: block; position: absolute; top: 3px; right: -20px; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -304px 0; background-repeat: no-repeat; background-size: auto; }
 .btn-txt:hover { color: #ED174D; }
 .btn-txt:hover:after { background-position: -448px 0; }
@@ -259,15 +262,15 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .pagination .last[aria-disabled] { background-position: -516px 0; }
 
 /* footer */
-.new_footer { margin: 40px -40px 0; }
-#footer { position: relative; border-top: 1px solid #dbdbdb; text-align: center; padding: 20px 0 0 0; }
-#footer .address-area { position: relative; width: 1440px; margin: 0 auto; color: #000; }
-#footer .address-area p { font-style: normal; font-weight: 400; font-size: 12px; line-height: 26px; color: #000; }
+.new_footer { margin: 0; background-color: #000; }
+#footer { position: relative; text-align: center; padding: 20px 0 20px 0; }
+#footer .address-area { position: relative; width: 1440px; margin: 0 auto; color: #fff; }
+#footer .address-area p { font-style: normal; font-weight: 400; font-size: 12px; line-height: 26px; color: #fff; }
 #footer .policy-area { display: flex; align-items: center; justify-content: space-between; max-width: 1440px; margin: 0 auto; border-bottom: 0; }
 #footer .policy-area .policy-menu li { font-size: 12px; line-height: 26px; }
 #footer .address-area { padding: 0 0 0 138px; }
 #footer .ci-logo { top: 0; }
-#footer .address-area p { font-style: normal; font-weight: 400; font-size: 12px; line-height: 18px; color: #000; }
+#footer .address-area p { font-style: normal; font-weight: 400; font-size: 12px; line-height: 18px; color: #fff; }
 #footer .address-area p span { display: inline-block; position: relative; padding-right: 10px; margin-right: 10px; }
 #footer .address-area p span:not(:last-child):after { content: ''; display: block; position: absolute; top: 9px; right: 0; width: 1px; height: 10px; background-color: #a9a9a9; }
 #footer .address-area p span.last-line { margin-right: 0; }

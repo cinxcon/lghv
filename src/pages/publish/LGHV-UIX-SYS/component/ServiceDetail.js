@@ -19,11 +19,14 @@ function ServiceDetail() {
           </div>
       </div>
       <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-        <div className='flex-wrap between align-start'>
-          <table className='table half'>
+          <table className='table table-row'>
               <caption>결제 라인 정보</caption>
               <colgroup>
-                <col span={5} style={{ width: '20%' }} />
+                <col style={{ width: '5%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '65%' }} />
               </colgroup>
               <thead>
                 <tr>
@@ -50,37 +53,39 @@ function ServiceDetail() {
                   <td></td>
                 </tr>
                 <tr>
-                  <td>결재</td>
-                  <td>김철수(123456)</td>
+                  <td>합의</td>
+                  <td>정유리(123567)</td>
                   <td><span className='color-success'>승인</span></td>
                   <td></td>
                   <td></td>
                 </tr>
+                <tr>
+                  <td>결재</td>
+                  <td>김철수(123456)</td>
+                  <td><span className='color-success'>승인</span></td>
+                  <td></td>
+                  <td>안전에 유의하여 작업해 주세요.</td>
+                </tr>
               </tbody>
           </table>
-          <table className='table half'>
-              <caption>합의 수신 정보</caption>
+          <table className='table table-row mt20'>
+              <caption>수신 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '90%' }} />
+                <col style={{ width: '5%' }} />
+                <col style={{ width: '95%' }} />
               </colgroup>
               <tbody>
-                <tr>
-                  <th scope='row'>합의</th>
-                  <td>김영희(666666)</td>
-                </tr>
                 <tr>
                   <th scope='row'>수신</th>
                   <td>김순자(111111)</td>
                 </tr>
               </tbody>
           </table>
-        </div>
       </div>
     </div>
     <div className='content-section'>
       <div className={`flex-wrap between ${divStates[1] ? 'under-line' : ''}`}>
-        <h3>작업 개요 <span className='color-primary size-sm'>(*) 검토자 : 권역별 작업담당자 선택</span></h3>
+        <h3>작업 개요</h3>
         <div className="btn-wrap">
             <button className={`btn-fold ${divStates[1] ? 'close' : ''}`} onClick={() => handleDivToggle(1)} id='fold-open'>검색영역 열기</button>
         </div>
@@ -95,6 +100,10 @@ function ServiceDetail() {
             <col style={{ width: '30%' }} />
           </colgroup>
           <tbody>
+          <tr>
+              <th scope='row'>등록번호</th>
+              <td colSpan={3}>T01234567891012</td>
+            </tr>
             <tr>
               <th scope='row'>구분</th>
               <td colSpan={3}>비접근제어</td>
@@ -145,9 +154,6 @@ function ServiceDetail() {
                   <input type="checkbox" name="service" id="ser_13" value="" disabled />
                   <label htmlFor="ser_13" className='color-info'>전체</label>
                 </fieldset>
-                <ul className='list-desc'>
-                  <li className='color-info'>청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</li>
-                </ul>
               </td>
             </tr>
             <tr>
@@ -282,7 +288,7 @@ function ServiceDetail() {
     </div>
     <div className='content-section'>
       <div className={`flex-wrap between ${divStates[4] ? 'under-line' : ''}`}>
-          <h3>작업자 정보 (비접근제어)</h3>
+          <h3>작업자 정보</h3>
               <div className="btn-wrap">
                   <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>검색영역 열기</button>
               </div>
@@ -306,143 +312,17 @@ function ServiceDetail() {
                   </div>
                 </td>
               </tr>
+              <tr>
+                <th scope='col'>장비정보</th>
+                <td>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-    </div>
-    <div className='content-section'>
-      <div className={`flex-wrap between ${divStates[4] ? 'under-line' : ''}`}>
-        <h3>작업자 정보 (접근제어)</h3>
-          <div className="btn-wrap">
-              <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>검색영역 열기</button>
-          </div>
-      </div>
-      <div className={`toggle-box ${divStates[4] ? 'hide' : ''} `}>
-          <div> 총 4개</div>
-          <div className='over-flow-x'>
-            <table className="table" style={{ width: '200%' }}>
-              <caption>table caption</caption>
-              <colgroup>
-                <col span={4} />
-                <col span={7} style={{ width: '5%' }} />
-                <col span={4} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope='col'>사용자부서</th>
-                  <th scope='col'>사용자</th>
-                  <th scope='col'>장비</th>
-                  <th scope='col'>OS</th>
-                  <th scope='col' colSpan={7}>접속Protocol</th>
-                  <th scope='col'>Protocol <br />접속계정</th>
-                  <th scope='col'>접근정책</th>
-                  <th scope='col'>시작일시</th>
-                  <th scope='col'>종료일시</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>호남인프라</td>
-                  <td>홍길동 Hong</td>
-                  <td>Infra Core1</td>
-                  <td>Linux</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_4" value="" checked readOnly />
-                    <label htmlFor="ptc_4">SSH</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_5" value="" checked readOnly />
-                    <label htmlFor="ptc_5">Telnet</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_6" value="" checked readOnly />
-                    <label htmlFor="ptc_6">SFTP</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_7" value="" checked readOnly />
-                    <label htmlFor="ptc_7">FTP</label>
-                  </td>
-                  <td>admin</td>
-                  <td>L1</td>
-                  <td>2023-07-28 00:00:00</td>
-                  <td>2023-07-28 06:00:00</td>
-                </tr>
-                <tr>
-                  <td>호남인프라</td>
-                  <td>이철수 Kim</td>
-                  <td>Infra Core2</td>
-                  <td>Windows</td>
-                  <td></td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_2" value="" checked readOnly />
-                    <label htmlFor="ptc_2">RDP</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_3" value="" checked readOnly />
-                    <label htmlFor="ptc_3">Win RM</label>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>admin</td>
-                  <td>L0</td>
-                  <td>2023-07-28 00:00:00</td>
-                  <td>2023-07-28 06:00:00</td>
-                </tr>
-                <tr>
-                  <td>호남인프라</td>
-                  <td>김길동 Hong</td>
-                  <td>Infra Core3</td>
-                  <td>Network</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_4" value="" checked readOnly />
-                    <label htmlFor="ptc_4">SSH</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_5" value="" checked readOnly />
-                    <label htmlFor="ptc_5">Telnet</label>
-                  </td>
-                  <td></td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_7" value="" checked readOnly />
-                    <label htmlFor="ptc_7">FTP</label>
-                  </td>
-                  <td>admin</td>
-                  <td>L1</td>
-                  <td>2023-07-28 00:00:00</td>
-                  <td>2023-07-28 06:00:00</td>
-                </tr>
-                <tr>
-                  <td>호남인프라</td>
-                  <td>김철수 Kim</td>
-                  <td>Infra Core3</td>
-                  <td>Web</td>
-                  <td>
-                    <input type="checkbox" name="protocol" id="ptc_1" value="" checked readOnly />
-                    <label htmlFor="ptc_1">HTTPS</label>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>admin</td>
-                  <td>L0</td>
-                  <td>2023-07-28 00:00:00</td>
-                  <td>2023-07-28 06:00:00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-      </div>
     </div>
     <div className='content-section'>
         <div className={`flex-wrap between ${divStates[5] ? 'under-line' : ''}`}>
@@ -519,139 +399,6 @@ function ServiceDetail() {
       </div>
     </div>
     <div className='content-section'>
-      <div className={`flex-wrap between ${divStates[6] ? 'under-line' : ''}`}>
-          <h3>세부 작업 결과(접근제어)</h3>
-            <div className="btn-wrap">
-                <button className={`btn-fold ${divStates[6] ? 'close' : ''}`} onClick={() => handleDivToggle(6)} id='fold-open'>검색영역 열기</button>
-            </div>
-      </div>
-      <div className={`toggle-box ${divStates[6] ? 'hide' : ''} `}>
-        <div className='over-flow-x'>
-              <table className="table" style={{ width: '200%' }}>
-                <caption>table caption</caption>
-                <colgroup>
-                  <col span={4} />
-                  <col span={7} style={{ width: '5%' }} />
-                  <col span={4} />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th scope='col'>사용자부서</th>
-                    <th scope='col'>사용자</th>
-                    <th scope='col'>장비</th>
-                    <th scope='col'>OS</th>
-                    <th scope='col' colSpan={7}>접속Protocol</th>
-                    <th scope='col'>Protocol <br />접속계정</th>
-                    <th scope='col'>접근정책</th>
-                    <th scope='col'>시작일시</th>
-                    <th scope='col'>종료일시</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>호남인프라</td>
-                    <td>홍길동 Hong</td>
-                    <td>Infra Core1</td>
-                    <td>Linux</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_4" value="" checked readOnly />
-                      <label htmlFor="ptc_4">SSH</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_5" value="" checked readOnly />
-                      <label htmlFor="ptc_5">Telnet</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_6" value="" checked readOnly />
-                      <label htmlFor="ptc_6">SFTP</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_7" value="" checked readOnly />
-                      <label htmlFor="ptc_7">FTP</label>
-                    </td>
-                    <td>admin</td>
-                    <td>L1</td>
-                    <td>2023-07-28 00:00:00</td>
-                    <td>2023-07-28 06:00:00</td>
-                  </tr>
-                  <tr>
-                    <td>호남인프라</td>
-                    <td>이철수 Kim</td>
-                    <td>Infra Core2</td>
-                    <td>Windows</td>
-                    <td></td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_2" value="" checked readOnly />
-                      <label htmlFor="ptc_2">RDP</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_3" value="" checked readOnly />
-                      <label htmlFor="ptc_3">Win RM</label>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>admin</td>
-                    <td>L0</td>
-                    <td>2023-07-28 00:00:00</td>
-                    <td>2023-07-28 06:00:00</td>
-                  </tr>
-                  <tr>
-                    <td>호남인프라</td>
-                    <td>김길동 Hong</td>
-                    <td>Infra Core3</td>
-                    <td>Network</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_4" value="" checked readOnly />
-                      <label htmlFor="ptc_4">SSH</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_5" value="" checked readOnly />
-                      <label htmlFor="ptc_5">Telnet</label>
-                    </td>
-                    <td></td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_7" value="" checked readOnly />
-                      <label htmlFor="ptc_7">FTP</label>
-                    </td>
-                    <td>admin</td>
-                    <td>L1</td>
-                    <td>2023-07-28 00:00:00</td>
-                    <td>2023-07-28 06:00:00</td>
-                  </tr>
-                  <tr>
-                    <td>호남인프라</td>
-                    <td>김철수 Kim</td>
-                    <td>Infra Core3</td>
-                    <td>Web</td>
-                    <td>
-                      <input type="checkbox" name="protocol" id="ptc_1" value="" checked readOnly />
-                      <label htmlFor="ptc_1">HTTPS</label>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>admin</td>
-                    <td>L0</td>
-                    <td>2023-07-28 00:00:00</td>
-                    <td>2023-07-28 06:00:00</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-      </div>
-    </div>
-    <div className='content-section'>
       <div className={`flex-wrap between ${divStates[7] ? 'under-line' : ''}`}>
         <h3>작업자 정보 결과</h3>
             <div className="btn-wrap">
@@ -677,6 +424,14 @@ function ServiceDetail() {
                 </div>
               </td>
             </tr>
+            <tr>
+                <th scope='col'>장비정보</th>
+                <td>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                  <p>사용자그룹/장비이름/장비에 속한 계정</p>
+                </td>
+              </tr>
           </tbody>
         </table>
       </div>

@@ -22,6 +22,7 @@
 .approval-conts { width: 55%; display: flex; height: 580px; min-height: 580px; padding: 15px 16px; overflow: hidden; border: 1px solid #dbdbdb; border-top: 1px solid #000;}
 .tree-wrap { width: 55%; height: 300px; overflow-y: scroll; min-height: inherit; padding-bottom: 30px;}
 .approval-conts.alone, .tree-wrap.alone{width: 100%;}
+.approval-conts.alone{height: 520px; min-height: 520px;}
 .tree-wrap .tree-logo{width: 120px; height: 20px; background: url('../../../assets/images/layout/LGHV_logo_20@2x.png') 0 0 no-repeat; background-size: 100%; z-index: 100; font-size: 0;}
 .tree-wrap .tree-conts {overflow: hidden; padding-top: 20px;}
 .tree-wrap .tree-conts .logo { position: relative; z-index: 1; }
@@ -46,19 +47,19 @@
 .list-item ul li.active {background: url('../../../assets/images/common/ic_check_set_16.png') -16px 12px no-repeat; }
 .list-item ul li span + span { margin-left: 16px; }
 .selected-item {width: 45%; padding: 0 0 0 20px;  }
-.selected-item .overflow{height: 300px; overflow-y: scroll;}
-.selected-item .overflow + .overflow { margin-top: 30px; height: 200px; }
+.overflow{height: 300px; overflow-y: scroll;}
+.overflow + .overflow { margin-top: 30px; height: 200px; }
 /* 아래의 모든 코드는 영역::코드로 사용 */
-.tree-wrap::-webkit-scrollbar, .list-item::-webkit-scrollbar, .selected-item::-webkit-scrollbar {
+.tree-wrap::-webkit-scrollbar, .list-item::-webkit-scrollbar, .selected-item::-webkit-scrollbar, .overflow::-webkit-scrollbar {
   width: 6px;  /* 스크롤바의 너비 */
 }
 
-.tree-wrap::-webkit-scrollbar-thumb, .list-item::-webkit-scrollbar-thumb, .selected-item::-webkit-scrollbar-thumb {
+.tree-wrap::-webkit-scrollbar-thumb, .list-item::-webkit-scrollbar-thumb, .selected-item::-webkit-scrollbar-thumb, .overflow::-webkit-scrollbar-thumb {
   height: 5%; /* 스크롤바의 길이 */
   background: #a5a5a5; /* 스크롤바의 색상 */
   border-radius: 10px;
 }
-.tree-wrap::-webkit-scrollbar-track, .list-item::-webkit-scrollbar-track, .selected-item::-webkit-scrollbar-track {
+.tree-wrap::-webkit-scrollbar-track, .list-item::-webkit-scrollbar-track, .selected-item::-webkit-scrollbar-track, .overflow::-webkit-scrollbar-track {
   background: #eaeaea;  /*스크롤바 뒷 배경 색상*/
 }
 .template-top { margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7; }
@@ -79,7 +80,7 @@
 
 
 .pop-search-wrap{ margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7;}
-.pop-search-wrap{}
+.pop-search-wrap .flex-wrap > .box{ width:25% }
 .pop-search-wrap .select-item{width: 80%; margin-left: 20px;}
 .modal > section.popup-wrap .table, .modal > section.popup-wrap .search, .modal > section.popup-wrap .search .input-btn-wrap button{ font-size: 12px; }
 .modal > section.popup-wrap .search-wrap{padding: 12px;}
