@@ -24,6 +24,7 @@
 .approval-conts.alone, .tree-wrap.alone{width: 100%;}
 .approval-conts.alone{height: 520px; min-height: 520px;}
 .tree-wrap .tree-logo{width: 120px; height: 20px; background: url('../../../assets/images/layout/LGHV_logo_20@2x.png') 0 0 no-repeat; background-size: 100%; z-index: 100; font-size: 0;}
+.tree-wrap h3 {font-size: 16px;}
 .tree-wrap .tree-conts {overflow: hidden; padding-top: 20px;}
 .tree-wrap .tree-conts .logo { position: relative; z-index: 1; }
 .tree-item .selected { margin-bottom: 10px; }
@@ -38,6 +39,8 @@
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
 .tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; }
+.tree-item > .tree-content input.item-check[type='checkbox'] + label { text-indent: 0; margin-right: 0; }
+.tree-item > .tree-content input.item-check[type='checkbox'] + label:before { left: auto; right: -25px; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
 .list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }

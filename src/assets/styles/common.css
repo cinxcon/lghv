@@ -147,7 +147,7 @@ input[type='checkbox'] + label.invisible { font-size: 0; line-height: 0; text-in
 .btn-md { height: 22px; padding: 0 8px; font-size: 12px; line-height: 18px; }
 .btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
-.btn-txt-underline{ border-bottom: 1px solid #000;} 
+.btn-txt-underline{ border-bottom: 1px solid #000;}
 .btn-txt:after { content: ''; display: block; position: absolute; top: 3px; right: -20px; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -304px 0; background-repeat: no-repeat; background-size: auto; }
 .btn-txt:hover { color: #ED174D; }
 .btn-txt:hover:after { background-position: -448px 0; }

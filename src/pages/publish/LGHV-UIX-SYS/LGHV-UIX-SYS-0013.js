@@ -14,12 +14,21 @@ function SysMenuAuthMng() {
 
   useEffect(() => {
     fetchData();
+    fetchData2();
   }, []);
 
   const fetchData = async () => {
     try {
       const response = await axios.get('../data/response_1692163585947.json'); // JSON 파일 경로를 넣어주세요
       setTreeData(response.data.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  const fetchData2 = async () => {
+    try {
+      const response = await axios.get('../data/auth_data.json');
+      setAuthData(response.data.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -51,7 +60,7 @@ function SysMenuAuthMng() {
         </div>
         <div className='approval-conts half'>
           <div className='tree-wrap alone'>
-            <div>메뉴권한</div>
+            <h3>메뉴권한</h3>
             <div className='tree-conts'>
               {authData.depts && authData.depts.map((item) => (
                 <AuthItem
@@ -76,11 +85,20 @@ const AuthItem = ({ item, onItemSelected }) => {
 
   const handleItemSelected = (item) => {
     const authitem = document.querySelectorAll('.item-name');
+    const authitemcheck = document.querySelectorAll('.item-check');
     const activeItem = document.getElementById(item.deptId);
+
+    const activeItemLable = activeItem.querySelectorAll('.item-name');
+    const activeItemInput = activeItem.querySelectorAll('.item-check');
+
     authitem.forEach(element => {
       element.classList.remove('active');
     });
-    activeItem.classList.add('active');
+    activeItemLable.classList.add('active');
+    authitemcheck.forEach(element => {
+      element.classList.remove('active');
+    });
+    activeItemInput.classList.add('active');
     onItemSelected(item);
   };
 
@@ -93,8 +111,8 @@ const AuthItem = ({ item, onItemSelected }) => {
               : ''} />)
           : null}
         {item.depts.length !== 0
-          ? (<span id={item.deptId} className='item-name' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
-          : (<span id={item.deptId} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
+          ? (<div id={item.deptId}><input type="checkbox" name={item.deptId} className='item-check' /><label htmlFor={item.deptId} className='item-name' onClick={() => handleItemSelected(item)}>{item.deptName}</label></div>)
+          : (<div><input type="checkbox" name={item.deptId} className='item-check' /><label htmlFor={item.deptId} id={item.deptId} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.deptName}</label></div>)
         }
       </div>
       {isExpanded &&
