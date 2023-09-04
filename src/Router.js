@@ -34,6 +34,8 @@ import TemplateListDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-D
 import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
+import NoticeList from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001'
+import NoticeRegist from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0002'
 
 // 팝업
 import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer';
@@ -114,6 +116,8 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0001" element={<DisabilityMngReg />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
+      <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001" element={<NoticeList />} />
+      <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0002" element={<NoticeRegist />} />
 
       {/* 팝업 */}
       <Route path="/popup/PopupReviewer" element={<PopupReviewer />} />

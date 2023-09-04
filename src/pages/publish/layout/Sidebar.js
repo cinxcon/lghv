@@ -13,7 +13,6 @@ const Sidebar = () => {
   const [divStates, setDivStates] = useState(true);
   const navigate = useNavigate();
   const handleDivToggle = () => {
-    console.log(divStates);
     setDivStates(!divStates);
     if (divStates === true) {
       navigate('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001');
@@ -23,7 +22,7 @@ const Sidebar = () => {
   };
   return (
     <div className={`sidebar ${isSidebarOpen ? 'open' : 'close'} `}>
-      <div className={`sidebar-toggle ${divStates ? 'show' : 'hide'}`}>
+      <div className="sidebar-toggle">
       <span>MY DESK</span>
         <button className='toggle-button' onClick={toggleSidebar}></button>
       </div>
@@ -34,7 +33,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className={`system-management ${divStates ? 'hide' : 'show'}` }>
-        <h3 className='tit'>시스템 관리</h3>
+        <h3 className='tit'><span>시스템 관리</span></h3>
         <SideBarSystem />
         <div className='fix-btn-wrap system'>
           <button type='button' onClick={handleDivToggle} className='toggle-btn '>마이데스크</button>
