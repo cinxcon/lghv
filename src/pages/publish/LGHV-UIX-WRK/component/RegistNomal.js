@@ -584,11 +584,18 @@ function NomalWork() {
                 <tr>
                     <th>작업자</th>
                     <td>
-                        <span className='input-btn-wrap'>
-                            <span className='input input_org input-plus-front'></span>
-                            <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button>
-                            <button type='button' className='btn-minus-28'>빼기</button>
-                        </span>
+                        <div className='input-btn-wrap'>
+                            <ul className='input input_org worker-box over-flow-y'>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                            </ul>
+                            <div>
+                                <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button><br />
+                                <button type='button' className='btn-minus-28 mt6'>빼기</button>
+                            </div>
+                        </div>
                     </td>
                 </tr>)}
                 {selectedOption === 'access_yes' && (

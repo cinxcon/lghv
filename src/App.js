@@ -6,6 +6,8 @@ import Sidebar from './pages/publish/layout/Sidebar';
 import Footer from './pages/publish/layout/Footer';
 import DynamicStyle from './assets/dynamicStyle';
 import WorkInfo from './pages/publish/layout/WorkInfo';
+import logoImage from './assets/images/common/LGHV_logo_28.png';
+import loginVisaul from './assets/images/common/login_visaul.png';
 
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -74,32 +76,20 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <div className="login-container">
-        <h2>Login Page</h2>
-        <form className="login-form" onSubmit={handleLogin}>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
+    <div className="login-wrap">
+      <div className="login-container flex-wrap between">
+          <div className="login-kv">
+              <h2 className="logo"><img src={logoImage} alt="LG HelloVision" /></h2>
+              <p>Total Operation <br />Management System</p>
+              <div className="img-wrap"><img src={loginVisaul} alt="" /></div>
           </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
+          <div className="login-info">
+              <label htmlFor="user-id" className="invisible">Email:</label>
+              <input type="text" id="user-id" required placeholder="아이디" value={email} onChange={handleEmailChange} />
+              <label htmlFor="password" className="invisible">Password:</label>
+              <input type="password" id="password" required placeholder="비밀 번호" value={password} onChange={handlePasswordChange} />
+              <button type="button" className="btn btn-black" onClick={handleLogin}>로그인</button>
           </div>
-          <button type="submit">Login</button>
-        </form>
       </div>
     </div>
   );

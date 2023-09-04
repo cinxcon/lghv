@@ -141,6 +141,7 @@ const Worker = ({ onItemSelected }) => {
             <div className='result-pageview mb15'>
                 <ResultPageView />
             </div>
+            <div className='overflow'>
             <table className='popup-table center'>
                 <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
                 <colgroup>
@@ -170,6 +171,7 @@ const Worker = ({ onItemSelected }) => {
                 </tr>))}
                 </tbody>
             </table>
+            </div>
             <ResultNoData />
             <ResultListPaging />
         </div>

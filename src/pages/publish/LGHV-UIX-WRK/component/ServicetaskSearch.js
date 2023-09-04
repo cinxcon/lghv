@@ -223,9 +223,12 @@ function ServicetaskSearch() {
                 <td colSpan={4}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
-                      <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                      <span>
+                        <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" showYearDropdown className="input-datepicker" /></span>
                       ~
-                      <span><DatePicker locale={ko} selected={startEndDate} onChange={(date) => setStartEndDate(date)} startDate={startEndDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                      <span>
+                        <DatePicker locale={ko} selected={startEndDate} onChange={(date) => setStartEndDate(date)} startDate={startEndDate} dateFormat="yyyy-MM-dd" showYearDropdown className="input-datepicker" />
+                       </span>
                     </span>
                     <span className='radiobtn-wrap'>
                       <fieldset>

@@ -82,6 +82,7 @@ const ApprovalLine = ({ onItemSelected }) => {
   const [tableData, setTableData] = useState([]);
   const [trActive, setTrActive] = useState('');
   const [onSave, setOnSave] = useState(false);
+  const [isReception, setIsReception] = useState(false);
 
   const handleItemSelected = (item) => {
     setSelectedTree(item.deptId);
@@ -122,6 +123,11 @@ const ApprovalLine = ({ onItemSelected }) => {
   };
   const handleOptionChange = (event) => {
     setApprovalType(event.target.value);
+    if (event.target.value === '수신') {
+      setIsReception(true);
+    } else {
+      setIsReception(false);
+    }
   };
 
   const handleConfirmClick = () => {
@@ -196,10 +202,10 @@ const ApprovalLine = ({ onItemSelected }) => {
             </div>
             <div className='list-item'>
                 <ul>
-                  <li>
-                    <input type="checkbox" name="ck_1" id="ck_1" value="" />
-                    <label htmlFor='ck_1'>[{selectedDepart}] 전체선택</label>
-                  </li>
+                  { isReception === false
+                    ? (<li><input type="checkbox" name="ck_1" id="ck_1" value="" /> <label htmlFor='ck_1'>[{selectedDepart}] 전체선택</label> </li>)
+                    : (<li><button type='button' className='btn w100 btn-all-cheak'>[{selectedDepart}] 전체선택</button></li>)
+                  }
                   {getMenuItems()}
                 </ul>
             </div>
