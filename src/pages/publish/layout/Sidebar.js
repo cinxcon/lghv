@@ -36,7 +36,7 @@ const Sidebar = () => {
         <h3 className='tit'><span>시스템 관리</span></h3>
         <SideBarSystem />
         <div className='fix-btn-wrap system'>
-          <button type='button' onClick={handleDivToggle} className='toggle-btn '>마이데스크</button>
+          <button type='button' onClick={handleDivToggle} className='toggle-btn'>사용자 메뉴</button>
         </div>
       </div>
     </div>
