@@ -55,10 +55,10 @@ function TemplateList() {
                       <td>
                           <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
                       </td>
-                      <th scope="row"><label htmlFor="regdep">등록부서</label></th>
+                      <th scope="row"><label htmlFor="formName">양식명</label></th>
                       <td>
                       <span className='input-btn-wrap'>
-                          <input type="text" name="templateName" id="templateName" className='input-w-80' placeholder='양식명' />
+                          <input type="text" name="formName" id="formName" className='input-w-80' placeholder='양식명' />
                           <button className='btn btn-low btn-ref'>초기화</button>
                           <button className='btn btn-black btn-search-txt'>검색</button>
                       </span>
@@ -94,7 +94,7 @@ function TemplateList() {
               <tr className='link' key={item.id} onClick={() => { onPopup() }}>
               <td className="center">{index + 1}</td>
               <td>{item.category}</td>
-              <td>{item.formName}</td>
+              <td className='left'>{item.formName}</td>
               <td>{item.date}</td>
               </tr>))}
             </tbody>

@@ -54,8 +54,11 @@ const SideBarWork = () => {
     },
     {
       title: '공지사항',
-      path: '/LGHV-UIX-SYS/LGHV-UIX-SYS-0001',
-      subMenus: [{ title: '공지사항', path: '/Submenu7' }]
+      path: '/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001',
+      subMenus: [
+        { title: '공지사항 목록', path: '/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001' },
+        { title: '공지사항 등록', path: '/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0002' }
+      ]
     }
   ]);
 

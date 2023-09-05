@@ -151,67 +151,68 @@ function UrgentWork() {
             </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-            <div className='flex-wrap between align-start'>
-                <table className='table half'>
-                    <caption>결제 라인 정보</caption>
-                    <colgroup>
-                    <col style={{ width: '8%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '12%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '40%' }} />
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th scope='col'>구분</th>
-                        <th scope='col'>결재자</th>
-                        <th scope='col'>상태</th>
-                        <th scope='col'>결재일시</th>
-                        <th scope='col'>의견</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table className='table half'>
-                    <caption>합의 수신 정보</caption>
-                    <colgroup>
+            <table className='table table-row'>
+                <caption>결제 라인 정보</caption>
+                <colgroup>
                     <col style={{ width: '10%' }} />
-                    <col style={{ width: '90%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '60%' }} />
+                </colgroup>
+                <thead>
+                    <tr>
+                    <th scope='col'>구분</th>
+                    <th scope='col'>결재자</th>
+                    <th scope='col'>상태</th>
+                    <th scope='col'>결재일시</th>
+                    <th scope='col'>의견</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>기안</td>
+                    <td>홍길동(009900)</td>
+                    <td>기안</td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>조정</td>
+                    <td>정유리(123567)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>합의</td>
+                    <td>정유리(123567)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>결재</td>
+                    <td>김철수(123456)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td>안전에 유의하여 작업해 주세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table className='table table-row mt20'>
+                    <caption>수신 정보</caption>
+                    <colgroup>
+                        <col style={{ width: '10%' }} />
+                        <col style={{ width: '90%' }} />
                     </colgroup>
                     <tbody>
-                    <tr>
-                        <th scope='row'>합의</th>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
+                        <tr>
                         <th scope='row'>수신</th>
-                        <td>&nbsp;</td>
-                    </tr>
+                        <td>김순자(111111)</td>
+                        </tr>
                     </tbody>
-                </table>
-            </div>
+            </table>
         </div>
     </div>
     {/* 결제선 저장 시 나타나는 항목 끝 */}
@@ -584,11 +585,18 @@ function UrgentWork() {
                 <tr>
                     <th>작업자</th>
                     <td>
-                        <span className='input-btn-wrap'>
-                            <span className='input input_org input-plus-front'></span>
-                            <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button>
-                            <button type='button' className='btn-minus-28'>빼기</button>
-                        </span>
+                        <div className='input-btn-wrap'>
+                            <ul className='input input_org worker-box over-flow-y'>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                               <li>동부미디어국/홍길동/010-2345-6789</li>
+                            </ul>
+                            <div>
+                                <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button><br />
+                                <button type='button' className='btn-minus-28 mt6'>빼기</button>
+                            </div>
+                        </div>
                     </td>
                 </tr>)}
                 {selectedOption === 'access_yes' && (

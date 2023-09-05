@@ -24,11 +24,11 @@ function ServiceDetail() {
           <table className='table table-row'>
               <caption>결제 라인 정보</caption>
               <colgroup>
-                <col style={{ width: '5%' }} />
                 <col style={{ width: '10%' }} />
                 <col style={{ width: '10%' }} />
                 <col style={{ width: '10%' }} />
-                <col style={{ width: '65%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '60%' }} />
               </colgroup>
               <thead>
                 <tr>
@@ -73,8 +73,8 @@ function ServiceDetail() {
           <table className='table table-row mt20'>
               <caption>수신 정보</caption>
               <colgroup>
-                <col style={{ width: '5%' }} />
-                <col style={{ width: '95%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '90%' }} />
               </colgroup>
               <tbody>
                 <tr>
@@ -96,9 +96,9 @@ function ServiceDetail() {
         <table className='table table-row'>
           <caption>table caption</caption>
           <colgroup>
-            <col style={{ width: '20%' }} />
+            <col style={{ width: '15%' }} />
             <col style={{ width: '30%' }} />
-            <col style={{ width: '20%' }} />
+            <col style={{ width: '25%' }} />
             <col style={{ width: '30%' }} />
           </colgroup>
           <tbody>
@@ -300,8 +300,8 @@ function ServiceDetail() {
           <table className='table table-row'>
             <caption>table caption</caption>
             <colgroup>
-              <col style={{ width: '25%' }} />
-              <col style={{ width: '75%' }} />
+              <col style={{ width: '15%' }} />
+              <col style={{ width: '85%' }} />
             </colgroup>
             <tbody>
               <tr>
@@ -464,8 +464,8 @@ function ServiceDetail() {
           <table className='table table-row'>
             <caption>table caption</caption>
             <colgroup>
-              <col style={{ width: '25%' }} />
-              <col style={{ width: '75%' }} />
+              <col style={{ width: '15%' }} />
+              <col style={{ width: '85%' }} />
             </colgroup>
             <tbody>
               <tr>
@@ -671,8 +671,8 @@ function ServiceDetail() {
         <table className='table table-row'>
           <caption>table caption</caption>
           <colgroup>
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '75%' }} />
+            <col style={{ width: '15%' }} />
+            <col style={{ width: '85%' }} />
           </colgroup>
           <tbody>
             <tr>

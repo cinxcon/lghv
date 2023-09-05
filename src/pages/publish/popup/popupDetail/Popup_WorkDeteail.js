@@ -105,7 +105,7 @@ const WorkDeteail = ({ onItemSelected }) => {
         <div className='new-window-wrap'>
         <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className='content-title'>
-          <h2>작업 상세</h2>
+          <h2>작업 세부</h2>
         </div>
         <div className='pop-search-wrap'>
           <div className='flex-wrap mb15'>
