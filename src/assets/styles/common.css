@@ -13,8 +13,8 @@ a, select, button, pre, input, textarea { font-family: inherit; }
 button { background-color: unset; border: none; cursor: pointer; }
 textarea { overflow-y: auto; }
 header, section, article, aside, footer, nav { display: block; }
-h1, h2, h3, h4, h5 { font-weight: 500; line-height: 1.1; }
-strong, b { font-weight: 700; }
+h3, h4, h5 { font-weight: 500; line-height: 1.1; }
+h1, h2, strong, b { font-weight: 700; }
 strong{display: inline-block;}
 dt, th { font-weight: 500; color: #000; }
 caption, legend { height: 0; font-size: 0; line-height: 0; overflow: hidden; }
@@ -302,11 +302,27 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .toggle-button { display: block; width: 32px; height: 32px; background-image: url('../images/common/lnb/ic_lnb_close_32.png'); }
 .menu-level-1 { list-style-type: none; padding: 0; margin: 0; color: #fff; }
 .menu-item-level-1 { position: relative; }
-.menu-level-1 .toggle-button-level-1, .menu-level-2, .fix-btn-wrap .toggle-btn { display: none; transition: opacity 0.3s ease; opacity: 0; }
-.sidebar.open .toggle-button-level-1, .sidebar.open .menu-level-2 { opacity: 1; display: block; }
+.menu-level-1 .toggle-button-level-1 span, .menu-level-2, .fix-btn-wrap .toggle-btn { display: none; transition: opacity 0.3s ease; opacity: 0; }
+.fix-btn-wrap {position: fixed; bottom: 100px; padding: 16px 0 16px 60px; width: 220px; cursor: pointer;}
+.fix-btn-wrap::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
+.fix-btn-wrap.system::before {background-image: url('../images/common/lnb/ic_lnb_menu_32.png');}
+.sidebar.open .fix-btn-wrap .toggle-btn{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; }
+.fix-btn-wrap .toggle-btn:hover{color: #ed174d; font-weight: bold;}
+.menu-item-level-1.active .toggle-button-level-1, .sidebar.close .menu-item-level-1.active, .menu-item-level-1 .toggle-button-level-1:hover { background-color: #ed174d; }
+.menu-item-level-1 .toggle-button-level-1::before { content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; }
+.work-space .menu-item-level-1:nth-child(1) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb1_32.png'); }
+.work-space .menu-item-level-1:nth-child(2) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb2_32.png'); }
+.work-space .menu-item-level-1:nth-child(3) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb3_32.png'); }
+.work-space .menu-item-level-1:nth-child(4) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb4_32.png'); }
+.work-space .menu-item-level-1:nth-child(5) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb5_32.png'); }
+.work-space .menu-item-level-1:nth-child(6) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb6_32.png'); }
+/* .work-space .menu-item-level-1:nth-child(7) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb7_32.png'); } */
+/* .work-space .menu-item-level-1:nth-child(8) .toggle-button-level-1::before { background-image: url('../images/common/lnb/ic_lnb8_32.png'); } */
+.sidebar.open .toggle-button-level-1 span, .sidebar.open .menu-level-2 { opacity: 1; display: block; }
 .sidebar.open .menu-item-level-1.active .menu-level-2 { background-color: rgba(255, 255, 255, 0.2); }
 .sidebar.open .menu-item-level-1 .toggle-button-level-1 { width: 100%; padding: 16px 0 16px 60px; text-align: left; }
 .sidebar.close .menu-item-level-1, .sidebar.close .fix-btn-wrap { height: 56px; }
+.sidebar.close .fix-btn-wrap{width: 64px;}
 .sidebar.close .toggle-button { background-image: url('../images/common/lnb/ic_lnb_open_32.png'); }
 .sidebar .work-space.show{display: block;}
 .sidebar .work-space.hide{display: none;}
@@ -317,23 +333,12 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .sidebar.open .system-management .tit span{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; padding: 16px 0 16px 60px;}
 .sidebar .system-management .tit::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 13px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
 .sidebar.close .system-management .tit{height: 56px;}
-.fix-btn-wrap {position: fixed; bottom: 100px; padding: 16px 0 16px 60px;}
-.fix-btn-wrap::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
-.fix-btn-wrap.system::before {background-image: url('../images/common/lnb/ic_lnb_menu_32.png');}
-.sidebar.open .fix-btn-wrap .toggle-btn{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; }
-.fix-btn-wrap .toggle-btn:hover{color: #ed174d; font-weight: bold;}
-.menu-item-level-1.active .toggle-button-level-1, .sidebar.close .menu-item-level-1.active, .menu-item-level-1 .toggle-button-level-1:hover { background-color: #ed174d; }
-.work-space .menu-item-level-1::before { content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 12px; left: 16px; }
-.work-space .menu-item-level-1:nth-child(1)::before { background-image: url('../images/common/lnb/ic_lnb1_32.png'); }
-.work-space .menu-item-level-1:nth-child(2)::before { background-image: url('../images/common/lnb/ic_lnb2_32.png'); }
-.work-space .menu-item-level-1:nth-child(3)::before { background-image: url('../images/common/lnb/ic_lnb3_32.png'); }
-.work-space .menu-item-level-1:nth-child(4)::before { background-image: url('../images/common/lnb/ic_lnb4_32.png'); }
-.work-space .menu-item-level-1:nth-child(5)::before { background-image: url('../images/common/lnb/ic_lnb5_32.png'); }
-.work-space .menu-item-level-1:nth-child(6)::before { background-image: url('../images/common/lnb/ic_lnb6_32.png'); }
-.work-space .menu-item-level-1:nth-child(7)::before { background-image: url('../images/common/lnb/ic_lnb7_32.png'); }
-.work-space .menu-item-level-1:nth-child(8)::before { background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
+.sidebar.close .work-space .menu-item-level-1.has-sub::after{display: none;}
 .menu-item-level-1.has-sub::after{content: ''; display: block; width: 16px; height: 16px; position: absolute; top: 20px; right: 16px; background: url('../images/common/ic_white_set_16.png') -90px 0 no-repeat;}
 .menu-item-level-1.active.has-sub::after{background-position: -16px 0;}
+.sidebar.open .system-management .menu-item-level-1 .toggle-button-level-1::before{display: none;}
+.sidebar.close .system-management .menu-item-level-1 .toggle-button-level-1::before{width: 100%; height: 100%; left: 0; top: 0;}
+.sidebar.close .system-management .menu-item-level-1.has-sub::after{right: 24px;}
 .toggle-button-level-1 { display: inline-block; cursor: pointer; color: #fff; font-size: 16px; line-height: 24px; }
 
 
@@ -350,9 +355,12 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .login-container .login-kv h2 { text-align: left; margin-bottom: 28px; color: #333; padding-left: 56px; }
 .login-container .login-kv h2+ p{text-align: left; font-size: 28px; line-height: 40px; padding-left: 56px;}
 .login-info{ padding: 100px 100px 0 100px; flex-basis:50%; height: 500px; box-sizing: border-box;}
-.login-info input{ height: 48px; margin-bottom: 24px; padding: 12px;}
-.login-info .login-btn{width: 100%; height: 48px; line-height: 48px; box-sizing: border-box; font-size: 16px;}
+.login-info input{ height: 48px; margin-bottom: 8px; padding: 12px;}
+.login-info .tit{font-size: 32px; margin-bottom: 24px;}
+.login-info input:last-of-type{margin-bottom: 4px;}
+.login-info .login-btn{width: 100%; height: 48px; line-height: 48px; box-sizing: border-box; font-size: 16px; margin-top: 20px;}
 .login-info .reset-link{ display: inline-block; width: auto; height: auto; line-height: initial; margin-left: 20px; color: #ed174d; border-bottom: 1px solid #ed174d;  font-size: 14px; font-weight: 500;}
+.login-info .error-msg{ font-size: 12px; color:#e72323; padding-left: 20px; background: url('../images/common/ic_error_16.png') 0 2px no-repeat;}
 .login-container .copy-right{text-align: right; font-size: 12px; color: #767676;}
 
 /* table */

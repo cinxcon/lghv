@@ -39,7 +39,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [clear, setClear] = useState(false);
-  const [reset, setReset] = useState(false);
+  const [isChangePass, setIsChangePass] = useState(false);
   const [send, setSend] = useState(false);
   const [passwordold, setPasswordold] = useState(false);
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ const LoginPage = () => {
 
   const handleChangPassword = () => {
     setPasswordold(false);
-    setReset(true);
+    setIsChangePass(true);
   }
 
   return (
@@ -95,22 +95,35 @@ const LoginPage = () => {
               <div className="img-wrap"><img src={loginVisaul} alt="" /></div>
           </div>
           <div className="login-info">
-              <label htmlFor="user-id" className="invisible">Email:</label>
-              <input type="text" id="user-id" required placeholder="아이디" value={email} onChange={handleEmailChange} />
-              <label htmlFor="password" className="invisible">Password:</label>
-              <input type="password" id="password" required placeholder="비밀 번호" value={password} onChange={handlePasswordChange} />
-              <button type="button" className="btn btn-black login-btn" onClick={handleLogin}>로그인</button>
-              <div className='mt20'>
-                  <p className='color-error mb15'>
-                   비밀번호를 5회 이상 틀리셨습니다.<br />비밀번호 초기화를 통해 비밀번호를 초기화 해주세요.
-                  </p>
-                  <span>비밀번호를 잊으셨나요?</span>
-                  <button className="reset-link" onClick={() => { setClear(true) }}>비밀번호 초기화</button>
-                  {/* 팝업 확인 용 */}
-                  <button className="reset-link" onClick={() => { setReset(true) }}>비밀번호 재설정</button>
-                  <button className="reset-link" onClick={() => { setPasswordold(true) }}>비밀번호 6개월</button>
-                  {/* 팝업 확인 용 */}
+            <h2 className='tit'>{!isChangePass ? '로그인' : '비밀번호 변경' } </h2>
+            { !isChangePass
+              ? <div>
+                <input type="text" id="user-id" required placeholder="아이디" value={email} onChange={handleEmailChange} />
+                <input type="password" id="password" required placeholder="비밀 번호" value={password} onChange={handlePasswordChange} className='error' />
+                <p className='error-msg'>
+                    비밀번호를 5회 이상 틀리셨습니다.<br />비밀번호 초기화를 통해 비밀번호를 초기화 해주세요.
+                </p>
               </div>
+              : <div>
+                <input type='password' name='resent_password' id='resent_password' placeholder='현재 비밀번호' />
+                <input type='password' name='now_password' id='now_password' placeholder='변경 비밀번호' />
+                <input type='password' name='set_password' id='set_password' className='error' placeholder='변경 비밀번호 확인' />
+                <p className='error-msg'>
+                  비밀번호가 일치하지 않습니다. 다시 확인해주세요.
+                </p>
+              </div>
+            }
+              <button type="button" className="btn btn-black login-btn" onClick={handleLogin}>로그인</button>
+            {!isChangePass
+              ? <div className='mt20'>
+                <span>비밀번호를 잊으셨나요?</span>
+                <button className="reset-link" onClick={() => { setClear(true) }}>비밀번호 초기화</button>
+                {/* 팝업 확인 용 */}
+                <button className="reset-link" onClick={() => { setPasswordold(true) }}>비밀번호 6개월</button>
+                {/* 팝업 확인 용 */}
+              </div>
+              : ''
+            }
           </div>
          </div>
           <div className='copy-right'>
@@ -122,26 +135,18 @@ const LoginPage = () => {
           <input type='text' name='reset_id' id='reset_id' className='mb15' placeholder='아이디' />
           <input type='text' name='reset_email' id='reset_email' className='mb15' placeholder='Email' />
           <div className="btn-group center">
-            <button className="btn btn-lg btn-low" onClick={() => { setReset(false) }}>취소</button>
+            <button className="btn btn-lg btn-low" onClick={() => { setClear(false) }}>취소</button>
             <button className="btn btn-lg btn-primary" onClick={() => { setSend(true) }}>확인</button>
           </div>
       </Popup>
       <Alert open={send} close={() => { setSend(false) }} type={'no'}>
         <div> 0000@0000.000 로<br />  메일을 발송하였습니다.</div>
       </Alert>
-      <Popup open={reset} close={() => { setReset(false) }} header="비밀번호변경" type={'sm'}>
-          <input type='password' name='resent_password' id='resent_password' className='mb15' placeholder='현재 비밀번호' />
-          <input type='password' name='now_password' id='now_password' className='mb15' placeholder='변경 비밀번호' />
-          <input type='password' name='set_password' id='set_password' className='error' placeholder='변경 비밀번호 확인' />
-          <p className='color-error mb15'>
-            비밀번호가 일치하지 않습니다. 다시 확인해주세요.
-          </p>
-          <div className="btn-group center">
-            <button type="button" className="btn btn-black btn-lg" onClick={handleLogin}>로그인</button>
-          </div>
-      </Popup>
       <Popup open={passwordold} close={() => { setPasswordold(false) }} header="비밀번호변경" type={'sm'}>
-          <p>비밀번호를 변경한지 6개월이 지났습니다. <br /> 지금 비밀번호를 변경하시겠습니까?</p>
+          <div className="result-nodata">
+            <i></i>
+            <p>비밀번호를 변경한지 6개월이 지났습니다. <br /> 지금 비밀번호를 변경하시겠습니까?</p>
+          </div>
           <div className="btn-group center">
             <button type="button" className="btn btn-black btn-lg" onClick={handleChangPassword}>비밀번호 변경하기</button>
           </div>

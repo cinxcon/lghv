@@ -70,8 +70,8 @@ const MenuItemLevel1 = ({ index, title, path, subMenus, pathSegments }) => {
   return (
     <li className={`menu-item-level-1 ${isActive ? 'active' : ''} ${hasSubMenus ? 'has-sub' : ''}`}>
       {isActive
-        ? (<button className='toggle-button-level-1'>{title}</button>)
-        : (<Link to={path} key={index} className='toggle-button-level-1'>{title}</Link>)
+        ? (<button className='toggle-button-level-1'><span>{title}</span></button>)
+        : (<Link to={path} key={index} className='toggle-button-level-1'><span>{title}</span></Link>)
         }
       {isActive && hasSubMenus && <MenuLevel2 parentTitle={title} subMenus={subMenus} pathSegments={pathSegments} />}
     </li>
