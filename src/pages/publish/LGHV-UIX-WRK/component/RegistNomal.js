@@ -151,67 +151,68 @@ function NomalWork() {
             </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-            <div className='flex-wrap between align-start'>
-                <table className='table half'>
-                    <caption>결제 라인 정보</caption>
-                    <colgroup>
-                    <col style={{ width: '8%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '12%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '40%' }} />
-                    </colgroup>
-                    <thead>
+            <table className='table table-row'>
+                <caption>결제 라인 정보</caption>
+                <colgroup>
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '60%' }} />
+                </colgroup>
+                <thead>
                     <tr>
-                        <th scope='col'>구분</th>
-                        <th scope='col'>결재자</th>
-                        <th scope='col'>상태</th>
-                        <th scope='col'>결재일시</th>
-                        <th scope='col'>의견</th>
+                    <th scope='col'>구분</th>
+                    <th scope='col'>결재자</th>
+                    <th scope='col'>상태</th>
+                    <th scope='col'>결재일시</th>
+                    <th scope='col'>의견</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+                <tbody>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td>기안</td>
+                    <td>홍길동(009900)</td>
+                    <td>기안</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td>조정</td>
+                    <td>정유리(123567)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td></td>
                     </tr>
-                    </tbody>
-                </table>
-                <table className='table half'>
-                    <caption>합의 수신 정보</caption>
-                    <colgroup>
+                    <tr>
+                    <td>합의</td>
+                    <td>정유리(123567)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>결재</td>
+                    <td>김철수(123456)</td>
+                    <td><span className='color-success'>승인</span></td>
+                    <td></td>
+                    <td>안전에 유의하여 작업해 주세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table className='table table-row mt20'>
+                <caption>수신 정보</caption>
+                <colgroup>
                     <col style={{ width: '10%' }} />
                     <col style={{ width: '90%' }} />
-                    </colgroup>
-                    <tbody>
+                </colgroup>
+                <tbody>
                     <tr>
-                        <th scope='row'>합의</th>
-                        <td>&nbsp;</td>
+                    <th scope='row'>수신</th>
+                    <td>김순자(111111)</td>
                     </tr>
-                    <tr>
-                        <th scope='row'>수신</th>
-                        <td>&nbsp;</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
     {/* 결제선 저장 시 나타나는 항목 끝 */}

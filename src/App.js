@@ -8,6 +8,7 @@ import DynamicStyle from './assets/dynamicStyle';
 import WorkInfo from './pages/publish/layout/WorkInfo';
 import logoImage from './assets/images/common/LGHV_logo_28.png';
 import loginVisaul from './assets/images/common/login_visaul.png';
+import { Alert, Popup } from './pages/publish/popup/Popup';
 
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -37,6 +38,10 @@ const Main = () => {
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [clear, setClear] = useState(false);
+  const [reset, setReset] = useState(false);
+  const [send, setSend] = useState(false);
+  const [passwordold, setPasswordold] = useState(false);
   const navigate = useNavigate();
 
   const users = [
@@ -75,10 +80,16 @@ const LoginPage = () => {
     }
   };
 
+  const handleChangPassword = () => {
+    setPasswordold(false);
+    setReset(true);
+  }
+
   return (
     <div className="login-wrap">
-      <div className="login-container flex-wrap between">
-          <div className="login-kv">
+      <div className="login-container">
+         <div className='flex-wrap between'>
+         <div className="login-kv">
               <h2 className="logo"><img src={logoImage} alt="LG HelloVision" /></h2>
               <p>Total Operation <br />Management System</p>
               <div className="img-wrap"><img src={loginVisaul} alt="" /></div>
@@ -88,9 +99,57 @@ const LoginPage = () => {
               <input type="text" id="user-id" required placeholder="아이디" value={email} onChange={handleEmailChange} />
               <label htmlFor="password" className="invisible">Password:</label>
               <input type="password" id="password" required placeholder="비밀 번호" value={password} onChange={handlePasswordChange} />
-              <button type="button" className="btn btn-black" onClick={handleLogin}>로그인</button>
+              <button type="button" className="btn btn-black login-btn" onClick={handleLogin}>로그인</button>
+              <div className='mt20'>
+                  <p className='color-error mb15'>
+                   비밀번호를 5회 이상 틀리셨습니다.<br />비밀번호 초기화를 통해 비밀번호를 초기화 해주세요.
+                  </p>
+                  <span>비밀번호를 잊으셨나요?</span>
+                  <button className="reset-link" onClick={() => { setClear(true) }}>비밀번호 초기화</button>
+                  {/* 팝업 확인 용 */}
+                  <button className="reset-link" onClick={() => { setReset(true) }}>비밀번호 재설정</button>
+                  <button className="reset-link" onClick={() => { setPasswordold(true) }}>비밀번호 6개월</button>
+                  {/* 팝업 확인 용 */}
+              </div>
+          </div>
+         </div>
+          <div className='copy-right'>
+            <p>Copyright © 2023 LGHV Company. All rights reserved.</p>
           </div>
       </div>
+      <Popup open={clear} close={() => { setClear(false) }} header="비밀번호 초기화" type={'sm'}>
+          <p className='center mb15'>초기화 된 비밀번호는 Toms에 등록 된 E-mail로 전송 됩니다.</p>
+          <input type='text' name='reset_id' id='reset_id' className='mb15' placeholder='아이디' />
+          <input type='text' name='reset_email' id='reset_email' className='mb15' placeholder='Email' />
+          <div className="btn-group center">
+            <button className="btn btn-lg btn-low" onClick={() => { setReset(false) }}>취소</button>
+            <button className="btn btn-lg btn-primary" onClick={() => { setSend(true) }}>확인</button>
+          </div>
+      </Popup>
+      <Alert open={send} close={() => { setSend(false) }} type={'no'}>
+        <div> 0000@0000.000 로<br />  메일을 발송하였습니다.</div>
+      </Alert>
+      <Popup open={reset} close={() => { setReset(false) }} header="비밀번호변경" type={'sm'}>
+          <input type='password' name='resent_password' id='resent_password' className='mb15' placeholder='현재 비밀번호' />
+          <input type='password' name='now_password' id='now_password' className='mb15' placeholder='변경 비밀번호' />
+          <input type='password' name='set_password' id='set_password' className='error' placeholder='변경 비밀번호 확인' />
+          <p className='color-error mb15'>
+            비밀번호가 일치하지 않습니다. 다시 확인해주세요.
+          </p>
+          <div className="btn-group center">
+            <button type="button" className="btn btn-black btn-lg" onClick={handleLogin}>로그인</button>
+          </div>
+      </Popup>
+      <Popup open={passwordold} close={() => { setPasswordold(false) }} header="비밀번호변경" type={'sm'}>
+          <p>비밀번호를 변경한지 6개월이 지났습니다. <br /> 지금 비밀번호를 변경하시겠습니까?</p>
+          <div className="btn-group center">
+            <button type="button" className="btn btn-black btn-lg" onClick={handleChangPassword}>비밀번호 변경하기</button>
+          </div>
+      </Popup>
+      <Alert open={send} close={() => { setSend(false) }} type={'no'}>
+        <p> 0000@0000.000 로<br />  메일을 발송하였습니다.</p>
+        <p> 0000@0000.000 로<br />  <span className='color-error'>메일 전송을 실패</span>하였습니다.</p>
+      </Alert>
     </div>
   );
 };
