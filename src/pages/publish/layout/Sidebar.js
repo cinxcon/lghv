@@ -28,15 +28,15 @@ const Sidebar = () => {
       </div>
       <div className={`work-space ${divStates ? 'show' : 'hide'}`}>
         <SideBarWork />
-        <div className='fix-btn-wrap'>
-          <button type='button' onClick={handleDivToggle} className='toggle-btn'>시스템 관리</button>
+        <div className='fix-btn-wrap' onClick={handleDivToggle} >
+          <span className='toggle-btn'>시스템 관리</span>
         </div>
       </div>
       <div className={`system-management ${divStates ? 'hide' : 'show'}` }>
         <h3 className='tit'><span>시스템 관리</span></h3>
         <SideBarSystem />
-        <div className='fix-btn-wrap system'>
-          <button type='button' onClick={handleDivToggle} className='toggle-btn'>사용자 메뉴</button>
+        <div className='fix-btn-wrap system' onClick={handleDivToggle} >
+          <span className='toggle-btn'>사용자 메뉴</span>
         </div>
       </div>
     </div>

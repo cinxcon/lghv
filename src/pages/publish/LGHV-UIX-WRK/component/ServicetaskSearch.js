@@ -117,21 +117,6 @@ function ServicetaskSearch() {
     }
   };
   // input clear
-  const [subjecValue, setSubjecValue] = useState('');
-  const onSubjecInput = (e) => setSubjecValue(e.target.value);
-  const onSubjecClear = () => {
-    setSubjecValue('');
-  }
-  const [regnumValue, setRegnumValue] = useState('');
-  const onRegnumInput = (e) => setRegnumValue(e.target.value);
-  const onRegnumClear = () => {
-    setRegnumValue('');
-  }
-  const [registrantValue, setRegistrantValue] = useState('');
-  const onRegistrantInput = (e) => setRegistrantValue(e.target.value);
-  const onRegistrantClear = () => {
-    setRegistrantValue('');
-  }
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
@@ -172,8 +157,7 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="subjec">제목</label></th>
                 <td colSpan={9}>
                   <span className='input-clear-wrap'>
-                    <input type="text" name="subject" id="subjec" placeholder='제목' value={subjecValue} onInput={onSubjecInput} />
-                    <button type="button" className='clear-search-button' onClick={onSubjecClear}>삭제</button>
+                    <input type="text" name="subject" id="subjec" placeholder='제목' value='' />
                   </span>
                 </td>
                 </tr>
@@ -181,16 +165,14 @@ function ServicetaskSearch() {
                 <th scope="row"><label htmlFor="regnum">등록번호</label></th>
                 <td colSpan={2}>
                   <span className='input-clear-wrap'>
-                    <input type="text" name="regnum" id="regnum" placeholder='등록번호' value={registrantValue} onInput={onRegistrantInput} />
-                    <button type="button" className='clear-search-button' onClick={onRegistrantClear}>삭제</button>
+                    <input type="text" name="regnum" id="regnum" placeholder='등록번호' value='' />
                   </span>
                   <span className='search-error-msg'>숫자만 입력하세요.</span>
                 </td>
                 <th scope="row"><label htmlFor="registrant">등록자</label></th>
                 <td colSpan={2}>
                   <span className='input-clear-wrap'>
-                    <input type="text" name="registrant" id="registrant" placeholder='등록자' value={regnumValue} onInput={onRegnumInput} />
-                    <button type="button" className='clear-search-button' onClick={onRegnumClear}>삭제</button>
+                    <input type="text" name="registrant" id="registrant" placeholder='등록자' value='' />
                   </span>
                 </td>
                 <th scope="row"><label htmlFor="regdep">등록부서</label></th>
