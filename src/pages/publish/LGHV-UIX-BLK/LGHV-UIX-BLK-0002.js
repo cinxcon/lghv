@@ -341,7 +341,7 @@ function DisabilityMngList() {
             {
               resultList.map(function(a, i) {
                 return (
-                <tr key={i} onClick={() => { onPopup('/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail', 'wrk', '1280', '760') }} className='link'>
+                <tr key={i} onClick={() => { onPopup('/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail', 'detail', '1280', '760') }} className='link'>
                   <td>T23080700000151</td>
                   <td>경인테크팀</td>
                   <td>CAMS</td>

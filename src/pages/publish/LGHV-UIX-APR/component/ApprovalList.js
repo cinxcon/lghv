@@ -7,7 +7,7 @@ export default function ApprovalList() {
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   // 새창 팝업
-  const onPopup = (name) => {
+  const onPopupDetail = (name) => {
     const url = '/LGHV-UIX-APR/LGHV-UIX-APR-0001/:' + name;
     const width = '1280';
     const height = '760';
@@ -49,11 +49,11 @@ export default function ApprovalList() {
           </tr>
         </thead>
         <tbody>
-          <tr onClick={() => { onPopup('wrk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
             <td>WRK00001</td>
             <td>작업관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -61,11 +61,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-disable'>결재대기</span></td>
           </tr>
-          <tr onClick={() => { onPopup('wrk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
             <td>WRK00002</td>
             <td>작업관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -73,11 +73,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-fail'>결재반려</span></td>
           </tr>
-          <tr onClick={() => { onPopup('wrk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
             <td>WRK00003</td>
             <td>작업관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -85,11 +85,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-success'>결재완료</span></td>
           </tr>
-          <tr onClick={() => { onPopup('blk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
             <td>BLK00001</td>
             <td>장애관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -97,11 +97,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-disable'>결재대기</span></td>
           </tr>
-          <tr onClick={() => { onPopup('blk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
             <td>BLK00002</td>
             <td>장애관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -109,11 +109,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-fail'>결재반려</span></td>
           </tr>
-          <tr onClick={() => { onPopup('blk') }} className='link'>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
             <td>BLK00003</td>
             <td>장애관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -121,11 +121,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-success'>결재완료</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accUser') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
             <td>ACC20001</td>
             <td>사용자관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -133,11 +133,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-disable'>결재대기</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accUser') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
             <td>ACC20002</td>
             <td>사용자관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -145,11 +145,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-fail'>결재반려</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accUser') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
             <td>ACC20003</td>
             <td>사용자관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -157,11 +157,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-success'>결재완료</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accEq') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
             <td>ACC60001</td>
             <td>장비관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -169,11 +169,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-disable'>결재대기</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accEq') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
             <td>ACC60002</td>
             <td>장비관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -181,11 +181,11 @@ export default function ApprovalList() {
             <td>2023-01-01 03:00</td>
             <td><span className='color-fail'>결재반려</span></td>
           </tr>
-          <tr onClick={() => { onPopup('accEq') }} className='link'>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
             <td>ACC60003</td>
             <td>장비관리</td>
             <td>중앙방송</td>
-            <td>신규 사용자 등록</td>
+            <td className='left'>신규 사용자 등록</td>
             <td>서울인프라팀</td>
             <td>홍길동</td>
             <td>2023-01-01 02:00</td>
@@ -196,11 +196,11 @@ export default function ApprovalList() {
           {
             resultList.map(function(a, i) {
               return (
-                <tr key={i} onClick={() => { onPopup('wrk') }} className='link'>
+                <tr key={i} onClick={() => { onPopupDetail('wrk') }} className='link'>
                   <td>WRK11102</td>
                   <td>작업관리</td>
                   <td>중앙방송</td>
-                  <td>신규 사용자 등록</td>
+                  <td className='left'>신규 사용자 등록</td>
                   <td>서울인프라팀</td>
                   <td>홍길동</td>
                   <td>2023-01-01 02:00</td>

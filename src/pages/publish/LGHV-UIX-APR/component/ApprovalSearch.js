@@ -68,13 +68,6 @@ function ApprovalSearch() {
     { value: '중부산방송', label: '중부산방송' }
   ];
   const [so, setSo] = useState(optionSo[0]);
-  const optionGubun = [
-    { value: '선택', label: '선택' },
-    { value: '결재대기 ', label: '결재대기 ' },
-    { value: '결재완료', label: '결재완료' },
-    { value: '결재반려', label: '결재반려' }
-  ];
-  const [gubun, setGubun] = useState(optionGubun[0]);
 
   return (
     <div className='content-section'>
@@ -121,7 +114,7 @@ function ApprovalSearch() {
               </tr>
               <tr>
                 <th scope="row">구분</th>
-                <td colSpan={3}>
+                <td colSpan={5}>
                   <fieldset>
                     <legend>구분</legend>
                     <input type="checkbox" name="division" id="div_1" value="" checked />
@@ -134,11 +127,6 @@ function ApprovalSearch() {
                     <label htmlFor="div_4">장비관리</label>
                   </fieldset>
                 </td>
-                <th scope="row">내작업</th>
-                <td>
-                  <input type="checkbox" name="mywork" id="mywork" value="" />
-                  <label htmlFor="mywork">내작업만 보기</label>
-                </td>
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="infra">인프라팀</label></th>
@@ -149,10 +137,7 @@ function ApprovalSearch() {
                 <td>
                   <Select defaultValue={optionSo[0]} value={so} onChange={setSo} options={optionSo} className='react-select-container' classNamePrefix="react-select" />
                 </td>
-                <th scope="row"><label htmlFor="gubun">상태구분</label></th>
-                <td>
-                  <Select defaultValue={optionGubun[0]} value={gubun} onChange={setGubun} options={optionGubun} className='react-select-container' classNamePrefix="react-select" />
-                </td>
+                <td colSpan={2}></td>
               </tr>
             </tbody>
           </table>

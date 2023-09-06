@@ -1,7 +1,7 @@
 import ServicetaskDetail from '../LGHV-UIX-WRK/LGHV-UIX-WRK-0004';
 import DisabilityMngDetail from '../LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
-import AccUserDetail from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0002';
-import AccEquipmentDetail from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0006';
+import AccUserDetailAPR from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0001-DetailAPR';
+import AccEquipmentDetailAPR from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0006-DetailAPR';
 import { useLocation } from 'react-router-dom';
 
 function ApprovalDetail() {
@@ -12,13 +12,12 @@ function ApprovalDetail() {
 
   return (
     <>
-      <div style={{ color: 'red' }}>{location.pathname}</div>
       {
         {
           wrk: <ServicetaskDetail />,
           blk: <DisabilityMngDetail />,
-          accUser: <AccUserDetail />,
-          accEq: <AccEquipmentDetail />
+          accUser: <AccUserDetailAPR />,
+          accEq: <AccEquipmentDetailAPR />
         }[current]
       }
     </>

@@ -28,11 +28,18 @@ function DisabilityMngDetail() {
 
   const [desabilityReport, setDesabilityReport] = useState(false);
   const [notimethod, setNotimethod] = useState(false);
-  const [print, setPrint] = useState(false);
   const [history, setHistory] = useState(false);
+  const [refuse, setRefuse] = useState(false);
+  const [approve, setApprove] = useState(false);
+  const [regist, setRegist] = useState(false);
   const handlePrint = () => {
     window.print();
   };
+  const handleModify = () => {
+    window.close();
+    window.open('/LGHV-UIX-BLK/LGHV-UIX-BLK-0001');
+  };
+
   return (
     <PopupPortal>
       <style>
@@ -57,9 +64,6 @@ function DisabilityMngDetail() {
         <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
           <PopupNotiMethodBLK />
         </Popup>
-        <Popup open={print} close={() => { setPrint(false) }} header="화면인쇄">
-          화면인쇄
-        </Popup>
         <Popup open={history} close={() => { setHistory(false) }} header="처리내역">
           <PopupProcessHistoryBLK />
         </Popup>
@@ -74,11 +78,11 @@ function DisabilityMngDetail() {
             <table className='table table-row'>
               <caption>결제 라인 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '60%' }} />
+                <col style={{ width: '7%' }} />
+                <col style={{ width: '12%' }} />
+                <col style={{ width: '7%' }} />
+                <col style={{ width: '15%' }} />
+                <col />
               </colgroup>
               <thead>
                 <tr>
@@ -94,51 +98,51 @@ function DisabilityMngDetail() {
                   <td>기안</td>
                   <td>홍길동(009900)</td>
                   <td>기안</td>
-                  <td></td>
+                  <td>2023-01-01 11:00:00</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>검토</td>
                   <td>정유리(123567)</td>
                   <td><span className='color-success'>승인</span></td>
-                  <td></td>
-                  <td></td>
+                  <td>2023-01-02 11:00:00</td>
+                  <td>안전에 유의하여 작업해 주세요.</td>
                 </tr>
                 <tr>
                   <td>조정</td>
-                  <td>정유리(123567)</td>
-                  <td><span className='color-success'>승인</span></td>
-                  <td></td>
-                  <td></td>
+                  <td>김철수(123456)</td>
+                  <td><span className='color-fail'>반려</span></td>
+                  <td>2023-01-02 11:00:00</td>
+                  <td>작업 자세히 기입 바랍니다.</td>
                 </tr>
                 <tr>
                   <td>합의</td>
-                  <td>정유리(123567)</td>
-                  <td><span className='color-success'>승인</span></td>
+                  <td>김철수(123456)</td>
+                  <td></td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>결재</td>
                   <td>김철수(123456)</td>
-                  <td><span className='color-success'>승인</span></td>
                   <td></td>
-                  <td>안전에 유의하여 작업해 주세요.</td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
             <table className='table table-row mt20'>
-                <caption>수신 정보</caption>
-                <colgroup>
-                  <col style={{ width: '10%' }} />
-                  <col style={{ width: '90%' }} />
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope='row'>수신</th>
-                    <td>김순자(111111)</td>
-                  </tr>
-                </tbody>
+              <caption>수신 정보</caption>
+              <colgroup>
+                <col style={{ width: '7%' }} />
+                <col />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope='row'>수신</th>
+                  <td>김순자(111111), 김철수(123456)</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -243,7 +247,7 @@ function DisabilityMngDetail() {
                 <tr>
                   <th scope='row'>장애 지역 및 가입자</th>
                   <td>
-                    <div className='textarea'>
+                    <div className='worker-box h66 over-flow-y'>
                       강원인프라팀/영동방송<br />
                       강원인프라팀/영동방송<br />
                       강원인프라팀/영동방송<br />
@@ -374,19 +378,19 @@ function DisabilityMngDetail() {
                 </tr>
                 <tr>
                   <th scope='row'>장애시간</th>
-                  <td></td>
+                  <td>분</td>
                   <th scope='row'>장애귀책</th>
-                  <td></td>
+                  <td>내부</td>
                 </tr>
                 <tr>
                   <th scope='row'>장애 귀책 부서</th>
-                  <td></td>
+                  <td>기간망운영팀</td>
                   <th scope='row'>지식등록여부</th>
-                  <td></td>
+                  <td>미등록</td>
                 </tr>
                 <tr>
                   <th scope='row'>장애 조치 코드</th>
-                  <td colSpan={3}></td>
+                  <td colSpan={3}>/CAMS/모든 불량</td>
                 </tr>
                 <tr>
                   <th scope='row'>처리 세부 내역</th>
@@ -394,13 +398,13 @@ function DisabilityMngDetail() {
                 </tr>
                 <tr>
                   <th scope='row'>장애원인</th>
-                  <td colSpan={3}></td>
+                  <td colSpan={3}>현재 파악 중입니다.</td>
                 </tr>
                 <tr>
                   <th scope='row'>피해사항</th>
-                  <td></td>
+                  <td>확인 중</td>
                   <th scope='row'>재발방지 조치대책</th>
-                  <td></td>
+                  <td>대책 수립 중</td>
                 </tr>
               </tbody>
             </table>
@@ -435,8 +439,37 @@ function DisabilityMngDetail() {
             </table>
           </div>
         </div>
+        <div className='content-section'>
+          <div className='detail-bottom-btn-group'>
+            {/* 결재함에서 넘어 갈 때: 결재대기, 완료, 반려 시 */}
+            <button className='btn btn-lg btn-low' onClick={() => { setRefuse(true) }}>반려</button>
+            <button className='btn btn-lg btn-primary' onClick={() => { setApprove(true) }}>승인</button>
+            {/* 결재함에서 넘어 갈 때: 공람문서 */}<br /><br />
+            <button className='btn btn-lg btn-low' onClick={ handleModify }>수정</button>
+            <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
+          </div>
+          <Popup open={refuse} close={() => { setRefuse(false) }} header="[반려] 의견" footer={ <PopupButtons close={() => { setRefuse(false) }} /> } type={'sm'}>
+            <textarea></textarea>
+          </Popup>
+          <Popup open={approve} close={() => { setApprove(false) }} header="[승인] 의견" footer={ <PopupButtons close={() => { setApprove(false) }} /> } type={'sm'}>
+            <textarea></textarea>
+          </Popup>
+          <Popup open={regist} close={() => { setRegist(false) }} header="일반작업 등록" footer={ <PopupButtons close={() => { setRegist(false) }} /> } type={'sm'}>
+            징애를 등록 하시겠습니까?
+          </Popup>
+        </div>
       </div>
     </PopupPortal>
   );
 };
+
+function PopupButtons(props) {
+  return (
+    <div className="btn-group">
+      <button className="btn btn-lg btn-low" onClick={props.close}>취소</button>
+      <button className="btn btn-lg btn-primary">확인</button>
+    </div>
+  )
+}
+
 export default DisabilityMngDetail;
