@@ -10,7 +10,7 @@ const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
   return createPortal(children, el)
 }
-function ServicetaskDetail() {
+function ServicetaskDetail({ wrk }) {
   const [notimethod, setNotimethod] = useState(false);
   const [history, setHistory] = useState(false);
   const [workStop, setWorkStop] = useState();
@@ -24,7 +24,8 @@ function ServicetaskDetail() {
     title: '작업관리',
     subtitle: '작업상세',
     SubMenu: 'yes',
-    isDetail: 'yes'
+    isDetail: 'yes',
+    goDetail: 'wrk'
   }
   const handlePrint = () => {
     window.print();

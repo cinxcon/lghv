@@ -9,7 +9,7 @@ import DashBorad from './pages/publish/LGHV-UIX-MAN/LGHV-UIX-MAN-0003';
 // import ApprovalComplete from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0002';
 // import ApprovalCompleteDetail from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0002-Detail';
 import Approval from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0000';
-import ApprovalDetail from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0000-Detail';
+import ApprovalDetail from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0001';
 import ApprovalAll from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0003';
 import ApprovalAllDetail from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0003-Detail';
 // import ApprovalReturn from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0004';
@@ -66,9 +66,9 @@ import ApprovalPopDetail from './pages/publish/LGHV-UIX-APR/_ApprovalPopDetail';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
-import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-detail';
+import { SysDepartmentMngDetail, SysDepartmentMngReg, SysDepartmentMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001-Detail';
 import SysUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002';
-import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-detail';
+import { SysUserMngDetail, SysUserMngReg, SysUserMngModi } from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0002-Detail';
 import SysUnsubscribeUserMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0003';
 import SysSmsUnsubscribeMemberMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0004';
 import SysConnectLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0005';
@@ -112,7 +112,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0002" element={<ApprovalComplete />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0002-Detail" element={<ApprovalCompleteDetail />} /> */}
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0000" element={<Approval />} />
-      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0000-Detail" element={<ApprovalDetail />} />
+      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0001/:id" element={<ApprovalDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0003" element={<ApprovalAll />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0003-Detail" element={<ApprovalAllDetail />} />
       {/* <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0004" element={<ApprovalReturn />} />
@@ -156,11 +156,11 @@ const AppRouter = () => {
 
       {/* 시스템관리 */}
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001" element={<SysDepartmentMng />} />
-      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-detail" element={<SysDepartmentMngDetail />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-Detail" element={<SysDepartmentMngDetail />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-regist" element={<SysDepartmentMngReg />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify" element={<SysDepartmentMngModi />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002" element={<SysUserMng />} />
-      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-detail" element={<SysUserMngDetail />} />
+      <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-Detail" element={<SysUserMngDetail />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-regist" element={<SysUserMngReg />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-modify" element={<SysUserMngModi />} />
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0003" element={<SysUnsubscribeUserMng />} />

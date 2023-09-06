@@ -13,7 +13,7 @@ function ApprovalStandby() {
     <>
       <ContentTitle data={pagedata} />
       <ApprovalSearch />
-      <ApprovalList data={pagedata} toDetail="/LGHV-UIX-APR/LGHV-UIX-APR-0001-Detail" currentStatus="결재대기" />
+      <ApprovalList />
     </>
   )
 }
