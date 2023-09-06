@@ -39,16 +39,12 @@ const SideBarWork = () => {
     },
     {
       title: '결재관리',
-      path: '/LGHV-UIX-APR/LGHV-UIX-APR-0001',
+      path: '/LGHV-UIX-APR/LGHV-UIX-APR-0000',
       subMenus: [
-        { title: '결재대기함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0001' },
-        { title: '결재완료함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0002' },
+        { title: '결재문서함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0000' },
         { title: '공람문서함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0003' },
-        { title: '반려함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0004' },
         { title: '임시보관함', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0005' },
-        // ↓↓↓  테스트 ↓↓↓
-        { title: '버튼모음', path: '/LGHV-UIX-APR/ApprovalTest' },
-        { title: '팝업테스트', path: '/LGHV-UIX-APR/ApprovalPop' }
+        { title: 'On Time 프로세스', path: '/LGHV-UIX-APR/LGHV-UIX-APR-0006' }
       ]
     },
     {

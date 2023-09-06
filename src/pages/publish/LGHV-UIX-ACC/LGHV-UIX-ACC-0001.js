@@ -8,7 +8,7 @@ import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
-function AccUser(data) {
+function AccUser() {
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '접근제어',
@@ -16,18 +16,19 @@ function AccUser(data) {
     SubMenu: 'yes',
     isDetail: 'no'
   }
-  const pathData = data; // 추가된 부분
   const navigate = useNavigate();
   const handleRegClick = () => navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0007');
-  const selectedWork = () => {
-    navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0002', { state: pathData });
-  }
   //  토글
   const [isToggled, setToggled] = useState(false);
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
-
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const handleStdayChange = (event) => {
@@ -207,7 +208,7 @@ function AccUser(data) {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={ selectedWork } className='link'>
+            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '760') }} className='link'>
               <td>S102020</td>
               <td>홍길동</td>
               <td>기간망운영팀</td>
@@ -221,7 +222,7 @@ function AccUser(data) {
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={ selectedWork } className='link'>
+                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '760') }} className='link'>
                     <td>S102020</td>
                     <td>홍길동</td>
                     <td>기간망운영팀</td>

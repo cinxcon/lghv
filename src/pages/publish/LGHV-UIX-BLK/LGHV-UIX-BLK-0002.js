@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
@@ -8,18 +7,12 @@ import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
-function DisabilityMngList(props) {
-  const { data } = props;
+function DisabilityMngList() {
   const pagedata = {
     title: '장애관리',
     subtitle: '장애목록',
     SubMenu: 'yes',
     isDetail: 'no'
-  }
-  const pathData = data;
-  const navigate = useNavigate();
-  const selectedWork = () => {
-    navigate('/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail', { state: pathData });
   }
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
@@ -348,7 +341,7 @@ function DisabilityMngList(props) {
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={selectedWork} className='link'>
+                <tr key={i} onClick={() => { onPopup('/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail', 'detail', '1280', '760') }} className='link'>
                   <td>T23080700000151</td>
                   <td>경인테크팀</td>
                   <td>CAMS</td>

@@ -17,9 +17,10 @@ function AccEquipmentList() {
   }
 
   // 새창 팝업
-  const onPopup = () => {
-    const url = '/LGHV-UIX-ACC/LGHV-UIX-ACC-0006';
-    window.open(url, '_blank', 'popup');
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
 
   //  토글
@@ -157,7 +158,7 @@ function AccEquipmentList() {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={onPopup} className='link'>
+            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0006', 'detail', '1280', '760') }} className='link'>
               <td>InfraCore1</td>
               <td>프록시</td>
               <td>Linux</td>
@@ -168,7 +169,7 @@ function AccEquipmentList() {
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={onPopup} className='link'>
+                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0006', 'detail', '1280', '760') }} className='link'>
                     <td>InfraCore1</td>
                     <td>프록시</td>
                     <td>Linux</td>
