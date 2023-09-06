@@ -415,7 +415,8 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .input-btn-wrap .input-repeatcheck-front { width: calc(100% - 79px); }
 .input-btn-wrap .input-w-80{width: 80%;}
 .input-btn-wrap .input-sz50-front { width: calc(100% - 50px); }
-.input-btn-wrap .worker-box{height: 70px;}
+.input-btn-wrap .worker-box{height: 70px;background: none;}
+.input-btn-wrap .worker-box option{margin-bottom: 4px; padding: 2px; }
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 60px; padding: 16px; margin-top: -35px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }
