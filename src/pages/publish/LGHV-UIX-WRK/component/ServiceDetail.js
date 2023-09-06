@@ -50,7 +50,7 @@ function ServiceDetail() {
                 <tr>
                   <td>검토</td>
                   <td>홍길동(009900)</td>
-                  <td>기안</td>
+                  <td><span className='color-success'>승인</span></td>
                   <td></td>
                   <td></td>
                 </tr>
