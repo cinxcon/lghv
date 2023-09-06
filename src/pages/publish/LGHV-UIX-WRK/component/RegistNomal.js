@@ -178,6 +178,13 @@ function NomalWork() {
                     <td></td>
                     </tr>
                     <tr>
+                    <td>검토</td>
+                    <td>홍길동(009900)</td>
+                    <td>기안</td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
                     <td>조정</td>
                     <td>정유리(123567)</td>
                     <td><span className='color-success'>승인</span></td>
@@ -586,12 +593,12 @@ function NomalWork() {
                     <th>작업자</th>
                     <td>
                         <div className='input-btn-wrap'>
-                            <ul className='input input_org worker-box over-flow-y'>
-                               <li>동부미디어국/홍길동/010-2345-6789</li>
-                               <li>동부미디어국/홍길동/010-2345-6789</li>
-                               <li>동부미디어국/홍길동/010-2345-6789</li>
-                               <li>동부미디어국/홍길동/010-2345-6789</li>
-                            </ul>
+                            <select name='work_list' id='work_list' multiple className='worker-box over-flow-y'>
+                                <option>동부미디어국/홍길동/010-2345-6789</option>
+                                <option>동부미디어국/홍길동/010-2345-6789</option>
+                                <option>동부미디어국/홍길동/010-2345-6789</option>
+                                <option>동부미디어국/홍길동/010-2345-6789</option>
+                            </select>
                             <div>
                                 <button type='button' className='btn-plus-28' onClick={() => { onPopup('/popup/PopupWorker', 'workDeteail', '1280', '800') }}>작업자 팝업 열기</button><br />
                                 <button type='button' className='btn-minus-28 mt6'>빼기</button>
