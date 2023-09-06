@@ -12,15 +12,19 @@ const PopupPortal = ({ children }) => {
   return createPortal(children, el)
 }
 
-function ApprovalAllDetail() {
+function ApprovalStandbyDetail() {
   const navigate = useNavigate();
+  const [confirm, setConfirm] = useState(false);
+  const [agree, setAgree] = useState(false);
+  const [modify, setModify] = useState(false);
+  const [del, setDelete] = useState(false);
   const [refuse, setRefuse] = useState(false);
   const [notimethod, setNotimethod] = useState(false);
   const [print, setPrint] = useState(false);
   const [history, setHistory] = useState(false);
   const pagedata = {
     title: '결재관리',
-    subtitle: '일반 작업등록',
+    subtitle: '결제대기함',
     SubMenu: 'yes',
     isDetail: 'yes'
   }
@@ -56,9 +60,28 @@ function ApprovalAllDetail() {
           <PopupProcessHistory />
         </Popup>
         <ApprovalDetailContent />
+        <div className='detail-bottom-btn-group'>
+          {/* 결재자용 버튼 */}
+          <button className='btn btn-lg btn-primary' onClick={() => { setConfirm(true) }}>결재</button>
+          {/* 기안자용 버튼 */}
+          <button className='btn btn-lg' onClick={() => { setModify(true) }}>수정</button>
+          <button className='btn btn-lg' onClick={() => { setDelete(true) }}>삭제</button>
+        </div>
+        <Alert open={confirm} close={() => { setConfirm(false) }}>
+          <div>결재 하시겠습니까?</div>
+        </Alert>
+        <Alert open={agree} close={() => { setAgree(false) }}>
+          <div>결재를 합의 하시겠습니까?</div>
+        </Alert>
+        <Alert open={modify} close={() => { setModify(false) }}>
+          <div>수정 하시겠습니까?</div>
+        </Alert>
+        <Alert open={del} close={() => { setDelete(false) }}>
+          <div>삭제 하시겠습니까?</div>
+        </Alert>
       </div>
     </PopupPortal>
   )
 }
 
-export default ApprovalAllDetail;
+export default ApprovalStandbyDetail;

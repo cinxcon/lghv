@@ -10,7 +10,7 @@ const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
   return createPortal(children, el)
 }
-function ServicetaskDetail() {
+function ServicetaskDetail({ wrk }) {
   const [notimethod, setNotimethod] = useState(false);
   const [history, setHistory] = useState(false);
   const [workStop, setWorkStop] = useState();
@@ -20,14 +20,21 @@ function ServicetaskDetail() {
   const [refuse, setRefuse] = useState(false);
   const [approve, setApprove] = useState(false);
   const [redo, setRedo] = useState(false);
+  const [registNm, setRegistNm] = useState(false);
+  const [registUr, setRegistUr] = useState(false);
   const pagedata = {
     title: '작업관리',
     subtitle: '작업상세',
     SubMenu: 'yes',
-    isDetail: 'yes'
+    isDetail: 'yes',
+    goDetail: 'wrk'
   }
   const handlePrint = () => {
     window.print();
+  };
+  const handleModify = () => {
+    window.close();
+    window.open('/LGHV-UIX-WRK/LGHV-UIX-WRK-0001');
   };
   return (
     <>
@@ -59,9 +66,16 @@ function ServicetaskDetail() {
               <button className='btn btn-lg' onClick={() => { setWorkExtend(true) }}>작업연장</button>
               <button className='btn btn-lg btn-primary' onClick={() => { setWorkFin(true) }}>작업완료</button>
             </div>
+            {/* 결재함에서 넘어 갈 때: 결재대기, 완료, 반려 시 */}
             <div className='mt6'>
               <button className='btn btn-lg btn-low' onClick={() => { setRefuse(true) }}>반려</button>
               <button className='btn btn-lg btn-primary' onClick={() => { setApprove(true) }}>승인</button>
+            </div>
+            {/* 결재함에서 넘어 갈 때: 공람문서 */}
+            <div className='mt6'>
+              <button className='btn btn-lg btn-low' onClick={ handleModify }>수정</button>
+              <button className='btn btn-lg btn-primary' onClick={() => { setRegistNm(true) }}>등록</button>
+              <button className='btn btn-lg btn-primary' onClick={() => { setRegistUr(true) }}>등록(긴급)</button>
             </div>
           </div>
           <Popup open={workStop} close={() => { setWorkStop(false) }} header="[작업중단] 의견" footer={ <PopupButtons close={() => { setWorkStop(false) }} /> } type={'sm'}>
@@ -89,6 +103,12 @@ function ServicetaskDetail() {
           </Popup>
           <Popup open={approve} close={() => { setApprove(false) }} header="[승인] 의견" footer={ <PopupButtons close={() => { setApprove(false) }} /> } type={'sm'}>
             <textarea></textarea>
+          </Popup>
+          <Popup open={registNm} close={() => { setRegistNm(false) }} header="일반작업 등록" footer={ <PopupButtons close={() => { setRegistNm(false) }} /> } type={'sm'}>
+            작업을 등록 하시겠습니까?
+          </Popup>
+          <Popup open={registUr} close={() => { setRegistUr(false) }} header="긴급작업 등록" footer={ <PopupButtons close={() => { setRegistUr(false) }} /> } type={'sm'}>
+            작업을 자가승인 하시겠습니까?
           </Popup>
           <div className="content-section mt40">
             <table className='table'>

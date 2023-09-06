@@ -150,7 +150,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
 .btn.w100{width: 100%;}
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
-.btn-txt-underline{ border-bottom: 1px solid #000;} 
+.btn-txt-underline{ border-bottom: 1px solid #000;}
 .btn-txt:after { content: ''; display: block; position: absolute; top: 3px; right: -20px; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -304px 0; background-repeat: no-repeat; background-size: auto; }
 .btn-txt:hover { color: #ED174D; }
 .btn-txt:hover:after { background-position: -448px 0; }
@@ -328,7 +328,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .sidebar .work-space.hide{display: none;}
 .sidebar .system-management.show{display: block;}
 .sidebar .system-management.hide{display: none;}
-.sidebar .system-management .tit{position: relative;} 
+.sidebar .system-management .tit{position: relative;}
 .sidebar.close .system-management .tit span{ display: none; transition: opacity 0.3s ease; opacity: 0;}
 .sidebar.open .system-management .tit span{opacity: 1; display: block; text-align: left; color: #fff; font-size: 16px; line-height: 24px; padding: 16px 0 16px 60px;}
 .sidebar .system-management .tit::before {content: ''; display: block; width: 32px; height: 32px; position: absolute; top: 13px; left: 16px; background-image: url('../images/common/lnb/ic_lnb8_32.png'); }
@@ -400,9 +400,9 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .search-wrap .title h3 { margin-bottom: 0; padding-top: 0; }
 .search-wrap .toggle-box  { border-top: 1px solid #000; margin: 12px 0 0 0; padding-top: 6px; }
 .search-wrap .toggle-box .btn-wrap { border-top: 1px solid #dbdbdb; margin-top: 4px; padding-top: 12px; }
-.search th { padding: 8px 0 8px 20px; }
+.search th { padding: 8px 0; }
 .search th:first-child{padding-left: 0;}
-.search td { padding: 8px 20px 8px 0; }
+.search td { padding: 8px 40px 8px 0; }
 .search td.bd-right-pd0 { padding-right: 0; }
 .search td:last-child{padding-right: 0;}
 .search .react-datepicker-wrapper input, .input-btn-wrap .react-datepicker-wrapper, .input-btn-wrap .react-datepicker-wrapper input { width: 100%; }
@@ -415,8 +415,10 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .input-btn-wrap .input-repeatcheck-front { width: calc(100% - 79px); }
 .input-btn-wrap .input-w-80{width: 80%;}
 .input-btn-wrap .input-sz50-front { width: calc(100% - 50px); }
-.input-btn-wrap .worker-box{height: 70px;background: none;}
-.input-btn-wrap .worker-box option{margin-bottom: 4px; padding: 2px; }
+.worker-box {background: none;}
+.worker-box.h66{height: 66px;}
+.worker-box.h70{height: 70px;}
+.worker-box option{margin-bottom: 4px; padding: 2px; }
 .search-btn-wrap { margin-top: 8px; text-align: right; }
 .btn-set-option { margin-bottom: 10px; display: flex; justify-content: space-between; }
 .detail-top-btn-group { height: 60px; padding: 16px; margin-top: -35px; margin-bottom: 24px; text-align: right; background-color: #F7F7F7; position: relative; }

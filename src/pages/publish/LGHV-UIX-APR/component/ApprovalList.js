@@ -1,24 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ResultPageView from '../../common/ResultPageView';
 import ResultNoData from '../../common/ResultNoData';
 import ResultListPaging from '../../common/ResultListPaging';
 
-export default function ApprovalList(props) {
-  const { data, toDetail, currentStatus } = props;
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+export default function ApprovalList() {
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
-  const pathData = data;
-  useEffect(() => {
-    pathData.isDetail = 'yes';
-  }, [pathData]);
-
-  const onPopup = () => {
-    const url = toDetail;
-    const popupWidth = 1280;
-    const popupHeight = 800;
-    const popupX = (window.screen.width / 2) - (popupWidth / 2);
-    const popupY = (window.screen.height / 2) - (popupHeight / 2);
-    window.open(url, '_blank', 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
+  // 새창 팝업
+  const onPopupDetail = (name) => {
+    const url = '/LGHV-UIX-APR/LGHV-UIX-APR-0001/:' + name;
+    const width = '1280';
+    const height = '760';
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
 
   return (
@@ -54,20 +49,164 @@ export default function ApprovalList(props) {
           </tr>
         </thead>
         <tbody>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
+            <td>WRK00001</td>
+            <td>작업관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-disable'>결재대기</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
+            <td>WRK00002</td>
+            <td>작업관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-fail'>결재반려</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('wrk') }} className='link'>
+            <td>WRK00003</td>
+            <td>작업관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-success'>결재완료</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
+            <td>BLK00001</td>
+            <td>장애관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-disable'>결재대기</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
+            <td>BLK00002</td>
+            <td>장애관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-fail'>결재반려</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('blk') }} className='link'>
+            <td>BLK00003</td>
+            <td>장애관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-success'>결재완료</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
+            <td>ACC20001</td>
+            <td>사용자관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-disable'>결재대기</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
+            <td>ACC20002</td>
+            <td>사용자관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-fail'>결재반려</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accUser') }} className='link'>
+            <td>ACC20003</td>
+            <td>사용자관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-success'>결재완료</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
+            <td>ACC60001</td>
+            <td>장비관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-disable'>결재대기</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
+            <td>ACC60002</td>
+            <td>장비관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-fail'>결재반려</span></td>
+          </tr>
+          <tr onClick={() => { onPopupDetail('accEq') }} className='link'>
+            <td>ACC60003</td>
+            <td>장비관리</td>
+            <td>중앙방송</td>
+            <td className='left'>신규 사용자 등록</td>
+            <td>서울인프라팀</td>
+            <td>홍길동</td>
+            <td>2023-01-01 02:00</td>
+            <td>2023-01-01 03:00</td>
+            <td>2023-01-01 03:00</td>
+            <td><span className='color-success'>결재완료</span></td>
+          </tr>
           {
             resultList.map(function(a, i) {
               return (
-                <tr key={i} onClick={onPopup} className='link'>
+                <tr key={i} onClick={() => { onPopupDetail('wrk') }} className='link'>
                   <td>WRK11102</td>
                   <td>작업관리</td>
                   <td>중앙방송</td>
-                  <td>신규 사용자 등록</td>
+                  <td className='left'>신규 사용자 등록</td>
                   <td>서울인프라팀</td>
                   <td>홍길동</td>
                   <td>2023-01-01 02:00</td>
                   <td>2023-01-01 03:00</td>
                   <td>2023-01-01 03:00</td>
-                  <td>{currentStatus}</td>
+                  <td><span className='color-disable'>결재대기</span></td>
                 </tr>
               )
             })

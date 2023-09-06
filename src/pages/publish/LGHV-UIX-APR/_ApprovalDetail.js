@@ -1,5 +1,5 @@
 import ContentTitle from '../layout/ContentTitle';
-import ApprovalDetailContent from './component/ApprovalDetailContent';
+import ApprovalDetailContent from './component/_ApprovalDetailContent';
 import { ApprovalTopBtnGroup, ApprovalBotBtnGroup } from '../common/_ApprovalBtnGroup';
 
 function ApprovalDetailTest() {
