@@ -50,60 +50,67 @@ function AccUserRegist() {
           </div>
         </div>
         <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-          <div className='flex-wrap between align-start approval'>
-              <table className='table half'>
-                <caption>결제 라인 정보</caption>
-                <colgroup>
-                  <col style={{ width: '8%' }} />
-                  <col style={{ width: '20%' }} />
-                  <col style={{ width: '9%' }} />
-                  <col style={{ width: '21%' }} />
-                  <col />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th scope='col'>구분</th>
-                    <th scope='col'>결재자</th>
-                    <th scope='col'>상태</th>
-                    <th scope='col'>결재일시</th>
-                    <th scope='col'>의견</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>기안</td>
-                    <td>홍길동(123456)</td>
-                    <td>기안</td>
-                    <td>2023-01-01 11:00:00</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>결재</td>
-                    <td>박길동(aggdd)</td>
-                    <td><span className='color-success'>승인</span></td>
-                    <td>2023-01-02 11:00:00</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <table className='table table-row half'>
-                <caption>합의 수신 정보</caption>
-                <colgroup>
-                  <col style={{ width: '10%' }} />
-                  <col style={{ width: '90%' }} />
-                </colgroup>
-                <tbody>
-                <tr>
-                  <th scope='row'>합의</th>
-                  <td>홍길동(123456), 박길동(aggdd)</td>
-                </tr>
-                <tr>
-                  <th scope='row'>수신</th>
-                  <td>김길동(bb3456), 홍길동(test)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table className='table table-row'>
+            <caption>결제 라인 정보</caption>
+            <colgroup>
+              <col style={{ width: '7%' }} />
+              <col style={{ width: '15%' }} />
+              <col style={{ width: '7%' }} />
+              <col style={{ width: '15%' }} />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope='col'>구분</th>
+                <th scope='col'>결재자</th>
+                <th scope='col'>상태</th>
+                <th scope='col'>결재일시</th>
+                <th scope='col'>의견</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>기안</td>
+                <td>홍길동(123456)</td>
+                <td>기안</td>
+                <td>2023-01-01 11:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowSpan={2}>합의</td>
+                <td>박길동(aggdd)</td>
+                <td><span className='color-success'>승인</span></td>
+                <td>2023-01-01 11:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>최길동(choi)</td>
+                <td><span className='color-success'>승인</span></td>
+                <td>2023-01-01 12:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>결재</td>
+                <td>박길동(aggdd)</td>
+                <td><span className='color-success'>승인</span></td>
+                <td>2023-01-02 11:00:00</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-row mt20'>
+            <caption>합의 수신 정보</caption>
+            <colgroup>
+              <col style={{ width: '7%' }} />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope='row'>수신</th>
+                <td>김길동(bb3456), 홍길동(test)</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div className='content-section'>
@@ -130,7 +137,7 @@ function AccUserRegist() {
               <tr>
                 <th scope='row'>기안 내용</th>
                 <td>
-                  <textarea></textarea>
+                  <textarea className='textarea-h80'></textarea>
                 </td>
               </tr>
               <tr>

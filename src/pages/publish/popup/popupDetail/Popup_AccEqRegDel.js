@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Select from 'react-select';
-import DatePicker from 'react-datepicker';
-import { ko } from 'date-fns/esm/locale';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -11,37 +9,6 @@ const PopupPortal = ({ children }) => {
 
 // 장비 등록
 function PopupAccEqReg() {
-  const [startDate, setStartDate] = useState(null);
-  const [endeDate, setEndeDate] = useState(null);
-  const [startHours, setStartHours] = useState(0);
-  const [startMinutes, setStartMinutes] = useState(0);
-  const [endHours, setEndHours] = useState(0);
-  const [endMinutes, setEndMinutes] = useState(0);
-
-  const handleStartHourIncrease = () => {
-    setStartHours(prevHours => (prevHours + 1) % 24);
-  };
-  const handleStartHourDecrease = () => {
-    setStartHours(prevHours => (prevHours - 1 + 24) % 24);
-  };
-  const handleStartMinuteIncrease = () => {
-    setStartMinutes(prevMinutes => (prevMinutes + 1) % 60);
-  };
-  const handleStartMinuteDecrease = () => {
-    setStartMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
-  };
-  const handleEndHourIncrease = () => {
-    setEndHours(prevHours => (prevHours + 1) % 24);
-  };
-  const handleEndHourDecrease = () => {
-    setEndHours(prevHours => (prevHours - 1 + 24) % 24);
-  };
-  const handleEndMinuteIncrease = () => {
-    setEndMinutes(prevMinutes => (prevMinutes + 1) % 60);
-  };
-  const handleEndMinuteDecrease = () => {
-    setEndMinutes(prevMinutes => (prevMinutes - 1 + 60) % 60);
-  };
   // SelectBox
   const optionEqType1 = [
     { value: 'Linux', label: 'Linux' }
@@ -59,11 +26,6 @@ function PopupAccEqReg() {
     { value: 'Web', label: 'Web' }
   ];
   const [eqType4, setEqType4] = useState(optionEqType4[0]);
-  const optionBanWord = [
-    { value: 'L0', label: 'L0' },
-    { value: 'L1', label: 'L1' }
-  ];
-  const [banWord, setBanWord] = useState(optionBanWord[0]);
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -732,12 +694,13 @@ function PopupAccEqReg() {
                 <button className={`btn-fold ${divStates[4] ? 'close' : ''}`} onClick={() => handleDivToggle(4)} id='fold-open'>장비 연결 정보 열기, 닫기</button>
               </div>
           </div>
-          <div className={`toggle-box ${divStates[4] ? 'hide' : ''} `}>
+          <div className='right'><button className='btn btn-md btn-low btn-del'>삭제</button></div>
+          <div className={`mt8 toggle-box ${divStates[4] ? 'hide' : ''} `}>
             <table className='table table-row mb15'>
               <caption>table caption</caption>
               <colgroup>
                 <col style={{ width: '12%' }} />
-                <col style={{ width: '25%' }} />
+                <col style={{ width: '28%' }} />
                 <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
@@ -746,11 +709,11 @@ function PopupAccEqReg() {
                   <th scope='row'><label htmlFor="userGroup">사용자 그룹</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td>
                     <span className='input-btn-wrap'>
-                      <input type='text' name='userGroup' id='userGroup' className='input-sz50-front' />
-                      <button className='btn btn-black'onClick={() => { onPopup('/popup/PopupUserGroupSelect', 'UserGroupSelect', 1280, 800) }}>선택</button>
+                      <input type='text' name='userGroup' id='userGroup' className='input_org input-search-front' />
+                      <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupUserGroupSelect', 'UserGroupSelect', 1280, 800) }}>선택</button>
                     </span>
                   </td>
-                  <th scope='row'><label htmlFor="eqOs">장비 OS 접속 계정</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eqOs">장비에 속한 계정</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td>
                     <input type='text' name='eqOs' id='eqOs' />
                   </td>
@@ -786,58 +749,9 @@ function PopupAccEqReg() {
                   </td>
                 </tr>
                 <tr>
-                  <th scope='row'>시간유형 <span aria-label="required" className='color-primary'>*</span></th>
-                  <td colSpan={3}>
-                    <div className='flex-wrap'>
-                      <div className='flex-wrap'>
-                        <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" />
-                          <div className='time-select'>
-                              <input type="text" value={startHours} readOnly />
-                              <span>
-                                  <button onClick={handleStartHourIncrease}>▲</button>
-                                  <button onClick={handleStartHourDecrease}>▼</button>
-                              </span>
-                          </div> :
-                          <div className='time-select'>
-                              <input type="text" value={startMinutes} readOnly />
-                              <span>
-                                  <button onClick={handleStartMinuteIncrease}>▲</button>
-                                  <button onClick={handleStartMinuteDecrease}>▼</button>
-                              </span>
-                          </div>
-                      </div>
-                      <span className='ml15'>~</span>
-                      <div className='flex-wrap ml15'>
-                        <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
-                        <div className='time-select'>
-                            <input type="text" value={endHours} readOnly />
-                            <span>
-                                <button onClick={handleEndHourIncrease}>▲</button>
-                                <button onClick={handleEndHourDecrease}>▼</button>
-                            </span>
-                        </div> :
-                        <div className='time-select'>
-                            <input type="text" value={endMinutes} readOnly />
-                            <span>
-                                <button onClick={handleEndMinuteIncrease}>▲</button>
-                                <button onClick={handleEndMinuteDecrease}>▼</button>
-                            </span>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><label htmlFor="ban">금칙어</label> <span aria-label="required" className='color-primary'>*</span></th>
-                  <td className='bd-right-none'>
-                    <Select defaultValue={optionBanWord[0]} value={banWord} onChange={setBanWord} options={optionBanWord} className='react-select-container' classNamePrefix="react-select" />
-                  </td>
-                  <td colSpan={2}></td>
-                </tr>
-                <tr>
                   <th scope='row'>설명</th>
                   <td colSpan={3}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                    <textarea name='text' id='text'></textarea>
                   </td>
                 </tr>
               </tbody>

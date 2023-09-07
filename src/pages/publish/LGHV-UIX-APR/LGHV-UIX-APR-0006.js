@@ -33,6 +33,10 @@ function ApprovalOnTimeProcess() {
   const [refuse, setRefuse] = useState(false);
   const [approve, setApprove] = useState(false);
 
+  const handleStopPropagation = (e) => {
+    e.stopPropagation();
+  }
+
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -91,8 +95,8 @@ function ApprovalOnTimeProcess() {
           <thead>
             <tr>
               <th>
-                <input type="checkbox" name="check" />
-                <label htmlFor="check" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="checkAll" id="checkAll" />
+                <label htmlFor="checkAll" className='invisible'></label>
               </th>
               <th>등록 번호</th>
               <th>작업 구분</th>
@@ -111,9 +115,9 @@ function ApprovalOnTimeProcess() {
               resultList.map(function(a, i) {
                 return (
                   <tr key={i} onClick={() => { onPopupDetail('wrk') }} className='link'>
-                    <td>
-                      <input type="checkbox" />
-                      <label style={{ margin: '0' }}></label>
+                    <td onClick={ handleStopPropagation }>
+                      <input type="checkbox" name={`check0${i}`} id={`check0${i}`} />
+                      <label htmlFor={`check0${i}`} className='invisible'></label>
                     </td>
                     <td>WRK00001</td>
                     <td>작업관리</td>
@@ -133,9 +137,9 @@ function ApprovalOnTimeProcess() {
               resultList.map(function(a, i) {
                 return (
                   <tr key={i} onClick={() => { onPopupDetail('blk') }} className='link'>
-                    <td>
-                      <input type="checkbox" />
-                      <label style={{ margin: '0' }}></label>
+                    <td onClick={ handleStopPropagation }>
+                      <input type="checkbox" name={`check1${i}`} id={`check1${i}`} />
+                      <label htmlFor={`check1${i}`} className='invisible'></label>
                     </td>
                     <td>BLK00003</td>
                     <td>장애관리</td>
@@ -155,9 +159,9 @@ function ApprovalOnTimeProcess() {
               resultList.map(function(a, i) {
                 return (
                   <tr key={i} onClick={() => { onPopupDetail('accUser') }} className='link'>
-                    <td>
-                      <input type="checkbox" />
-                      <label style={{ margin: '0' }}></label>
+                    <td onClick={ handleStopPropagation }>
+                      <input type="checkbox" name={`check2${i}`} id={`check2${i}`} />
+                      <label htmlFor={`check2${i}`} className='invisible'></label>
                     </td>
                     <td>ACC20003</td>
                     <td>사용자관리</td>
@@ -177,9 +181,9 @@ function ApprovalOnTimeProcess() {
               resultList.map(function(a, i) {
                 return (
                   <tr key={i} onClick={() => { onPopupDetail('accEq') }} className='link'>
-                    <td>
-                      <input type="checkbox" />
-                      <label style={{ margin: '0' }}></label>
+                    <td onClick={ handleStopPropagation }>
+                      <input type="checkbox" name={`check3${i}`} id={`check3${i}`} />
+                      <label htmlFor={`check3${i}`} className='invisible'></label>
                     </td>
                     <td>ACC60003</td>
                     <td>장비관리</td>

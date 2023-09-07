@@ -6,6 +6,7 @@ import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
 function SysSmsUnsubscribeMemberMng() {
+  const [userList] = useState([1, 2]);
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '계정관리',
@@ -97,8 +98,8 @@ function SysSmsUnsubscribeMemberMng() {
           <thead>
             <tr>
               <th scope='col'>
-                <input type="checkbox" name="check" />
-                <label htmlFor="check" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="checkAll" id='checkAll' />
+                <label htmlFor='checkAll' className='invisible'></label>
               </th>
               <th scope='col'>가입자명</th>
               <th scope='col'>계정번호</th>
@@ -107,16 +108,22 @@ function SysSmsUnsubscribeMemberMng() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" />
-                <label style={{ margin: '0' }}></label>
-              </td>
-              <td>홍길동</td>
-              <td>0025111</td>
-              <td>010-4444-2222</td>
-              <td>N00G00215</td>
-            </tr>
+            {
+              userList.map(function(a, i) {
+                return (
+                  <tr key={i}>
+                    <td>
+                      <input type="checkbox" name={`check${i}`} id={`check${i}`} />
+                      <label htmlFor={`check${i}`} className='invisible'></label>
+                    </td>
+                    <td>홍길동</td>
+                    <td>0025111</td>
+                    <td>010-4444-2222</td>
+                    <td>N00G00215</td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>
@@ -137,8 +144,8 @@ function SysSmsUnsubscribeMemberMng() {
           <thead>
             <tr>
               <th scope='col'>
-                <input type="checkbox" name="checkAll" id="checkAll" />
-                <label htmlFor="checkAll" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="check1All" id="check1All" />
+                <label htmlFor="check1All" className='invisible'></label>
               </th>
               <th scope='col'>가입자명</th>
               <th scope='col'>계정번호</th>
@@ -150,8 +157,8 @@ function SysSmsUnsubscribeMemberMng() {
           <tbody>
             <tr className='checked'>
               <td>
-                <input type="checkbox" name="check1" id="check1" checked />
-                <label htmlFor="check1" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="check01" id="check01" checked />
+                <label htmlFor="check01" className='invisible'></label>
               </td>
               <td>홍길동</td>
               <td>0025111</td>
@@ -164,8 +171,8 @@ function SysSmsUnsubscribeMemberMng() {
                 return (
                 <tr key={i}>
                   <td>
-                    <input type="checkbox" name="check2" id="check2" />
-                    <label htmlFor="check2" style={{ margin: '0' }}></label>
+                  <input type="checkbox" name={`check1${i}`} id={`check1${i}`} />
+                    <label htmlFor={`check1${i}`} className='invisible'></label>
                   </td>
                   <td>홍길동</td>
                   <td>0025111</td>

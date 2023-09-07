@@ -9,18 +9,7 @@
         "deptKind": 1,
         "deptIndex": "A00",
         "parentId": "000000",
-        "depts": [
-          {
-            "deptName": "대시보드",
-            "deptId": "A001",
-            "deptKind": 1,
-            "deptIndex": "A001",
-            "parentId": "A00",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
-          }
-        ],
-        "checkbox": "<input type='checkbox' />"
+        "depts": []
       },
       {
         "deptName": "셀관리",
@@ -35,11 +24,9 @@
             "deptKind": 1,
             "deptIndex": "A011",
             "parentId": "A01",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           }
-        ],
-        "checkbox": "<input type='checkbox' />"
+        ]
       },
       {
         "deptName": "연동시스템",
@@ -54,11 +41,9 @@
             "deptKind": 1,
             "deptIndex": "A021",
             "parentId": "A02",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           }
-        ],
-        "checkbox": "<input type='checkbox' />"
+        ]
       },
       {
         "deptName": "작업관리",
@@ -73,8 +58,7 @@
             "deptKind": 1,
             "deptIndex": "A031",
             "parentId": "A03",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           },
           {
             "deptName": "긴급 작업등록",
@@ -82,8 +66,7 @@
             "deptKind": 1,
             "deptIndex": "A032",
             "parentId": "A03",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           },
           {
             "deptName": "템플릿 등록",
@@ -91,8 +74,7 @@
             "deptKind": 1,
             "deptIndex": "A033",
             "parentId": "A03",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           }
         ]
       },
@@ -109,8 +91,7 @@
             "deptKind": 1,
             "deptIndex": "A041",
             "parentId": "A04",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           },
           {
             "deptName": "장비 등록",
@@ -118,8 +99,7 @@
             "deptKind": 1,
             "deptIndex": "A042",
             "parentId": "A04",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           },
           {
             "deptName": "접근제어정책 등록",
@@ -127,8 +107,7 @@
             "deptKind": 1,
             "deptIndex": "A043",
             "parentId": "A04",
-            "depts": [],
-            "checkbox": "<input type='checkbox' />"
+            "depts": []
           }
         ]
       }

@@ -208,7 +208,7 @@ function AccUser() {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '760') }} className='link'>
+            <tr onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '420') }} className='link'>
               <td>S102020</td>
               <td>홍길동</td>
               <td>기간망운영팀</td>
@@ -222,7 +222,7 @@ function AccUser() {
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '760') }} className='link'>
+                  <tr key={i} onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail', 'detail', '1280', '420') }} className='link'>
                     <td>S102020</td>
                     <td>홍길동</td>
                     <td>기간망운영팀</td>

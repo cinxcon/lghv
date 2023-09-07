@@ -83,22 +83,11 @@ const AuthItem = ({ item, onItemSelected }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const [isChecked, setIsChecked] = useState(false);
   const handleItemSelected = (item) => {
-    const authitem = document.querySelectorAll('.item-name');
-    const authitemcheck = document.querySelectorAll('.item-check');
-    const activeItem = document.getElementById(item.deptId);
-
-    const activeItemLable = activeItem.querySelectorAll('.item-name');
-    const activeItemInput = activeItem.querySelectorAll('.item-check');
-
-    authitem.forEach(element => {
-      element.classList.remove('active');
-    });
-    activeItemLable.classList.add('active');
-    authitemcheck.forEach(element => {
-      element.classList.remove('active');
-    });
-    activeItemInput.classList.add('active');
+    const activeItem = document.getElementById(`a${item.deptId}`);
+    setIsChecked(!isChecked);
+    isChecked ? activeItem.classList.remove('active') : activeItem.classList.add('active');
     onItemSelected(item);
   };
 
@@ -111,8 +100,8 @@ const AuthItem = ({ item, onItemSelected }) => {
               : ''} />)
           : null}
         {item.depts.length !== 0
-          ? (<div id={item.deptId}><input type="checkbox" name={item.deptId} className='item-check' /><label htmlFor={item.deptId} className='item-name' onClick={() => handleItemSelected(item)}>{item.deptName}</label></div>)
-          : (<div><input type="checkbox" name={item.deptId} className='item-check' /><label htmlFor={item.deptId} id={item.deptId} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.deptName}</label></div>)
+          ? (<div><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-name' isChecked={isChecked}>{item.deptName}</label></div>)
+          : (<div><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-name not-children' isChecked={isChecked}>{item.deptName}</label></div>)
         }
       </div>
       {isExpanded &&
