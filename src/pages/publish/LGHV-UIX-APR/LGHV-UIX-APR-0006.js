@@ -12,8 +12,8 @@ import AccEquipmentDetailAPR from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0006-DetailAPR';
 
 function ApprovalOnTimeProcess() {
   const pagedata = {
-    title: '결재관리',
-    subtitle: 'OnTime Process',
+    title: 'OnTime Process',
+    subtitle: 'OnTime Process 목록',
     SubMenu: 'yes',
     isDetail: 'no'
   }
@@ -76,8 +76,8 @@ function ApprovalOnTimeProcess() {
           <ResultPageView />
           <div className='btn-wrap'>
             <button type="button" className='btn btn-low btn-md btn-exel'>엑셀</button>
-            <button type="button" className='btn btn-low btn-md btn-low' onClick={() => { setRefuse(true) }}>반려</button>
-            <button type="button" className='btn btn-md btn-primary' onClick={() => { setApprove(true) }}>승인</button>
+            <button type="button" className='btn btn-md btn-success' onClick={() => { setApprove(true) }}>승인</button>
+            <button type="button" className='btn btn-md btn-refuse' onClick={() => { setRefuse(true) }}>반려</button>
           </div>
           <Popup open={refuse} close={() => { setRefuse(false) }} header="[반려] 의견" footer={ <PopupButtons close={() => { setRefuse(false) }} /> } type={'sm'}>
             <textarea></textarea>

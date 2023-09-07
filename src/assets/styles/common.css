@@ -202,6 +202,10 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-del-28{background:url('../images/common/ic_black_set_28.png') -84px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
 .btn-all-cheak{position: relative; font-size: 12px;}
 .btn-all-cheak::before{content:''; display: inline-block; width: 16px; height: 16px; margin-right: 10px; background: url('../images/common/ic_check_set_16.png') 0 4px no-repeat; }
+.btn-success {padding-left: 24px; position: relative; border-color: #1ea51e; color: #1ea51e; }
+.btn-success:before{content:''; background:url('../images/common/ic_success_16.png') 0 0 no-repeat; background-size: cover; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
+.btn-refuse {padding-left: 24px; position: relative; border-color: #e72323; color: #e72323; }
+.btn-refuse:before{content:''; background:url('../images/common/ic_success_16.png') -12px 0 no-repeat; background-size: cover; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-wrap .btn + .btn{margin-left: 4px;}
