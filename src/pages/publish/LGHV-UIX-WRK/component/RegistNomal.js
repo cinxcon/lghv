@@ -7,7 +7,6 @@ import { Alert } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
-import ResultListPaging from '../../common/ResultListPaging';
 
 function NomalWork() {
 //   const [cancle, setCancle] = useState(false);
@@ -636,7 +635,7 @@ function NomalWork() {
                         <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-del' onClick={diviceRemoveRow}>삭제</button>
                     </div>
                 </div>
-                <div className='over-flow-x'>
+                <div className='worker-list-wrap over-flow-x over-flow-y'>
                     <table className="table mt8" style={{ width: '130%' }}>
                         <caption>장비목록</caption>
                         <colgroup>
@@ -692,7 +691,7 @@ function NomalWork() {
                                 </td>
                                 <td scope='col'>
                                     <div className='input-btn-wrap'>
-                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" />
+                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" menuPosition={'fixed'} />
                                         <button type='button' className='btn btn-md'>적용</button>
                                     </div>
                                 </td>
@@ -794,6 +793,144 @@ function NomalWork() {
                                     </select>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_4" id="list_4" value="" />
+                                    <label htmlFor="list_4"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                김철수 Kim
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Web</td>
+                                <td>
+                                    <input type="checkbox" name="all_1" id="all_2" value="" checked/>
+                                    <label htmlFor="all_2"></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                    <label htmlFor="ptc_1">HTTPS</label>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>admin</td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>L0</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_4" id="list_4" value="" />
+                                        <label htmlFor="list_4"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    김철수 Kim
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Web</td>
+                                    <td>
+                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
+                                        <label htmlFor="all_2"></label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                        <label htmlFor="ptc_1">HTTPS</label>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>admin</td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>L0</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_4" id="list_4" value="" />
+                                        <label htmlFor="list_4"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    김철수 Kim
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Web</td>
+                                    <td>
+                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
+                                        <label htmlFor="all_2"></label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                        <label htmlFor="ptc_1">HTTPS</label>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>admin</td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>L0</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
                                         <input type="checkbox" name="list_4" id="list_4" value="" />
@@ -842,7 +979,6 @@ function NomalWork() {
                                 </tr>
                         </tbody>
                     </table>
-                    <ResultListPaging />
                 </div>
             </div>)}
         </div>

@@ -692,7 +692,7 @@ function UrgentWork() {
                                 </td>
                                 <td scope='col'>
                                     <div className='input-btn-wrap'>
-                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" />
+                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" menuPosition={'fixed'} />
                                         <button type='button' className='btn btn-md'>적용</button>
                                     </div>
                                 </td>
