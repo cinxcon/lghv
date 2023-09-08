@@ -1,88 +1,72 @@
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CustomEditor from 'ckeditor5-custom-build/build/ckeditor';
+import DatePicker from 'react-datepicker';
+import { ko } from 'date-fns/esm/locale';
 import { Alert } from '../popup/Popup';
 import ContentTitle from '../layout/ContentTitle';
-import Select from 'react-select';
 
 function NoticeRegist() {
   const pagedata = {
-    title: '공지사항',
+    title: '공통관리',
     subtitle: '공지사항 등록',
     SubMenu: 'yes',
     isDetail: 'no'
   }
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const date = String(today.getDate()).padStart(2, '0');
+
+  const tDate = `${year}-${month}-${date}`;
+  const [startDate, setStartDate] = useState(null);
+  const [startEndDate, setStartEndDate] = useState(null);
+
   const [regist, setRegist] = useState(false);
-
-  // 윈도우 팝업
-  const onPopup = (url, name, width, height) => {
-    const popupWidth = width;
-    const popupHeight = height;
-    const popupX = (window.screen.width / 2) - (popupWidth / 2);
-    const popupY = (window.screen.height / 2) - (popupHeight / 2);
-    window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
-  }
-
-  // 셀렉트 박스
-  const optionDisState = [
-    { value: 'Y', label: 'Y' },
-    { value: 'N', label: 'N' }
-  ];
-  const [disState, setDisState] = useState(optionDisState[0]);
 
   return (
   <>
    <ContentTitle data={pagedata} />
     <div className='content-section'>
-            <table className='table table-row'>
-                <caption>작업 개요 정보</caption>
-                <colgroup>
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '40%' }} />
-                    <col style={{ width: '10%' }} />
-                    <col style={{ width: '40%' }} />
-                </colgroup>
-                <tbody>
+        <table className='table table-row'>
+            <caption>작업 개요 정보</caption>
+            <colgroup>
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '40%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '40%' }} />
+            </colgroup>
+            <tbody>
                 <tr>
-                <th scope="row"><label htmlFor="display">노출여부</label></th>
-                  <td colSpan={3}>
-                    <Select defaultValue={optionDisState[0]} value={disState} onChange={setDisState} options={optionDisState} className='react-select-container w50' classNamePrefix="react-select" />
-                  </td>
-                </tr>
-                <tr>
-                    <th scope='row'>공지여부<span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <fieldset>
-                            <legend>대상 서비스</legend>
-                            <input type="radio" name="notify" id="notify_yes" value="notify_yes" checked />
-                            <label htmlFor="notify_yes">공지</label>
-                            <input type="radio" name="notify" id="notify_no" value="notify_no" />
-                            <label htmlFor="notify_no">미공지</label>
-                        </fieldset>
-                    </td>
+                    <th>등록번호</th>
+                    <td>T111111121</td>
+                    <th>등록일자</th>
+                    <td>{tDate}</td>
                 </tr>
                 <tr>
                     <th scope='row'>팝업여부<span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <fieldset>
-                            <legend>대상 서비스</legend>
-                            <input type="radio" name="popup" id="popup_yes" value="popup_yes" />
-                            <label htmlFor="popup_yes">공지</label>
-                            <input type="radio" name="popup" id="popup_no" value="popup_no" checked />
-                            <label htmlFor="popup_no">미공지</label>
-                        </fieldset>
+                    <td>
+                        <input type="radio" name="popup" id="popup_yes" value="popup_yes" />
+                        <label htmlFor="popup_yes">공지</label>
+                        <input type="radio" name="popup" id="popup_no" value="popup_no" checked />
+                        <label htmlFor="popup_no">미공지</label>
+                    </td>
+                    <th>게시일시</th>
+                    <td>
+                        <span className='datepickers-wrap'>
+                            <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" showYearDropdown className="input-datepicker" />
+                            <span className='ml10'> ~ </span>
+                            <DatePicker locale={ko} selected={startEndDate} onChange={(date) => setStartEndDate(date)} startDate={startEndDate} dateFormat="yyyy-MM-dd" showYearDropdown className="input-datepicker ml10" />
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <th scope='row'>등록부서<span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <span className='input w50'></span>
-                        <button className='btn btn-search ml10' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
-                    </td>
+                    <td colSpan={3}>기간망운영팀</td>
                 </tr>
                 <tr>
                     <th scope='row'>등록자</th>
-                    <td colSpan={3}><input type='text' name='title' id='title' placeholder='' className='w50' /></td>
+                    <td colSpan={3}>홍길동</td>
                 </tr>
                 <tr>
                     <th scope='row'>제목 <span className='color-primary'>*</span></th>
@@ -130,22 +114,25 @@ function NoticeRegist() {
                             </span>
                         </div>
                         <ul className='list-desc'>
+                            <li>구성도, 상세 시나리오 등을 첨부(예시)</li>
                             <li className='color-primary'>업로드 할 수 있는 파일의 용량은 총 20MB 입니다.</li>
                         </ul>
                     </td>
                 </tr>
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
+    </div>
     <div className="detail-bottom-btn-group">
         <button className="btn btn-lg btn-low">목록</button>
-        <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>등록</button>
-        <Alert open={regist} close={() => { setRegist(false) }}>
-          <div>작업을 등록 하시겠습니까?</div>
-        </Alert>
+        <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }} type={'no'}>수정</button>
     </div>
-
-    </>)
+    <Alert open={regist} close={() => { setRegist(false) }}>
+        <h3>공지사항이 등록되었습니다.</h3>
+        <ul className='list-desc'>
+            <li className='color-primary'>* 등록된 공지사항은 공지사항 목록에서 확인하세요.</li>
+        </ul>
+    </Alert>
+ </>)
 }
 
 export default NoticeRegist;

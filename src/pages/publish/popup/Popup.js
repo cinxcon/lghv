@@ -3,15 +3,6 @@ import { useEffect } from 'react';
 import './popup.css';
 
 function Popup(props) {
-// 메인 화면 scroll 방지
-  // useEffect(() => {
-  //   document.body.style.cssText = `position: fixed; top: -${window.scrollY}px`
-  //   return () => {
-  //     const scrollY = document.body.style.top
-  //     document.body.style.cssText = 'position: ""; top: "";'
-  //     window.scrollTo(0, parseInt(scrollY || '0') * -1)
-  //   }
-  // }, []);
 
   let { open, close, header, footer, type } = props;
 
@@ -49,4 +40,30 @@ function Alert(props) {
   )
 }
 
-export { Popup, Alert };
+function Notice(props) {
+  let { open, close, header, id } = props;
+  const handleCheckboxChange = (event) => {
+    const value = event.target.value;
+    console.log(value);
+  }
+  return (
+    <> 
+    {open
+       ? (<section className={`popup-wrap`}>
+            <div className="header">
+              <h3>{header}</h3>
+              <button className="btn-close" onClick={close}>닫기</button>
+            </div>
+            <div className="main left">{props.children}</div>
+            <div className="footer">
+              <input type='checkbox' name={`not_today_${id}` } id={`not_today_${id}` } value={`not_today_${id}` } onChange={handleCheckboxChange} />
+              <label htmlFor={`not_today_${id}` }>오늘하루 보지 않기</label>
+            </div>
+            </section>)
+          : null
+      }
+    </>
+  )
+}
+
+export { Popup, Alert, Notice };

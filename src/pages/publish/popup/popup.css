@@ -13,6 +13,19 @@
 .modal > section.popup-wrap .footer { text-align: center; }
 .modal > section.popup-wrap .main textarea { height: 100px; }
 
+.notice-pop { display: flex; position: fixed; top: 50%; left: 50%; width: 960px; flex-wrap: wrap; align-items: center; transform: translate(-50%, -50%);}
+.notice-pop.close{ display: none;}
+.notice-pop > section { margin: 0 auto 30px; background-color: #fff; animation: modal-show 0.3s; overflow: hidden; }
+.notice-pop > section.alert-wrap { width: 342px; height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
+.notice-pop > section .btn-group { margin-top: 24px; }
+.notice-pop > section button { margin: 0 4px; }
+.notice-pop > section.popup-wrap { width: 464px; padding: 22px 40px 0 32px; border: 1px solid #dbdbdb; }
+.notice-pop > section.popup-wrap .header { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #000000; }
+.notice-pop > section.popup-wrap h3 { margin: 0; font-size: 20px; font-weight: 500; height: 30px; line-height: 1.5; }
+.notice-pop > section.popup-wrap .btn-close { width: 32px; height: 32px; background: url('../../../assets/images/common/ic_close.png') no-repeat 0 0; font-size: 0; cursor: pointer; }
+.notice-pop > section.popup-wrap .footer {text-align: left; background-color: #000; color: #fff; margin: 20px -40px 0; padding: 4px 40px 6px; }
+.notice-pop > section.popup-wrap .main textarea { height: 100px; }
+
 /*  조직검색  */
 .modal > section.popup1.orgtree { width: 468px; height: 500px; overflow-y: scroll; }
 .approval-top { margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7; }
@@ -96,6 +109,8 @@
 .modal > section.popup-wrap .selected-item .popup-table td label{ margin-right: 0;}
 .modal > section.popup-wrap .selected-item .popup-table .bookmark{padding-left: 20px; background: url('../../../assets/images/common/ic_bookmark_full_16.png') 0 1px no-repeat; }
 .modal.openModal { display: flex; align-items: center; animation: modal-bg-show 0.3s; }
+
+
 @keyframes modal-show {
   from { opacity: 0; margin-top: -50px; }
   to { opacity: 1; margin-top: 0; }
@@ -104,3 +119,4 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+ 
