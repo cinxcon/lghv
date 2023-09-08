@@ -14,21 +14,25 @@ function PopupUserGroupSelect() {
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const [isChecked, setIsChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState(new Set());
+  const [checkedCount, setCheckedCount] = useState(0);
 
   const checkHandler = ({ target }) => {
     setIsChecked(!isChecked);
     checkedItemHandler(target.parentNode.parentNode, target.value, target.checked);
     console.log(checkedItems)
     console.log(isChecked)
+    console.log(checkedItems.size)
   };
   const checkedItemHandler = (row, i, isChecked) => {
     if (isChecked) {
       checkedItems.add(i);
       setCheckedItems(checkedItems);
+      setCheckedCount(checkedItems.size);
       row.classList.add('checked');
     } else if (!isChecked && checkedItems.has(i)) {
       checkedItems.delete(i);
       setCheckedItems(checkedItems);
+      setCheckedCount(checkedItems.size);
       row.classList.remove('checked');
     }
     return checkedItems;
@@ -80,7 +84,7 @@ function PopupUserGroupSelect() {
           <div className="result-pageview">
             <ResultPageView />
             <div className='btn-wrap'>
-              <span className='ico_check'><b>0</b>개 선택</span>
+              <span className='ico_check'><b>{checkedCount}</b>개 선택</span>
               <button className='btn btn-md'>확인</button>
             </div>
           </div>
