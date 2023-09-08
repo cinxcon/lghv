@@ -384,13 +384,14 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
 .table th, .table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 6px 12px; text-align: center; }
 .table.table-row th, .table.table-row td { text-align: left; }
+.table.table-td-left td { text-align: left; }
 .table th:last-child, .table td:last-child { border-right: none; }
 .table th:last-child.bd-right, .table td:last-child.bd-right { border-right: 1px solid #EAEAEA !important; }
 .table .bd-right-none { border-right: 0; }
 .table td dl dt, .table td dl dd { padding: 8px 12px; height: 45px; border-bottom:1px solid #EAEAEA ; }
 .table td dl dt { width: 10%; background-color: #f7f7f7; }
 .table td dl dd { width: 90%; text-align: left; }
-.table.body-scroll {height: 150px; overflow-y: scroll; background-color: gold;}
+.table.body-scroll {height: 150px; overflow-y: scroll;}
 .non-pading { padding: 0 !important; border-bottom: 0 !important; }
 .result-nodata { width: 100%; height: 160px; padding-top: 29px; text-align: center; }
 .result-nodata i { display: block; width: 64px; height: 64px; margin: 0 auto 16px; background-image: url('../images/common/ic_nodata.png'); background-position: 0 0; background-size: auto; background-repeat: no-repeat; }

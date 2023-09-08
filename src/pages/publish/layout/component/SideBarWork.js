@@ -27,7 +27,8 @@ const SideBarWork = () => {
         { title: '장비 목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0005' },
         { title: '사용자 등록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0007' },
         { title: '장비 등록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0008' },
-        { title: '접근제어정책목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0010' }
+        { title: '접근제어정책목록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0009' },
+        { title: '접근제어정책등록', path: '/LGHV-UIX-ACC/LGHV-UIX-ACC-0010' }
       ]
     },
     {

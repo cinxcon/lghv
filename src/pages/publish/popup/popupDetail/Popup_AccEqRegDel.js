@@ -10,22 +10,39 @@ const PopupPortal = ({ children }) => {
 // 장비 등록
 function PopupAccEqReg() {
   // SelectBox
-  const optionEqType1 = [
+  const optionEq1 = [
     { value: 'Linux', label: 'Linux' }
+  ];
+  const [eq1, setEq1] = useState(optionEq1[0]);
+  const optionEq2 = [
+    { value: 'Windows', label: 'Windows' }
+  ];
+  const [eq2, setEq2] = useState(optionEq2[0]);
+  const optionEq3 = [
+    { value: 'Network', label: 'Network' }
+  ];
+  const [eq3, setEq3] = useState(optionEq3[0]);
+  const optionEq4 = [
+    { value: 'Web', label: 'Web' }
+  ];
+  const [eq4, setEq4] = useState(optionEq4[0]);
+  const optionEqType1 = [
+    { value: '선택', label: '선택' }
   ];
   const [eqType1, setEqType1] = useState(optionEqType1[0]);
   const optionEqType2 = [
-    { value: 'Windows', label: 'Windows' }
+    { value: '선택', label: '선택' }
   ];
   const [eqType2, setEqType2] = useState(optionEqType2[0]);
   const optionEqType3 = [
-    { value: 'Network', label: 'Network' }
+    { value: '선택', label: '선택' }
   ];
   const [eqType3, setEqType3] = useState(optionEqType3[0]);
   const optionEqType4 = [
-    { value: 'Web', label: 'Web' }
+    { value: '선택', label: '선택' }
   ];
   const [eqType4, setEqType4] = useState(optionEqType4[0]);
+
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -48,6 +65,7 @@ function PopupAccEqReg() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>접근제어 장비 신청 정보-신규</h2>
         </div>
@@ -63,9 +81,9 @@ function PopupAccEqReg() {
             <table className='table table-row'>
               <caption>기종 Linux, HPUX, AIX, Solaris에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '23%' }} />
                 <col style={{ width: '10%' }} />
                 <col />
@@ -84,9 +102,9 @@ function PopupAccEqReg() {
                   <td>프록시</td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eq1">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" />
+                    <Select defaultValue={optionEq1[0]} value={eq1} onChange={setEq1} options={optionEq1} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -135,7 +153,7 @@ function PopupAccEqReg() {
                   <td>
                     <fieldset>
                       <legend>Sudo 사용자</legend>
-                      <input type="radio" name="sudo" id="sudo_yes" />
+                      <input type="radio" name="sudo" id="sudo_yes" checked />
                       <label htmlFor="sudo_yes">Y</label>
                       <input type="radio" name="sudo" id="sudo_no" />
                       <label htmlFor="sudo_no">N</label>
@@ -147,7 +165,7 @@ function PopupAccEqReg() {
                       <legend>등록전용</legend>
                       <input type="radio" name="reg" id="reg_yes" />
                       <label htmlFor="reg_yes">Y</label>
-                      <input type="radio" name="reg" id="reg_no" />
+                      <input type="radio" name="reg" id="reg_no" checked />
                       <label htmlFor="reg_no">N</label>
                     </fieldset>
                   </td>
@@ -157,60 +175,39 @@ function PopupAccEqReg() {
                       <legend>링크전용</legend>
                       <input type="radio" name="link" id="link_yes" />
                       <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" />
+                      <input type="radio" name="link" id="link_no" checked />
                       <label htmlFor="link_no">N</label>
                     </fieldset>
                   </td>
                 </tr>
                 <tr>
-                  <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                  <th scope='row'>접속 계정 로그인 <br />테스트 무시</th>
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
                       <input type="radio" name="acclog" id="acclog_yes" />
                       <label htmlFor="acclog_yes">Y</label>
-                      <input type="radio" name="acclog" id="acclog_no" />
+                      <input type="radio" name="acclog" id="acclog_no" checked />
                       <label htmlFor="acclog_no">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'><label htmlFor="session">동시접속 세션 최대값</label></th>
-                  <td>
-                    <input type='text' name='session' id='session' value={0} />
-                  </td>
-                  <th scope='row'><label htmlFor="org">조직</label></th>
-                  <td>
-                    <input type='text' name='org' id='org' />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
-                  <td>
-                    <input type='text' name='assetId' id='assetId' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetName">자산이름</label></th>
-                  <td>
-                    <input type='text' name='assetName' id='assetName' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
-                  <td>
-                    <input type='text' name='assetPos' id='assetPos' />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><label htmlFor="compId">구성아이디</label></th>
-                  <td>
-                    <input type='text' name='compId' id='compId' />
-                  </td>
-                  <th scope='row'><label htmlFor="compName">구성이름</label></th>
                   <td className='bd-right-none'>
-                    <input type='text' name='compName' id='compName' />
+                    <input type='text' name='session' id='session' value={0} />
                   </td>
                   <td colSpan={2}></td>
                 </tr>
                 <tr>
+                  <th scope='row'><label htmlFor="eqType1">기종타입</label></th>
+                  <td className='bd-right-none'>
+                    <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" />
+                  </td>
+                  <td colSpan={4}></td>
+                </tr>
+                <tr>
                   <th scope='row'><label htmlFor="text">설명</label></th>
                   <td colSpan={5}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                    <textarea name='text' id='text' className='textarea-h80'></textarea>
                   </td>
                 </tr>
               </tbody>
@@ -229,9 +226,9 @@ function PopupAccEqReg() {
             <table className='table table-row'>
               <caption>기종 Windows에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '23%' }} />
                 <col style={{ width: '10%' }} />
                 <col />
@@ -250,9 +247,9 @@ function PopupAccEqReg() {
                   <td>프록시</td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eq">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <Select defaultValue={optionEqType2[0]} value={eqType2} onChange={setEqType2} options={optionEqType2} className='react-select-container' classNamePrefix="react-select" />
+                    <Select defaultValue={optionEq2[0]} value={eq2} onChange={setEq2} options={optionEq2} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -271,7 +268,7 @@ function PopupAccEqReg() {
                       <legend>HTTPS사용여부</legend>
                       <input type="radio" name="https" id="https_yes" />
                       <label htmlFor="https_yes">Y</label>
-                      <input type="radio" name="https" id="https_no" />
+                      <input type="radio" name="https" id="https_no" checked />
                       <label htmlFor="https_no">N</label>
                     </fieldset>
                   </td>
@@ -287,7 +284,7 @@ function PopupAccEqReg() {
                   </td>
                   <th scope='row'><label htmlFor="timeout">타임아웃(초)</label></th>
                   <td>
-                    <input type='text' name='timeout' id='timeout' />
+                    <input type='text' name='timeout' id='timeout' value={'60'} />
                   </td>
                 </tr>
                 <tr>
@@ -303,7 +300,7 @@ function PopupAccEqReg() {
                       <legend>등록전용</legend>
                       <input type="radio" name="reg" id="reg_yes" />
                       <label htmlFor="reg_yes">Y</label>
-                      <input type="radio" name="reg" id="reg_no" />
+                      <input type="radio" name="reg" id="reg_no" checked />
                       <label htmlFor="reg_no">N</label>
                     </fieldset>
                   </td>
@@ -313,7 +310,7 @@ function PopupAccEqReg() {
                       <legend>링크전용</legend>
                       <input type="radio" name="link" id="link_yes" />
                       <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" />
+                      <input type="radio" name="link" id="link_no" checked />
                       <label htmlFor="link_no">N</label>
                     </fieldset>
                   </td>
@@ -323,7 +320,7 @@ function PopupAccEqReg() {
                       <legend>접속 계정 로그인 테스트 무시</legend>
                       <input type="radio" name="acclog" id="acclog_yes" />
                       <label htmlFor="acclog_yes">Y</label>
-                      <input type="radio" name="acclog" id="acclog_no" />
+                      <input type="radio" name="acclog" id="acclog_no" checked />
                       <label htmlFor="acclog_no">N</label>
                     </fieldset>
                   </td>
@@ -340,34 +337,16 @@ function PopupAccEqReg() {
                   <td colSpan={2}></td>
                 </tr>
                 <tr>
-                  <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
-                  <td>
-                    <input type='text' name='assetId' id='assetId' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetName">자산이름</label></th>
-                  <td>
-                    <input type='text' name='assetName' id='assetName' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
-                  <td>
-                    <input type='text' name='assetPos' id='assetPos' />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><label htmlFor="compId">구성아이디</label></th>
-                  <td>
-                    <input type='text' name='compId' id='compId' />
-                  </td>
-                  <th scope='row'><label htmlFor="compName">구성이름</label></th>
+                  <th scope='row'><label htmlFor="eqType2">기종타입</label></th>
                   <td className='bd-right-none'>
-                    <input type='text' name='compName' id='compName' />
+                    <Select defaultValue={optionEqType2[0]} value={eqType2} onChange={setEqType2} options={optionEqType2} className='react-select-container' classNamePrefix="react-select" />
                   </td>
-                  <td colSpan={2}></td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'><label htmlFor="text">설명</label></th>
                   <td colSpan={5}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                    <textarea name='text' id='text' className='textarea-h80'></textarea>
                   </td>
                 </tr>
               </tbody>
@@ -386,11 +365,11 @@ function PopupAccEqReg() {
             <table className='table table-row'>
               <caption>기종 Network 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '13%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '12%' }} />
+                <col style={{ width: '22%' }} />
+                <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -407,9 +386,9 @@ function PopupAccEqReg() {
                   <td>프록시</td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eq">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <Select defaultValue={optionEqType3[0]} value={eqType3} onChange={setEqType3} options={optionEqType3} className='react-select-container' classNamePrefix="react-select" />
+                    <Select defaultValue={optionEq3[0]} value={eq3} onChange={setEq3} options={optionEq3} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -438,7 +417,7 @@ function PopupAccEqReg() {
                   </td>
                   <th scope='row'><label htmlFor="timeout">타임아웃(초)</label></th>
                   <td>
-                    <input type='text' name='timeout' id='timeout' />
+                    <input type='text' name='timeout' id='timeout' value={'60'} />
                   </td>
                 </tr>
                 <tr>
@@ -460,7 +439,7 @@ function PopupAccEqReg() {
                       <legend>등록전용</legend>
                       <input type="radio" name="reg" id="reg_yes" />
                       <label htmlFor="reg_yes">Y</label>
-                      <input type="radio" name="reg" id="reg_no" />
+                      <input type="radio" name="reg" id="reg_no" checked />
                       <label htmlFor="reg_no">N</label>
                     </fieldset>
                   </td>
@@ -470,17 +449,17 @@ function PopupAccEqReg() {
                       <legend>링크전용</legend>
                       <input type="radio" name="link" id="link_yes" />
                       <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" />
+                      <input type="radio" name="link" id="link_no" checked />
                       <label htmlFor="link_no">N</label>
                     </fieldset>
                   </td>
-                  <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                  <th scope='row'>접속 계정 로그인 <br />테스트 무시</th>
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
                       <input type="radio" name="acclog" id="acclog_yes" />
                       <label htmlFor="acclog_yes">Y</label>
-                      <input type="radio" name="acclog" id="acclog_no" />
+                      <input type="radio" name="acclog" id="acclog_no" checked />
                       <label htmlFor="acclog_no">N</label>
                     </fieldset>
                   </td>
@@ -511,7 +490,7 @@ function PopupAccEqReg() {
                   <td>
                     <input type='text' name='accDel' id='accDel' />
                   </td>
-                  <th scope='row'><label htmlFor="accPwChg">계정비밀번호변경 스크립트</label></th>
+                  <th scope='row'><label htmlFor="accPwChg">계정비밀번호변경 <br />스크립트</label></th>
                   <td>
                     <input type='text' name='accPwChg' id='accPwChg' />
                   </td>
@@ -532,37 +511,16 @@ function PopupAccEqReg() {
                   <td colSpan={2}></td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="org">조직</label></th>
-                  <td>
-                    <input type='text' name='org' id='org' />
-                  </td>
-                  <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
-                  <td>
-                    <input type='text' name='assetId' id='assetId' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetName">자산이름</label></th>
-                  <td>
-                    <input type='text' name='assetName' id='assetName' />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
-                  <td>
-                    <input type='text' name='assetPos' id='assetPos' />
-                  </td>
-                  <th scope='row'><label htmlFor="compId">구성아이디</label></th>
-                  <td>
-                    <input type='text' name='compId' id='compId' />
-                  </td>
-                  <th scope='row'><label htmlFor="compName">구성이름</label></th>
+                  <th scope='row'><label htmlFor="eqType3">기종타입</label></th>
                   <td className='bd-right-none'>
-                    <input type='text' name='compName' id='compName' />
+                    <Select defaultValue={optionEqType3[0]} value={eqType3} onChange={setEqType3} options={optionEqType3} className='react-select-container' classNamePrefix="react-select" />
                   </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'><label htmlFor="text">설명</label></th>
                   <td colSpan={5}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                    <textarea name='text' id='text' className='textarea-h80'></textarea>
                   </td>
                 </tr>
               </tbody>
@@ -585,7 +543,7 @@ function PopupAccEqReg() {
                 <col style={{ width: '23%' }} />
                 <col style={{ width: '10%' }} />
                 <col style={{ width: '23%' }} />
-                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -602,9 +560,9 @@ function PopupAccEqReg() {
                   <td>프록시</td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eq">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td className='bd-right-none'>
-                    <Select defaultValue={optionEqType4[0]} value={eqType4} onChange={setEqType4} options={optionEqType4} className='react-select-container' classNamePrefix="react-select" />
+                    <Select defaultValue={optionEq4[0]} value={eq4} onChange={setEq4} options={optionEq4} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={4}></td>
                 </tr>
@@ -617,7 +575,7 @@ function PopupAccEqReg() {
                   <td>
                     <input type='text' name='httpPort' id='httpPort' />
                   </td>
-                  <th scope='row'><label htmlFor="proxy">프록시 Listen 주소</label></th>
+                  <th scope='row'><label htmlFor="proxy">프록시 Listen 주소</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td>
                     <input type='text' name='proxy' id='proxy' />
                   </td>
@@ -629,7 +587,7 @@ function PopupAccEqReg() {
                       <legend>링크전용</legend>
                       <input type="radio" name="link" id="link_yes" />
                       <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" />
+                      <input type="radio" name="link" id="link_no" checked />
                       <label htmlFor="link_no">N</label>
                     </fieldset>
                   </td>
@@ -639,7 +597,7 @@ function PopupAccEqReg() {
                       <legend>HTTP2 여부</legend>
                       <input type="radio" name="http2" id="http2_yes" />
                       <label htmlFor="http2_yes">Y</label>
-                      <input type="radio" name="http2" id="http2_no" />
+                      <input type="radio" name="http2" id="http2_no" checked />
                       <label htmlFor="http2_no">N</label>
                     </fieldset>
                   </td>
@@ -649,37 +607,16 @@ function PopupAccEqReg() {
                   </td>
                 </tr>
                 <tr>
-                  <th scope='row'><label htmlFor="org">조직</label></th>
-                  <td>
-                    <input type='text' name='org' id='org' />
-                  </td>
-                  <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
-                  <td>
-                    <input type='text' name='assetId' id='assetId' />
-                  </td>
-                  <th scope='row'><label htmlFor="assetName">자산이름</label></th>
-                  <td>
-                    <input type='text' name='assetName' id='assetName' />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
-                  <td>
-                    <input type='text' name='assetPos' id='assetPos' />
-                  </td>
-                  <th scope='row'><label htmlFor="compId">구성아이디</label></th>
-                  <td>
-                    <input type='text' name='compId' id='compId' />
-                  </td>
-                  <th scope='row'><label htmlFor="compName">구성이름</label></th>
+                  <th scope='row'><label htmlFor="eqType4">기종타입</label></th>
                   <td className='bd-right-none'>
-                    <input type='text' name='compName' id='compName' />
+                    <Select defaultValue={optionEqType4[0]} value={eqType4} onChange={setEqType4} options={optionEqType4} className='react-select-container' classNamePrefix="react-select" />
                   </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'><label htmlFor="text">설명</label></th>
                   <td colSpan={5}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                    <textarea name='text' id='text' className='textarea-h80'></textarea>
                   </td>
                 </tr>
               </tbody>
@@ -723,7 +660,7 @@ function PopupAccEqReg() {
                   <td>
                     <fieldset>
                       <legend>활성화</legend>
-                      <input type="radio" name="able" id="able_yes" />
+                      <input type="radio" name="able" id="able_yes" checked />
                       <label htmlFor="able_yes">Y</label>
                       <input type="radio" name="able" id="able_no" />
                       <label htmlFor="able_no">N</label>
@@ -770,10 +707,14 @@ function PopupAccEqReg() {
 // 장비 삭제
 function PopupAccEqDel() {
   // SelectBox
-  const optionEqType1 = [
+  const optionEq = [
     { value: 'Linux', label: 'Linux' }
   ];
-  const [eqType1, setEqType1] = useState(optionEqType1[0]);
+  const [eq, setEq] = useState(optionEq[0]);
+  const optionEqType = [
+    { value: '선택', label: '선택' }
+  ];
+  const [eqType, setEqType] = useState(optionEqType[0]);
   return (
     <PopupPortal>
       <style>
@@ -782,17 +723,18 @@ function PopupAccEqDel() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
-          <h2>장비 삭제</h2>
+          <h2>접근제어 장비 신청 정보-삭제</h2>
         </div>
         <div className='content-section'>
           <table className='table table-row'>
             <caption>장비 삭제</caption>
             <colgroup>
-              <col style={{ width: '10%' }} />
-              <col style={{ width: '23%' }} />
-              <col style={{ width: '10%' }} />
-              <col style={{ width: '23%' }} />
+              <col style={{ width: '12%' }} />
+              <col style={{ width: '22%' }} />
+              <col style={{ width: '12%' }} />
+              <col style={{ width: '22%' }} />
               <col style={{ width: '10%' }} />
               <col />
             </colgroup>
@@ -813,9 +755,9 @@ function PopupAccEqDel() {
                 <td>프록시</td>
               </tr>
               <tr>
-                <th scope='row'><label htmlFor="type">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
+                <th scope='row'><label htmlFor="eq">기종</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td className='bd-right-none'>
-                  <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" isDisabled />
+                  <Select defaultValue={optionEq[0]} value={eq} onChange={setEq} options={optionEq} className='react-select-container' classNamePrefix="react-select" isDisabled />
                 </td>
                 <td colSpan={4}></td>
               </tr>
@@ -844,7 +786,7 @@ function PopupAccEqDel() {
                 </td>
                 <th scope='row'><label htmlFor="timeout">타임아웃(초)</label></th>
                 <td>
-                  <input type='text' name='timeout' id='timeout' readOnly />
+                  <input type='text' name='timeout' id='timeout' value={'60'} readOnly />
                 </td>
               </tr>
               <tr>
@@ -874,9 +816,9 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>등록전용</legend>
-                    <input type="radio" name="reg" id="reg_yes" checked readOnly />
+                    <input type="radio" name="reg" id="reg_yes" disabled />
                     <label htmlFor="reg_yes">Y</label>
-                    <input type="radio" name="reg" id="reg_no" disabled />
+                    <input type="radio" name="reg" id="reg_no" checked readOnly />
                     <label htmlFor="reg_no">N</label>
                   </fieldset>
                 </td>
@@ -884,21 +826,21 @@ function PopupAccEqDel() {
                 <td>
                   <fieldset>
                     <legend>링크전용</legend>
-                    <input type="radio" name="link" id="link_yes" checked readOnly />
+                    <input type="radio" name="link" id="link_yes" disabled />
                     <label htmlFor="link_yes">Y</label>
-                    <input type="radio" name="link" id="link_no" disabled />
+                    <input type="radio" name="link" id="link_no" checked readOnly />
                     <label htmlFor="link_no">N</label>
                   </fieldset>
                 </td>
               </tr>
               <tr>
-                <th scope='row'>접속 계정 로그인 테스트 무시</th>
+                <th scope='row'>접속 계정 로그인 <br />테스트 무시</th>
                 <td>
                   <fieldset>
                     <legend>접속 계정 로그인 테스트 무시</legend>
-                    <input type="radio" name="acclog" id="acclog_yes" checked readOnly />
+                    <input type="radio" name="acclog" id="acclog_yes" disabled />
                     <label htmlFor="acclog_yes">Y</label>
-                    <input type="radio" name="acclog" id="acclog_no" disabled />
+                    <input type="radio" name="acclog" id="acclog_no" checked readOnly />
                     <label htmlFor="acclog_no">N</label>
                   </fieldset>
                 </td>
@@ -912,29 +854,11 @@ function PopupAccEqDel() {
                 </td>
               </tr>
               <tr>
-                <th scope='row'><lable htmlFor='assetId'>자산아이디</lable></th>
-                <td>
-                  <input type='text' name='assetId' id='assetId' disabled />
-                </td>
-                <th scope='row'><label htmlFor="assetName">자산이름</label></th>
-                <td>
-                  <input type='text' name='assetName' id='assetName' disabled />
-                </td>
-                <th scope='row'><label htmlFor="assetPos">자산위치</label></th>
-                <td>
-                  <input type='text' name='assetPos' id='assetPos' disabled />
-                </td>
-              </tr>
-              <tr>
-                <th scope='row'><label htmlFor="compId">구성아이디</label></th>
-                <td>
-                  <input type='text' name='compId' id='compId' disabled />
-                </td>
-                <th scope='row'><label htmlFor="compName">구성이름</label></th>
+                <th scope='row'><label htmlFor="eqType">기종타입</label></th>
                 <td className='bd-right-none'>
-                  <input type='text' name='compName' id='compName' disabled />
+                  <Select defaultValue={optionEqType[0]} value={eqType} onChange={setEqType} options={optionEqType} className='react-select-container' classNamePrefix="react-select" isDisabled />
                 </td>
-                <td colSpan={2}></td>
+                <td colSpan={4}></td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="text">설명</label></th>
@@ -946,7 +870,7 @@ function PopupAccEqDel() {
           </table>
         </div>
         <div className='center'>
-          <button className='btn btn-lg btn-primary'>등록</button>
+          <button className='btn btn-lg btn-primary'>삭제</button>
         </div>
       </div>
     </PopupPortal>

@@ -36,6 +36,7 @@ function PopupAccUserReg() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>접근제어 사용자 신청 정보-등록</h2>
         </div>
@@ -134,7 +135,7 @@ function PopupAccUserReg() {
           </table>
         </div>
         <div className='center'>
-          <button className='btn btn-lg btn-primary'>확인</button>
+          <button className='btn btn-lg btn-primary'>등록</button>
         </div>
       </div>
       <Alert open={idCheckSuc} close={() => { setIdCheckSuc(false) }} type={'no'}>
@@ -177,6 +178,7 @@ function PopupAccUserModi() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>접근제어 사용자 신청 정보-수정</h2>
         </div>
@@ -275,7 +277,7 @@ function PopupAccUserModi() {
           </table>
         </div>
         <div className='center'>
-          <button className='btn btn-lg btn-primary'>확인</button>
+          <button className='btn btn-lg btn-primary'>수정</button>
         </div>
       </div>
     </PopupPortal>
@@ -306,6 +308,7 @@ function PopupAccUserDel() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>접근제어 사용자 신청 정보-삭제</h2>
         </div>
@@ -396,7 +399,7 @@ function PopupAccUserDel() {
           </table>
         </div>
         <div className='center'>
-          <button className='btn btn-lg btn-primary'>확인</button>
+          <button className='btn btn-lg btn-primary'>삭제</button>
         </div>
       </div>
     </PopupPortal>
