@@ -636,226 +636,228 @@ function NomalWork() {
                     </div>
                 </div>
                 <div className='worker-list-wrap over-flow-x over-flow-y'>
-                    <table className="table mt8" style={{ width: '130%' }}>
-                        <caption>장비목록</caption>
-                        <colgroup>
-                            <col span={5} />
-                            <col span={8} style={{ width: '5%' }} />
-                            <col span={4} />
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope='col' rowSpan={2}></th>
-                                <th scope='col' rowSpan={2}>사용자부서</th>
-                                <th scope='col' rowSpan={2}>사용자</th>
-                                <th scope='col' rowSpan={2}>장비</th>
-                                <th scope='col' rowSpan={2}>OS</th>
-                                <th scope='col' ></th>
-                                <th scope='col' colSpan={7}>접속Protocol</th>
-                                <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
-                                <th scope='col'>접근정책</th>
-                                <th scope='col'>시작일시</th>
-                                <th scope='col'>종료일시</th>
+                    <div className='flex-wrap align-start' style={{ width: '130%' }}>
+                        <table className='table mt8 fix-table' style={{ width: '30%' }}>
+                            <caption>고정 영역</caption>
+                            <colgroup>
+                                <col span={5} />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope='col' rowSpan={2}></th>
+                                    <th scope='col' rowSpan={2}>사용자부서</th>
+                                    <th scope='col' rowSpan={2}>사용자</th>
+                                    <th scope='col' rowSpan={2}>장비</th>
+                                    <th scope='col' rowSpan={2}>OS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_1" id="list_1" value="" />
+                                        <label htmlFor="list_1"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    홍길동 Hong
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Linux</td>
+                            </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_2" id="list_2" value="" />
+                                        <label htmlFor="list_2"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    홍길동 Hong
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Linux</td>
                                 </tr>
                                 <tr>
-                                <td scope='col'>
-                                    All
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_1" id="ck_1" value="" checked />
-                                    <label htmlFor="ck_1"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_2" id="ck_2" value="" checked />
-                                    <label htmlFor="ck_2"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_3" id="ck_3" value="" checked />
-                                    <label htmlFor="ck_3"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_4" id="ck_4" value="" checked />
-                                    <label htmlFor="ck_4"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_5" id="ck_5" value="" checked />
-                                    <label htmlFor="ck_5"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_6" id="ck_6" value="" checked />
-                                    <label htmlFor="ck_6"></label>
-                                </td>
-                                <td scope='col'>
-                                    <input type="checkbox" name="ck_7" id="ck_7" value="" checked />
-                                    <label htmlFor="ck_7"></label>
-                                </td>
-                                <td scope='col'>
-                                    <div className='input-btn-wrap'>
-                                        <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" menuPosition={'fixed'} />
+                                    <td>
+                                        <input type="checkbox" name="list_3" id="list_3" value="" />
+                                        <label htmlFor="list_3"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    홍길동 Hong
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Linux</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="list_4" id="list_4" value="" />
+                                        <label htmlFor="list_4"></label>
+                                    </td>
+                                    <td>호남인프라</td>
+                                    <td>
+                                    홍길동 Hong
+                                    </td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>Infra Core1</option>
+                                        </select>
+                                    </td>
+                                    <td>Linux</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table className="table mt8" style={{ width: '100%' }}>
+                            <caption>장비목록</caption>
+                            <colgroup>
+                                <col span={8} style={{ width: '5%' }} />
+                                <col span={4} />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope='col' ></th>
+                                    <th scope='col' colSpan={7}>접속Protocol</th>
+                                    <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
+                                    <th scope='col'>접근정책</th>
+                                    <th scope='col'>시작일시</th>
+                                    <th scope='col'>종료일시</th>
+                                    </tr>
+                                    <tr>
+                                    <td scope='col'>
+                                        All
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_1" id="ck_1" value="" checked />
+                                        <label htmlFor="ck_1"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_2" id="ck_2" value="" checked />
+                                        <label htmlFor="ck_2"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_3" id="ck_3" value="" checked />
+                                        <label htmlFor="ck_3"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_4" id="ck_4" value="" checked />
+                                        <label htmlFor="ck_4"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_5" id="ck_5" value="" checked />
+                                        <label htmlFor="ck_5"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_6" id="ck_6" value="" checked />
+                                        <label htmlFor="ck_6"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <input type="checkbox" name="ck_7" id="ck_7" value="" checked />
+                                        <label htmlFor="ck_7"></label>
+                                    </td>
+                                    <td scope='col'>
+                                        <div className='input-btn-wrap'>
+                                            <Select defaultValue={optionsAccessPolicy[0]} value={accessPolicy} onChange={setAccessPolicy} options={optionsAccessPolicy} className='react-select-container' classNamePrefix="react-select" menuPosition={'fixed'} />
+                                            <button type='button' className='btn btn-md'>적용</button>
+                                        </div>
+                                    </td>
+                                    <td scope='col'>
+                                        <div className='date-time-wrap sm'>
+                                                <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" className='time' />
+                                                    <div className='time-select'>
+                                                        <input type="text" value={startHours} readOnly />
+                                                        <span>
+                                                            <button onClick={handleStartHourIncrease}>증가</button>
+                                                            <button onClick={handleStartHourDecrease} className='down'>감소</button>
+                                                        </span>
+                                                    </div> :
+                                                    <div className='time-select'>
+                                                        <input type="text" value={startMinutes} readOnly />
+                                                        <span>
+                                                            <button onClick={handleStartMinuteIncrease}>증가</button>
+                                                            <button onClick={handleStartMinuteDecrease} className='down'>감소</button>
+                                                        </span>
+                                                    </div>
+                                            </div>
                                         <button type='button' className='btn btn-md'>적용</button>
-                                    </div>
-                                </td>
-                                <td scope='col'>
-                                    <div className='date-time-wrap sm'>
-                                            <DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd" className='time' />
-                                                <div className='time-select'>
-                                                    <input type="text" value={startHours} readOnly />
-                                                    <span>
-                                                        <button onClick={handleStartHourIncrease}>증가</button>
-                                                        <button onClick={handleStartHourDecrease} className='down'>감소</button>
-                                                    </span>
-                                                </div> :
-                                                <div className='time-select'>
-                                                    <input type="text" value={startMinutes} readOnly />
-                                                    <span>
-                                                        <button onClick={handleStartMinuteIncrease}>증가</button>
-                                                        <button onClick={handleStartMinuteDecrease} className='down'>감소</button>
-                                                    </span>
-                                                </div>
-                                        </div>
-                                    <button type='button' className='btn btn-md'>적용</button>
-                                </td>
-                                <td scope='col'>
-                                    <div className='date-time-wrap sm'>
-                                            <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
-                                                <div className='time-select'>
-                                                    <input type="text" value={endHours} readOnly />
-                                                    <span>
-                                                        <button onClick={handleEndHourIncrease}>증가</button>
-                                                        <button onClick={handleEndHourDecrease} className='down'>감소</button>
-                                                    </span>
-                                                </div> :
-                                                <div className='time-select'>
-                                                    <input type="text" value={endMinutes} readOnly />
-                                                    <span>
-                                                        <button onClick={handleEndMinuteIncrease}>증가</button>
-                                                        <button onClick={handleEndMinuteDecrease} className='down'>감소</button>
-                                                    </span>
-                                                </div>
-                                        </div>
-                                    <button type='button' className='btn btn-md'>적용</button>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="list_1" id="list_1" value="" />
-                                    <label htmlFor="list_1"></label>
-                                </td>
-                                <td>호남인프라</td>
-                                <td>
-                                홍길동 Hong
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>Infra Core1</option>
-                                    </select>
-                                </td>
-                                <td>Linux</td>
-                                <td>
-                                    <input type="checkbox" name="all_1" id="all_1" value="" checked/>
-                                    <label htmlFor="all_1"></label>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <input type="checkbox" name="protocol" id="ptc_4" value="" checked />
-                                    <label htmlFor="ptc_4">SSH</label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="protocol" id="ptc_5" value="" checked />
-                                    <label htmlFor="ptc_5">Telnet</label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="protocol" id="ptc_6" value="" checked />
-                                    <label htmlFor="ptc_6">SFTP</label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="protocol" id="ptc_7" value="" checked />
-                                    <label htmlFor="ptc_7">FTP</label>
-                                </td>
-                                <td>admin</td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>L1</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>2023-07-28 00:00:00</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>2023-07-28 00:00:00</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="list_4" id="list_4" value="" />
-                                    <label htmlFor="list_4"></label>
-                                </td>
-                                <td>호남인프라</td>
-                                <td>
-                                김철수 Kim
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>Infra Core1</option>
-                                    </select>
-                                </td>
-                                <td>Web</td>
-                                <td>
-                                    <input type="checkbox" name="all_1" id="all_2" value="" checked/>
-                                    <label htmlFor="all_2"></label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
-                                    <label htmlFor="ptc_1">HTTPS</label>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>admin</td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>L0</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>2023-07-28 00:00:00</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>2023-07-28 00:00:00</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                    <td>
-                                        <input type="checkbox" name="list_4" id="list_4" value="" />
-                                        <label htmlFor="list_4"></label>
                                     </td>
-                                    <td>호남인프라</td>
+                                    <td scope='col'>
+                                        <div className='date-time-wrap sm'>
+                                                <DatePicker locale={ko} selected={endeDate} onChange={(date) => setEndeDate(date)} dateFormat="yyyy-MM-dd" />
+                                                    <div className='time-select'>
+                                                        <input type="text" value={endHours} readOnly />
+                                                        <span>
+                                                            <button onClick={handleEndHourIncrease}>증가</button>
+                                                            <button onClick={handleEndHourDecrease} className='down'>감소</button>
+                                                        </span>
+                                                    </div> :
+                                                    <div className='time-select'>
+                                                        <input type="text" value={endMinutes} readOnly />
+                                                        <span>
+                                                            <button onClick={handleEndMinuteIncrease}>증가</button>
+                                                            <button onClick={handleEndMinuteDecrease} className='down'>감소</button>
+                                                        </span>
+                                                    </div>
+                                            </div>
+                                        <button type='button' className='btn btn-md'>적용</button>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
                                     <td>
-                                    김철수 Kim
+                                        <input type="checkbox" name="all_1" id="all_1" value="" checked/>
+                                        <label htmlFor="all_1"></label>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_4" value="" checked />
+                                        <label htmlFor="ptc_4">SSH</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_5" value="" checked />
+                                        <label htmlFor="ptc_5">Telnet</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_6" value="" checked />
+                                        <label htmlFor="ptc_6">SFTP</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="protocol" id="ptc_7" value="" checked />
+                                        <label htmlFor="ptc_7">FTP</label>
+                                    </td>
+                                    <td>admin</td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>L1</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <select name='' id='' className='type-t'>
-                                            <option>Infra Core1</option>
+                                            <option>2023-07-28 00:00:00</option>
                                         </select>
                                     </td>
-                                    <td>Web</td>
                                     <td>
-                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="all_2" id="all_2" value="" checked/>
                                         <label htmlFor="all_2"></label>
                                     </td>
                                     <td>
@@ -886,99 +888,72 @@ function NomalWork() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <input type="checkbox" name="list_4" id="list_4" value="" />
-                                        <label htmlFor="list_4"></label>
-                                    </td>
-                                    <td>호남인프라</td>
-                                    <td>
-                                    김철수 Kim
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>Infra Core1</option>
-                                        </select>
-                                    </td>
-                                    <td>Web</td>
-                                    <td>
-                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
-                                        <label htmlFor="all_2"></label>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
-                                        <label htmlFor="ptc_1">HTTPS</label>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>admin</td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>L0</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>2023-07-28 00:00:00</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>2023-07-28 00:00:00</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="list_4" id="list_4" value="" />
-                                        <label htmlFor="list_4"></label>
-                                    </td>
-                                    <td>호남인프라</td>
-                                    <td>
-                                    김철수 Kim
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>Infra Core1</option>
-                                        </select>
-                                    </td>
-                                    <td>Web</td>
-                                    <td>
-                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
-                                        <label htmlFor="all_2"></label>
-                                    </td>
-                                    <td>
-                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
-                                        <label htmlFor="ptc_1">HTTPS</label>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>admin</td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>L0</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>2023-07-28 00:00:00</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name='' id='' className='type-t'>
-                                            <option>2023-07-28 00:00:00</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                        </tbody>
-                    </table>
+                                        <td>
+                                            <input type="checkbox" name="all_3" id="all_3" value="" checked/>
+                                            <label htmlFor="all_3"></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                            <label htmlFor="ptc_1">HTTPS</label>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>admin</td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>L0</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>2023-07-28 00:00:00</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>2023-07-28 00:00:00</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="all_4" id="all_4" value="" checked/>
+                                            <label htmlFor="all_4"></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                            <label htmlFor="ptc_1">HTTPS</label>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>admin</td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>L0</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>2023-07-28 00:00:00</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name='' id='' className='type-t'>
+                                                <option>2023-07-28 00:00:00</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>)}
         </div>

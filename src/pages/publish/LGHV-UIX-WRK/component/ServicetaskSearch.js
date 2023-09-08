@@ -4,11 +4,6 @@ import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
 
 function ServicetaskSearch() {
-  const [startDate, setStartDate] = useState(null);
-  const [startEndDate, setStartEndDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [endEndDate, setEndEndDate] = useState(null);
-
   //  토글
   const [isToggled, setToggled] = useState(false);
 
@@ -49,8 +44,15 @@ function ServicetaskSearch() {
   const [soType, setSoType] = useState(optionSoType[0]);
 
   // 날짜 선택
+  const [startDate, setStartDate] = useState(null);
+  const [startEndDate, setStartEndDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [endEndDate, setEndEndDate] = useState(null);
+  const [regDate, setRegDate] = useState(null);
+  const [endRegDate, setEndRegDate] = useState(null);
   const [selectedStday, setSelectedStday] = useState('st_user');
   const [selectedEdday, setSelectedEdday] = useState('ed_user');
+  const [selectRegday, setSelectedRegday] = useState('reg_user');
 
   const handleStdayChange = (event) => {
     setSelectedStday(event.target.value);
@@ -114,6 +116,38 @@ function ServicetaskSearch() {
       );
       setEndDate(oneMonthAgo);
       setEndEndDate(new Date());
+    }
+  };
+
+  const handleRegdayChange = (event) => {
+    setSelectedRegday(event.target.value);
+    const currentDate = new Date();
+
+    // 오늘 날짜
+    if (event.target.value === 'reg_user') {
+      setRegDate(null);
+      setEndRegDate(null);
+    }
+    // 오늘 날짜
+    if (event.target.value === 'reg_day') {
+      setRegDate(new Date());
+      setEndRegDate(new Date());
+    }
+    // 1주일 전부터 오늘까지의 기간
+    if (event.target.value === 'reg_week') {
+      const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+      setRegDate(weekAgo);
+      setEndRegDate(new Date());
+    }
+    // 1개월 전부터 오늘까지의 기간
+    if (event.target.value === 'reg_month') {
+      const oneMonthAgo = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 1,
+        new Date().getDate()
+      );
+      setRegDate(oneMonthAgo);
+      setEndRegDate(new Date());
     }
   };
   // input clear
@@ -201,7 +235,7 @@ function ServicetaskSearch() {
                   </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="regdate">작업 시작 일시</label></th>
+                <th scope="row"><label htmlFor="regdate">작업 시작일</label></th>
                 <td colSpan={4}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
@@ -227,7 +261,7 @@ function ServicetaskSearch() {
                     </span>
                    </div>
                 </td>
-                <th scope="row"><label htmlFor="findate">작업 종료 일시</label></th>
+                <th scope="row"><label htmlFor="findate">작업 종료일</label></th>
                 <td colSpan={4}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
@@ -252,15 +286,35 @@ function ServicetaskSearch() {
                 </td>
                 </tr>
                 <tr>
-                  <th scope="row"><label htmlFor="infra">인프라팀</label></th>
+                <th scope="row"><label htmlFor="findate">작업 등록일</label></th>
+                <td colSpan={4}>
+                  <div className='flex-wrap between'>
+                    <span className='datepickers-wrap'>
+                      <span><DatePicker locale={ko} selected={regDate} onChange={(date) => setRegDate(date)} endDate={regDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                      ~
+                      <span><DatePicker locale={ko} selected={endRegDate} onChange={(date) => setEndRegDate(date)} endDate={endRegDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                    </span>
+                    <span className='radiobtn-wrap'>
+                        <fieldset>
+                          <legend>날짜 선택</legend>
+                            <input type='radio' name='reg-date' id='reg_day' value="reg_day" checked={selectRegday === 'reg_day'} onChange={handleRegdayChange}/>
+                            <label htmlFor='reg_day' className='type-btn'>하루</label>
+                            <input type='radio' name='reg-date' id='reg_week' value="reg_week" checked={selectRegday === 'reg_week'} onChange={handleRegdayChange}/>
+                            <label htmlFor='reg_week' className='type-btn'>일주일</label>
+                            <input type='radio' name='reg-date' id='reg_month' value="reg_month" checked={selectRegday === 'reg_month'} onChange={handleRegdayChange}/>
+                            <label htmlFor='reg_month' className='type-btn'>한달</label>
+                            <input type='radio' name='reg-date' id='reg_user' value="reg_user" checked={selectRegday === 'reg_user'} onChange={handleRegdayChange}/>
+                            <label htmlFor='reg_user' className='type-btn'>사용자 지정</label>
+                          </fieldset>
+                      </span>
+                    </div>
+                </td>
+                  <th scope="row"><label htmlFor="infra">구역명</label></th>
                   <td colSpan={2}>
                       <Select defaultValue={optionInfraType[0]} value={infraType} onChange={setInfraType} options={optionInfraType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
-                  <th scope="row"><label htmlFor="SO ">SO </label></th>
                   <td colSpan={2}>
                     <Select defaultValue={optionSoType[0]} value={soType} onChange={setSoType} options={optionSoType} className='react-select-container' classNamePrefix="react-select" />
-                  </td>
-                  <td colSpan={4}>
                   </td>
                 </tr>
             </tbody>
