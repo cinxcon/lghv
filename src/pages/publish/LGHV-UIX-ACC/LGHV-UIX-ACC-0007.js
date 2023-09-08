@@ -53,9 +53,9 @@ function AccUserRegist() {
           <table className='table table-row'>
             <caption>결제 라인 정보</caption>
             <colgroup>
-              <col style={{ width: '7%' }} />
-              <col style={{ width: '15%' }} />
-              <col style={{ width: '7%' }} />
+              <col style={{ width: '5%' }} />
+              <col style={{ width: '12%' }} />
+              <col style={{ width: '5%' }} />
               <col style={{ width: '15%' }} />
               <col />
             </colgroup>
@@ -101,7 +101,7 @@ function AccUserRegist() {
           <table className='table table-row mt20'>
             <caption>합의 수신 정보</caption>
             <colgroup>
-              <col style={{ width: '7%' }} />
+              <col style={{ width: '5%' }} />
               <col />
             </colgroup>
             <tbody>
@@ -187,7 +187,7 @@ function AccUserRegist() {
             <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccUserModi', 'AccUserModi', 1280, 550) }}>수정</button>
             <button className='btn btn-low btn-md btn-del' onClick={() => { onPopup('/popup/PopupAccUserDel', 'AccUserDel', 1280, 550) }}>삭제</button>
           </div>
-          <table className='table mt8'>
+          <table className='table table-row mt8'>
             <caption>접근제어 사용자 신청: 아이디, 이름, 그룹, 상태</caption>
             <colgroup>
               <col style={{ width: '5%' }} />

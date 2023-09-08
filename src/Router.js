@@ -19,8 +19,8 @@ import AccEquipmentDetail from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0006';
 import AccEquipmentDetailAPR from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0006-DetailAPR';
 import AccUserRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0007';
 import AccEquipmentRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0008';
-import AccBanWords from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0009';
-import AccPolicy from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0010';
+import AccPolicy from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0009';
+import AccPolicyRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0010';
 import ServicetaskRegistNm from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0001';
 import ServicetaskRegistUr from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0002';
 import ServicetaskAll from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0003';
@@ -95,8 +95,8 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0006-DetailAPR" element={<AccEquipmentDetailAPR />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0007" element={<AccUserRegist />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0008" element={<AccEquipmentRegist />} />
-      <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0009" element={<AccBanWords />} />
-      <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0010" element={<AccPolicy />} />
+      <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0009" element={<AccPolicy />} />
+      <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0010" element={<AccPolicyRegist />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0000" element={<Approval />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0001/:id" element={<ApprovalDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0003" element={<ApprovalAll />} />

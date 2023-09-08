@@ -42,14 +42,17 @@ function AccEquipmentDetail() {
             </div>
           </div>
           <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-            <table className='table table-row'>
+            <div className='btn-wrap right'>
+              <button type="button" className="btn btn-md btn-reg">등록</button>
+            </div>
+            <table className='table table-row mt8'>
               <caption>기종 Linux, HPUX, AIX, Solaris에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '22%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '22%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '10%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -128,10 +131,10 @@ function AccEquipmentDetail() {
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
-                      <input type="radio" name="sudo" id="sudo_yes" checked readOnly />
-                      <label htmlFor="sudo_yes">Y</label>
-                      <input type="radio" name="sudo" id="sudo_no" disabled />
-                      <label htmlFor="sudo_no">N</label>
+                      <input type="radio" name="acc" id="acc_yes" disabled />
+                      <label htmlFor="acc_yes">Y</label>
+                      <input type="radio" name="acc" id="acc_no" checked readOnly />
+                      <label htmlFor="acc_no">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>동시접속 세션 최대값</th>
@@ -151,7 +154,8 @@ function AccEquipmentDetail() {
                   <th scope='row'>구성아이디</th>
                   <td><input type='text' disabled /></td>
                   <th scope='row'>구성이름</th>
-                  <td colSpan={3}><input type='text' disabled /></td>
+                  <td className='bd-right-none'><input type='text' disabled /></td>
+                  <td colSpan={2}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -170,10 +174,13 @@ function AccEquipmentDetail() {
             </div>
           </div>
           <div className={`toggle-box ${divStates[1] ? 'hide' : ''} `}>
-            <table className='table table-row'>
+            <div className='btn-wrap right'>
+              <button type="button" className="btn btn-md btn-reg">등록</button>
+            </div>
+            <table className='table table-row mt8'>
               <caption>기종 Windows에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '22%' }} />
                 <col style={{ width: '11%' }} />
                 <col style={{ width: '22%' }} />
@@ -225,7 +232,8 @@ function AccEquipmentDetail() {
                   <th scope='row'>동시접속 세션 최대값</th>
                   <td><input type='text' value={0} disabled /></td>
                   <th scope='row'>조직</th>
-                  <td colSpan={3}><input type='text' disabled /></td>
+                  <td className='bd-right-none'><input type='text' disabled /></td>
+                  <td colSpan={2}></td>
                 </tr>
                 <tr>
                   <th scope='row'>자산아이디</th>
@@ -239,7 +247,8 @@ function AccEquipmentDetail() {
                   <th scope='row'>구성아이디</th>
                   <td><input type='text' disabled /></td>
                   <th scope='row'>구성이름</th>
-                  <td colSpan={3}><input type='text' disabled /></td>
+                  <td className='bd-right-none'><input type='text' disabled /></td>
+                  <td colSpan={2}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -261,11 +270,11 @@ function AccEquipmentDetail() {
             <table className='table table-row'>
               <caption>기종 Network 에 대한 장비 기본 정보</caption>
               <colgroup>
-                <col style={{ width: '12%' }} />
+                <col style={{ width: '13%' }} />
                 <col style={{ width: '21%' }} />
                 <col style={{ width: '12%' }} />
                 <col style={{ width: '21%' }} />
-                <col style={{ width: '12%' }} />
+                <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -317,7 +326,8 @@ function AccEquipmentDetail() {
                 </tr>
                 <tr>
                   <th scope='row'>동시접속 세션 최대값</th>
-                  <td colSpan={5}><input type='text' value={0} disabled /></td>
+                  <td className='bd-right-none'><input type='text' value={0} disabled /></td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'>계정동기화 스크립트</th>
@@ -339,7 +349,8 @@ function AccEquipmentDetail() {
                   <th scope='row'>계정잠금해제 스크립트</th>
                   <td><input type='text' disabled /></td>
                   <th scope='row'>OS버전 스크립트</th>
-                  <td colSpan={3}><input type='text' disabled /></td>
+                  <td className='bd-right-none'><input type='text' disabled /></td>
+                  <td colSpan={2}></td>
                 </tr>
                 <tr>
                   <th scope='row'>조직</th>
@@ -379,9 +390,9 @@ function AccEquipmentDetail() {
               <colgroup>
                 <col style={{ width: '11%' }} />
                 <col style={{ width: '22%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col style={{ width: '22%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
               <tbody>
@@ -448,7 +459,7 @@ function AccEquipmentDetail() {
               <caption>table caption</caption>
               <colgroup>
                 <col style={{ width: '11%' }} />
-                <col style={{ width: '37%' }} />
+                <col style={{ width: '35%' }} />
                 <col style={{ width: '11%' }} />
                 <col />
               </colgroup>
@@ -499,7 +510,7 @@ function AccEquipmentDetail() {
               <caption>table caption</caption>
               <colgroup>
                 <col style={{ width: '11%' }} />
-                <col style={{ width: '37%' }} />
+                <col style={{ width: '35%' }} />
                 <col style={{ width: '11%' }} />
                 <col />
               </colgroup>

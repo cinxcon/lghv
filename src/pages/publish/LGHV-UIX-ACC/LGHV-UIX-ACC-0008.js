@@ -2,7 +2,6 @@ import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
 import { Alert } from '../popup/Popup';
 
-// LGHV-UIX-ACC-0008 장비 등록 AccEquipmentRegist
 function AccEquipmentRegist() {
   const pagedata = {
     title: '접근제어',
@@ -53,9 +52,9 @@ function AccEquipmentRegist() {
           <table className='table table-row'>
             <caption>결제 라인 정보</caption>
             <colgroup>
-              <col style={{ width: '7%' }} />
+              <col style={{ width: '5%' }} />
               <col style={{ width: '15%' }} />
-              <col style={{ width: '7%' }} />
+              <col style={{ width: '5%' }} />
               <col style={{ width: '15%' }} />
               <col />
             </colgroup>
@@ -71,6 +70,20 @@ function AccEquipmentRegist() {
             <tbody>
               <tr>
                 <td>기안</td>
+                <td>홍길동(123456)</td>
+                <td>기안</td>
+                <td>2023-01-01 11:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>검토</td>
+                <td>홍길동(123456)</td>
+                <td>기안</td>
+                <td>2023-01-01 11:00:00</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>조정</td>
                 <td>홍길동(123456)</td>
                 <td>기안</td>
                 <td>2023-01-01 11:00:00</td>
@@ -101,7 +114,7 @@ function AccEquipmentRegist() {
           <table className='table table-row mt20'>
             <caption>합의 수신 정보</caption>
             <colgroup>
-              <col style={{ width: '7%' }} />
+              <col style={{ width: '5%' }} />
               <col />
             </colgroup>
             <tbody>
@@ -186,7 +199,7 @@ function AccEquipmentRegist() {
             <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccEqReg', 'AccEqReg', 1280, 800) }}>신규</button>
             <button className='btn btn-low btn-md btn-del' onClick={() => { onPopup('/popup/PopupAccEqDel', 'AccEqDel', 1280, 800) }}>삭제</button>
           </div>
-          <table className='table mt8'>
+          <table className='table table-row mt8'>
           <caption>접근제어 장비명 검색: 장비명, IP 주소, 기종, 종류, 상태</caption>
             <colgroup>
               <col style={{ width: '5%' }} />

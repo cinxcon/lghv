@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import ContentTitle from '../layout/ContentTitle';
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
 function AccEquipmentList() {
-  const navigate = useNavigate();
-  const handleRegClick = () => navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0008');
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '접근제어',
@@ -15,51 +13,52 @@ function AccEquipmentList() {
     SubMenu: 'yes',
     isDetail: 'no'
   }
-
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
     const popupY = (window.screen.height / 2) - (height / 2);
     window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
-
   //  토글
   const [isToggled, setToggled] = useState(false);
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
-
-  // input clear
-  const [userName, setUserNameValue] = useState('');
-  const onUserNameInput = (e) => setUserNameValue(e.target.value);
-  const onUserNameClear = () => {
-    setUserNameValue('');
-  }
-  const [eqTypeValue, setEqTypeValue] = useState('');
-  const onEqTypeInput = (e) => setEqTypeValue(e.target.value);
-  const onEqTypeClear = () => {
-    setEqTypeValue('');
-  }
-  const [addressValue, setAddressValue] = useState('');
-  const onAddressInput = (e) => setAddressValue(e.target.value);
-  const onAddressClear = () => {
-    setAddressValue('');
-  }
-  const [modelValue, setModelValue] = useState('');
-  const onModelInput = (e) => setModelValue(e.target.value);
-  const onModelClear = () => {
-    setModelValue('');
-  }
-  const [portValue, setPortValue] = useState('');
-  const onPortInput = (e) => setPortValue(e.target.value);
-  const onPortClear = () => {
-    setPortValue('');
-  }
-  const [eqStatusValue, setEqStatusValue] = useState('');
-  const onEqStatusInput = (e) => setEqStatusValue(e.target.value);
-  const onEqStatusClear = () => {
-    setEqStatusValue('');
-  }
+  // SelectBox
+  const optionEqType = [
+    { value: '선택', label: '선택' },
+    { value: '프록시', label: '프록시' },
+    { value: '에이전트', label: '에이전트' }
+  ];
+  const [eqType, setEqType] = useState(optionEqType[0]);
+  const optionModel = [
+    { value: '선택', label: '선택' },
+    { value: 'Linux', label: 'Linux' },
+    { value: 'HPUX', label: 'HPUX' },
+    { value: 'AIX', label: 'AIX' },
+    { value: 'Solaris', label: 'Solaris' },
+    { value: 'Windows', label: 'Windows' },
+    { value: 'Network', label: 'Network' },
+    { value: 'Web', label: 'Web' }
+  ];
+  const [model, setModel] = useState(optionModel[0]);
+  const optionPortState = [
+    { value: '선택', label: '선택' },
+    { value: 'SSH', label: 'SSH' },
+    { value: 'TELNET', label: 'TELNET' },
+    { value: 'FTP', label: 'FTP' },
+    { value: 'RDP', label: 'RDP' },
+    { value: 'WinRM', label: 'WinRM' },
+    { value: 'HTTP', label: 'HTTP' },
+    { value: 'HTTPS', label: 'HTTPS' }
+  ];
+  const [portState, setPortState] = useState(optionPortState[0]);
+  const optionEqState = [
+    { value: '선택', label: '선택' },
+    { value: '연결', label: '연결' },
+    { value: '연결끊김', label: '연결끊김' }
+  ];
+  const [eqState, setEqState] = useState(optionEqState[0]);
 
   return (
     <>
@@ -73,55 +72,42 @@ function AccEquipmentList() {
           </div>
           <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
             <table className='search'>
-              <caption>table caption</caption>
+              <caption>검색: 이름, 종류, 주소, 기종, 포트상태, 장비상태</caption>
               <colgroup>
-                <col span={10} style={{ width: '10%' }} />
+                <col style={{ width: '6%' }} />
+                <col span={2} style={{ width: '14%' }} />
+                <col style={{ width: '6%' }} />
+                <col span={2} style={{ width: '14%' }} />
+                <col style={{ width: '6%' }} />
+                <col span={3} />
               </colgroup>
               <tbody>
                 <tr>
                   <th scope="row"><label htmlFor="userName">이름</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="userNamet" id="userName" placeholder='이름' value={userName} onInput={onUserNameInput} />
-                      <button type="button" className='clear-search-button' onClick={onUserNameClear}>삭제</button>
-                    </span>
+                    <input type="text" name="userNamet" id="userName" />
                   </td>
                   <th scope="row"><label htmlFor="eqType">종류</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="eqType" id="eqType" placeholder='종류' value={eqTypeValue} onInput={onEqTypeInput} />
-                      <button type="button" className='clear-search-button' onClick={onEqTypeClear}>삭제</button>
-                    </span>
+                    <Select defaultValue={optionEqType[0]} value={eqType} onChange={setEqType} options={optionEqType} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="address">주소</label></th>
                   <td colSpan={3}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="address" id="address" placeholder='주소' value={addressValue} onInput={onAddressInput} />
-                      <button type="button" className='clear-search-button' onClick={onAddressClear}>삭제</button>
-                    </span>
+                    <input type="text" name="address" id="address" />
                   </td>
                 </tr>
                 <tr>
                   <th scope="row"><label htmlFor="model">기종</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="model" id="model" placeholder='기종' value={modelValue} onInput={onModelInput} />
-                      <button type="button" className='clear-search-button' onClick={onModelClear}>삭제</button>
-                    </span>
+                    <Select defaultValue={optionModel[0]} value={model} onChange={setModel} options={optionModel} className='react-select-container' classNamePrefix="react-select" />
                   </td>
-                  <th scope="row"><label htmlFor="port">포트상태</label></th>
+                  <th scope="row"><label htmlFor="portState">포트상태</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="port" id="port" placeholder='포트상태' value={portValue} onInput={onPortInput} />
-                      <button type="button" className='clear-search-button' onClick={onPortClear}>삭제</button>
-                    </span>
+                    <Select defaultValue={optionPortState[0]} value={portState} onChange={setPortState} options={optionPortState} className='react-select-container' classNamePrefix="react-select" />
                   </td>
-                  <th scope="row"><label htmlFor="eqStatus">장비상태</label></th>
+                  <th scope="row"><label htmlFor="eqState">장비상태</label></th>
                   <td colSpan={3}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="eqStatus" id="eqStatus" placeholder='장비상태' value={eqStatusValue} onInput={onEqStatusInput} />
-                      <button type="button" className='clear-search-button' onClick={onEqStatusClear}>삭제</button>
-                    </span>
+                    <Select defaultValue={optionEqState[0]} value={eqState} onChange={setEqState} options={optionEqState} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                 </tr>
               </tbody>
@@ -139,7 +125,6 @@ function AccEquipmentList() {
           <ResultPageView />
           <div className='btn-wrap'>
             <button type="button" className="btn btn-low btn-md btn-exel">엑셀</button>
-            <button className="btn btn-md btn-reg" onClick={ handleRegClick }>등록</button>
           </div>
         </div>
         <table className="table">

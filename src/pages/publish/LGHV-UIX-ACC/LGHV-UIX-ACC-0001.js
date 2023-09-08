@@ -61,25 +61,8 @@ function AccUser() {
       setEndDate(new Date());
     }
   };
-
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // input clear
-  const [userName, setUserNameValue] = useState('');
-  const onUserNameInput = (e) => setUserNameValue(e.target.value);
-  const onUserNameClear = () => {
-    setUserNameValue('');
-  }
-  const [userIdValue, setUserIdValue] = useState('');
-  const onUserIdInput = (e) => setUserIdValue(e.target.value);
-  const onUserIdClear = () => {
-    setUserIdValue('');
-  }
-  const [orgValue, setOrgValue] = useState('');
-  const onOrgInput = (e) => setOrgValue(e.target.value);
-  const onOrgClear = () => {
-    setOrgValue('');
-  }
   // SelectBox
   const optionAccState = [
     { value: '정상', label: '정상' },
@@ -104,32 +87,28 @@ function AccUser() {
           </div>
           <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
             <table className='search'>
-              <caption>table caption</caption>
+              <caption>검색: 이름, 아이디, 조직, 계정상태, 그룹, 사용기간</caption>
               <colgroup>
-                <col span={10} style={{ width: '10%' }} />
+                <col style={{ width: '6%' }} />
+                <col span={2} />
+                <col style={{ width: '6%' }} />
+                <col span={2} />
+                <col style={{ width: '6%' }} />
+                <col span={3} />
               </colgroup>
               <tbody>
                 <tr>
                   <th scope="row"><label htmlFor="userName">이름</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="userNamet" id="userName" placeholder='이름' value={userName} onInput={onUserNameInput} />
-                      <button type="button" className='clear-search-button' onClick={onUserNameClear}>삭제</button>
-                    </span>
+                    <input type="text" name="userNamet" id="userName" />
                   </td>
                   <th scope="row"><label htmlFor="userId">아이디</label></th>
                   <td colSpan={2}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="userId" id="userId" placeholder='아이디' value={userIdValue} onInput={onUserIdInput} />
-                      <button type="button" className='clear-search-button' onClick={onUserIdClear}>삭제</button>
-                    </span>
+                    <input type="text" name="userId" id="userId" />
                   </td>
                   <th scope="row"><label htmlFor="org">조직</label></th>
                   <td colSpan={3}>
-                    <span className='input-clear-wrap'>
-                      <input type="text" name="org" id="org" placeholder='조직' value={orgValue} onInput={onOrgInput} />
-                      <button type="button" className='clear-search-button' onClick={onOrgClear}>삭제</button>
-                    </span>
+                    <input type="text" name="org" id="org" />
                   </td>
                 </tr>
                 <tr>
