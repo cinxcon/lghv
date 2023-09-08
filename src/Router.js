@@ -32,7 +32,7 @@ import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 import NoticeList from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001'
-import NoticeRegist from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0002'
+import NoticeDetail from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001-Detail'
 
 // 팝업
 import PopupReviewer from './pages/publish/popup/popupDetail/Popup_Reviewer';
@@ -71,6 +71,7 @@ import SysAuthorityMngUserList from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0
 import SysMenuAuthMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0013';
 import SysWeeklyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0014';
 import SysMonthlyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0015';
+import NoticeRegist from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-NOTI-0002'
 
 const AppRouter = () => {
   return (
@@ -108,7 +109,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
       <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001" element={<NoticeList />} />
-      <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0002" element={<NoticeRegist />} />
+      <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001-Detail" element={<NoticeDetail />} />
 
       {/* 팝업 */}
       <Route path="/popup/PopupReviewer" element={<PopupReviewer />} />
@@ -153,6 +154,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012" element={<SysAuthorityMng />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012-UserList" element={<SysAuthorityMngUserList />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng />} />
+      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-NOTI-0002" element={<NoticeRegist />} />
       <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014" element={<SysWeeklyReport />} />
       <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015" element={<SysMonthlyReport />} />
     </Routes>

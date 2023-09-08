@@ -7,7 +7,6 @@ import { Popup } from '../../popup/Popup';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import Select from 'react-select';
-import ResultListPaging from '../../common/ResultListPaging';
 
 function UrgentWork() {
 //   const [cancle, setCancle] = useState(false);
@@ -629,20 +628,19 @@ function UrgentWork() {
             </table>
             {selectedOption === 'access_yes' && (
             <div className='device-list'>
-                <div className='flex-wrap between'>
-                    <div>총 2개</div>
-                    <div className='btn-wrap'>
-                        <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-copy'>복사</button>
-                        <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-del' onClick={diviceRemoveRow}>삭제</button>
-                    </div>
+            <div className='flex-wrap between'>
+                <div>총 2개</div>
+                <div className='btn-wrap'>
+                    <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-copy'>복사</button>
+                    <button type='button' name='worker-delete' id='worker_delete' className='btn btn-md btn-low btn-del' onClick={diviceRemoveRow}>삭제</button>
                 </div>
-                <div className='over-flow-x'>
-                    <table className="table mt8" style={{ width: '130%' }}>
-                        <caption>장비목록</caption>
+            </div>
+            <div className='worker-list-wrap over-flow-x over-flow-y'>
+                <div className='flex-wrap align-start' style={{ width: '130%' }}>
+                    <table className='table mt8 fix-table' style={{ width: '30%' }}>
+                        <caption>고정 영역</caption>
                         <colgroup>
                             <col span={5} />
-                            <col span={8} style={{ width: '5%' }} />
-                            <col span={4} />
                         </colgroup>
                         <thead>
                             <tr>
@@ -651,6 +649,83 @@ function UrgentWork() {
                                 <th scope='col' rowSpan={2}>사용자</th>
                                 <th scope='col' rowSpan={2}>장비</th>
                                 <th scope='col' rowSpan={2}>OS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_1" id="list_1" value="" />
+                                    <label htmlFor="list_1"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                홍길동 Hong
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Linux</td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_2" id="list_2" value="" />
+                                    <label htmlFor="list_2"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                홍길동 Hong
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Linux</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_3" id="list_3" value="" />
+                                    <label htmlFor="list_3"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                홍길동 Hong
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Linux</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="list_4" id="list_4" value="" />
+                                    <label htmlFor="list_4"></label>
+                                </td>
+                                <td>호남인프라</td>
+                                <td>
+                                홍길동 Hong
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>Infra Core1</option>
+                                    </select>
+                                </td>
+                                <td>Linux</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table className="table mt8" style={{ width: '100%' }}>
+                        <caption>장비목록</caption>
+                        <colgroup>
+                            <col span={8} style={{ width: '5%' }} />
+                            <col span={4} />
+                        </colgroup>
+                        <thead>
+                            <tr>
                                 <th scope='col' ></th>
                                 <th scope='col' colSpan={7}>접속Protocol</th>
                                 <th scope='col' rowSpan={2}>Protocol <br />접속계정</th>
@@ -741,20 +816,6 @@ function UrgentWork() {
                         <tbody>
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="list_1" id="list_1" value="" />
-                                    <label htmlFor="list_1"></label>
-                                </td>
-                                <td>호남인프라</td>
-                                <td>
-                                홍길동 Hong
-                                </td>
-                                <td>
-                                    <select name='' id='' className='type-t'>
-                                        <option>Infra Core1</option>
-                                    </select>
-                                </td>
-                                <td>Linux</td>
-                                <td>
                                     <input type="checkbox" name="all_1" id="all_1" value="" checked/>
                                     <label htmlFor="all_1"></label>
                                 </td>
@@ -794,24 +855,74 @@ function UrgentWork() {
                                     </select>
                                 </td>
                             </tr>
-                                <tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="all_2" id="all_2" value="" checked/>
+                                    <label htmlFor="all_2"></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                    <label htmlFor="ptc_1">HTTPS</label>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>admin</td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>L0</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name='' id='' className='type-t'>
+                                        <option>2023-07-28 00:00:00</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                     <td>
-                                        <input type="checkbox" name="list_4" id="list_4" value="" />
-                                        <label htmlFor="list_4"></label>
+                                        <input type="checkbox" name="all_3" id="all_3" value="" checked/>
+                                        <label htmlFor="all_3"></label>
                                     </td>
-                                    <td>호남인프라</td>
                                     <td>
-                                    김철수 Kim
+                                        <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
+                                        <label htmlFor="ptc_1">HTTPS</label>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>admin</td>
+                                    <td>
+                                        <select name='' id='' className='type-t'>
+                                            <option>L0</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <select name='' id='' className='type-t'>
-                                            <option>Infra Core1</option>
+                                            <option>2023-07-28 00:00:00</option>
                                         </select>
                                     </td>
-                                    <td>Web</td>
                                     <td>
-                                        <input type="checkbox" name="all_1" id="all_2" value="" checked/>
-                                        <label htmlFor="all_2"></label>
+                                        <select name='' id='' className='type-t'>
+                                            <option>2023-07-28 00:00:00</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="all_4" id="all_4" value="" checked/>
+                                        <label htmlFor="all_4"></label>
                                     </td>
                                     <td>
                                         <input type="checkbox" name="protocol" id="ptc_1" value="" checked />
@@ -842,9 +953,9 @@ function UrgentWork() {
                                 </tr>
                         </tbody>
                     </table>
-                    <ResultListPaging />
                 </div>
-            </div>)}
+            </div>
+        </div>)}
         </div>
     </div>
     <div className='content-section'>

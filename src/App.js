@@ -12,7 +12,6 @@ import { Alert, Popup } from './pages/publish/popup/Popup';
 
 const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
   return (
     <div className='App'>
       <DynamicStyle/>

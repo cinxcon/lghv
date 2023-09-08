@@ -181,7 +181,9 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-search:before {content: ''; width: 16px; height: 16px; position: absolute; top: 5px; left: 5px; background:url('../images/common/ic_search_set_16.png') 0 0 no-repeat; background-size: auto;}
 .btn-search:hover { background-color: #ed174d; border-color: #ed174d;}
 .btn-search-txt{padding: 0 18px 0 36px; background-color:#000000; color:#ffffff; position: relative;}
+.btn-search-txt:hover{color: #000; border-color: #000; }
 .btn-search-txt:before {content: ''; width: 16px; height: 16px; position: absolute; top: 5px; left: 10px; background:url('../images/common/ic_search_set_16.png') 0 0 no-repeat; background-size: auto;}
+.btn-search-txt:hover::before{background-position: -16px 0;background-size: auto;}
 .btn-add {padding-left: 32px; position: relative; }
 .btn-add:before{content:''; background:url('../images/common/ic_plus_minus_black_16.png') 0 0 no-repeat; background-size: auto; width: 16px; height: 16px; position: absolute; top: 5px; left: 11px;}
 .btn-md.btn-add {padding-left: 24px; position: relative; }
@@ -382,6 +384,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .table tr.link:hover { cursor: pointer; background-color: #EAEAEA; color: #000000!important; }
 .table tr.checked { background-color: rgba(237, 23, 77, 0.04);  }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
+.table td{background-color: #fff;}
 .table th, .table td { border-bottom: 1px solid #EAEAEA; border-right: 1px solid #EAEAEA; padding: 6px 12px; text-align: center; }
 .table.table-row th, .table.table-row td { text-align: left; }
 .table.table-td-left td { text-align: left; }
@@ -480,6 +483,10 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-datepicker__week .react-datepicker__day:first-child.react-datepicker__day--selected { color: #fff; }
 
 .worker-list-wrap{max-width: 1600px; max-height: 300px; }
+.worker-list-wrap .fix-table{position: sticky; left: 0; z-index: 10;}
+.worker-list-wrap .fix-table th{height: 74px;}
+
+.file-list li:not(:last-child){margin-bottom: 10px;}
 
 /* 팝업 */
 .new-window-wrap { padding: 24px; position: relative;}
@@ -519,6 +526,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .ck-editor__editable_inline {
      min-height: 400px;
 }
+.fix-wrap{position: sticky;}
 
 
 /* 셀렉트 박스 */
