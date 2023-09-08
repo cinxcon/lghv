@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
+import { Alert } from '../Popup';
 
 const PopupPortal = ({ children }) => {
   const el = document.getElementById('popup-root');
@@ -24,6 +25,8 @@ function PopupAccUserReg() {
     { value: '그룹2', label: '그룹2' }
   ];
   const [userGroup, setUserGroup] = useState(optionUserGroup[0]);
+  const [idCheckSuc, setIdCheckSuc] = useState(false);
+  const [idCheckFail, setIdCheckFail] = useState(false);
 
   return (
     <PopupPortal>
@@ -34,7 +37,7 @@ function PopupAccUserReg() {
       </style>
       <div className='new-window-wrap'>
         <div className="content-title">
-          <h2>사용자 생성</h2>
+          <h2>접근제어 사용자 신청 정보-등록</h2>
         </div>
         <div className='content-section mb24'>
           <table className='table table-row'>
@@ -51,7 +54,7 @@ function PopupAccUserReg() {
                 <td>
                   <span className='input-btn-wrap'>
                     <input type='text' name='userId' id='userId' className='input-repeatcheck-front' placeholder='아이디를 입력해주세요.' />
-                    <button className='btn btn-black'>중복확인</button>
+                    <button className='btn btn-black' onClick={() => { setIdCheckFail(true) }}>중복확인</button>
                   </span>
                 </td>
                 <th scope="row"><label htmlFor='userName'>이름</label> <span aria-label="required" className='color-primary'>*</span></th>
@@ -91,10 +94,10 @@ function PopupAccUserReg() {
                 </td>
                 <th scope="row"><label htmlFor='userPwCheck'>비밀번호 확인</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type='text' name='userPwCheck' id='userPwCheck' placeholder='비밀번호 확인' />
-                  <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                  {/* <p className='notice size-sm color-error'>비밀번호가 다릅니다. 다시 확인해주세요.</p>
-                  <p className='notice size-sm color-success'>비밀번호가 일치합니다.</p> */}
+                  <input type='text' name='userPwCheck' id='userPwCheck' placeholder='비밀번호 확인' className='error' />
+                  {/* <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p> */}
+                  <p className='notice size-sm color-error'>비밀번호가 다릅니다. 다시 확인해주세요.</p>
+                  {/* <p className='notice size-sm color-success'>비밀번호가 일치합니다.</p> */}
                 </td>
               </tr>
               <tr>
@@ -124,7 +127,7 @@ function PopupAccUserReg() {
               <tr>
                 <th scope="row"><label htmlFor='text'>설명</label></th>
                 <td colSpan={3}>
-                    <textarea name='text' id='text' style={{ height: '80px' }}></textarea>
+                  <textarea name='text' id='text' className='textarea-h80'></textarea>
                 </td>
               </tr>
             </tbody>
@@ -134,6 +137,18 @@ function PopupAccUserReg() {
           <button className='btn btn-lg btn-primary'>확인</button>
         </div>
       </div>
+      <Alert open={idCheckSuc} close={() => { setIdCheckSuc(false) }} type={'no'}>
+        <div className='center'>
+          <h3>test11</h3>
+          <p className='mt8 size-md'><span className='color-success ico_success'>사용 가능</span>한 아이디 입니다.</p>
+        </div>
+      </Alert>
+      <Alert open={idCheckFail} close={() => { setIdCheckFail(false) }} type={'no'}>
+        <div className='center'>
+          <h3>test11</h3>
+          <p className='mt8 size-md'><span className='color-fail ico_fail'>중복</span>된 아이디 입니다.</p>
+        </div>
+      </Alert>
     </PopupPortal>
   );
 };
@@ -163,7 +178,7 @@ function PopupAccUserModi() {
       </style>
       <div className='new-window-wrap'>
         <div className="content-title">
-          <h2>사용자 수정</h2>
+          <h2>접근제어 사용자 신청 정보-수정</h2>
         </div>
         <div className='content-section mb24'>
           <table className='table table-row'>
@@ -220,10 +235,10 @@ function PopupAccUserModi() {
                 </td>
                 <th scope="row"><label htmlFor='userPwCheck'>비밀번호 확인</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type='text' name='userPwCheck' id='userPwCheck' value={'***************'} />
-                  <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
-                  {/* <p className='notice size-sm color-error'>비밀번호가 다릅니다. 다시 확인해주세요.</p>
-                  <p className='notice size-sm color-success'>비밀번호가 일치합니다.</p> */}
+                  <input type='text' name='userPwCheck' id='userPwCheck' value={'***************'} className='error' />
+                  {/* <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p> */}
+                  <p className='notice size-sm color-error'>비밀번호가 다릅니다. 다시 확인해주세요.</p>
+                  {/* <p className='notice size-sm color-success'>비밀번호가 일치합니다.</p> */}
                 </td>
               </tr>
               <tr>
@@ -253,7 +268,7 @@ function PopupAccUserModi() {
               <tr>
                 <th scope="row"><label htmlFor='text'>설명</label></th>
                 <td colSpan={3}>
-                  <textarea name='text' id='text' style={{ height: '80px' }}>테스트 입력</textarea>
+                  <textarea name='text' id='text' className='textarea-h80'>테스트 입력</textarea>
                 </td>
               </tr>
             </tbody>
@@ -292,7 +307,7 @@ function PopupAccUserDel() {
       </style>
       <div className='new-window-wrap'>
         <div className="content-title">
-          <h2>사용자 삭제</h2>
+          <h2>접근제어 사용자 신청 정보-삭제</h2>
         </div>
         <div className='content-section mb24'>
           <table className='table table-row'>

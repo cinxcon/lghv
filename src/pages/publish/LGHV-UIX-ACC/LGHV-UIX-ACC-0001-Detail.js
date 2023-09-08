@@ -8,8 +8,8 @@ const PopupPortal = ({ children }) => {
 
 function AccUserDetail() {
   const pagedata = {
-    title: '접근제어',
-    subtitle: '사용자 상세',
+    title: '접근제어 사용자 정보',
+    subtitle: '',
     SubMenu: 'yes',
     isDetail: 'yes'
   }
@@ -25,6 +25,7 @@ function AccUserDetail() {
         <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section'>
+          <h3>사용자 기본 정보</h3>
           <table className='table table-row'>
             <caption>table caption</caption>
             <colgroup>

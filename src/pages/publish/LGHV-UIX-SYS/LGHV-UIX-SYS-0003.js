@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from 'react';
 import Select from 'react-select';
 import ContentTitle from '../layout/ContentTitle'
@@ -6,6 +7,7 @@ import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
 function SysUnsubscribeUserMng() {
+  const [userList] = useState([1, 2]);
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '계정관리',
@@ -21,6 +23,35 @@ function SysUnsubscribeUserMng() {
     { value: '부서', label: '부서' }
   ];
   const [gubun, setGubun] = useState(optionGubun[0]);
+
+  const [isChecked, setIsChecked] = useState(false);
+  const handleCheckBox = (i, isChecked) => {
+    if (isChecked) {
+      checkedItems.add(i);
+      setCheckedItems(checkedItems);
+    } else if (!isChecked) {
+      checkedItems.delete(i);
+      setCheckedItems(checkedItems);
+    }
+    setIsChecked(!isChecked);
+  }
+
+  const [checkedItems, setCheckedItems] = useState(new Set());
+  // const checkedItemHandler = (id, isChecked) => {
+  //   if (isChecked) {
+  //     checkedItems.add(id);
+  //     setCheckedItems(checkedItems);
+  //   } else if (!isChecked && checkedItems.has(id)) {
+  //     checkedItems.delete(id);
+  //     setCheckedItems(checkedItems);
+  //   }
+  // };
+  // const [bChecked, setChecked] = useState(false);
+
+  // const checkHandler = ({ target }) => {
+  //   setChecked(!bChecked);
+  //   checkedItemHandler(resultList.i, target.checked);
+  // };
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -98,8 +129,8 @@ function SysUnsubscribeUserMng() {
           <thead>
             <tr>
               <th scope='col'>
-                <input type="checkbox" name="check" />
-                <label htmlFor="check" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="checkAll" id='checkAll' />
+                <label htmlFor='checkAll' className='invisible'></label>
               </th>
               <th scope='col'>사용자명</th>
               <th scope='col'>사용자ID</th>
@@ -111,19 +142,25 @@ function SysUnsubscribeUserMng() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" />
-                <label style={{ margin: '0' }}></label>
-              </td>
-              <td>홍길동</td>
-              <td>0025111</td>
-              <td>동부판매추진팀</td>
-              <td>N00G00215</td>
-              <td>010-4444-2222</td>
-              <td>test@lghv.net</td>
-              <td><span className='color-success'>계정활성</span></td>
-            </tr>
+            {
+              userList.map(function(a, i) {
+                return (
+                  <tr key={i}>
+                    <td>
+                      <input type="checkbox" name={`check${i}`} id={`check${i}`} />
+                      <label htmlFor={`check${i}`} className='invisible'></label>
+                    </td>
+                    <td>홍길동</td>
+                    <td>0025111</td>
+                    <td>동부판매추진팀</td>
+                    <td>N00G00215</td>
+                    <td>010-4444-2222</td>
+                    <td>test@lghv.net</td>
+                    <td><span className='color-success'>계정활성</span></td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>
@@ -144,8 +181,8 @@ function SysUnsubscribeUserMng() {
           <thead>
             <tr>
               <th scope='col'>
-                <input type="checkbox" name="checkAll" id="checkAll" />
-                <label htmlFor="checkAll" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="check1All" id="check1All" />
+                <label htmlFor="check1All" className='invisible'></label>
               </th>
               <th scope='col'>사용자명</th>
               <th scope='col'>사용자ID</th>
@@ -158,10 +195,10 @@ function SysUnsubscribeUserMng() {
             </tr>
           </thead>
           <tbody>
-            <tr className='checked'>
+            <tr className={ isChecked ? 'checked' : null }>
               <td>
-                <input type="checkbox" name="check1" id="check1" checked />
-                <label htmlFor="check1" style={{ margin: '0' }}></label>
+                <input type="checkbox" name="check01" id="check01" onChange={ handleCheckBox } />
+                <label htmlFor="check01" className='invisible'></label>
               </td>
               <td>홍길동</td>
               <td>0025111</td>
@@ -175,10 +212,10 @@ function SysUnsubscribeUserMng() {
             {
               resultList.map(function(a, i) {
                 return (
-                <tr key={i}>
+                <tr key={i} className={ isChecked ? 'checked' : null }>
                   <td>
-                    <input type="checkbox" name="check2" id="check2" />
-                    <label htmlFor="check2" style={{ margin: '0' }}></label>
+                    <input type="checkbox" name={`check1${i}`} id={`check1${i}`} onChange={ handleCheckBox } />
+                    <label htmlFor={`check1${i}`} className='invisible'></label>
                   </td>
                   <td>홍길동</td>
                   <td>0025111</td>

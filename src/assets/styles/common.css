@@ -100,6 +100,8 @@ select + select{margin-left: 8px;}
 select.type-t{ border: 0; padding: 0; padding-right: 16px; background-position-x: 100%;}
 .search .service.select-wrap { display: flex; justify-content: space-between; }
 .detail.select-wrap { display: inline-block; width: 240px; }
+.textarea-h66 { height: 66px; overflow-y: auto; }
+.textarea-h80 { height: 80px; overflow-y: auto; }
 .textarea { height: 206px; overflow-y: auto; }
 .textarea::-webkit-scrollbar { width: 6px; }
 .textarea::-webkit-scrollbar-thumb { border-radius: 4px; background: #cccccc; }
@@ -200,6 +202,10 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-del-28{background:url('../images/common/ic_black_set_28.png') -84px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
 .btn-all-cheak{position: relative; font-size: 12px;}
 .btn-all-cheak::before{content:''; display: inline-block; width: 16px; height: 16px; margin-right: 10px; background: url('../images/common/ic_check_set_16.png') 0 4px no-repeat; }
+.btn-success {padding-left: 24px; position: relative; border-color: #1ea51e; color: #1ea51e; }
+.btn-success:before{content:''; background:url('../images/common/ic_success_16.png') 0 0 no-repeat; background-size: cover; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
+.btn-refuse {padding-left: 24px; position: relative; border-color: #e72323; color: #e72323; }
+.btn-refuse:before{content:''; background:url('../images/common/ic_success_16.png') -12px 0 no-repeat; background-size: cover; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .react-datepicker__close-icon { right: -65px !important; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-wrap .btn + .btn{margin-left: 4px;}
@@ -212,6 +218,10 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .ico_attach:before {content:''; width: 24px; height: 24px; background:url('../images/common/ic_attach_24.png') 0 0 no-repeat; background-size: auto; position: absolute; top: -1px; left: 0; }
 .ico_check { position: relative; margin-right: 8px; padding-left: 24px; font-size: 12px;}
 .ico_check:before {content:''; width: 16px; height: 16px; background:url('../images/common/ic_check_set_16.png') -16px 0 no-repeat; background-size: auto; position: absolute; top: 0; left: 0; }
+.ico_success { position: relative; padding-left: 22px;}
+.ico_success:before {content:''; width: 16px; height: 16px; background:url('../images/common/ic_success_16.png') 0 0 no-repeat; background-size: auto; position: absolute; top: 2px; left: 0; }
+.ico_fail { position: relative; padding-left: 22px;}
+.ico_fail:before {content:''; width: 16px; height: 16px; background:url('../images/common/ic_success_16.png') -16px 0 no-repeat; background-size: auto; position: absolute; top: 2px; left: 0; }
 
 /* 목록, 블릿 */
 .list-primary { margin-top: 8px; }
@@ -236,6 +246,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .color-disable, .color-delete { color: #959595 !important; }
 
 .size-sm { font-size: 12px; line-height: 21px; }
+.size-md { font-size: 14px; line-height: 21px; }
 .size-lg { font-size: 16px; line-height: 21px; }
 .link:focus, .link:hover { color: #ed174d !important; border-bottom: 1px solid #ed174d; }
 

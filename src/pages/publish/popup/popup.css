@@ -1,6 +1,6 @@
 .modal { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99; background-color: rgba(0, 0, 0, 0.6); }
 .modal > section { margin: 0 auto; background-color: #fff; animation: modal-show 0.3s; overflow: hidden; }
-.modal > section.alert-wrap { width: 342px; height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
+.modal > section.alert-wrap { width: 342px; min-height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
 .modal > section .btn-group { margin-top: 24px; }
 .modal > section button { margin: 0 4px; }
 .modal > section.popup-wrap { width: 708px; padding: 22px 40px 32px; }
@@ -38,9 +38,9 @@
 .tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') -2px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
-.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; }
-.tree-item > .tree-content input.item-check[type='checkbox'] + label { text-indent: 0; margin-right: 0; }
-.tree-item > .tree-content input.item-check[type='checkbox'] + label:before { left: auto; right: -25px; }
+/* .tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; } */
+.tree-item > .tree-content input[type='checkbox'] + label { text-indent: 0; margin-right: 0; }
+.tree-item > .tree-content input[type='checkbox'] + label:before { left: auto; right: -25px; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
 .list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
