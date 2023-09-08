@@ -148,7 +148,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-low:hover, .btn-low:focus { background-color: #F7F7F7; }
 .btn-low[disabled] { border: 1px solid #DBDBDB; background-color: #ffffff; color: #959595; }
 .btn-lg { min-width: 64px; height: 36px; padding: 0 16px; font-size: 16px; text-align: center; }
-.btn-md { height: 22px; padding: 0 8px; font-size: 12px; line-height: 18px; }
+.btn-md {min-width: 24px; height: 22px; padding: 0 8px; font-size: 12px; line-height: 18px; }
 .btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
 .btn.w100{width: 100%;}
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
@@ -478,6 +478,8 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-datepicker__week .react-datepicker__day:first-child { color: #ed174d; }
 .react-datepicker__week .react-datepicker__day:first-child.react-datepicker__day--selected { color: #fff; }
 
+.worker-list-wrap{max-width: 1600px; max-height: 300px; }
+
 /* 팝업 */
 .new-window-wrap { padding: 24px; position: relative;}
 .new-window-wrap .pop-close{width: 32px; height: 32px; font-size: 0; text-indent: -99999px; position: absolute; right: 16px; top: 16px; background: url('../images/common/ic_close.png') 0 0 no-repeat; background-size: 100%;}
@@ -531,6 +533,6 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-select__indicator:hover{color: #000;}
 .react-select__value-container, .react-select__input-container{margin:0; padding: 0;}
 .react-select__single-value{padding: 0 10px;}
-.react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; display: block !important; z-index: 2;}
+.react-select__menu{ color: #000; background-color: #fff; margin:0; border-radius: 0; z-index: 1; }
 .react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea;}
 .react-select__option--is-selected {background-color:#dbdbdb; color: #000;}
