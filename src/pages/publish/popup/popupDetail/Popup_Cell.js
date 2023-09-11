@@ -88,46 +88,48 @@ const LoadCell = ({ onItemSelected }) => {
                         <button className={`btn-fold ${isToggled ? 'close' : ''}`} onClick={handleButtonToggle} id='fold-open'>검색영역 열기</button>
                     </div>
                     <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
-                    <table className='search'>
-                        <caption>템플릿 검색 영역</caption>
-                        <colgroup>
-                            <col span={10} style={{ width: '10%' }} />
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><label htmlFor="infra">인프라팀</label></th>
-                                <td colSpan={2}>
-                                   <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
-                                </td>
-                                <th scope="row"><label htmlFor="SO ">SO </label></th>
-                                <td colSpan={2}>
-                                    <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
-                                </td>
-                                <th scope="row"><label htmlFor="cell ">CELL</label></th>
-                                <td colSpan={3}>
-                                    <span className='input-btn-wrap'>
-                                        <span className='input input_org input-plus-front'></span>
-                                        <button type='button' className='btn-check-28' onClick={() => { onPopup('/popup/PopupCellList', 'CellList', '800', '600') }}>찾기</button>
-                                        <button type='button' className='btn-del-28'>삭제</button>
-                                    </span>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><label htmlFor="subjec">제목</label></th>
-                                <td colSpan={9}>
-                                    <span className='input-clear-wrap'>
-                                        <input type="text" name="subject" id="subjec" placeholder='제목' value={subjecValue} onInput={onSubjecInput} />
-                                        <button type="button" className='clear-search-button' onClick={onSubjecClear}>삭제</button>
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className='btn-wrap right'>
-                        <button className='btn btn-low btn-ref'>초기화</button>
-                        <button className='btn btn-black btn-search-txt'>검색</button>
-                    </div>
+                        <form onSubmit={''}>
+                            <table className='search'>
+                                <caption>템플릿 검색 영역</caption>
+                                <colgroup>
+                                    <col span={10} style={{ width: '10%' }} />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><label htmlFor="infra">인프라팀</label></th>
+                                        <td colSpan={2}>
+                                        <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
+                                        </td>
+                                        <th scope="row"><label htmlFor="SO ">SO </label></th>
+                                        <td colSpan={2}>
+                                            <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
+                                        </td>
+                                        <th scope="row"><label htmlFor="cell ">CELL</label></th>
+                                        <td colSpan={3}>
+                                            <span className='input-btn-wrap'>
+                                                <input type="text" placeholder="값을 선택하세요." disabled className='input input-plus-front' />
+                                                <button type='button' className='btn-check-28' onClick={() => { onPopup('/popup/PopupCellList', 'CellList', '800', '600') }}>찾기</button>
+                                                <button type='button' className='btn-del-28'>삭제</button>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label htmlFor="subjec">제목</label></th>
+                                        <td colSpan={9}>
+                                            <span className='input-clear-wrap'>
+                                                <input type="text" name="subject" id="subjec" placeholder='제목' value={subjecValue} onInput={onSubjecInput} />
+                                                <button type="button" className='clear-search-button' onClick={onSubjecClear}>삭제</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className='btn-wrap right'>
+                                <button className='btn btn-low btn-ref'>초기화</button>
+                                <button className='btn btn-black btn-search-txt'>검색</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 </div>
