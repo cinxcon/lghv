@@ -51,7 +51,7 @@
 .tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') -2px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
-/* .tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; } */
+.tree-item > .tree-content .item-name.not-children::before { content: ""; display: block; position: absolute; left: -19px; top: 10px; width: 19px; height: 1px; background-color: #dbdbdb; }
 .tree-item > .tree-content input[type='checkbox'] + label { text-indent: 0; margin-right: 0; }
 .tree-item > .tree-content input[type='checkbox'] + label:before { left: auto; right: -25px; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }

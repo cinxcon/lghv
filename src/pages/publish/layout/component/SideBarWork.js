@@ -34,8 +34,10 @@ const SideBarWork = () => {
     {
       title: '장애관리',
       path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0002',
-      subMenus: [{ title: '장애목록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0002' },
-        { title: '장애등록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001' }
+      subMenus: [
+        { title: '장애목록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0002' },
+        { title: '장애등록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0001' },
+        { title: '셀목록', path: '/LGHV-UIX-BLK/LGHV-UIX-BLK-0003' }
       ]
     },
     {

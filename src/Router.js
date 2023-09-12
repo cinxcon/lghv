@@ -31,6 +31,7 @@ import TemplateListDetail from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-D
 import DisabilityMngReg from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0001';
 import DisabilityMngList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002';
 import DisabilityMngDetail from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
+import DisabilityCellList from './pages/publish/LGHV-UIX-BLK/LGHV-UIX-BLK-0003';
 import NoticeList from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001'
 import NoticeDetail from './pages/publish/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001-Detail'
 
@@ -108,6 +109,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0001" element={<DisabilityMngReg />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
+      <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0003" element={<DisabilityCellList />} />
       <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001" element={<NoticeList />} />
       <Route path="/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001-Detail" element={<NoticeDetail />} />
 
