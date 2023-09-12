@@ -133,7 +133,7 @@ function PopupAccEqReg() {
                   </td>
                   <th scope='row'><label htmlFor="timeout">타임아웃(초)</label></th>
                   <td>
-                    <input type='text' name='timeout' id='timeout' />
+                    <input type='text' name='timeout' id='timeout' value={'60'} />
                   </td>
                 </tr>
                 <tr>
@@ -298,30 +298,30 @@ function PopupAccEqReg() {
                   <td>
                     <fieldset>
                       <legend>등록전용</legend>
-                      <input type="radio" name="reg" id="reg_yes" />
-                      <label htmlFor="reg_yes">Y</label>
-                      <input type="radio" name="reg" id="reg_no" checked />
-                      <label htmlFor="reg_no">N</label>
+                      <input type="radio" name="reg2" id="reg_yes2" />
+                      <label htmlFor="reg_yes2">Y</label>
+                      <input type="radio" name="reg2" id="reg_no2" checked />
+                      <label htmlFor="reg_no2">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>링크전용</th>
                   <td>
                     <fieldset>
                       <legend>링크전용</legend>
-                      <input type="radio" name="link" id="link_yes" />
-                      <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" checked />
-                      <label htmlFor="link_no">N</label>
+                      <input type="radio" name="link2" id="link_yes2" />
+                      <label htmlFor="link_yes2">Y</label>
+                      <input type="radio" name="link2" id="link_no2" checked />
+                      <label htmlFor="link_no2">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>접속 계정 로그인 테스트 무시</th>
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
-                      <input type="radio" name="acclog" id="acclog_yes" />
-                      <label htmlFor="acclog_yes">Y</label>
-                      <input type="radio" name="acclog" id="acclog_no" checked />
-                      <label htmlFor="acclog_no">N</label>
+                      <input type="radio" name="acclog2" id="acclog_yes2" />
+                      <label htmlFor="acclog_yes2">Y</label>
+                      <input type="radio" name="acclog2" id="acclog_no2" checked />
+                      <label htmlFor="acclog_no2">N</label>
                     </fieldset>
                   </td>
                 </tr>
@@ -437,30 +437,30 @@ function PopupAccEqReg() {
                   <td>
                     <fieldset>
                       <legend>등록전용</legend>
-                      <input type="radio" name="reg" id="reg_yes" />
-                      <label htmlFor="reg_yes">Y</label>
-                      <input type="radio" name="reg" id="reg_no" checked />
-                      <label htmlFor="reg_no">N</label>
+                      <input type="radio" name="reg3" id="reg_yes3" />
+                      <label htmlFor="reg_yes3">Y</label>
+                      <input type="radio" name="reg3" id="reg_no3" checked />
+                      <label htmlFor="reg_no3">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>링크전용</th>
                   <td>
                     <fieldset>
                       <legend>링크전용</legend>
-                      <input type="radio" name="link" id="link_yes" />
-                      <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" checked />
-                      <label htmlFor="link_no">N</label>
+                      <input type="radio" name="link3" id="link_yes3" />
+                      <label htmlFor="link_yes3">Y</label>
+                      <input type="radio" name="link3" id="link_no3" checked />
+                      <label htmlFor="link_no3">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>접속 계정 로그인 <br />테스트 무시</th>
                   <td>
                     <fieldset>
                       <legend>접속 계정 로그인 테스트 무시</legend>
-                      <input type="radio" name="acclog" id="acclog_yes" />
-                      <label htmlFor="acclog_yes">Y</label>
-                      <input type="radio" name="acclog" id="acclog_no" checked />
-                      <label htmlFor="acclog_no">N</label>
+                      <input type="radio" name="acclog3" id="acclog_yes3" />
+                      <label htmlFor="acclog_yes3">Y</label>
+                      <input type="radio" name="acclog3" id="acclog_no3" checked />
+                      <label htmlFor="acclog_no3">N</label>
                     </fieldset>
                   </td>
                 </tr>
@@ -585,10 +585,10 @@ function PopupAccEqReg() {
                   <td>
                     <fieldset>
                       <legend>링크전용</legend>
-                      <input type="radio" name="link" id="link_yes" />
-                      <label htmlFor="link_yes">Y</label>
-                      <input type="radio" name="link" id="link_no" checked />
-                      <label htmlFor="link_no">N</label>
+                      <input type="radio" name="link4" id="link_yes4" />
+                      <label htmlFor="link_yes4">Y</label>
+                      <input type="radio" name="link4" id="link_no4" checked />
+                      <label htmlFor="link_no4">N</label>
                     </fieldset>
                   </td>
                   <th scope='row'>HTTP2 여부</th>
@@ -650,7 +650,7 @@ function PopupAccEqReg() {
                       <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupUserGroupSelect', 'UserGroupSelect', 1280, 800) }}>선택</button>
                     </span>
                   </td>
-                  <th scope='row'><label htmlFor="eqOs">장비에 속한 계정</label> <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'><label htmlFor="eqOs">장비 OS 접속 계정</label> <span aria-label="required" className='color-primary'>*</span></th>
                   <td>
                     <input type='text' name='eqOs' id='eqOs' />
                   </td>

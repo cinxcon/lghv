@@ -128,7 +128,7 @@ function ApprovalOnTimeProcess() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-diable'>결재대기</span></td>
+                    <td><span className='color-disable'>결재대기</span></td>
                   </tr>
                 )
               })
@@ -150,7 +150,7 @@ function ApprovalOnTimeProcess() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-diable'>결재대기</span></td>
+                    <td><span className='color-disable'>결재대기</span></td>
                   </tr>
                 )
               })
@@ -172,7 +172,7 @@ function ApprovalOnTimeProcess() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-diable'>결재대기</span></td>
+                    <td><span className='color-disable'>결재대기</span></td>
                   </tr>
                 )
               })
@@ -194,7 +194,7 @@ function ApprovalOnTimeProcess() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-diable'>결재대기</span></td>
+                    <td><span className='color-disable'>결재대기</span></td>
                   </tr>
                 )
               })

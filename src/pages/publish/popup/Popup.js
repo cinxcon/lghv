@@ -47,7 +47,7 @@ function Notice(props) {
     console.log(value);
   }
   return (
-    <> 
+    <>
     {open
        ? (<section className={`popup-wrap`}>
             <div className="header">

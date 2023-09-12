@@ -48,6 +48,7 @@
 .tree-item > .tree-content button.open { background: url('../../../assets/images/common/btn_minus_13.png') 0 0 no-repeat; }
 .tree-item > .tree-content .item-name { padding-left: 24px; font-size: 14px; line-height: 21px; cursor: pointer; background: url('../../../assets/images/common/ic_folder_16.png') 0 2px no-repeat; z-index: 1; }
 .tree-item > .tree-content .item-name.active, .tree-item > .tree-content .item-name:hover { color: #ED174D; }
+.tree-item > .tree-content .item-label.active, .tree-item > .tree-content .item-label:hover { color: #ED174D; }
 .tree-item > .tree-content .item-name.not-children { background: url('../../../assets/images/common/ic_file_16.png') -2px 2px no-repeat; }
 .tree-item > .tree-children { padding-left: 25px; position: relative; }
 .tree-item > .tree-content button::before { content: ""; display: block; position: absolute; left: 13px; top: 6px; width: 10px; height: 1px; background-color: #dbdbdb; }
@@ -119,4 +120,3 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
- 

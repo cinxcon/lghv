@@ -11,11 +11,11 @@ const PopupPortal = ({ children }) => {
 }
 
 function PopupUserGroupSelect() {
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const [success] = useState([<span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>]);
   const [isChecked, setIsChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState(new Set());
   const [checkedCount, setCheckedCount] = useState(0);
-
   const checkHandler = ({ target }) => {
     setIsChecked(!isChecked);
     checkedItemHandler(target.parentNode.parentNode, target.value, target.checked);
@@ -110,17 +110,6 @@ function PopupUserGroupSelect() {
               </tr>
             </thead>
             <tbody>
-              <tr className='checked'>
-                <td className='center'>
-                  <input type="checkbox" name="checked00" id="checked00" checked />
-                  <label htmlFor="checked00" className='invisible'>선택</label>
-                </td>
-                <td>group02</td>
-                <td>gildong</td>
-                <td><span className='color-disable'>비활성화</span></td>
-                <td>5</td>
-                <td>그룹 설정값 입니다.</td>
-              </tr>
               {
                 resultList.map(function(a, i) {
                   return (
@@ -131,7 +120,7 @@ function PopupUserGroupSelect() {
                       </td>
                       <td>group01</td>
                       <td>gildong</td>
-                      <td><span className='color-success'>활성화</span></td>
+                      <td>{success[i]}</td>
                       <td>5</td>
                       <td>그룹 설정값 입니다.</td>
                     </tr>

@@ -101,7 +101,7 @@ const AuthItem = ({ item, onItemSelected }) => {
           : null}
         {item.depts.length !== 0
           ? (<div><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-name' isChecked={isChecked}>{item.deptName}</label></div>)
-          : (<div><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-name not-children' isChecked={isChecked}>{item.deptName}</label></div>)
+          : (<div className='item-name not-children'><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-label' isChecked={isChecked}>{item.deptName}</label></div>)
         }
       </div>
       {isExpanded &&
