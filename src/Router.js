@@ -48,6 +48,7 @@ import PopupWorker from './pages/publish/popup/popupDetail/Popup_Worker';
 import PopupDepartment from './pages/publish/popup/popupDetail/Popup_department';
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
+import PopupAccPolicyReg from './pages/publish/popup/popupDetail/Popup_AccPolicyReg';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
 import PopupSysComSort from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
 import { PopupSysCodeAdd, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
@@ -129,6 +130,7 @@ const AppRouter = () => {
       <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />
       <Route path="/popup/PopupAccEqReg" element={<PopupAccEqReg />} />
       <Route path="/popup/PopupAccEqDel" element={<PopupAccEqDel />} />
+      <Route path="/popup/PopupAccPolicyReg" element={<PopupAccPolicyReg />} />
       <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
       <Route path="/popup/PopupSysComSort" element={<PopupSysComSort />} />
       <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />

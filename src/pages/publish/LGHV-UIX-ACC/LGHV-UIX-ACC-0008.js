@@ -76,20 +76,6 @@ function AccEquipmentRegist() {
                 <td></td>
               </tr>
               <tr>
-                <td>검토</td>
-                <td>홍길동(123456)</td>
-                <td>기안</td>
-                <td>2023-01-01 11:00:00</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>조정</td>
-                <td>홍길동(123456)</td>
-                <td>기안</td>
-                <td>2023-01-01 11:00:00</td>
-                <td></td>
-              </tr>
-              <tr>
                 <td rowSpan={2}>합의</td>
                 <td>박길동(aggdd)</td>
                 <td><span className='color-success'>승인</span></td>

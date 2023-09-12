@@ -172,7 +172,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-fold.hide{display: none;}
 .btn-pop{padding-left: 36px; background:#ffffff url('../images/common/ic_popup_16.png') 12px 5px no-repeat; background-size: auto;}
 .btn-pop.btn-primary{background-color: #ED174D; color: #000;}
-.btn-pop.btn-primary:hover{color: #fff;} 
+.btn-pop.btn-primary:hover{color: #fff;}
 .btn-md.btn-pop {padding-left: 24px; position: relative; background: none;}
 .btn-md.btn-pop:before{content:''; background:url('../images/common/ic_black_set_12.png') -36px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .btn-print{padding-left: 36px; background:#ffffff url('../images/common/ic_print_16.png') 12px 5px no-repeat; background-size: auto;}
@@ -383,7 +383,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .over-flow-x > table{margin-bottom: 10px;}
 .over-flow-y { overflow-y: auto; }
 .table caption { border-top: 1px solid #000000; }
-.table tr.link:hover { cursor: pointer; background-color: #EAEAEA; color: #000000!important; }
+.table tr.link:hover td { cursor: pointer; background-color: #EAEAEA; color: #000000!important; }
 .table tr.checked td { background-color: rgba(237, 23, 77, 0.04);  }
 .table th { background-color: #f7f7f7; padding: 13px 12px; line-height: 21px; }
 .table td{background-color: #fff;}
