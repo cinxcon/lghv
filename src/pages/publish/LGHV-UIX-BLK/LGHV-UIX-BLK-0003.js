@@ -84,7 +84,7 @@ const CellList = () => {
                <button type="button" className='btn btn-md btn-exel'>엑셀</button>
             </div>
         </div>
-        <table className="popup-table center">
+        <table className="table center">
             <caption>제목, 등록번호, 등록자, 등록부서, 등록일, 종료일, 구역명, 완료예정일, 구분 항목의 검색 영역</caption>
             <colgroup>
                 <col style={{ width: '10%' }} />

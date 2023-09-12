@@ -12,10 +12,10 @@ function NoticeList() {
     isDetail: 'no'
   }
   const data = [
-    { id: '1', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', Views: '22', Disp: 'Y' },
-    { id: '2', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', Views: '22', Disp: 'Y' },
-    { id: '3', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', Views: '22', Disp: 'Y' },
-    { id: '4', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', Views: '22', Disp: 'Y' }
+    { id: 'T111111121', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', sday: '2023-04-01', eday: '2023-05-01' },
+    { id: 'T111111122', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', sday: '2023-04-01', eday: '2023-05-01' },
+    { id: 'T111111123', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', sday: '2023-04-01', eday: '2023-05-01' },
+    { id: 'T111111124', title: '[공지] 23년 디지털 채널 개편 일정', Dep: '기간망 운영팀', Reg: '홍길동', day: '2023-04-01', sday: '2023-04-01', eday: '2023-05-01' }
   ];
 
   const [checkboxStates, setCheckboxStates] = useState(false);
@@ -85,15 +85,18 @@ function NoticeList() {
                 </colgroup>
                 <thead>
                 <tr>
-                    <th><input type="checkbox" name='all_check' id='all_check' onChange={handleCheckboxChange} />
+                    <th rowSpan={2}><input type="checkbox" name='all_check' id='all_check' onChange={handleCheckboxChange} />
                         <label htmlFor='all_check' className="invisible">전체 선택</label></th>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>등록부서</th>
-                    <th>등록자</th>
-                    <th>등록일자</th>
-                    <th>조회수</th>
-                    <th>노출 여부</th>
+                    <th rowSpan={2}>번호</th>
+                    <th rowSpan={2}>제목</th>
+                    <th rowSpan={2}>등록부서</th>
+                    <th rowSpan={2}>등록자</th>
+                    <th rowSpan={2}>등록일자</th>
+                    <th colSpan={2}>게시일시</th>
+                </tr>
+                <tr>
+                  <th>시작일시</th>
+                  <th>종료일시</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -108,8 +111,8 @@ function NoticeList() {
                     <td>{row.Dep}</td>
                     <td>{row.Reg}</td>
                     <td>{row.day}</td>
-                    <td>{row.Views}</td>
-                    <td>{row.Disp}</td>
+                    <td>{row.sday}</td>
+                    <td>{row.eday}</td>
                 </tr>))}
                 </tbody>
             </table>

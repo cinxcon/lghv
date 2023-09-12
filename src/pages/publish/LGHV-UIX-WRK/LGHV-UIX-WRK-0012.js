@@ -45,14 +45,14 @@ function TemplateRegist() {
         <table className='table table-row'>
             <caption>템플릿 리스트</caption>
                 <colgroup>
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
-                <col style={{ width: '10%' }} />
-                <col style={{ width: '40%' }} />
+                  <col style={{ width: '10%' }} />
+                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '10%' }} />
+                  <col style={{ width: '40%' }} />
                 </colgroup>
             <tbody>
                 <tr>
-                <th scope="row"><label htmlFor="type">분류</label></th>
+                <th scope="row"><label htmlFor="type">템플릿 분류</label></th>
                     <td>
                     <span className='service select-wrap'>
                       <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
