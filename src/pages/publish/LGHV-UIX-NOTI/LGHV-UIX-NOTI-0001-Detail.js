@@ -60,7 +60,9 @@ function NoticeRegist() {
   }
   const [fileRows, setFileRows] = useState([]);
   const fileAddRow = () => {
-    setFileRows([...fileRows, {}]);
+    if (fileRows.length < 9) {
+      setFileRows([...fileRows, {}]);
+    }
   };
   const fileRemoveRow = () => {
     if (fileRows.length > 0) {

@@ -70,7 +70,9 @@ function UrgentWork() {
     window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
   const fileAddRow = () => {
-    setFileRows([...fileRows, {}]);
+    if (fileRows.length < 9) {
+      setFileRows([...fileRows, {}]);
+    }
   };
   const fileRemoveRow = () => {
     if (fileRows.length > 0) {
