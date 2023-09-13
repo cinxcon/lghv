@@ -101,7 +101,7 @@ function NoticeList() {
                 </thead>
                 <tbody>
                 {data.map((row, index) => (
-                <tr key={row.id} className='link'>
+                <tr key={row.id}>
                     <td>
                         <input type="checkbox" name={`service ${index}`} id={`ser_${index}`} onChange={handleCheckboxChange} />
                         <label htmlFor={`ser_${index}`} style={{ margin: '0' }} className="invisible">선택</label>

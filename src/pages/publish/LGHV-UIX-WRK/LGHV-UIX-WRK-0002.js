@@ -40,9 +40,11 @@ function ServicetaskRegistUrgent() {
       <ContentTitle data={ pagedata } />
         <div className="detail-top-btn-group">
           <span className='noti color-primary'>(*)는 필수 입력 항목 입니다.</span>
+          <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupWorkOnLoad', 'WorkOnLoad', '1200', '800') }}>불러오기</button>
           <button className='btn btn-pop' onClick={() => { setLine(true); }}>결제선 지정</button>
-          <button className='btn btn-pop btn-primary' onClick={() => { onPopup('/popup/PopupNotiMethodSet', 'NotiMethod', '800', '500') }}>통보방법</button>
+          <button className='btn btn-pop btn-pop-primary' onClick={() => { onPopup('/popup/PopupNotiMethodSet', 'NotiMethod', '800', '500') }}>통보방법</button>
           <button className='btn btn-ref' onClick={() => { setClear(true) }}>새로작성</button>
+          <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
         </div>
         <Popup open={line} close={() => { setLine(false) }} header="결재선 지정" type={'sm'} >
           <div className='center mt20'>
