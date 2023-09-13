@@ -21,6 +21,7 @@ function NomalWork() {
   const [endMinutes, setEndMinutes] = useState(0);
   const [diviceRows, setDiviceRows] = useState([]);
   const [vendorRows, setVendorRows] = useState([]);
+  const [fileRows, setFileRows] = useState([]);
   const [selectedOption, setSelectedOption] = useState('access_no');
 
   const handleStartHourIncrease = () => {
@@ -68,6 +69,16 @@ function NomalWork() {
     const popupY = (window.screen.height / 2) - (popupHeight / 2);
     window.open(url, name, 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
+
+  const fileAddRow = () => {
+    setFileRows([...fileRows, {}]);
+  };
+  const fileRemoveRow = () => {
+    if (fileRows.length > 0) {
+      const newRows = fileRows.slice(0, fileRows.length - 1);
+      setFileRows(newRows);
+    }
+  };
 
   const venderAddRow = () => {
     setVendorRows([...vendorRows, {}]);
@@ -239,178 +250,197 @@ function NomalWork() {
                     <col style={{ width: '40%' }} />
                 </colgroup>
                 <tbody>
-                <tr>
-                    <th scope='row'>구분 <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <fieldset>
-                            <legend>대상 서비스</legend>
-                            <input type="radio" name="access-control" id="control_no" value="access_no" checked={selectedOption === 'access_no'} onChange={handleOptionChange} />
-                            <label htmlFor="control_no">비접근제어</label>
-                            <input type="radio" name="access-control" id="control_yes" value="access_yes" checked={selectedOption === 'access_yes'} onChange={handleOptionChange} />
-                            <label htmlFor="control_yes">접근제어</label>
-                        </fieldset>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>인프라팀/SO <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <div className='flex-wrap between'>
-                            <span className='half'>
-                                <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
-                            </span>
-                            <span className='half'>
-                                <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
-                            </span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>제목 <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <input type='text' name='title' id='title' placeholder='작업제목' />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>요청자</th>
-                    <td>홍길동</td>
-                    <th scope='row'>검토자 <span className='color-primary'>*</span></th>
-                    <td>
-                        <div className='flex-wrap between'>
-                            <span className='input-btn-wrap'>
-                                <span className='input input_org'></span>
-                                {/* <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button> */}
-                            </span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>대상 서비스  <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <fieldset>
-                            <legend>대상 서비스</legend>
-                            <input type="checkbox" name="service" id="ser_1" value="" />
-                            <label htmlFor="ser_1">DTV</label>
-                            <input type="checkbox" name="service" id="ser_2" value="" />
-                            <label htmlFor="ser_2">NET</label>
-                            <input type="checkbox" name="service" id="ser_3" value="" />
-                            <label htmlFor="ser_3">VOIP</label>
-                            <input type="checkbox" name="service" id="ser_4" value="" />
-                            <label htmlFor="ser_4">ATV</label>
-                            <input type="checkbox" name="service" id="ser_5" value="" />
-                            <label htmlFor="ser_5" className='color-info'>VOD</label>
-                            <input type="checkbox" name="service" id="ser_6" value="" />
-                            <label htmlFor="ser_6" className='color-info'>ESS</label>
-                            <input type="checkbox" name="service" id="ser_7" value="" />
-                            <label htmlFor="ser_7" className='color-info'>클라우드</label>
-                            <input type="checkbox" name="service" id="ser_8" value="" />
-                            <label htmlFor="ser_8" className='color-info'>전송망</label>
-                            <input type="checkbox" name="service" id="ser_9" value="" />
-                            <label htmlFor="ser_9" className='color-info'>국간망</label>
-                            <input type="checkbox" name="service" id="ser_10" value="" />
-                            <label htmlFor="ser_10" className='color-info'>기간망</label>
-                            <input type="checkbox" name="service" id="ser_11" value="" />
-                            <label htmlFor="ser_11" className='color-info'>기반</label>
-                            <input type="checkbox" name="service" id="ser_12" value="" />
-                            <label htmlFor="ser_12" className='color-info'>기타</label>
-                            <input type="checkbox" name="service" id="ser_13" value="" />
-                            <label htmlFor="ser_13" className='color-info'>전체</label>
-                        </fieldset>
-                        <ul className='list-desc'>
-                            <li className='color-info'>청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>작업구분  <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                        <fieldset>
-                            <legend>작업구분</legend>
-                            <input type="radio" name="pre-approved" id="infra_approved" value="" defaultChecked={true} />
-                            <label htmlFor="infra_approved">인프라팀 전결</label>
-                            <input type="radio" name="pre-approved" id="platform_approved" value="" />
-                            <label htmlFor="platform_approved">플랫폼 운영담당 전결</label>
-                        </fieldset>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>
-                    <div className='tooltip-area'>
-                        작업 유형 <span className='color-primary'>*</span>
-                        <TooltipMsg message={ <TooltipMsgWorkType /> } ><button className='btn-tooltip'>tooltip?</button></TooltipMsg>
-                    </div>
-                    </th>
-                    <td>
-                    <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" />
-                    </td>
-                    <th scope='row'>작업입회 여부</th>
-                    <td>
-                    <Select defaultValue={optionsPresence[0]} value={presenceType} onChange={setPresence} options={optionsPresence} className='react-select-container' classNamePrefix="react-select" />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>CAMS 공지여부 <span className='color-primary'>*</span></th>
-                    <td colSpan={3}>
-                    <fieldset>
-                        <legend>공지여부</legend>
-                        <input type="radio" name="pre-notice" id="notice_yes" value="" defaultChecked={true} />
-                        <label htmlFor="notice_yes">공지</label>
-                        <input type="radio" name="pre-notice" id="notice_no" value="" />
-                        <label htmlFor="notice_no">미공지</label>
-                    </fieldset>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>작업 내용</th>
-                    <td colSpan={3}>
-                        <div className='work-content'>
-                            <div className='btn-wrap'>
-                                <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupTemplate', 'Template', '1200', '800') }}>템플릿 불러오기</button>
+                    <tr>
+                        <th scope='row'>구분 <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                            <fieldset>
+                                <legend>대상 서비스</legend>
+                                <input type="radio" name="access-control" id="control_no" value="access_no" checked={selectedOption === 'access_no'} onChange={handleOptionChange} />
+                                <label htmlFor="control_no">비접근제어</label>
+                                <input type="radio" name="access-control" id="control_yes" value="access_yes" checked={selectedOption === 'access_yes'} onChange={handleOptionChange} />
+                                <label htmlFor="control_yes">접근제어</label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>인프라팀/SO <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                            <div className='flex-wrap between'>
+                                <span className='half'>
+                                    <Select defaultValue={optionsIfraType[0]} value={infraType} onChange={setInfraType} options={optionsIfraType} className='react-select-container' classNamePrefix="react-select" />
+                                </span>
+                                <span className='half'>
+                                    <Select defaultValue={optionsSoType[0]} value={soType} onChange={setSoType} options={optionsSoType} className='react-select-container' classNamePrefix="react-select" />
+                                </span>
                             </div>
-                            <div className='template'>
-                                <CKEditor
-                                editor={ CustomEditor }
-                                data="<p>Hello from CKEditor 5!</p>"
-                                onReady={ editor => {
-                                // You can store the "editor" and use when it is needed
-                                  console.log('Editor is ready to use!', editor);
-                                } }
-                                onChange={ (event, editor) => {
-                                  const data = editor.getData();
-                                  console.log({ event, editor, data });
-                                } }
-                                onBlur={ (event, editor) => {
-                                  console.log('Blur.', editor);
-                                } }
-                                onFocus={ (event, editor) => {
-                                  console.log('Focus.', editor);
-                                } }
-                                />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>제목 <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                            <input type='text' name='title' id='title' placeholder='작업제목' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>요청자</th>
+                        <td>홍길동</td>
+                        <th scope='row'>검토자 <span className='color-primary'>*</span></th>
+                        <td>
+                            <div className='flex-wrap between'>
+                                <span className='input-btn-wrap'>
+                                    <span className='input input_org'></span>
+                                    {/* <button className='btn btn-black btn-search ml10' onClick={() => { onPopup('/popup/PopupReviewer', 'Reviewer', '1200', '800') }}>선택</button> */}
+                                </span>
                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>대상 서비스  <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                            <fieldset>
+                                <legend>대상 서비스</legend>
+                                <input type="checkbox" name="service" id="ser_1" value="" />
+                                <label htmlFor="ser_1">DTV</label>
+                                <input type="checkbox" name="service" id="ser_2" value="" />
+                                <label htmlFor="ser_2">NET</label>
+                                <input type="checkbox" name="service" id="ser_3" value="" />
+                                <label htmlFor="ser_3">VOIP</label>
+                                <input type="checkbox" name="service" id="ser_4" value="" />
+                                <label htmlFor="ser_4">ATV</label>
+                                <input type="checkbox" name="service" id="ser_5" value="" />
+                                <label htmlFor="ser_5" className='color-info'>VOD</label>
+                                <input type="checkbox" name="service" id="ser_6" value="" />
+                                <label htmlFor="ser_6" className='color-info'>ESS</label>
+                                <input type="checkbox" name="service" id="ser_7" value="" />
+                                <label htmlFor="ser_7" className='color-info'>클라우드</label>
+                                <input type="checkbox" name="service" id="ser_8" value="" />
+                                <label htmlFor="ser_8" className='color-info'>전송망</label>
+                                <input type="checkbox" name="service" id="ser_9" value="" />
+                                <label htmlFor="ser_9" className='color-info'>국간망</label>
+                                <input type="checkbox" name="service" id="ser_10" value="" />
+                                <label htmlFor="ser_10" className='color-info'>기간망</label>
+                                <input type="checkbox" name="service" id="ser_11" value="" />
+                                <label htmlFor="ser_11" className='color-info'>기반</label>
+                                <input type="checkbox" name="service" id="ser_12" value="" />
+                                <label htmlFor="ser_12" className='color-info'>기타</label>
+                                <input type="checkbox" name="service" id="ser_13" value="" />
+                                <label htmlFor="ser_13" className='color-info'>전체</label>
+                            </fieldset>
+                            <ul className='list-desc'>
+                                <li className='color-info'>청색 표기 대상 서비스만 선택 할 경우, 작업대상 지역은 [해당없음]으로 지정하십시오.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>작업구분  <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                            <fieldset>
+                                <legend>작업구분</legend>
+                                <input type="radio" name="pre-approved" id="infra_approved" value="" defaultChecked={true} />
+                                <label htmlFor="infra_approved">인프라팀 전결</label>
+                                <input type="radio" name="pre-approved" id="platform_approved" value="" />
+                                <label htmlFor="platform_approved">플랫폼 운영담당 전결</label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>
+                        <div className='tooltip-area'>
+                            작업 유형 <span className='color-primary'>*</span>
+                            <TooltipMsg message={ <TooltipMsgWorkType /> } ><button className='btn-tooltip'>tooltip?</button></TooltipMsg>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope='row'>파일첨부</th>
-                    <td colSpan={3}>
-                        <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
-                        <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
-                            <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
-                            <span className="input-addon">
-                                <label htmlFor="File" className="btn">찾아보기</label>
-                            </span>
-                            <span className="input-addon">
-                                <button className="btn btn-low">추가</button>
-                            </span>
-                            <span className="input-addon">
-                                <button className="btn btn-low">삭제</button>
-                            </span>
-                        </div>
-                        <ul className='list-desc'>
-                            <li>구성도, 상세 시나리오 등을 첨부(예시)</li>
-                            <li className='color-primary'>업로드 할 수 있는 파일의 용량은 총 20MB 입니다.</li>
-                        </ul>
-                    </td>
-                </tr>
+                        </th>
+                        <td>
+                        <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" />
+                        </td>
+                        <th scope='row'>작업입회 여부</th>
+                        <td>
+                        <Select defaultValue={optionsPresence[0]} value={presenceType} onChange={setPresence} options={optionsPresence} className='react-select-container' classNamePrefix="react-select" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>CAMS 공지여부 <span className='color-primary'>*</span></th>
+                        <td colSpan={3}>
+                        <fieldset>
+                            <legend>공지여부</legend>
+                            <input type="radio" name="pre-notice" id="notice_yes" value="" defaultChecked={true} />
+                            <label htmlFor="notice_yes">공지</label>
+                            <input type="radio" name="pre-notice" id="notice_no" value="" />
+                            <label htmlFor="notice_no">미공지</label>
+                        </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>작업 내용</th>
+                        <td colSpan={3}>
+                            <div className='work-content'>
+                                <div className='btn-wrap'>
+                                    <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupTemplate', 'Template', '1200', '800') }}>템플릿 불러오기</button>
+                                </div>
+                                <div className='template'>
+                                    <CKEditor
+                                    editor={ CustomEditor }
+                                    data="<p>Hello from CKEditor 5!</p>"
+                                    onReady={ editor => {
+                                    // You can store the "editor" and use when it is needed
+                                      console.log('Editor is ready to use!', editor);
+                                    } }
+                                    onChange={ (event, editor) => {
+                                      const data = editor.getData();
+                                      console.log({ event, editor, data });
+                                    } }
+                                    onBlur={ (event, editor) => {
+                                      console.log('Blur.', editor);
+                                    } }
+                                    onFocus={ (event, editor) => {
+                                      console.log('Focus.', editor);
+                                    } }
+                                    />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>파일첨부</th>
+                        <td colSpan={3}>
+                            <div className='file-wrap'>
+                                <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                                <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                                    <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                                    <span className="input-addon">
+                                        <label htmlFor="File" className="btn">찾아보기</label>
+                                    </span>
+                                    <span className="input-addon">
+                                        <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                                    </span>
+                                    <span className="input-addon">
+                                        <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                                    </span>
+                                </div>
+                            </div>
+                            {fileRows.map((fileRows, index) => (
+                                <div className='file-wrap mt8' key={index}>
+                                    <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                                    <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                                        <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                                        <span className="input-addon">
+                                            <label htmlFor="File" className="btn">찾아보기</label>
+                                        </span>
+                                        <span className="input-addon">
+                                        <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                                        </span>
+                                        <span className="input-addon">
+                                            <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                            <ul className='list-desc'>
+                                <li>구성도, 상세 시나리오 등을 첨부(예시)</li>
+                                <li className='color-primary'>업로드 할 수 있는 파일의 용량은 총 20MB 입니다.</li>
+                            </ul>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

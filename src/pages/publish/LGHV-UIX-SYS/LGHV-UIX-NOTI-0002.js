@@ -23,7 +23,16 @@ function NoticeRegist() {
   const [startEndDate, setStartEndDate] = useState(null);
 
   const [regist, setRegist] = useState(false);
-
+  const [fileRows, setFileRows] = useState([]);
+  const fileAddRow = () => {
+    setFileRows([...fileRows, {}]);
+  };
+  const fileRemoveRow = () => {
+    if (fileRows.length > 0) {
+      const newRows = fileRows.slice(0, fileRows.length - 1);
+      setFileRows(newRows);
+    }
+  };
   return (
   <>
    <ContentTitle data={pagedata} />
@@ -100,19 +109,38 @@ function NoticeRegist() {
                 <tr>
                     <th scope='row'>파일첨부</th>
                     <td colSpan={3}>
-                        <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
-                        <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
-                            <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
-                            <span className="input-addon">
-                                <label htmlFor="File" className="btn">찾아보기</label>
-                            </span>
-                            <span className="input-addon">
-                                <button className="btn btn-low">추가</button>
-                            </span>
-                            <span className="input-addon">
-                                <button className="btn btn-low">삭제</button>
-                            </span>
+                        <div className='file-wrap'>
+                            <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                            <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                                <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                                <span className="input-addon">
+                                    <label htmlFor="File" className="btn">찾아보기</label>
+                                </span>
+                                <span className="input-addon">
+                                    <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                                </span>
+                                <span className="input-addon">
+                                    <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                                </span>
+                            </div>
                         </div>
+                        {fileRows.map((fileRows, index) => (
+                            <div className='file-wrap mt8' key={index}>
+                                <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                                <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                                    <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                                    <span className="input-addon">
+                                        <label htmlFor="File" className="btn">찾아보기</label>
+                                    </span>
+                                    <span className="input-addon">
+                                    <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                                    </span>
+                                    <span className="input-addon">
+                                        <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
                         <ul className='list-desc'>
                             <li>구성도, 상세 시나리오 등을 첨부(예시)</li>
                             <li className='color-primary'>업로드 할 수 있는 파일의 용량은 총 20MB 입니다.</li>

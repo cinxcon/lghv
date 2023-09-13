@@ -171,8 +171,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-fold.close{ transform: rotate(180deg);}
 .btn-fold.hide{display: none;}
 .btn-pop{padding-left: 36px; background:#ffffff url('../images/common/ic_popup_16.png') 12px 5px no-repeat; background-size: auto;}
-.btn-pop.btn-primary{background-color: #ED174D; color: #000;}
-.btn-pop.btn-primary:hover{color: #fff;}
+.btn-pop-primary{ border-color: #ed174d; background-image: url('../images/common/ic_popup_primary_16.png'); color:#ed174d }
 .btn-md.btn-pop {padding-left: 24px; position: relative; background: none;}
 .btn-md.btn-pop:before{content:''; background:url('../images/common/ic_black_set_12.png') -36px 0 no-repeat; background-size: auto; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}
 .btn-print{padding-left: 36px; background:#ffffff url('../images/common/ic_print_16.png') 12px 5px no-repeat; background-size: auto;}

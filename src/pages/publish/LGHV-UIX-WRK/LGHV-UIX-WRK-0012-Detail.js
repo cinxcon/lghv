@@ -63,7 +63,7 @@ function TemplateDetail() {
                             </colgroup>
                         <tbody>
                             <tr>
-                            <th scope="row"><label htmlFor="type">분류</label></th>
+                            <th scope="row"><label htmlFor="type">템플릿 분류</label></th>
                                 <td>
                                     <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
                                 </td>

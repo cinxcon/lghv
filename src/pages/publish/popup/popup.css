@@ -94,6 +94,7 @@
 .popup-table label.hide { margin: 0; font-size: 0; text-indent: 18px; }
 .popup-table td.active { color: #ED174D; }
 .popup-table.center th, .popup-table.center td{ text-align: center !important;}
+.popup-table tr.link:hover td { cursor: pointer; background-color: #EAEAEA; color: #000000!important; }
 
 
 .pop-search-wrap{ margin-bottom: 16px; padding: 12px 24px; background-color:#f7f7f7;}

@@ -77,14 +77,14 @@ function TemplateList() {
             <caption>템플릿 리스트</caption>
               <colgroup>
               <col style={{ width: '5%' }} />
-              <col style={{ width: '15%' }} />
-              <col style={{ width: '65%' }} />
-              <col style={{ width: '15%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '75%' }} />
+              <col style={{ width: '10%' }} />
               </colgroup>
             <thead>
             <tr>
                 <th className="center">NO</th>
-                <th className="center">분류</th>
+                <th className="center">탬플릿분류</th>
                 <th className="center">양식명</th>
                 <th className="center">등록일</th>
             </tr>
@@ -92,10 +92,10 @@ function TemplateList() {
             <tbody>
               {data.map((item, index) => (
               <tr className='link' key={item.id} onClick={() => { onPopup() }}>
-              <td className="center">{index + 1}</td>
-              <td>{item.category}</td>
-              <td className='left'>{item.formName}</td>
-              <td>{item.date}</td>
+                <td>{index + 1}</td>
+                <td className='left'>{item.category}</td>
+                <td className='left'>{item.formName}</td>
+                <td>{item.date}</td>
               </tr>))}
             </tbody>
         </table>
