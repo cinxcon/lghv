@@ -8,11 +8,31 @@ const PopupPortal = ({ children }) => {
 }
 
 function SysAuthorityMngUserList() {
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '공통관리',
     subtitle: '권한관리 사용자 목록',
     SubMenu: 'yes'
+  }
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const [isChecked, setIsChecked] = useState(false);
+  const [checkedItems, setCheckedItems] = useState(new Set());
+  const checkHandler = ({ target }) => {
+    setIsChecked(!isChecked);
+    checkedItemHandler(target.parentNode.parentNode, target.value, target.checked);
+    console.log(checkedItems)
+    console.log(isChecked)
+  };
+  const checkedItemHandler = (row, i, isChecked) => {
+    if (isChecked) {
+      checkedItems.add(i);
+      setCheckedItems(checkedItems);
+      row.classList.add('checked');
+    } else if (!isChecked && checkedItems.has(i)) {
+      checkedItems.delete(i);
+      setCheckedItems(checkedItems);
+      row.classList.remove('checked');
+    }
+    return checkedItems;
   }
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
@@ -58,28 +78,13 @@ function SysAuthorityMngUserList() {
               </tr>
             </thead>
             <tbody>
-              <tr className='checked'>
-                <td>
-                  <input type="checkbox" name="check1" id="check1" checked />
-                  <label htmlFor="check1" style={{ margin: '0' }}></label>
-                </td>
-                <td>00200</td>
-                <td>홍길동</td>
-                <td>직원</td>
-                <td>기간망 운영팀</td>
-                <td>책임</td>
-                <td>팀장</td>
-                <td>010-1234-5678</td>
-                <td>070-1111-2222</td>
-                <td>aaa@lghv.co.kr</td>
-              </tr>
               {
                 resultList.map(function(a, i) {
                   return (
                   <tr key={i}>
-                    <td>
-                      <input type="checkbox" name="check2" id="check2" />
-                      <label htmlFor="check2" style={{ margin: '0' }}></label>
+                    <td className='center'>
+                      <input type="checkbox" name={i} id={i} value={i} onChange={(e) => checkHandler(e)} />
+                      <label htmlFor={i} className='invisible'>선택</label>
                     </td>
                     <td>00200</td>
                     <td>홍길동</td>

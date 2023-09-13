@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle';
-import { Alert } from '../popup/Popup';
+import { Alert, Popup } from '../popup/Popup';
+import { PopupNotiMethodACC } from '../popup/popupDetail/Popup_NotiMethod';
 
 function AccPolicyRegist() {
   const [resultList] = useState([1, 2, 3]);
@@ -20,7 +21,8 @@ function AccPolicyRegist() {
   // 팝업
   const [tempsave, setTempsave] = useState(false);
   const [regist, setRegist] = useState(false);
-  const [workCancel, setWorkCancel] = useState();
+  // const [workCancel, setWorkCancel] = useState();
+  const [notimethod, setNotimethod] = useState(false);
   //  토글
   const [divStates, setDivStates] = useState([false, false, false]);
   const handleDivToggle = (index) => {
@@ -34,8 +36,13 @@ function AccPolicyRegist() {
       <ContentTitle data={pagedata} />
       <div className="detail-top-btn-group">
         <button className='btn btn-pop' onClick={() => { onPopup('/popup/PopupApproval', 'Line', 1280, 800) }}>결제선 지정</button>
+        <button className='btn btn-pop' onClick={() => { setNotimethod(true) }}>통보방법</button>
+        <button className='btn btn-ref'>새로작성</button>
         <button className='btn btn-temp' onClick={() => { setTempsave(true) }}>임시저장</button>
       </div>
+      <Popup open={notimethod} close={() => { setNotimethod(false) }} header="통보방법">
+        <PopupNotiMethodACC />
+      </Popup>
       <Alert open={tempsave} close={() => { setTempsave(false) }}>
         <div>임시 저장 합니다.</div>
       </Alert>
@@ -122,7 +129,7 @@ function AccPolicyRegist() {
           <table className='table table-row'>
             <caption>사용자 관리 기안</caption>
             <colgroup>
-              <col style={{ width: '20%' }} />
+              <col style={{ width: '10%' }} />
               <col />
             </colgroup>
             <tbody>
@@ -181,7 +188,7 @@ function AccPolicyRegist() {
         </div>
         <div className={`toggle-box ${divStates[2] ? 'hide' : ''} `}>
           <div className='right btn-wrap'>
-            <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccEqReg', 'AccEqReg', 1280, 800) }}>신규</button>
+            <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupAccPolicyReg', 'AccPolicyReg', 1280, 560) }}>신규</button>
           </div>
           <table className='table table-row mt8'>
           <caption>접근제어 정책 등록: 사용자부서, 사용자, 장비, OS</caption>
@@ -217,12 +224,8 @@ function AccPolicyRegist() {
         </div>
       </div>
       <div className='detail-bottom-btn-group mt20 mb15'>
-        <button className='btn btn-lg' onClick={() => { setWorkCancel(true) }}>취소</button>
         <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
       </div>
-      <Alert open={workCancel} close={() => { setWorkCancel(false) }}>
-        <div>기안 등록을 취소 하시겠습니까?</div>
-      </Alert>
       <Alert open={regist} close={() => { setRegist(false) }}>
         <div>기안을 등록하시겠습니까?</div>
       </Alert>
