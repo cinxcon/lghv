@@ -21,6 +21,7 @@ import AccUserRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0007';
 import AccEquipmentRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0008';
 import AccPolicy from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0009';
 import AccPolicyRegist from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0010';
+import AccPolicyDetail from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0011';
 import ServicetaskRegistNm from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0001';
 import ServicetaskRegistUr from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0002';
 import ServicetaskAll from './pages/publish/LGHV-UIX-WRK/LGHV-UIX-WRK-0003';
@@ -48,6 +49,8 @@ import PopupWorker from './pages/publish/popup/popupDetail/Popup_Worker';
 import PopupDepartment from './pages/publish/popup/popupDetail/Popup_department';
 import { PopupAccUserReg, PopupAccUserModi, PopupAccUserDel } from './pages/publish/popup/popupDetail/Popup_AccUserRegModiDel';
 import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/Popup_AccEqRegDel';
+import PopupAccPolicyReg from './pages/publish/popup/popupDetail/Popup_AccPolicyReg';
+import PopupAccPolicyDetail from './pages/publish/popup/popupDetail/Popup_AccPolicyDetail';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
 import PopupSysComSort from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
 import { PopupSysCodeAdd, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
@@ -98,6 +101,7 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0008" element={<AccEquipmentRegist />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0009" element={<AccPolicy />} />
       <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0010" element={<AccPolicyRegist />} />
+      <Route path="/LGHV-UIX-ACC/LGHV-UIX-ACC-0011" element={<AccPolicyDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0000" element={<Approval />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0001/:id" element={<ApprovalDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0003" element={<ApprovalAll />} />
@@ -129,6 +133,8 @@ const AppRouter = () => {
       <Route path="/popup/PopupAccUserDel" element={<PopupAccUserDel />} />
       <Route path="/popup/PopupAccEqReg" element={<PopupAccEqReg />} />
       <Route path="/popup/PopupAccEqDel" element={<PopupAccEqDel />} />
+      <Route path="/popup/PopupAccPolicyReg" element={<PopupAccPolicyReg />} />
+      <Route path="/popup/PopupAccPolicyDetail" element={<PopupAccPolicyDetail />} />
       <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
       <Route path="/popup/PopupSysComSort" element={<PopupSysComSort />} />
       <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />

@@ -78,7 +78,7 @@ const CellList = () => {
                 </table>
             </div>
         </div>
-        <div className="result-pageview mb15">
+        <div className="result-pageview mb8">
             <ResultPageView />
             <div className='btn-wrap'>
                <button type="button" className='btn btn-md btn-exel'>엑셀</button>
@@ -110,7 +110,7 @@ const CellList = () => {
                 <th>DTN</th>
                 <th>NET</th>
                 <th>VOIP</th>
-                <th>ATV</th>
+                <th className='bd-right'>ATV</th>
             </tr>
             </thead>
             <tbody>

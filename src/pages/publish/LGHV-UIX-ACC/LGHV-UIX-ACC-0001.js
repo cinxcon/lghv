@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
@@ -16,8 +15,6 @@ function AccUser() {
     SubMenu: 'yes',
     isDetail: 'no'
   }
-  const navigate = useNavigate();
-  const handleRegClick = () => navigate('/LGHV-UIX-ACC/LGHV-UIX-ACC-0007');
   //  토글
   const [isToggled, setToggled] = useState(false);
   const handleButtonToggle = () => {
@@ -29,40 +26,10 @@ function AccUser() {
     const popupY = (window.screen.height / 2) - (height / 2);
     window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
-  // 날짜 선택
-  const [selectedStday, setSelectedStday] = useState('st_user');
-  const handleStdayChange = (event) => {
-    setSelectedStday(event.target.value);
-    const currentDate = new Date();
-    // 오늘 날짜
-    if (event.target.value === 'st_user') {
-      setStartDate(null);
-      setEndDate(null);
-    }
-    // 오늘 날짜
-    if (event.target.value === 'st_day') {
-      setStartDate(new Date());
-      setEndDate(new Date());
-    }
-    // 1주일 전부터 오늘까지의 기간
-    if (event.target.value === 'st_week') {
-      const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
-      setStartDate(weekAgo);
-      setEndDate(new Date());
-    }
-    // 1개월 전부터 오늘까지의 기간
-    if (event.target.value === 'st_month') {
-      const oneMonthAgo = new Date(
-        new Date().getFullYear(),
-        new Date().getMonth() - 1,
-        new Date().getDate()
-      );
-      setStartDate(oneMonthAgo);
-      setEndDate(new Date());
-    }
-  };
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [startDate2, setStartDate2] = useState(new Date());
+  const [endDate2, setEndDate2] = useState(new Date());
   // SelectBox
   const optionAccState = [
     { value: '정상', label: '정상' },
@@ -89,10 +56,10 @@ function AccUser() {
             <table className='search'>
               <caption>검색: 이름, 아이디, 조직, 계정상태, 그룹, 사용기간</caption>
               <colgroup>
-                <col style={{ width: '6%' }} />
-                <col span={2} />
-                <col style={{ width: '6%' }} />
-                <col span={2} />
+                <col style={{ width: '7%' }} />
+                <col span={2} style={{ width: '14%' }} />
+                <col style={{ width: '7%' }} />
+                <col span={2} style={{ width: '14%' }} />
                 <col style={{ width: '6%' }} />
                 <col span={3} />
               </colgroup>
@@ -123,26 +90,23 @@ function AccUser() {
                   <td colSpan={4}></td>
                 </tr>
                 <tr>
-                  <th scope="row"><label htmlFor="usedate">사용기간</label></th>
-                  <td colSpan={5} className='bg-right-none'>
+                  <th scope="row"><label htmlFor="usedate">사용기간 시작일</label></th>
+                  <td colSpan={2} className='bg-right-none'>
                     <div className='flex-wrap between'>
                       <span className='datepickers-wrap'>
                         <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
                         ~
                         <span><DatePicker locale={ko} selected={endDate} onChange={(date) => setEndDate(date)} startDate={endDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
                       </span>
-                      <span className='radiobtn-wrap'>
-                        <fieldset>
-                          <legend>날짜 선택</legend>
-                            <input type='radio' name='start-date' id='st_day' value="st_day" checked={selectedStday === 'st_day'} onChange={handleStdayChange}/>
-                            <label htmlFor='st_day' className='type-btn'>하루</label>
-                            <input type='radio' name='start-date' id='st_week' value="st_week" checked={selectedStday === 'st_week'} onChange={handleStdayChange}/>
-                            <label htmlFor='st_week' className='type-btn'>일주일</label>
-                            <input type='radio' name='start-date' id='st_month' value="st_month" checked={selectedStday === 'st_month'} onChange={handleStdayChange}/>
-                            <label htmlFor='st_month' className='type-btn'>한달</label>
-                            <input type='radio' name='start-date' id='st_user' value="st_user" checked={selectedStday === 'st_user'} onChange={handleStdayChange}/>
-                            <label htmlFor='st_user' className='type-btn'>사용자 지정</label>
-                          </fieldset>
+                    </div>
+                  </td>
+                  <th scope="row"><label htmlFor="usedate">사용기간 종료일</label></th>
+                  <td colSpan={2} className='bg-right-none'>
+                    <div className='flex-wrap between'>
+                      <span className='datepickers-wrap'>
+                        <span><DatePicker locale={ko} selected={startDate2} onChange={(date) => setStartDate2(date)} startDate2={startDate2} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
+                        ~
+                        <span><DatePicker locale={ko} selected={endDate2} onChange={(date) => setEndDate2(date)} startDate={endDate2} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
                       </span>
                     </div>
                   </td>
@@ -161,9 +125,6 @@ function AccUser() {
       <div className='content-section'>
         <div className="result-pageview">
           <ResultPageView />
-          <div className='btn-wrap'>
-            <button type="button" className="btn btn-md btn-reg" onClick={ handleRegClick }>등록</button>
-          </div>
         </div>
         <table className="table">
           <caption>table caption</caption>

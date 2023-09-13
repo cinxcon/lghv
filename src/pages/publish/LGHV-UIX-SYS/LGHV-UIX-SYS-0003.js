@@ -7,12 +7,61 @@ import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
 
 function SysUnsubscribeUserMng() {
-  const [userList] = useState([1, 2]);
-  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
   const pagedata = {
     title: '계정관리',
     subtitle: '수신거부 사용자 관리',
     SubMenu: 'yes'
+  }
+  const [userList] = useState([1, 2]);
+  const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+  const [success] = useState([<span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>]);
+  const [isChecked, setIsChecked] = useState(false);
+  const [checkedItems, setCheckedItems] = useState(new Set());
+  const [checkedCount, setCheckedCount] = useState(0);
+  const checkHandler = ({ target }) => {
+    setIsChecked(!isChecked);
+    checkedItemHandler(target.parentNode.parentNode, target.value, target.checked);
+    console.log(checkedItems)
+    console.log(isChecked)
+    console.log(checkedItems.size)
+  };
+  const checkedItemHandler = (row, i, isChecked) => {
+    if (isChecked) {
+      checkedItems.add(i);
+      setCheckedItems(checkedItems);
+      setCheckedCount(checkedItems.size);
+      row.classList.add('checked');
+    } else if (!isChecked && checkedItems.has(i)) {
+      checkedItems.delete(i);
+      setCheckedItems(checkedItems);
+      setCheckedCount(checkedItems.size);
+      row.classList.remove('checked');
+    }
+    return checkedItems;
+  }
+  const [isChecked2, setIsChecked2] = useState(false);
+  const [checkedItems2, setCheckedItems2] = useState(new Set());
+  const [checkedCount2, setCheckedCount2] = useState(0);
+  const checkHandler2 = ({ target }) => {
+    setIsChecked2(!isChecked2);
+    checkedItemHandler2(target.parentNode.parentNode, target.value, target.checked);
+    console.log(checkedItems2)
+    console.log(isChecked2)
+    console.log(checkedItems2.size)
+  };
+  const checkedItemHandler2 = (row, j, isChecked2) => {
+    if (isChecked2) {
+      checkedItems2.add(j);
+      setCheckedItems2(checkedItems2);
+      setCheckedCount2(checkedItems2.size);
+      row.classList.add('checked');
+    } else if (!isChecked2 && checkedItems2.has(j)) {
+      checkedItems2.delete(j);
+      setCheckedItems2(checkedItems2);
+      setCheckedCount2(checkedItems2.size);
+      row.classList.remove('checked');
+    }
+    return checkedItems2;
   }
   // SelectBox
   const optionGubun = [
@@ -24,34 +73,6 @@ function SysUnsubscribeUserMng() {
   ];
   const [gubun, setGubun] = useState(optionGubun[0]);
 
-  const [isChecked, setIsChecked] = useState(false);
-  const handleCheckBox = (i, isChecked) => {
-    if (isChecked) {
-      checkedItems.add(i);
-      setCheckedItems(checkedItems);
-    } else if (!isChecked) {
-      checkedItems.delete(i);
-      setCheckedItems(checkedItems);
-    }
-    setIsChecked(!isChecked);
-  }
-
-  const [checkedItems, setCheckedItems] = useState(new Set());
-  // const checkedItemHandler = (id, isChecked) => {
-  //   if (isChecked) {
-  //     checkedItems.add(id);
-  //     setCheckedItems(checkedItems);
-  //   } else if (!isChecked && checkedItems.has(id)) {
-  //     checkedItems.delete(id);
-  //     setCheckedItems(checkedItems);
-  //   }
-  // };
-  // const [bChecked, setChecked] = useState(false);
-
-  // const checkHandler = ({ target }) => {
-  //   setChecked(!bChecked);
-  //   checkedItemHandler(resultList.i, target.checked);
-  // };
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -116,7 +137,7 @@ function SysUnsubscribeUserMng() {
         </div>
         <div className='mt16'>
           <div className='btn-wrap right'>
-            <span className='cheked-item'><em>0</em>개 선택</span>
+            <span className='cheked-item'><b>{checkedCount2}</b>개 선택</span>
             <button type="button" className='btn btn-md ml10'>선택등록</button>
             <button type="button" className='btn btn-low btn-md btn-del'>삭제</button>
           </div>
@@ -124,7 +145,8 @@ function SysUnsubscribeUserMng() {
         <table className="table mt8">
           <caption>사용자 선택 테이블</caption>
           <colgroup>
-            <col span="8" />
+            <col style={{ width: '4%' }} />
+            <col span="7" />
           </colgroup>
           <thead>
             <tr>
@@ -145,10 +167,10 @@ function SysUnsubscribeUserMng() {
             {
               userList.map(function(a, i) {
                 return (
-                  <tr key={i}>
+                  <tr key={`user${i}`}>
                     <td>
-                      <input type="checkbox" name={`check${i}`} id={`check${i}`} />
-                      <label htmlFor={`check${i}`} className='invisible'></label>
+                      <input type="checkbox" name={`user${i}`} id={`user${i}`} value={`user${i}`} onChange={(e) => checkHandler2(e)} />
+                      <label htmlFor={`user${i}`} className='invisible'>선택</label>
                     </td>
                     <td>홍길동</td>
                     <td>0025111</td>
@@ -169,14 +191,15 @@ function SysUnsubscribeUserMng() {
         <div className="result-pageview">
           <ResultPageView />
           <div className='btn-wrap'>
-            <span className='cheked-item'><em>1</em>개 선택</span>
+            <span className='cheked-item'><b>{checkedCount}</b>개 선택</span>
             <button type="button" className='btn btn-low btn-md btn-del ml10'>삭제</button>
           </div>
         </div>
         <table className="table">
           <caption>수신거부 사용자관리 테이블</caption>
           <colgroup>
-            <col span="9" />
+            <col style={{ width: '4%' }} />
+            <col span="8" />
           </colgroup>
           <thead>
             <tr>
@@ -195,27 +218,13 @@ function SysUnsubscribeUserMng() {
             </tr>
           </thead>
           <tbody>
-            <tr className={ isChecked ? 'checked' : null }>
-              <td>
-                <input type="checkbox" name="check01" id="check01" onChange={ handleCheckBox } />
-                <label htmlFor="check01" className='invisible'></label>
-              </td>
-              <td>홍길동</td>
-              <td>0025111</td>
-              <td>동부판매추진팀</td>
-              <td>N00G00215</td>
-              <td>010-4444-2222</td>
-              <td>test@lghv.net</td>
-              <td><span className='color-disable'>비활성</span></td>
-              <td>2023-09-11 14:24:30</td>
-            </tr>
             {
               resultList.map(function(a, i) {
                 return (
-                <tr key={i} className={ isChecked ? 'checked' : null }>
-                  <td>
-                    <input type="checkbox" name={`check1${i}`} id={`check1${i}`} onChange={ handleCheckBox } />
-                    <label htmlFor={`check1${i}`} className='invisible'></label>
+                <tr key={i}>
+                  <td className='center'>
+                    <input type="checkbox" name={i} id={i} value={i} onChange={(e) => checkHandler(e)} />
+                    <label htmlFor={i} className='invisible'>선택</label>
                   </td>
                   <td>홍길동</td>
                   <td>0025111</td>
@@ -223,7 +232,7 @@ function SysUnsubscribeUserMng() {
                   <td>N00G00215</td>
                   <td>010-4444-2222</td>
                   <td>test@lghv.net</td>
-                  <td><span className='color-success'>계정활성</span></td>
+                  <td><span className='color-success'>{success[i]}</span></td>
                   <td>2023-09-11 14:24:30</td>
                 </tr>
                 )
