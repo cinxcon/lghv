@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import ContentTitle from '../layout/ContentTitle';
@@ -20,6 +19,12 @@ function AccPolicy() {
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
+  // 윈도우 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
   // 날짜 선택
   const [startDate1, setStartDate1] = useState(new Date());
   const [endDate1, setEndDate1] = useState(new Date());
@@ -54,54 +59,6 @@ function AccPolicy() {
       setEndDate1(new Date());
     }
   };
-  const [startDate2, setStartDate2] = useState(new Date());
-  const [endDate2, setEndDate2] = useState(new Date());
-  const [selectedStday2, setSelectedStday2] = useState('st_user2');
-  const handleStdayChange2 = (event) => {
-    setSelectedStday2(event.target.value);
-    const currentDate = new Date();
-    // 오늘 날짜
-    if (event.target.value === 'st_user2') {
-      setStartDate2(null);
-      setEndDate2(null);
-    }
-    // 오늘 날짜
-    if (event.target.value === 'st_day2') {
-      setStartDate2(new Date());
-      setEndDate2(new Date());
-    }
-    // 1주일 전부터 오늘까지의 기간
-    if (event.target.value === 'st_week2') {
-      const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
-      setStartDate2(weekAgo);
-      setEndDate2(new Date());
-    }
-    // 1개월 전부터 오늘까지의 기간
-    if (event.target.value === 'st_month2') {
-      const oneMonthAgo = new Date(
-        new Date().getFullYear(),
-        new Date().getMonth() - 1,
-        new Date().getDate()
-      );
-      setStartDate2(oneMonthAgo);
-      setEndDate2(new Date());
-    }
-  };
-  // SelectBox
-  const optionDep = [
-    { value: '선택 ', label: '선택 ' },
-    { value: '서울인프라팀 ', label: '서울인프라팀 ' },
-    { value: '경북인프라팀', label: '경북인프라팀' }
-  ];
-  const [dep, setDep] = useState(optionDep[0]);
-  const optionOs = [
-    { value: '선택', label: '선택' }
-  ];
-  const [os, setOs] = useState(optionOs[0]);
-  const optionProtocol = [
-    { value: '선택', label: '선택' }
-  ];
-  const [protocol, setProtocol] = useState(optionProtocol[0]);
 
   return (
     <>
@@ -115,58 +72,42 @@ function AccPolicy() {
           </div>
           <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
             <table className='search'>
-              <caption>검색: 사용자부서, 사용자, 장비, OS, 접속Protocol, 접근정책</caption>
+              <caption>검색: 제목, 등록번호, 등록자, 등록부서, 작업등록일</caption>
               <colgroup>
                 <col style={{ width: '6%' }} />
                 <col span={2} style={{ width: '13%' }} />
-                <col style={{ width: '8%' }} />
+                <col style={{ width: '6%' }} />
                 <col span={2} style={{ width: '13%' }} />
                 <col style={{ width: '6%' }} />
                 <col span={3} />
               </colgroup>
               <tbody>
                 <tr>
-                  <th scope="row"><label htmlFor="dep">사용자부서</label></th>
-                  <td colSpan={2}>
-                    <Select defaultValue={optionDep[0]} value={dep} onChange={setDep} options={optionDep} className='react-select-container' classNamePrefix="react-select" />
-                  </td>
-                  <th scope="row"><label htmlFor="userName">사용자</label></th>
-                  <td colSpan={2}>
-                    <input type="text" name="userNamet" id="userName" />
-                  </td>
-                  <th scope="row"><label htmlFor="eq">장비</label></th>
-                  <td colSpan={3}>
-                    <input type="text" name="eq" id="eq" />
+                  <th scope="row"><label htmlFor="subject">제목</label></th>
+                  <td colSpan={9}>
+                    <input type="text" name="subject" id="subject" />
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"><label htmlFor="os">OS</label></th>
+                  <th scope="row"><label htmlFor="no">등록번호</label></th>
                   <td colSpan={2}>
-                    <Select defaultValue={optionOs[0]} value={os} onChange={setOs} options={optionOs} className='react-select-container' classNamePrefix="react-select" />
+                    <input type="text" name="no" id="no" />
                   </td>
-                  <th scope="row"><label htmlFor="protocol ">접속Protocol</label></th>
-                  <td colSpan={2} className='bd-right-none'>
-                    <Select defaultValue={optionProtocol[0]} value={protocol} onChange={setProtocol} options={optionProtocol} className='react-select-container' classNamePrefix="react-select" />
+                  <th scope="row"><label htmlFor="user">등록자</label></th>
+                  <td colSpan={2}>
+                    <input type="text" name="user" id="user" />
                   </td>
-                  <th scope="row"><label htmlFor="policy">접근정책</label></th>
+                  <th scope="row"><label htmlFor="dep">등록부서</label></th>
                   <td colSpan={3}>
-                    <input type="text" name="policy" id="policy" />
+                    <span className='input-btn-wrap'>
+                      <span className='input input_org input-search-front'></span>
+                      <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
+                    </span>
                   </td>
                 </tr>
-              </tbody>
-            </table>
-            <table className='search'>
-              <caption>시작일시, 종료일시 검색 영역</caption>
-              <colgroup>
-                <col style={{ width: '6%' }} />
-                <col />
-                <col style={{ width: '6%' }} />
-                <col />
-              </colgroup>
-              <tbody>
                 <tr>
-                  <th scope="row"><label htmlFor="regdate">시작일시</label></th>
-                  <td>
+                  <th scope="row"><label htmlFor="regdate">작업등록일</label></th>
+                  <td colSpan={4}>
                     <div className='flex-wrap between'>
                       <span className='datepickers-wrap'>
                         <span><DatePicker locale={ko} selected={startDate1} onChange={(date) => setStartDate1(date)} startDate={startDate1} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -188,29 +129,7 @@ function AccPolicy() {
                       </span>
                     </div>
                   </td>
-                  <th scope="row"><label htmlFor="findate">종료일시</label></th>
-                  <td>
-                  <div className='flex-wrap between'>
-                      <span className='datepickers-wrap'>
-                        <span><DatePicker locale={ko} selected={startDate2} onChange={(date) => setStartDate2(date)} startDate={startDate2} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                        ~
-                        <span><DatePicker locale={ko} selected={endDate2} onChange={(date) => setEndDate2(date)} startDate={endDate2} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
-                      </span>
-                      <span className='radiobtn-wrap'>
-                        <fieldset>
-                          <legend>날짜 선택</legend>
-                            <input type='radio' name='start-date2' id='st_day2' value="st_day2" checked={selectedStday2 === 'st_day2'} onChange={handleStdayChange2}/>
-                            <label htmlFor='st_day2' className='type-btn'>하루</label>
-                            <input type='radio' name='start-date2' id='st_week2' value="st_week2" checked={selectedStday2 === 'st_week2'} onChange={handleStdayChange2}/>
-                            <label htmlFor='st_week2' className='type-btn'>일주일</label>
-                            <input type='radio' name='start-date2' id='st_month2' value="st_month2" checked={selectedStday2 === 'st_month2'} onChange={handleStdayChange2}/>
-                            <label htmlFor='st_month2' className='type-btn'>한달</label>
-                            <input type='radio' name='start-date2' id='st_user2' value="st_user2" checked={selectedStday2 === 'st_user2'} onChange={handleStdayChange2}/>
-                            <label htmlFor='st_user2' className='type-btn'>사용자입력</label>
-                          </fieldset>
-                      </span>
-                    </div>
-                  </td>
+                  <td colSpan={5}></td>
                 </tr>
               </tbody>
             </table>
@@ -236,38 +155,32 @@ function AccPolicy() {
           </colgroup>
           <thead>
             <tr>
-              <th rowSpan={2} scope='col'>사용자부서</th>
-              <th rowSpan={2} scope='col'>사용자</th>
-              <th rowSpan={2} scope='col'>장비</th>
-              <th rowSpan={2} scope='col'>OS</th>
-              <th rowSpan={2} scope='col'>접속Protocol</th>
-              <th rowSpan={2} scope='col'>Protocol접속계정</th>
-              <th rowSpan={2} scope='col'>접근정책</th>
-              <th rowSpan={2} scope='col'>시작일시</th>
-              <th rowSpan={2} scope='col'>종료일시</th>
-              <th colSpan={2} scope='col'>상태</th>
+              <th rowSpan={2} scope='col'>등록번호</th>
+              <th rowSpan={2} scope='col'>등록부서</th>
+              <th rowSpan={2} scope='col'>기안자</th>
+              <th rowSpan={2} scope='col'>제목</th>
+              <th rowSpan={2} scope='col'>등록일</th>
+              <th colSpan={3} scope='col'>상태</th>
             </tr>
             <tr>
               <th scope='col'>기안상태</th>
               <th scope='col'>결재상태</th>
+              <th scope='col'>성공여부</th>
             </tr>
           </thead>
           <tbody>
             {
               resultList.map(function(a, i) {
                 return (
-                  <tr key={i}>
-                    <td>호남인프라</td>
-                    <td>홍길동</td>
-                    <td>Infra Core1</td>
-                    <td>Linux</td>
-                    <td>HTTPS,RDP,SSH,TELNET</td>
-                    <td>ADMIN,ROOT,WIN11 </td>
-                    <td>L1</td>
-                    <td>2023-08-25 09:00:00</td>
-                    <td>2023-08-25 09:00:00</td>
+                  <tr key={i} className='link' onClick={() => { onPopup('/LGHV-UIX-ACC/LGHV-UIX-ACC-0011', 'detail', '1280', '760') }}>
+                    <td>T23080700004322</td>
+                    <td>경북인프라팀</td>
+                    <td>흉길동</td>
+                    <td>접근제어 정책 상세 제목</td>
+                    <td>2023-09-08 10:18:00</td>
                     <td>기안완료</td>
                     <td><span className='color-success'>결재완료</span></td>
+                    <td>3/4</td>
                   </tr>
                 )
               })

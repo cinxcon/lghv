@@ -20,7 +20,6 @@ function AccEquipmentRegist() {
   // 팝업
   const [tempsave, setTempsave] = useState(false);
   const [regist, setRegist] = useState(false);
-  const [workCancel, setWorkCancel] = useState();
 
   //  토글
   const [divStates, setDivStates] = useState([false, false, false]);
@@ -223,12 +222,8 @@ function AccEquipmentRegist() {
         </div>
       </div>
       <div className='detail-bottom-btn-group mt20 mb15'>
-        <button className='btn btn-lg' onClick={() => { setWorkCancel(true) }}>취소</button>
         <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
       </div>
-      <Alert open={workCancel} close={() => { setWorkCancel(false) }}>
-        <div>기안 등록을 취소 하시겠습니까?</div>
-      </Alert>
       <Alert open={regist} close={() => { setRegist(false) }}>
         <div>기안을 등록하시겠습니까?</div>
       </Alert>
