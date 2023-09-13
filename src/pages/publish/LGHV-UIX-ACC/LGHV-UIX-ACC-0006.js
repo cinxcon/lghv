@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Select from 'react-select';
 import ContentTitle from '../layout/ContentTitle';
 
 const PopupPortal = ({ children }) => {
@@ -14,7 +15,6 @@ function AccEquipmentDetail() {
     SubMenu: 'yes',
     isDetail: 'yes'
   }
-
   //  토글
   const [divStates, setDivStates] = useState([false, true, true, true, false]);
   const handleDivToggle = (index) => {
@@ -22,6 +22,22 @@ function AccEquipmentDetail() {
     newDivStates[index] = !newDivStates[index];
     setDivStates(newDivStates);
   };
+  const optionEqType1 = [
+    { value: '선택', label: '선택' }
+  ];
+  const [eqType1, setEqType1] = useState(optionEqType1[0]);
+  const optionEqType2 = [
+    { value: '선택', label: '선택' }
+  ];
+  const [eqType2, setEqType2] = useState(optionEqType2[0]);
+  const optionEqType3 = [
+    { value: '선택', label: '선택' }
+  ];
+  const [eqType3, setEqType3] = useState(optionEqType3[0]);
+  const optionEqType4 = [
+    { value: '선택', label: '선택' }
+  ];
+  const [eqType4, setEqType4] = useState(optionEqType4[0]);
 
   return (
     <PopupPortal>
@@ -42,9 +58,6 @@ function AccEquipmentDetail() {
             </div>
           </div>
           <div className={`toggle-box ${divStates[0] ? 'hide' : ''} `}>
-            <div className='btn-wrap right'>
-              <button type="button" className="btn btn-md btn-reg">등록</button>
-            </div>
             <table className='table table-row mt8'>
               <caption>기종 Linux, HPUX, AIX, Solaris에 대한 장비 기본 정보</caption>
               <colgroup>
@@ -138,24 +151,15 @@ function AccEquipmentDetail() {
                     </fieldset>
                   </td>
                   <th scope='row'>동시접속 세션 최대값</th>
-                  <td>0</td>
-                  <th scope='row'>조직</th>
-                  <td><input type='text' disabled /></td>
-                </tr>
-                <tr>
-                  <th scope='row'>자산아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산이름</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산위치</th>
-                  <td><input type='text' disabled /></td>
-                </tr>
-                <tr>
-                  <th scope='row'>구성아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성이름</th>
-                  <td className='bd-right-none'><input type='text' disabled /></td>
+                  <td className='bd-right-none'>0</td>
                   <td colSpan={2}></td>
+                </tr>
+                <tr>
+                  <th scope='row'>기종타입</th>
+                  <td className='bd-right-none'>
+                    <Select defaultValue={optionEqType1[0]} value={eqType1} onChange={setEqType1} options={optionEqType1} className='react-select-container' classNamePrefix="react-select" isDisabled />
+                  </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -174,9 +178,6 @@ function AccEquipmentDetail() {
             </div>
           </div>
           <div className={`toggle-box ${divStates[1] ? 'hide' : ''} `}>
-            <div className='btn-wrap right'>
-              <button type="button" className="btn btn-md btn-reg">등록</button>
-            </div>
             <table className='table table-row mt8'>
               <caption>기종 Windows에 대한 장비 기본 정보</caption>
               <colgroup>
@@ -230,25 +231,15 @@ function AccEquipmentDetail() {
                 </tr>
                 <tr>
                   <th scope='row'>동시접속 세션 최대값</th>
-                  <td><input type='text' value={0} disabled /></td>
-                  <th scope='row'>조직</th>
-                  <td className='bd-right-none'><input type='text' disabled /></td>
-                  <td colSpan={2}></td>
+                  <td className='bd-right-none'><input type='text' value={0} disabled /></td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
-                  <th scope='row'>자산아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산이름</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산위치</th>
-                  <td><input type='text' disabled /></td>
-                </tr>
-                <tr>
-                  <th scope='row'>구성아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성이름</th>
-                  <td className='bd-right-none'><input type='text' disabled /></td>
-                  <td colSpan={2}></td>
+                  <th scope='row'>기종타입</th>
+                  <td className='bd-right-none'>
+                    <Select defaultValue={optionEqType2[0]} value={eqType2} onChange={setEqType2} options={optionEqType2} className='react-select-container' classNamePrefix="react-select" isDisabled />
+                  </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -353,20 +344,11 @@ function AccEquipmentDetail() {
                   <td colSpan={2}></td>
                 </tr>
                 <tr>
-                  <th scope='row'>조직</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산이름</th>
-                  <td><input type='text' disabled /></td>
-                </tr>
-                <tr>
-                  <th scope='row'>자산위치</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성이름</th>
-                  <td><input type='text' disabled /></td>
+                  <th scope='row'>기종타입</th>
+                  <td className='bd-right-none'>
+                    <Select defaultValue={optionEqType3[0]} value={eqType3} onChange={setEqType3} options={optionEqType3} className='react-select-container' classNamePrefix="react-select" isDisabled />
+                  </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -423,20 +405,11 @@ function AccEquipmentDetail() {
                   <td><input type='text' value={0} disabled /></td>
                 </tr>
                 <tr>
-                  <th scope='row'>조직</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>자산이름</th>
-                  <td><input type='text' disabled /></td>
-                </tr>
-                <tr>
-                  <th scope='row'>자산위치</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성아이디</th>
-                  <td><input type='text' disabled /></td>
-                  <th scope='row'>구성이름</th>
-                  <td><input type='text' disabled /></td>
+                  <th scope='row'>기종타입</th>
+                  <td className='bd-right-none'>
+                    <Select defaultValue={optionEqType4[0]} value={eqType4} onChange={setEqType4} options={optionEqType4} className='react-select-container' classNamePrefix="react-select" isDisabled />
+                  </td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>
@@ -460,14 +433,14 @@ function AccEquipmentDetail() {
               <colgroup>
                 <col style={{ width: '11%' }} />
                 <col style={{ width: '35%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
                   <th scope='row'>사용자 그룹 <span aria-label="required" className='color-primary'>*</span></th>
                   <td>group1</td>
-                  <th scope='row'>장비에 속한 계정 <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'>장비 OS 접속 계정 <span aria-label="required" className='color-primary'>*</span></th>
                   <td>admin</td>
                 </tr>
                 <tr>
@@ -493,14 +466,6 @@ function AccEquipmentDetail() {
                   </td>
                 </tr>
                 <tr>
-                  <th scope='row'>시간유형 <span aria-label="required" className='color-primary'>*</span></th>
-                  <td colSpan={3}>2023-08-12 11:00 - 2023-08-12 23:00</td>
-                </tr>
-                <tr>
-                  <th scope='row'>금칙어 <span aria-label="required" className='color-primary'>*</span></th>
-                  <td colSpan={3}>L0</td>
-                </tr>
-                <tr>
                   <th scope='row'>설명</th>
                   <td colSpan={3}>장비 연결 정보</td>
                 </tr>
@@ -511,14 +476,14 @@ function AccEquipmentDetail() {
               <colgroup>
                 <col style={{ width: '11%' }} />
                 <col style={{ width: '35%' }} />
-                <col style={{ width: '11%' }} />
+                <col style={{ width: '12%' }} />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
                   <th scope='row'>사용자 그룹 <span aria-label="required" className='color-primary'>*</span></th>
                   <td>group2</td>
-                  <th scope='row'>장비에 속한 계정 <span aria-label="required" className='color-primary'>*</span></th>
+                  <th scope='row'>장비 OS 접속 계정 <span aria-label="required" className='color-primary'>*</span></th>
                   <td>root</td>
                 </tr>
                 <tr>
@@ -542,14 +507,6 @@ function AccEquipmentDetail() {
                       <label htmlFor="protocol_HTTPS">HTTPS</label>
                     </fieldset>
                   </td>
-                </tr>
-                <tr>
-                  <th scope='row'>시간유형 <span aria-label="required" className='color-primary'>*</span></th>
-                  <td colSpan={3}>2023-08-12 11:00 - 2023-08-12 23:00</td>
-                </tr>
-                <tr>
-                  <th scope='row'>금칙어 <span aria-label="required" className='color-primary'>*</span></th>
-                  <td colSpan={3}>L2</td>
                 </tr>
                 <tr>
                   <th scope='row'>설명</th>

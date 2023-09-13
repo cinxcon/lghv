@@ -327,14 +327,10 @@ function PopupAccEqReg() {
                 </tr>
                 <tr>
                   <th scope='row'><label htmlFor="session">동시접속 세션 최대값</label></th>
-                  <td>
+                  <td className='bd-right-none'>
                     <input type='text' name='session' id='session' value={0} />
                   </td>
-                  <th scope='row'><label htmlFor="org">조직</label></th>
-                  <td className='bd-right-none'>
-                    <input type='text' name='org' id='org' />
-                  </td>
-                  <td colSpan={2}></td>
+                  <td colSpan={4}></td>
                 </tr>
                 <tr>
                   <th scope='row'><label htmlFor="eqType2">기종타입</label></th>
@@ -845,13 +841,10 @@ function PopupAccEqDel() {
                   </fieldset>
                 </td>
                 <th scope='row'><label htmlFor="session">동시접속 세션 최대값</label></th>
-                <td>
+                <td className='bd-right-none'>
                   <input type='text' name='session' id='session' value={0} disabled />
                 </td>
-                <th scope='row'><label htmlFor="org">조직</label></th>
-                <td>
-                  <input type='text' name='org' id='org' disabled />
-                </td>
+                <td colSpan={2}></td>
               </tr>
               <tr>
                 <th scope='row'><label htmlFor="eqType">기종타입</label></th>
