@@ -116,6 +116,8 @@ function SysUserMngReg() {
     isDetail: 'yes'
   }
   const [regist, setRegist] = useState(false);
+  const [idCheckSuc, setIdCheckSuc] = useState(false);
+  const [idCheckFail, setIdCheckFail] = useState(false);
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -161,22 +163,22 @@ function SysUserMngReg() {
             </colgroup>
             <tbody>
               <tr>
-                <th scope="row"><label htmlFor="userId">사용자 ID</label></th>
+                <th scope="row"><label htmlFor="userId">사용자 ID</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <span className='input-btn-wrap'>
                     <input type="text" className='input_org input-search-front' id="userId" name="userId" />
-                    <button className='btn btn-black'>중복검사</button>
+                    <button className='btn btn-black' onClick={() => { setIdCheckSuc(true) }}>중복검사</button>
                   </span>
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="userName">이름</label></th>
+                <th scope="row"><label htmlFor="userName">이름</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <input type="text" id="userName" name="userName" />
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="pw">비밀번호</label></th>
+                <th scope="row"><label htmlFor="pw">비밀번호</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <input type="text" id="pw" name="pw" />
                   {/* 에러 일 때:
@@ -187,7 +189,7 @@ function SysUserMngReg() {
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="pwCheck">비밀번호 확인</label></th>
+                <th scope="row"><label htmlFor="pwCheck">비밀번호 확인</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <input type="text" id="pwCheck" name="pwCheck" />
                   <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
@@ -196,7 +198,7 @@ function SysUserMngReg() {
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="userGubun">사용자 구분</label></th>
+                <th scope="row"><label htmlFor="userGubun">사용자 구분</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <Select defaultValue={optionUserGubun[0]} value={userGubun} onChange={setUserGubun} options={optionUserGubun} className='react-select-container' classNamePrefix="react-select" />
                 </td>
@@ -263,8 +265,20 @@ function SysUserMngReg() {
           </table>
         </div>
         <div className='detail-bottom-btn-group mt20 center'>
-          <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>확인</button>
+          <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>등록</button>
         </div>
+        <Alert open={idCheckSuc} close={() => { setIdCheckSuc(false) }} type={'no'}>
+          <div className='center'>
+            <h3>test11</h3>
+            <p className='mt8 size-md'><span className='color-success ico_success'>사용 가능</span>한 아이디 입니다.</p>
+          </div>
+        </Alert>
+        <Alert open={idCheckFail} close={() => { setIdCheckFail(false) }} type={'no'}>
+          <div className='center'>
+            <h3>test11</h3>
+            <p className='mt8 size-md'><span className='color-fail ico_fail'>중복</span>된 아이디 입니다.</p>
+          </div>
+        </Alert>
         <Alert open={regist} close={() => { setRegist(false) }}>
           <div>등록하시겠습니까?</div>
         </Alert>
@@ -313,19 +327,17 @@ function SysUserMngModi() {
             </colgroup>
             <tbody>
               <tr>
-                <th scope="row">사용자 ID</th>
+                <th scope="row">사용자 ID <span aria-label="required" className='color-primary'>*</span></th>
                 <td>000200</td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="userName">이름</label></th>
-                <td>
-                  <input type="text" id="userName" name="userName" />
-                </td>
+                <th scope="row"><label htmlFor="userName">이름</label> <span aria-label="required" className='color-primary'>*</span></th>
+                <td>남철수</td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="pw">비밀번호</label></th>
+                <th scope="row"><label htmlFor="pw">비밀번호</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type="text" id="pw" name="pw" />
+                  <input type="text" id="pw" name="pw" value={'**********'} />
                   {/* 에러 일 때:
                   <input type='text' placeholder='비밀번호를 입력해주세요.' className='error' /> */}
                   <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
@@ -334,16 +346,16 @@ function SysUserMngModi() {
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="pwCheck">비밀번호 확인</label></th>
+                <th scope="row"><label htmlFor="pwCheck">비밀번호 확인</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
-                  <input type="text" id="pwCheck" name="pwCheck" />
+                  <input type="text" id="pwCheck" name="pwCheck" value={'**********'} />
                   <p className='notice size-sm'>8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</p>
                   {/* <p className='notice size-sm color-error'>비밀번호가 다릅니다. 다시 확인해주세요.</p>
                   <p className='notice size-sm color-success'>비밀번호가 일치합니다.</p> */}
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="userGubun">사용자 구분</label></th>
+                <th scope="row"><label htmlFor="userGubun">사용자 구분</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <Select defaultValue={optionUserGubun[0]} value={userGubun} onChange={setUserGubun} options={optionUserGubun} className='react-select-container' classNamePrefix="react-select" />
                 </td>
@@ -367,15 +379,18 @@ function SysUserMngModi() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="phone">사무실전화번호</label></th>
-                <td>070-1234-5678</td>
+                <td>
+                  <input type="text" id="cellPhone1" name="cellPhone" style={{ width: '80px' }} value={'010'} /><span style={{ padding: '0 8px' }}>-</span>
+                  <input type="text" id="cellPhone2" name="cellPhone" style={{ width: '80px' }} value={'1234'} /><span style={{ padding: '0 8px' }}>-</span>
+                  <input type="text" id="cellPhone3" name="cellPhone" style={{ width: '80px' }} value={'5678'} />
+                </td>
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="cellPhone">휴대폰</label></th>
                 <td>
-                  <span className='mr25'>010-1234-5678</span>
-                  <input type="text" id="cellPhone1" name="cellPhone" style={{ width: '80px' }} /><span style={{ padding: '0 8px' }}>-</span>
-                  <input type="text" id="cellPhone2" name="cellPhone" style={{ width: '80px' }} /><span style={{ padding: '0 8px' }}>-</span>
-                  <input type="text" id="cellPhone3" name="cellPhone" style={{ width: '80px' }} />
+                  <input type="text" id="cellPhone1" name="cellPhone" style={{ width: '80px' }} value={'010'} /><span style={{ padding: '0 8px' }}>-</span>
+                  <input type="text" id="cellPhone2" name="cellPhone" style={{ width: '80px' }} value={'1234'} /><span style={{ padding: '0 8px' }}>-</span>
+                  <input type="text" id="cellPhone3" name="cellPhone" style={{ width: '80px' }} value={'5678'} />
                 </td>
               </tr>
               <tr>
@@ -403,10 +418,10 @@ function SysUserMngModi() {
           </table>
         </div>
         <div className='detail-bottom-btn-group mt20 center'>
-          <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>확인</button>
+          <button className='btn btn-lg btn-primary' onClick={() => { setRegist(true) }}>수정</button>
         </div>
         <Alert open={regist} close={() => { setRegist(false) }}>
-          <div>변경하시겠습니까?</div>
+          <div>사용자를 수정하시겠습니까?</div>
         </Alert>
       </div>
     </PopupPortal>
