@@ -67,33 +67,38 @@ function SysSendCustomTxtMsgLog() {
            <table className='search'>
             <caption>로그 검색 정보</caption>
               <colgroup>
-                <col span={10} style={{ width: '10%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
               </colgroup>
             <tbody>
               <tr>
                   <th scope="row"><label htmlFor="title">제목</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="title" id="title" placeholder='ID' />
                   </td>
                   <th scope="row"><label htmlFor="regNumber">등록번호</label></th>
-                  <td colSpan={3}>
+                  <td>
                     <input type="text" name="regNumber" id="regNumber" placeholder='이름' />
                   </td>
                   <th scope="row"><label htmlFor="registrant">등록자</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="registrant" id="registrant" placeholder='' />
                   </td>
               </tr>
               <tr>
                   <th scope="row"><label htmlFor="registration_department">등록부서</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <span className='input-btn-wrap'>
                       <span className='input input_org input-search-front'></span>
                       <button className='btn btn-black btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                     </span>
                   </td>
                   <th scope="row"><label htmlFor="receiverMail">검색 일자</label></th>
-                  <td colSpan={3}>
+                  <td>
                     <div className='flex-wrap between'>
                     <Select defaultValue={optionsSearchDate[0]} value={searchDate} onChange={setSearchDate} options={optionsSearchDate} className='react-select-container w40' classNamePrefix="react-select" />
                     <span className='datepickers-wrap ml10'>
@@ -104,18 +109,18 @@ function SysSendCustomTxtMsgLog() {
                   </div>
                   </td>
                   <th><label htmlFor="receptionStatus">발송 여부</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <Select defaultValue={optionsReceptionStatus[0]} value={receptionStatus} onChange={setReceptionStatus} options={optionsReceptionStatus} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                 </tr>
               <tr>
                 <th scope="row"><label htmlFor="area">구역명</label></th>
-                  <td colSpan={2}>
+                  <td>
                   <Select defaultValue={optionsArea[0]} value={area} onChange={setArea} options={optionsArea} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                 <th scope="row"><label htmlFor="regdate">작업 구분</label></th>
-                <td colSpan={3}> <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" /></td>
-                <td colSpan={2}></td>
+                <td> <Select defaultValue={optionsWorkType[0]} value={workType} onChange={setWorkType} options={optionsWorkType} className='react-select-container' classNamePrefix="react-select" /></td>
+                <td></td>
               </tr>
             </tbody>
           </table>

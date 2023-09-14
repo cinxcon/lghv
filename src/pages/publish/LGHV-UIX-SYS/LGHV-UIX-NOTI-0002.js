@@ -88,6 +88,7 @@ function NoticeRegist() {
                 <tr>
                     <th scope='row'>내용</th>
                     <td colSpan={3}>
+                        <div className='template over-flow-y'>
                         <CKEditor
                                 editor={ CustomEditor }
                                 data="<p>Hello from CKEditor 5!</p>"
@@ -106,6 +107,7 @@ function NoticeRegist() {
                                   console.log('Focus.', editor);
                                 } }
                         />
+                        </div>
                     </td>
                 </tr>
                 <tr>

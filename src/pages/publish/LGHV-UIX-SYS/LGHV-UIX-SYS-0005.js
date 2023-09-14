@@ -38,49 +38,45 @@ function SysConnectLog() {
                 <table className='search'>
                     <caption>로그 검색 정보</caption>
                     <colgroup>
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
-                        <col style={{ width: '10%' }} />
+                        <col style={{ width: '8%' }} />
+                        <col style={{ width: '25%' }} />
+                        <col style={{ width: '8%' }} />
+                        <col style={{ width: '25%' }} />
+                        <col style={{ width: '8%' }} />
+                        <col style={{ width: '25%' }} />
                     </colgroup>
                 <tbody>
                     <tr>
                         <th scope="row"><label htmlFor="logId">Log ID</label></th>
-                        <td colSpan={2}>
+                        <td>
                             <input type="text" name="logId" id="logId" placeholder='Log ID' />
                         </td>
                         <th scope="row"><label htmlFor="userId">사용자 ID</label></th>
-                        <td colSpan={2}>
+                        <td>
                             <input type="text" name="userId" id="userId" placeholder='사용자ID' />
                         </td>
                         <th scope="row"><label htmlFor="ipadress">IP 주소</label></th>
-                        <td colSpan={3}>
+                        <td>
                             <input type="text" name="ipadress" id="ipadress" placeholder='000.000.000.000' />
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label htmlFor="method">접속 방법</label></th>
-                        <td colSpan={2}>
+                        <td>
                             <input type="text" name="method" id="method" placeholder='접속 방법' />
                         </td>
                         <th scope="row"><label htmlFor="title">주제</label></th>
-                        <td colSpan={2}>
+                        <td>
                         <Select defaultValue={optionTitle[0]} value={title} onChange={setTitle} options={optionTitle} className='react-select-container' classNamePrefix="react-select" />
                         </td>
                         <th><label htmlFor="contents">내용</label></th>
-                        <td colSpan={3}>
+                        <td>
                             <input type="text" name="contents" id="contents" placeholder='내용' />
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label htmlFor="regdate">Log 생성 일자</label></th>
-                        <td colSpan={2}>
+                        <td>
                         <div className='flex-wrap between'>
                             <span className='datepickers-wrap'>
                             <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>

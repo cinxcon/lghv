@@ -378,7 +378,7 @@ function UrgentWork() {
                             <div className='btn-wrap'>
                                 <button type='button' className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupTemplate', 'Template', '1200', '800') }}>템플릿 불러오기</button>
                             </div>
-                            <div className='template'>
+                            <div className='template over-flow-y'>
                                 <CKEditor
                                 editor={ CustomEditor }
                                 data="<p>Hello from CKEditor 5!</p>"

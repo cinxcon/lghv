@@ -53,13 +53,13 @@ function SysDepartmentMng() {
                     <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                   </span>
                 </td>
-                <th scope="row"><label htmlFor="address">주소</label></th>
-                <td>
-                  <input type="text" id="address" name="address" />
-                </td>
                 <th scope="row"><label htmlFor="depGubun">부서구분</label></th>
                 <td>
                   <Select defaultValue={optionDepGubun[0]} value={depGubun} onChange={setDepGubun} options={optionDepGubun} className='react-select-container' classNamePrefix="react-select" />
+                </td>
+                <th scope="row"><label htmlFor="address">주소</label></th>
+                <td>
+                  <input type="text" id="address" name="address" />
                 </td>
                 <th scope="row"><label htmlFor="detailAddress">상세주소</label></th>
                 <td>
