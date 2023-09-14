@@ -11,10 +11,13 @@ const PopupPortal = ({ children }) => {
 
 function SysDepartmentMngDetail() {
   const pagedata = {
-    title: '부서 상세',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 상세',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
+  const [datadel, setDatadel] = useState(false);
+
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -29,10 +32,14 @@ function SysDepartmentMngDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <Alert open={datadel} close={() => { setDatadel(false) }}>
+          <div>등록된 부서를 삭제하시겠습니까?</div>
+        </Alert>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='btn-wrap right'>
-          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify', 'departmentMngModi', 952, 600) }}>변경</button>
-          <button className="btn btn-low btn-md btn-del">삭제</button>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify', 'departmentMngModi', 952, 600) }}>수정</button>
+          <button className="btn btn-low btn-md btn-del" onClick={() => { setDatadel(true) }}>삭제</button>
         </div>
         <div className='content-section mt8'>
           <table className='table table-row'>
@@ -90,11 +97,13 @@ function SysDepartmentMngDetail() {
   )
 }
 
+// 등록 없어짐
 function SysDepartmentMngReg() {
   const pagedata = {
-    title: '부서 등록',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 등록',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [regist, setRegist] = useState(false);
   // 새창 팝업
@@ -118,6 +127,7 @@ function SysDepartmentMngReg() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
@@ -134,7 +144,7 @@ function SysDepartmentMngReg() {
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="topDep">상위부서</label></th>
+                <th scope="row"><label htmlFor="topDep">부서경로</label></th>
                 <td>
                   <span className='input-btn-wrap'>
                     <span className='input input_org input-search-front'></span>
@@ -207,9 +217,10 @@ function SysDepartmentMngReg() {
 
 function SysDepartmentMngModi() {
   const pagedata = {
-    title: '부서 수정',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 수정',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [modify, setModify] = useState(false);
   const [onLoad, setOnLoad] = useState(false);
@@ -221,9 +232,9 @@ function SysDepartmentMngModi() {
   }
   // SelectBox
   const optionDepGubun = [
+    { value: '부서-팀', label: '부서-팀' },
     { value: '기타', label: '기타' },
-    { value: '고객센터', label: '고객센터' },
-    { value: '부서-팀', label: '부서-팀' }
+    { value: '고객센터', label: '고객센터' }
   ];
   const [depGubun, setDepGubun] = useState(optionDepGubun[0]);
   useEffect(() => {
@@ -240,6 +251,7 @@ function SysDepartmentMngModi() {
         <Alert open={onLoad} type={'no'} close={() => { setOnLoad(false) }}>
           <div>인사연동된 데이터는 <br />우편번호, 주소, 상세주소, 메모만 편집가능합니다</div>
         </Alert>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
@@ -250,13 +262,13 @@ function SysDepartmentMngModi() {
             </colgroup>
             <tbody>
               <tr>
-                <th scope="row"><label htmlFor="depName">부서명</label></th>
+                <th scope="row"><label htmlFor="depName">부서명</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <input type="text" id="depName" name="depName" value={'경영관리담당'} />
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="topDep">상위부서</label></th>
+                <th scope="row"><label htmlFor="topDep">부서경로</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <span className='input-btn-wrap'>
                     <span className='input input_org input-search-front'>경영관리담당/CFO/CRO/대표이사/LG HelloVision/</span>
@@ -266,12 +278,10 @@ function SysDepartmentMngModi() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="depId">부서ID</label></th>
-                <td>
-                  <input type="text" id="depId" name="depId" value={'233333'} readOnly />
-                </td>
+                <td>233333</td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="depGubun">부서구분</label></th>
+                <th scope="row"><label htmlFor="depGubun">부서구분</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td><Select defaultValue={optionDepGubun[0]} value={depGubun} onChange={setDepGubun} options={optionDepGubun} className='react-select-container' classNamePrefix="react-select" /></td>
               </tr>
               <tr>
@@ -317,7 +327,7 @@ function SysDepartmentMngModi() {
           </table>
         </div>
         <div className='detail-bottom-btn-group mt20 center'>
-          <button className='btn btn-lg btn-primary' onClick={() => { setModify(true) }}>확인</button>
+          <button className='btn btn-lg btn-primary' onClick={() => { setModify(true) }}>수정</button>
         </div>
         <Alert open={modify} close={() => { setModify(false) }}>
           <div>수정하시겠습니까?</div>

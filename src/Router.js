@@ -53,7 +53,7 @@ import PopupAccPolicyReg from './pages/publish/popup/popupDetail/Popup_AccPolicy
 import PopupAccPolicyDetail from './pages/publish/popup/popupDetail/Popup_AccPolicyDetail';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
 import PopupSysComSort from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
-import { PopupSysCodeAdd, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
+import { PopupSysCodeAdd, PopupSysCodeInfo, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
@@ -138,6 +138,7 @@ const AppRouter = () => {
       <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
       <Route path="/popup/PopupSysComSort" element={<PopupSysComSort />} />
       <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />
+      <Route path="/popup/PopupSysCodeInfo" element={<PopupSysCodeInfo />} />
       <Route path="/popup/PopupSysGroupAdd" element={<PopupSysGroupAdd />} />
 
       {/* 시스템관리 */}

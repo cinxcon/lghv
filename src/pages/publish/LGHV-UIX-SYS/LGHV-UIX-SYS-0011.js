@@ -14,6 +14,10 @@ function SysCodeMng() {
     const popupY = (window.screen.height / 2) - (height / 2);
     window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
   }
+  const [codeList, setCodeList] = useState(true);
+  const handleClick = () => {
+    setCodeList(false);
+  }
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -24,7 +28,7 @@ function SysCodeMng() {
             <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysComSort', 'PopupSysComSort', '464', '800') }}>정렬 순서 변경</button>
           </div>
           <div className='over-flow-y'>
-            <table className='table'>
+            <table className='table table-td-left'>
               <caption>코드 종류 테이블</caption>
               <colgroup>
                 <col span="2" />
@@ -55,51 +59,108 @@ function SysCodeMng() {
           </div>
         </div>
         <div className='arrow'><i>arrow icon</i></div>
-        <div className='content-section half'>
-          <div className='flex-wrap between h3-wrap'>
-            <h3>점검 결과</h3>
-            <div className='btn-wrap'>
-              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysComSort', 'PopupSysComSort', '464', '800') }}>정렬 순서 설정</button>
-              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysCodeAdd', 'PopupSysCodeAdd', '464', '460') }}>추가</button>
-            </div>
-          </div>
-          <div className='over-flow-y'>
-            <table className='table'>
-              <caption>코드 종류 테이블</caption>
-              <colgroup>
-                <col span="2" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope='col'>구분</th>
-                  <th scope='col'>코드명</th>
-                  <th scope='col'>하위코드</th>
-                  <th scope='col'>매핑코드</th>
-                  <th scope='col'>등록 정보</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>사용자</td>
-                  <td>정상</td>
-                  <td>없음</td>
-                  <td>00</td>
-                  <td><button className='btn btn-low btn-md'>Info</button></td>
-                </tr>
-                <tr>
-                  <td>사용자</td>
-                  <td>비정상</td>
-                  <td>없음</td>
-                  <td>01</td>
-                  <td><button className='btn btn-low btn-md'>Info</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        { codeList === true
+          ? (<CodeList onPopup={onPopup} handleClick={handleClick} />)
+          : (<CodeListNext onPopup={onPopup} setCodeList={setCodeList} />)
+        }
       </div>
     </>
   )
 }
 
+function CodeList(props) {
+  const { onPopup, handleClick } = props;
+  return (
+    <div className='content-section half'>
+      <div className='flex-wrap between h3-wrap'>
+        <h3>장애조치 코드</h3>
+        <div className='btn-wrap'>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysComSort', 'PopupSysComSort', '464', '800') }}>정렬 순서 설정</button>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysCodeAdd', 'PopupSysCodeAdd', '464', '460') }}>등록</button>
+        </div>
+      </div>
+      <div className='over-flow-y'>
+        <table className='table table-td-left'>
+          <caption>코드 종류 테이블</caption>
+          <colgroup>
+            <col span="2" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope='col'>구분</th>
+              <th scope='col'>코드명</th>
+              <th scope='col'>하위코드</th>
+              <th scope='col'>매핑코드</th>
+              <th scope='col'>등록 정보</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className='link' onClick={ handleClick }>
+              <td>사용자</td>
+              <td>CAMS</td>
+              <td>없음</td>
+              <td></td>
+              <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysCodeInfo', 'PopupSysCodeInfo', '464', '460') }}>Info</button></td>
+            </tr>
+            <tr className='link'>
+              <td>사용자</td>
+              <td>하드웨어 조치</td>
+              <td>없음</td>
+              <td></td>
+              <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysCodeInfo', 'PopupSysCodeInfo', '464', '460') }}>Info</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+function CodeListNext(props) {
+  const { onPopup, setCodeList } = props;
+  return (
+    <div className='content-section half'>
+      <div className='flex-wrap between h3-wrap'>
+        <h3>장애조치 코드 -CAMS</h3>
+        <div className='btn-wrap'>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysComSort', 'PopupSysComSort', '464', '800') }}>정렬 순서 설정</button>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysCodeAdd', 'PopupSysCodeAdd', '464', '460') }}>등록</button>
+          <button className='btn btn-md btn-low' onClick={() => { setCodeList(true) }}>목록</button>
+        </div>
+      </div>
+      <div className='over-flow-y'>
+        <table className='table table-td-left'>
+          <caption>코드 종류 테이블</caption>
+          <colgroup>
+            <col span="2" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope='col'>구분</th>
+              <th scope='col'>코드명</th>
+              <th scope='col'>하위코드</th>
+              <th scope='col'>매핑코드</th>
+              <th scope='col'>등록 정보</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>사용자</td>
+              <td>분배센터</td>
+              <td>없음</td>
+              <td></td>
+              <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysCodeInfo', 'PopupSysCodeInfo', '464', '460') }}>Info</button></td>
+            </tr>
+            <tr>
+              <td>사용자</td>
+              <td>정전</td>
+              <td>없음</td>
+              <td></td>
+              <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysCodeInfo', 'PopupSysCodeInfo', '464', '460') }}>Info</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
 export default SysCodeMng;

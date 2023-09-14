@@ -5,7 +5,7 @@ import ContentTitle from '../layout/ContentTitle'
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
-import { Popup } from '../popup/Popup';
+import { Alert } from '../popup/Popup';
 
 function SysUnsubscribeUserMng() {
   const pagedata = {
@@ -144,9 +144,9 @@ function SysUnsubscribeUserMng() {
             <button type="button" className='btn btn-md ml10' onClick={() => { setAdd(true) }}>선택등록</button>
             <button type="button" className='btn btn-low btn-md btn-del'>삭제</button>
           </div>
-          <Popup open={add} close={() => { setAdd(false) }} header="수신거부 사용자 등록" footer={ <PopupButtons close={() => { setAdd(false) }} /> } type={'sm'}>
+          <Alert open={add} close={() => { setAdd(false) }}>
             <div>수신거부 사용자를 등록하시겠습니까?</div>
-          </Popup>
+          </Alert>
         </div>
         <table className="table mt8">
           <caption>사용자 선택 테이블</caption>
@@ -200,9 +200,9 @@ function SysUnsubscribeUserMng() {
             <span className='cheked-item'><b>{checkedCount}</b>개 선택</span>
             <button type="button" className='btn btn-low btn-md btn-del ml10' onClick={() => { setDel(true) }}>삭제</button>
           </div>
-          <Popup open={del} close={() => { setDel(false) }} header="수신거부 사용자 삭제" footer={ <PopupButtons close={() => { setDel(false) }} /> } type={'sm'}>
+          <Alert open={del} close={() => { setDel(false) }}>
             <div>수신거부 사용자를 삭제하시겠습니까?</div>
-          </Popup>
+          </Alert>
         </div>
         <table className="table">
           <caption>수신거부 사용자관리 테이블</caption>
@@ -253,15 +253,6 @@ function SysUnsubscribeUserMng() {
         <ResultListPaging />
       </div>
     </>
-  )
-}
-
-function PopupButtons(props) {
-  return (
-    <div className="btn-group">
-      <button className="btn btn-lg btn-low" onClick={props.close}>취소</button>
-      <button className="btn btn-lg btn-primary">확인</button>
-    </div>
   )
 }
 
