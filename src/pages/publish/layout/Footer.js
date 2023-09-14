@@ -6,7 +6,8 @@ const Footer = () => {
   const [notice, setNotice] = useState([false, false, false]);
 
   useEffect(() => {
-    setNotice([true, true, true]);
+    // setNotice([true, true, true]);
+    setNotice([false, false, false]);
   }, []);
   const closeNotice = (index) => {
     const newNoticeStates = [...notice];

@@ -5,6 +5,7 @@ import ContentTitle from '../layout/ContentTitle'
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
+import { Popup } from '../popup/Popup';
 
 function SysUnsubscribeUserMng() {
   const pagedata = {
@@ -15,6 +16,8 @@ function SysUnsubscribeUserMng() {
   const [userList] = useState([1, 2]);
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
   const [success] = useState([<span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>, <span className='color-success'>계정활성</span>, <span className='color-disable'>비활성</span>]);
+  const [del, setDel] = useState(false);
+  const [add, setAdd] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [checkedItems, setCheckedItems] = useState(new Set());
   const [checkedCount, setCheckedCount] = useState(0);
@@ -138,9 +141,12 @@ function SysUnsubscribeUserMng() {
         <div className='mt16'>
           <div className='btn-wrap right'>
             <span className='cheked-item'><b>{checkedCount2}</b>개 선택</span>
-            <button type="button" className='btn btn-md ml10'>선택등록</button>
+            <button type="button" className='btn btn-md ml10' onClick={() => { setAdd(true) }}>선택등록</button>
             <button type="button" className='btn btn-low btn-md btn-del'>삭제</button>
           </div>
+          <Popup open={add} close={() => { setAdd(false) }} header="수신거부 사용자 등록" footer={ <PopupButtons close={() => { setAdd(false) }} /> } type={'sm'}>
+            <div>수신거부 사용자를 등록하시겠습니까?</div>
+          </Popup>
         </div>
         <table className="table mt8">
           <caption>사용자 선택 테이블</caption>
@@ -192,8 +198,11 @@ function SysUnsubscribeUserMng() {
           <ResultPageView />
           <div className='btn-wrap'>
             <span className='cheked-item'><b>{checkedCount}</b>개 선택</span>
-            <button type="button" className='btn btn-low btn-md btn-del ml10'>삭제</button>
+            <button type="button" className='btn btn-low btn-md btn-del ml10' onClick={() => { setDel(true) }}>삭제</button>
           </div>
+          <Popup open={del} close={() => { setDel(false) }} header="수신거부 사용자 삭제" footer={ <PopupButtons close={() => { setDel(false) }} /> } type={'sm'}>
+            <div>수신거부 사용자를 삭제하시겠습니까?</div>
+          </Popup>
         </div>
         <table className="table">
           <caption>수신거부 사용자관리 테이블</caption>
@@ -244,6 +253,15 @@ function SysUnsubscribeUserMng() {
         <ResultListPaging />
       </div>
     </>
+  )
+}
+
+function PopupButtons(props) {
+  return (
+    <div className="btn-group">
+      <button className="btn btn-lg btn-low" onClick={props.close}>취소</button>
+      <button className="btn btn-lg btn-primary">확인</button>
+    </div>
   )
 }
 
