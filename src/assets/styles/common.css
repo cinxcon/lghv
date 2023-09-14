@@ -212,6 +212,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-datepicker__close-icon:after { overflow: hidden; min-width: 45px; height: 28px !important; background-color: transparent !important; font-size: 0 !important; }
 .btn-wrap .btn + .btn{margin-left: 4px;}
 .work-content .btn-wrap {margin-bottom: 6px; text-align: right;}
+.work-content .template{max-height: 600px;}
 .more-link{position: relative; font-size: 12px; padding-right: 16px;}
 .more-link:after{content:''; position: absolute; top: 1px; display: inline-block; width: 16px; height: 16px; background-image: url('../images/common/ic_black_set_16.png'); background-position: -302px 0; background-repeat: no-repeat; background-size: auto;}
 
@@ -358,7 +359,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .menu-item-level-1.active .toggle-button-level-1 { font-weight: bold; }
 .menu-level-2 { list-style-type: none; padding: 0; margin: 0; text-align: center; }
 .menu-item-level-2 { text-align: left; position: relative; }
-.menu-item-level-2-link { display: inline-block; width: 100%; padding: 10px 0 10px 60px; }
+.menu-item-level-2-link { display: inline-block; width: 100%; padding: 10px 16px 10px 60px; }
 .menu-item-level-2.active::before { content: ''; display: block; position: absolute; left: 40px; top: 20px; width: 8px; height: 2px; background-color: #fff; }
 .menu-item-level-2.active .menu-item-level-2-link { font-weight: bold; }
 .main-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
@@ -524,7 +525,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 /*  에디터   */
 .ck.ck-editor{z-index: 0;}
 .ck-editor__editable_inline {
-     min-height: 400px;
+     min-height: 300px;
 }
 .fix-wrap{position: sticky;}
 

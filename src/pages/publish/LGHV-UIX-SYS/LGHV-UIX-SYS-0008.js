@@ -43,44 +43,49 @@ function SysSendMailLog() {
            <table className='search'>
             <caption>로그 검색 정보</caption>
               <colgroup>
-                <col span={10} style={{ width: '10%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
+                <col style={{ width: '8%' }} />
+                <col style={{ width: '25%' }} />
               </colgroup>
             <tbody>
               <tr>
                   <th scope="row"><label htmlFor="sendId">발송 ID</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="sendId" id="sendId" placeholder='ID' />
                   </td>
                   <th scope="row"><label htmlFor="sendName">발송자 이릉</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="sendName" id="sendName" placeholder='이름' />
                   </td>
                   <th scope="row"><label htmlFor="sendMail">발송자 이메일</label></th>
-                  <td colSpan={3}>
+                  <td>
                     <input type="text" name="sendMail" id="sendMail" placeholder='' />
                   </td>
               </tr>
               <tr>
                   <th scope="row"><label htmlFor="receiverName">수신자 이름</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="receiverName" id="receiverName" placeholder='이름' />
                   </td>
                   <th scope="row"><label htmlFor="receiverMail">수신자 메일</label></th>
-                  <td colSpan={2}>
+                  <td>
                     <input type="text" name="receiverMail" id="receiverMail" placeholder='' />
                   </td>
                   <th><label htmlFor="receptionStatus">발송 상태</label></th>
-                  <td colSpan={3}>
+                  <td>
                   <Select defaultValue={optionsReceptionStatus[0]} value={receptionStatus} onChange={setReceptionStatus} options={optionsReceptionStatus} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                 </tr>
               <tr>
                 <th scope="row"><label htmlFor="mailTitle">내용</label></th>
-                  <td colSpan={5}>
+                  <td colSpan={3}>
                     <input type="text" name="mailTitle" id="mailTitle" placeholder='내용' />
                   </td>
                 <th scope="row"><label htmlFor="regdate">발송 일자</label></th>
-                <td colSpan={3}>
+                <td>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -121,7 +126,7 @@ function SysSendMailLog() {
             <th>발송자 이메일</th>
             <th>수신자 이름</th>
             <th>수신자 메일</th>
-            <th>제목</th>
+            <th>내용</th>
             <th>발송 일자</th>
             <th>발송상태</th>
             </tr>
@@ -137,7 +142,7 @@ function SysSendMailLog() {
             <td>admin@hghv.com</td>
             <td>김순이</td>
             <td>user@hghv.com</td>
-            <td>[작업 진행]</td>
+            <td>［ＴＯＭＳ］작업종료</td>
             <td>2023/07/12 14:00:00</td>
             <td>발송</td>
         </tr>
@@ -151,7 +156,7 @@ function SysSendMailLog() {
             <td>admin@hghv.com</td>
             <td>김순이</td>
             <td>user@hghv.com</td>
-            <td>[작업 진행]</td>
+            <td>［ＴＯＭＳ］작업종료</td>
             <td>2023/07/12 14:00:00</td>
             <td>발송</td>
         </tr>
@@ -165,7 +170,7 @@ function SysSendMailLog() {
             <td>admin@hghv.com</td>
             <td>김순이</td>
             <td>user@hghv.com</td>
-            <td>[작업 진행]</td>
+            <td>［ＴＯＭＳ］작업종료</td>
             <td>2023/07/12 14:00:00</td>
             <td>발송</td>
         </tr>
@@ -179,7 +184,7 @@ function SysSendMailLog() {
             <td>admin@hghv.com</td>
             <td>김순이</td>
             <td>user@hghv.com</td>
-            <td>[작업 진행]</td>
+            <td>［ＴＯＭＳ］작업종료</td>
             <td>2023/07/12 14:00:00</td>
             <td>발송</td>
         </tr>

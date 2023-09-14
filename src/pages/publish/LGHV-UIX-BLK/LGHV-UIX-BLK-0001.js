@@ -163,7 +163,7 @@ function DisabilityMngReg() {
                         <PopupTemplate onItemSelected={handleTemplateSelected} />
                       </Popup>
                     </div>
-                    <div className='template'>
+                    <div className='template over-flow-y'>
                       <CKEditor
                       editor={ CustomEditor }
                       data="<p>Hello from CKEditor 5!</p>"

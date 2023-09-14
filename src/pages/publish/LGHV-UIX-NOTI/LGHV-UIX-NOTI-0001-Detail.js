@@ -191,6 +191,7 @@ function NoticeRegist() {
                         <tr>
                             <th scope='row'>내용</th>
                             <td colSpan={3}>
+                                <div className='template over-flow-y'>
                                 <CKEditor
                                     editor={ CustomEditor }
                                     data="<p>[공지] 23년 디지털 채널 개편 일정에 대하여 안내 드립니다.</p><p>개편일정</p><p>2023년 9월 5일 ~ 2023년 10월 5일</p><p>작업 내용 확인하시고 개별 통보 부탁드립니다.</p><p>감사합니다.</p>"
@@ -209,6 +210,7 @@ function NoticeRegist() {
                                       console.log('Focus.', editor);
                                     } }
                                 />
+                                </div>
                             </td>
                         </tr>
                         <tr>
