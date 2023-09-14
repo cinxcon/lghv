@@ -75,12 +75,12 @@ function SysSendTxtMsgLog() {
                   </td>
                 </tr>
               <tr>
-                <th scope="row"><label htmlFor="mailTitle">메일 제목</label></th>
-                  <td colSpan={2}>
-                    <input type="text" name="mailTitle" id="mailTitle" placeholder='제목' />
+                <th scope="row"><label htmlFor="mailTitle">내용</label></th>
+                  <td colSpan={5}>
+                    <input type="text" name="mailTitle" id="mailTitle" placeholder='내용' />
                   </td>
                 <th scope="row"><label htmlFor="regdate">발송 일자</label></th>
-                <td colSpan={2}>
+                <td colSpan={3}>
                   <div className='flex-wrap between'>
                     <span className='datepickers-wrap'>
                       <span><DatePicker locale={ko} selected={startDate} onChange={(date) => setStartDate(date)} startDate={startDate} dateFormat="yyyy-MM-dd" className="input-datepicker" /></span>
@@ -89,7 +89,6 @@ function SysSendTxtMsgLog() {
                     </span>
                   </div>
                 </td>
-                <td colSpan={4}></td>
               </tr>
             </tbody>
           </table>

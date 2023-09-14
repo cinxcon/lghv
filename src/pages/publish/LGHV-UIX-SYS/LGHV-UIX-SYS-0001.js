@@ -80,9 +80,9 @@ function SysDepartmentMng() {
       <div className='content-section'>
         <div className="result-pageview">
           <ResultPageView />
-          <div className='btn-wrap'>
+          {/* <div className='btn-wrap'>
             <button type="button" className="btn btn-md btn-reg" onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-regist', 'departmentMngReg', 952, 600) }}>등록</button>
-          </div>
+          </div> */}
         </div>
         <table className="table">
           <caption>부서관리 테이블</caption>

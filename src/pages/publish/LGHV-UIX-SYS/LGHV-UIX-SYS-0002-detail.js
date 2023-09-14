@@ -11,10 +11,12 @@ const PopupPortal = ({ children }) => {
 
 function SysUserMngDetail() {
   const pagedata = {
-    title: '사용자 상세',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '사용자관리 상세',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
+  const [datadel, setDatadel] = useState(false);
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -29,11 +31,15 @@ function SysUserMngDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <Alert open={datadel} close={() => { setDatadel(false) }}>
+          <div>등록된 사용자를 삭제하시겠습니까?</div>
+        </Alert>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='btn-wrap right'>
           <button className='btn btn-md btn-pop'>권한보기</button>
-          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-modify', 'departmentMngModi', 952, 800) }}>변경</button>
-          <button className="btn btn-low btn-md btn-del">삭제</button>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-modify', 'departmentMngModi', 952, 800) }}>수정</button>
+          <button className="btn btn-low btn-md btn-del" onClick={() => { setDatadel(true) }}>삭제</button>
         </div>
         <div className='content-section mt8'>
           <table className='table table-row'>
@@ -104,9 +110,10 @@ function SysUserMngDetail() {
 
 function SysUserMngReg() {
   const pagedata = {
-    title: '사용자 등록',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '사용자관리 등록',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [regist, setRegist] = useState(false);
   // 새창 팝업
@@ -143,6 +150,7 @@ function SysUserMngReg() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
@@ -267,9 +275,10 @@ function SysUserMngReg() {
 
 function SysUserMngModi() {
   const pagedata = {
-    title: '사용자 변경',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '사용자관리 수정',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [regist, setRegist] = useState(false);
   // 새창 팝업
@@ -293,10 +302,11 @@ function SysUserMngModi() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
-            <caption>사용자 변경</caption>
+            <caption>사용자 수정</caption>
             <colgroup>
               <col style={{ width: '15%' }} />
               <col />

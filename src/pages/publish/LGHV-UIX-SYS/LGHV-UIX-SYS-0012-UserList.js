@@ -48,6 +48,7 @@ function SysAuthorityMngUserList() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section'>
           <div className='btn-wrap right'>

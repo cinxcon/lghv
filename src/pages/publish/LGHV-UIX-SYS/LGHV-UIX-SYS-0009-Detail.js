@@ -14,8 +14,8 @@ function SysSendCustomTxtMsgLogDetail() {
   const [notimethod, setNotimethod] = useState(false);
   const [history, setHistory] = useState(false);
   const pagedata = {
-    title: '고객문자 발송내역',
-    subtitle: '상세',
+    title: '로그관리',
+    subtitle: '고객문자 발송내역 상세',
     SubMenu: 'yes',
     isDetail: 'yes'
   }

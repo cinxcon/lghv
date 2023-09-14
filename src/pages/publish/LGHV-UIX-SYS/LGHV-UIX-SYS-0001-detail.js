@@ -11,10 +11,13 @@ const PopupPortal = ({ children }) => {
 
 function SysDepartmentMngDetail() {
   const pagedata = {
-    title: '부서 상세',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 상세',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
+  const [datadel, setDatadel] = useState(false);
+
   // 새창 팝업
   const onPopup = (url, name, width, height) => {
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -29,10 +32,14 @@ function SysDepartmentMngDetail() {
         `}
       </style>
       <div className='new-window-wrap'>
+        <Alert open={datadel} close={() => { setDatadel(false) }}>
+          <div>등록된 부서를 삭제하시겠습니까?</div>
+        </Alert>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='btn-wrap right'>
-          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify', 'departmentMngModi', 952, 600) }}>변경</button>
-          <button className="btn btn-low btn-md btn-del">삭제</button>
+          <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001-modify', 'departmentMngModi', 952, 600) }}>수정</button>
+          <button className="btn btn-low btn-md btn-del" onClick={() => { setDatadel(true) }}>삭제</button>
         </div>
         <div className='content-section mt8'>
           <table className='table table-row'>
@@ -92,9 +99,10 @@ function SysDepartmentMngDetail() {
 
 function SysDepartmentMngReg() {
   const pagedata = {
-    title: '부서 등록',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 등록',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [regist, setRegist] = useState(false);
   // 새창 팝업
@@ -118,6 +126,7 @@ function SysDepartmentMngReg() {
         `}
       </style>
       <div className='new-window-wrap'>
+      <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
@@ -207,9 +216,10 @@ function SysDepartmentMngReg() {
 
 function SysDepartmentMngModi() {
   const pagedata = {
-    title: '부서 수정',
-    subtitle: '',
-    SubMenu: 'yes'
+    title: '계정관리',
+    subtitle: '부서관리 수정',
+    SubMenu: 'yes',
+    isDetail: 'yes'
   }
   const [modify, setModify] = useState(false);
   const [onLoad, setOnLoad] = useState(false);
@@ -240,6 +250,7 @@ function SysDepartmentMngModi() {
         <Alert open={onLoad} type={'no'} close={() => { setOnLoad(false) }}>
           <div>인사연동된 데이터는 <br />우편번호, 주소, 상세주소, 메모만 편집가능합니다</div>
         </Alert>
+        <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='content-section mt8 mb30'>
           <table className='table table-row'>
