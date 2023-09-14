@@ -41,7 +41,7 @@ header { position: relative; background: #000; letter-spacing: -0.6px; }
 .content-title { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-top: 24px; padding-bottom: 12px; margin-bottom: 35px; }
 .content-title h2 { font-size: 24px; font-weight: bold; }
 .content-title h2 span {display: flex; align-items: center }
-.content-title h2 span > em{ font-size: 18px; font-weight: 500; color: #5a5a5a; margin-left:12px; padding-left: 12px;  border-left: 1px solid #dbdbdb; }
+.content-title h2 span > em{ font-size: 18px; line-height: 18px; font-weight: 500; color: #5a5a5a; margin-left:12px; padding-left: 12px;  border-left: 1px solid #dbdbdb; }
 .content-title h2 span.title-detail { display: inline-block; position: relative; font-size: 18px; color: #ccc; margin-left: 10px; padding-left: 10px; }
 .content-title h2 span.title-detail::before { content: ''; display: block; position: absolute; top: 3px; left: 0; width: 2px; height: 14px; background-color: #ccc; }
 .breadcrumb { font-size: 12px; display: flex; align-items: center; }
@@ -182,7 +182,6 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-search:before {content: ''; width: 16px; height: 16px; position: absolute; top: 5px; left: 5px; background:url('../images/common/ic_search_set_16.png') 0 0 no-repeat; background-size: auto;}
 .btn-search:hover { background-color: #ed174d; border-color: #ed174d;}
 .btn-search-txt{padding: 0 18px 0 36px; background-color:#000000; color:#ffffff; position: relative;}
-.btn-search-txt:hover{color: #000; border-color: #000; }
 .btn-search-txt:before {content: ''; width: 16px; height: 16px; position: absolute; top: 5px; left: 10px; background:url('../images/common/ic_search_set_16.png') 0 0 no-repeat; background-size: auto;}
 .btn-search-txt:hover::before{background-position: -16px 0;background-size: auto;}
 .btn-add {padding-left: 32px; position: relative; }
@@ -493,7 +492,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .new-window-wrap { padding: 24px; position: relative;}
 .new-window-wrap .pop-close{width: 32px; height: 32px; font-size: 0; text-indent: -99999px; position: absolute; right: 16px; top: 16px; background: url('../images/common/ic_close.png') 0 0 no-repeat; background-size: 100%;}
 .new-window-wrap .content-title{padding-top: 0; margin-bottom: 23px;}
-.new-window-wrap .breadcrumb { display: none;}
+.new-window-wrap .breadcrumb { padding-right: 40px;}
 .new-window-wrap .content-title + .detail-top-btn-group{margin-top: -23px;}
 .new-window-wrap .content-title h2 { font-size: 20px; }
 

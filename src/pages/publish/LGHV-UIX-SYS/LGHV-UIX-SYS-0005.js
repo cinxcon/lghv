@@ -5,6 +5,7 @@ import ContentTitle from '../layout/ContentTitle';
 import ResultPageView from '../common/ResultPageView';
 import ResultNoData from '../common/ResultNoData';
 import ResultListPaging from '../common/ResultListPaging';
+import Select from 'react-select';
 
 function SysConnectLog() {
   const pagedata = {
@@ -20,6 +21,10 @@ function SysConnectLog() {
   const handleButtonToggle = () => {
     setToggled(prevState => !prevState);
   };
+  const optionTitle = [
+    { value: '주제', label: '주제' }
+  ];
+  const [title, setTitle] = useState(optionTitle[0]);
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -66,7 +71,7 @@ function SysConnectLog() {
                         </td>
                         <th scope="row"><label htmlFor="title">주제</label></th>
                         <td colSpan={2}>
-                            <input type="text" name="title" id="title" placeholder='주제' />
+                        <Select defaultValue={optionTitle[0]} value={title} onChange={setTitle} options={optionTitle} className='react-select-container' classNamePrefix="react-select" />
                         </td>
                         <th><label htmlFor="contents">내용</label></th>
                         <td colSpan={3}>

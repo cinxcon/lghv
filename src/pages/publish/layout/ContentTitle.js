@@ -1,8 +1,18 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function ContentTitle({ data }) {
-  console.log(data);
+  const location = useLocation();
+  const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
   const isSubMenu = data.SubMenu;
+  const systemUrl = pathSegments[0].split('-');
+  console.log(systemUrl[2]);
+  const [isSystemMenu, setIsSystemMenu] = useState(false);
+  useEffect(() => {
+    if (systemUrl[2] === 'SYS') {
+      setIsSystemMenu(true)
+    }
+  }, []);
 
   return (
     <>
@@ -10,6 +20,7 @@ function ContentTitle({ data }) {
         <h2>{isSubMenu === 'yes' ? (<span>{data.title}<em>{data.subtitle}</em></span>) : (<span>{data.title}</span>) }</h2>
         <div className="breadcrumb">
           <Link to='/'className="home-link">홈</Link>
+          {isSystemMenu ? (<span>시스템관리</span>) : null}
           <span>{data.title}</span>
           {isSubMenu !== undefined && isSubMenu === 'yes' ? (<span>{ data.subtitle }</span>) : '' }
         </div>
