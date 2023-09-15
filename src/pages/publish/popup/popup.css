@@ -13,7 +13,7 @@
 .modal > section.popup-wrap .footer { text-align: center; }
 .modal > section.popup-wrap .main textarea { height: 100px; }
 
-.notice-pop { display: flex; position: fixed; top: 50%; left: 50%; width: 960px; flex-wrap: wrap; align-items: center; transform: translate(-50%, -50%);}
+.notice-pop { display: flex; position: fixed; top: 50%; left: 50%; width: 960px; flex-wrap: wrap; align-items: center; transform: translate(-50%, -50%); z-index: 2;}
 .notice-pop.close{ display: none;}
 .notice-pop > section { margin: 0 auto 30px; background-color: #fff; animation: modal-show 0.3s; overflow: hidden; }
 .notice-pop > section.alert-wrap { width: 342px; height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
