@@ -97,6 +97,7 @@ function SysDepartmentMngDetail() {
   )
 }
 
+// 등록 없어짐
 function SysDepartmentMngReg() {
   const pagedata = {
     title: '계정관리',
@@ -143,7 +144,7 @@ function SysDepartmentMngReg() {
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="topDep">상위부서</label></th>
+                <th scope="row"><label htmlFor="topDep">부서경로</label></th>
                 <td>
                   <span className='input-btn-wrap'>
                     <span className='input input_org input-search-front'></span>
@@ -231,9 +232,9 @@ function SysDepartmentMngModi() {
   }
   // SelectBox
   const optionDepGubun = [
+    { value: '부서-팀', label: '부서-팀' },
     { value: '기타', label: '기타' },
-    { value: '고객센터', label: '고객센터' },
-    { value: '부서-팀', label: '부서-팀' }
+    { value: '고객센터', label: '고객센터' }
   ];
   const [depGubun, setDepGubun] = useState(optionDepGubun[0]);
   useEffect(() => {
@@ -261,13 +262,13 @@ function SysDepartmentMngModi() {
             </colgroup>
             <tbody>
               <tr>
-                <th scope="row"><label htmlFor="depName">부서명</label></th>
+                <th scope="row"><label htmlFor="depName">부서명</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <input type="text" id="depName" name="depName" value={'경영관리담당'} />
                 </td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="topDep">상위부서</label></th>
+                <th scope="row"><label htmlFor="topDep">부서경로</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td>
                   <span className='input-btn-wrap'>
                     <span className='input input_org input-search-front'>경영관리담당/CFO/CRO/대표이사/LG HelloVision/</span>
@@ -277,12 +278,10 @@ function SysDepartmentMngModi() {
               </tr>
               <tr>
                 <th scope="row"><label htmlFor="depId">부서ID</label></th>
-                <td>
-                  <input type="text" id="depId" name="depId" value={'233333'} readOnly />
-                </td>
+                <td>233333</td>
               </tr>
               <tr>
-                <th scope="row"><label htmlFor="depGubun">부서구분</label></th>
+                <th scope="row"><label htmlFor="depGubun">부서구분</label> <span aria-label="required" className='color-primary'>*</span></th>
                 <td><Select defaultValue={optionDepGubun[0]} value={depGubun} onChange={setDepGubun} options={optionDepGubun} className='react-select-container' classNamePrefix="react-select" /></td>
               </tr>
               <tr>
@@ -328,7 +327,7 @@ function SysDepartmentMngModi() {
           </table>
         </div>
         <div className='detail-bottom-btn-group mt20 center'>
-          <button className='btn btn-lg btn-primary' onClick={() => { setModify(true) }}>확인</button>
+          <button className='btn btn-lg btn-primary' onClick={() => { setModify(true) }}>수정</button>
         </div>
         <Alert open={modify} close={() => { setModify(false) }}>
           <div>수정하시겠습니까?</div>

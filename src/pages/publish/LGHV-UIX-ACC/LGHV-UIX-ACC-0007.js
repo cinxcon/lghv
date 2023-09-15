@@ -31,6 +31,17 @@ function AccUserRegist() {
     setDivStates(newDivStates);
   };
 
+  const [fileRows, setFileRows] = useState([]);
+  const fileAddRow = () => {
+    setFileRows([...fileRows, {}]);
+  };
+  const fileRemoveRow = () => {
+    if (fileRows.length > 0) {
+      const newRows = fileRows.slice(0, fileRows.length - 1);
+      setFileRows(newRows);
+    }
+  };
+
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -143,31 +154,38 @@ function AccUserRegist() {
               <tr>
                 <th scope='row'>기안 첨부</th>
                 <td>
-                  <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="기안첨부" />
-                  <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
-                    <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly="readOnly" value={'기안첨부.xlsx'}/>
-                    <span className="input-addon">
-                      <label htmlFor="File" className="btn">찾아보기</label>
-                    </span>
-                    <span className="input-addon">
-                      <button className="btn btn-low">추가</button>
-                    </span>
-                    <span className="input-addon">
-                      <button className="btn btn-low">삭제</button>
-                    </span>
+                  <div className='file-wrap'>
+                    <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                    <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                      <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                      <span className="input-addon">
+                        <label htmlFor="File" className="btn">찾아보기</label>
+                      </span>
+                      <span className="input-addon">
+                        <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                      </span>
+                      <span className="input-addon">
+                        <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                      </span>
+                    </div>
                   </div>
-                  <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
-                    <input type="text"className="i-file-name"id="noIndex1"title="기안첨부"readOnly=""/>
-                    <span className="input-addon">
-                      <label htmlFor="File" className="btn">찾아보기</label>
-                    </span>
-                    <span className="input-addon">
-                      <button className="btn btn-low">추가</button>
-                    </span>
-                    <span className="input-addon">
-                      <button className="btn btn-low">삭제</button>
-                    </span>
-                  </div>
+                  {fileRows.map((fileRows, index) => (
+                    <div className='file-wrap mt8' key={index}>
+                      <input type="file"id="File"name="File"className="form-file"style={{ width: '100%', display: 'none' }} title="파일첨부" />
+                      <div className="input-group file-attach flex-wrap between"style={{ width: '100%' }} >
+                        <input type="text"className="i-file-name"id="noIndex1"title="파일첨부"readOnly=""/>
+                        <span className="input-addon">
+                          <label htmlFor="File" className="btn">찾아보기</label>
+                        </span>
+                        <span className="input-addon">
+                        <button className="btn btn-low" onClick={fileAddRow}>추가</button>
+                        </span>
+                        <span className="input-addon">
+                          <button className="btn btn-low" onClick={fileRemoveRow}>삭제</button>
+                        </span>
+                      </div>
+                    </div>
+                  ))}
                 </td>
               </tr>
             </tbody>

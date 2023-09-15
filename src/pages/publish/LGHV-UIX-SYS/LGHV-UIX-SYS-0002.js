@@ -70,31 +70,17 @@ function SysUserMng() {
               </colgroup>
               <tbody>
                 <tr>
-                  <th scope="row"><label htmlFor="duty">직책</label></th>
-                  <td>
-                    <Select defaultValue={optionDuty[0]} value={duty} onChange={setDuty} options={optionDuty} className='react-select-container' classNamePrefix="react-select" />
-                  </td>
                   <th scope="row"><label htmlFor="userId">사용자ID</label></th>
                   <td>
                     <input type="text" name="userId" id="userId" />
-                  </td>
-                  <th scope="row"><label htmlFor="position">직급</label></th>
-                  <td>
-                    <Select defaultValue={optionPosition[0]} value={position} onChange={setPosition} options={optionPosition} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="userName">이름</label></th>
                   <td>
                     <input type="text" name="userName" id="userName" />
                   </td>
-                </tr>
-                <tr>
                   <th scope="row"><label htmlFor="email">이메일</label></th>
                   <td>
                     <input type="text" name="email" id="email" />
-                  </td>
-                  <th scope="row"><label htmlFor="userGubun">사용자 구분</label></th>
-                  <td>
-                    <Select defaultValue={optionUserGubun[0]} value={userGubun} onChange={setUserGubun} options={optionUserGubun} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="department">부서</label></th>
                   <td>
@@ -102,6 +88,20 @@ function SysUserMng() {
                       <span className='input input_org input-search-front'></span>
                       <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
                     </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label htmlFor="userGubun">사용자 구분</label></th>
+                  <td>
+                    <Select defaultValue={optionUserGubun[0]} value={userGubun} onChange={setUserGubun} options={optionUserGubun} className='react-select-container' classNamePrefix="react-select" />
+                  </td>
+                  <th scope="row"><label htmlFor="duty">직책</label></th>
+                  <td>
+                    <Select defaultValue={optionDuty[0]} value={duty} onChange={setDuty} options={optionDuty} className='react-select-container' classNamePrefix="react-select" />
+                  </td>
+                  <th scope="row"><label htmlFor="position">직급</label></th>
+                  <td>
+                    <Select defaultValue={optionPosition[0]} value={position} onChange={setPosition} options={optionPosition} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <td colSpan={2}></td>
                 </tr>
