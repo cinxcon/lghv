@@ -1,158 +1,274 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ContentTitle from '../layout/ContentTitle'
-import axios from 'axios';
 
 function SysMenuAuthMng() {
   const pagedata = {
     title: '공통관리',
-    subtitle: '메뉴권한관리',
+    subtitle: '메뉴관리',
     SubMenu: 'yes'
   }
-  const [treeData, setTreeData] = useState([]);
-  const [authData, setAuthData] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-    fetchData2();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('../data/response_1692163585947.json'); // JSON 파일 경로를 넣어주세요
-      setTreeData(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-  const fetchData2 = async () => {
-    try {
-      const response = await axios.get('../data/auth_data.json');
-      setAuthData(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  const [selectedName, setSelectedName] = useState(null);
-  const handleItemSelected = (item) => {
-    setSelectedName(item);
-    console.log(selectedName);
-  };
-
+  // 새창 팝업
+  const onPopup = (url, name, width, height) => {
+    const popupX = (window.screen.width / 2) - (width / 2);
+    const popupY = (window.screen.height / 2) - (height / 2);
+    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
+  }
+  const [isUserMenu, setIsUserMenu] = useState(true);
+  const [isSysMenu, setIsSysMenu] = useState(false);
+  const handleUserClick = () => {
+    setIsUserMenu(true);
+    setIsSysMenu(false);
+  }
+  const handleSysClick = () => {
+    setIsUserMenu(false);
+    setIsSysMenu(true);
+  }
   return (
     <>
       <ContentTitle data={pagedata} />
-      <div className='flex-wrap between'>
-        <div className='approval-conts half'>
-          <div className='tree-wrap alone'>
-            <div className='tree-logo'>LG hellovision</div>
-              <div className='tree-conts'>
-                {treeData.depts && treeData.depts.map((item) => (
-                  <TreeItem
-                    key={item.deptId}
-                    item={item}
-                    onItemSelected={handleItemSelected}
-                  />
-                ))}
-              </div>
+      <div className='flex-wrap align-start move-left-to-right'>
+        <div className='content-section half'>
+          <div className='flex-wrap between h3-wrap'>
+            <div>
+              <input type='radio' name='menu' id='userMenu' onChange={handleUserClick} checked={isUserMenu && 'checked'} />
+              <label htmlFor='userMenu'>사용자메뉴</label>
+              <input type='radio' name='menu' id='sysMenu' onChange={handleSysClick} />
+              <label htmlFor='sysMenu'>시스템메뉴</label>
+            </div>
+            <div className='btn-wrap'>
+              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysMenuSort', 'PopupSysMenuSort', '464', '420') }}>메뉴 순서 정렬</button>
+              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysMenuAdd', 'PopupSysMenuAdd', '464', '460') }}>등록</button>
+            </div>
+          </div>
+          <div className='over-flow-y'>
+            <table className='table table-td-left'>
+              <caption>메뉴 테이블</caption>
+              <colgroup>
+                <col span="4" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope='col'>메뉴명</th>
+                  <th scope='col'>메뉴 URL</th>
+                  <th scope='col'>노출여부</th>
+                  <th scope='col'>메뉴정보</th>
+                </tr>
+              </thead>
+              { isUserMenu === true && isSysMenu === false
+                ? (<UserMenuTbody onPopup={onPopup} />)
+                : (<SysMenuTbody onPopup={onPopup} />)
+              }
+            </table>
           </div>
         </div>
-        <div className='approval-conts half'>
-          <div className='tree-wrap alone'>
-            <h3>메뉴권한</h3>
-            <div className='tree-conts'>
-              {authData.depts && authData.depts.map((item) => (
-                <AuthItem
-                  key={item.deptId}
-                  item={item}
-                  onItemSelected={handleItemSelected}
-                />
-              ))}
+        <div className='arrow'><i>arrow icon</i></div>
+        <div className='content-section half'>
+          <div className='flex-wrap between h3-wrap'>
+            <h3>{ isUserMenu === true && isSysMenu === false
+                ? '작업관리'
+                : '계정관리'
+              }</h3>
+            <div className='btn-wrap'>
+              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysLowMenuSort', 'PopupSysLowMenuSort', '464', '420') }}>하위메뉴순서정렬</button>
+              <button className='btn btn-md btn-pop' onClick={() => { onPopup('/popup/PopupSysLowMenuAdd', 'PopupSysLowMenuAdd', '464', '460') }}>등록</button>
+              <button className='btn btn-md btn-low'>삭제</button>
             </div>
+          </div>
+          <div className='over-flow-y'>
+            <table className='table table-td-left'>
+              <caption>하위 메뉴 테이블</caption>
+              <colgroup>
+                <col span="5" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope='col'>
+                    <input type="checkbox" name="checkAll" id="checkAll" value="" />
+                    <label htmlFor="checkAll" className='invisible'>선택</label>
+                  </th>
+                  <th scope='col'>하위 메뉴명</th>
+                  <th scope='col'>메뉴 URL</th>
+                  <th scope='col'>노출여부</th>
+                  <th scope='col'>하위메뉴정보</th>
+                </tr>
+              </thead>
+              { isUserMenu === true && isSysMenu === false
+                ? (<UserLowMenuTbody onPopup={onPopup} />)
+                : (<SysLowMenuTbody onPopup={onPopup} />)
+              }
+            </table>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-const AuthItem = ({ item, onItemSelected }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const [isChecked, setIsChecked] = useState(false);
-  const handleItemSelected = (item) => {
-    const activeItem = document.getElementById(`a${item.deptId}`);
-    setIsChecked(!isChecked);
-    isChecked ? activeItem.classList.remove('active') : activeItem.classList.add('active');
-    onItemSelected(item);
-  };
-
+function UserMenuTbody(props) {
+  const { onPopup } = props;
   return (
-    <div className={`tree-item ${item.depts.length === 0 ? 'close' : 'open'}`}>
-      <div className="tree-content">
-        {item.depts.length !== 0
-          ? (<button onClick={handleToggle} className={isExpanded
-              ? 'open'
-              : ''} />)
-          : null}
-        {item.depts.length !== 0
-          ? (<div><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-name' isChecked={isChecked}>{item.deptName}</label></div>)
-          : (<div className='item-name not-children'><input type="checkbox" name={item.deptId} id={item.deptId} onClick={() => handleItemSelected(item)} /><label htmlFor={item.deptId} id={`a${item.deptId}`} className='item-label' isChecked={isChecked}>{item.deptName}</label></div>)
-        }
-      </div>
-      {isExpanded &&
-        item.depts &&
-        item.depts.map((child) => (
-          <div key={child.deptId} className="tree-children">
-            <AuthItem item={child} onItemSelected={onItemSelected} />
-          </div>
-        ))}
-  </div>
-  );
-};
+    <tbody>
+      <tr className='checked'>
+        <td>작업관리</td>
+        <td>WRK</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>접근제어</td>
+        <td>ACC</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>장애관리</td>
+        <td>BLK</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>결재관리</td>
+        <td>APR</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>공지사항</td>
+        <td>NOTI</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+    </tbody>
+  )
+}
 
-const TreeItem = ({ item, onItemSelected }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const handleItemSelected = (item) => {
-    const treeitem = document.querySelectorAll('.item-name');
-    const activeItem = document.getElementById(item.deptId);
-    treeitem.forEach(element => {
-      element.classList.remove('active');
-    });
-    activeItem.classList.add('active');
-    onItemSelected(item);
-  };
-
+function UserLowMenuTbody(props) {
+  const { onPopup } = props;
   return (
-    <div className={`tree-item ${item.depts.length === 0 ? 'close' : 'open'}`}>
-      <div className="tree-content">
-        {item.depts.length !== 0
-          ? (<button onClick={handleToggle} className={isExpanded
-              ? 'open'
-              : ''} />)
-          : null}
-        {item.depts.length !== 0
-          ? (<span id={item.deptId} className='item-name' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
-          : (<span id={item.deptId} className='item-name not-children' onClick={() => handleItemSelected(item)}>{item.deptName}</span>)
-        }
-      </div>
-      {isExpanded &&
-        item.depts &&
-        item.depts.map((child) => (
-          <div key={child.deptId} className="tree-children">
-            <TreeItem item={child} onItemSelected={onItemSelected} />
-          </div>
-        ))}
-  </div>
-  );
-};
+    <tbody>
+      <tr className='checked'>
+        <td className='center'>
+          <input type="checkbox" name="check1" id="check1" value="" checked />
+          <label htmlFor="check1" className='invisible'>선택</label>
+        </td>
+        <td>작업목록</td>
+        <td>WRK0001</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check2" id="check2" value="" />
+          <label htmlFor="check2" className='invisible'>선택</label>
+        </td>
+        <td>일반작업등록</td>
+        <td>WRK0002</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check3" id="check3" value="" />
+          <label htmlFor="check3" className='invisible'>선택</label>
+        </td>
+        <td>긴급작업등록</td>
+        <td>WRK0006</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check4" id="check4" value="" />
+          <label htmlFor="check4" className='invisible'>선택</label>
+        </td>
+        <td>템플릿목록</td>
+        <td>WRK0011</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check5" id="check5" value="" />
+          <label htmlFor="check5" className='invisible'>선택</label>
+        </td>
+        <td>템플릿등록</td>
+        <td>WRK0012</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+    </tbody>
+  )
+}
+
+function SysMenuTbody(props) {
+  const { onPopup } = props;
+  return (
+    <tbody>
+      <tr className='checked'>
+        <td>계정관리</td>
+        <td>SYS</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>로그관리</td>
+        <td>SYS</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>공통관리</td>
+        <td>SYS</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td>보고서</td>
+        <td>SYS</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysMenuInfo', 'PopupSysMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+    </tbody>
+  )
+}
+
+function SysLowMenuTbody(props) {
+  const { onPopup } = props;
+  return (
+    <tbody>
+      <tr className='checked'>
+        <td className='center'>
+          <input type="checkbox" name="check1" id="check1" value="" checked />
+          <label htmlFor="check1" className='invisible'>선택</label>
+        </td>
+        <td>부서관리</td>
+        <td>SYS0001</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check2" id="check2" value="" />
+          <label htmlFor="check2" className='invisible'>선택</label>
+        </td>
+        <td>사용자관리</td>
+        <td>SYS0002</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysLowMenuInfo', 'PopupSysLowMenuInfo', '464', '460') }}>Info</button></td>
+      </tr>
+      <tr>
+        <td className='center'>
+          <input type="checkbox" name="check3" id="check3" value="" />
+          <label htmlFor="check3" className='invisible'>선택</label>
+        </td>
+        <td>수신거부사용자관리</td>
+        <td>SYS0003</td>
+        <td className='center'>Y</td>
+        <td className='center'><button className='btn btn-low btn-md' onClick={(e) => { e.stopPropagation(); onPopup('/popup/PopupSysCodeInfo', 'PopupSysCodeInfo', '464', '460') }}>Info</button></td>
+      </tr>
+    </tbody>
+  )
+}
 
 export default SysMenuAuthMng;

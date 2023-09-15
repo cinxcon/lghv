@@ -26,17 +26,18 @@ yarn-error.log*
 # park ji hye
 # \src\pages\publish\approval\_Approval.js
 # \src\pages\publish\approval\_ApprovalDetail.js
-# \src\pages\publish\approval\component\_ApprovalBtnGroup.js
-/src/pages/publish/user-test
-/src/pages/publish/LGHV-UIX-APR/_Approval.js
-/src/pages/publish/LGHV-UIX-APR/_ApprovalDetail.js
-/src/pages/publish/LGHV-UIX-APR/_ApprovalPop.js
-/src/pages/publish/LGHV-UIX-APR/_ApprovalPopDetail.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0001-Detail.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0001.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0002-Detail.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0002.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0004-Detail.js
-/src/pages/publish/LGHV-UIX-APR/_LGHV-UIX-APR-0004.js
-/src/pages/publish/LGHV-UIX-APR/component/_ApprovalPopList.js
-/src/pages/publish/LGHV-UIX-APR/component/_ApprovalDetailContent.js
+_ApprovalBtnGroup.js
+/user-test
+_Approval.js
+_ApprovalDetail.js
+_ApprovalPop.js
+_ApprovalPopDetail.js
+_LGHV-UIX-APR-0001-Detail.js
+_LGHV-UIX-APR-0001.js
+_LGHV-UIX-APR-0002-Detail.js
+_LGHV-UIX-APR-0002.js
+_LGHV-UIX-APR-0004-Detail.js
+_LGHV-UIX-APR-0004.js
+_ApprovalPopList.js
+_ApprovalDetailContent.js
+_LGHV-UIX-SYS-0013.js
