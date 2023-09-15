@@ -52,8 +52,8 @@ import { PopupAccEqReg, PopupAccEqDel } from './pages/publish/popup/popupDetail/
 import PopupAccPolicyReg from './pages/publish/popup/popupDetail/Popup_AccPolicyReg';
 import PopupAccPolicyDetail from './pages/publish/popup/popupDetail/Popup_AccPolicyDetail';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
-import PopupSysComSort from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
-import { PopupSysCodeAdd, PopupSysCodeInfo, PopupSysGroupAdd } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
+import { PopupSysComSort, PopupSysMenuSort, PopupSysLowMenuSort } from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
+import { PopupSysCodeAdd, PopupSysCodeInfo, PopupSysGroupAdd, PopupSysMenuAdd, PopupSysLowMenuAdd, PopupSysMenuInfo, PopupSysLowMenuInfo } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
@@ -137,9 +137,15 @@ const AppRouter = () => {
       <Route path="/popup/PopupAccPolicyDetail" element={<PopupAccPolicyDetail />} />
       <Route path="/popup/PopupUserGroupSelect" element={<PopupUserGroupSelect />} />
       <Route path="/popup/PopupSysComSort" element={<PopupSysComSort />} />
+      <Route path="/popup/PopupSysMenuSort" element={<PopupSysMenuSort />} />
+      <Route path="/popup/PopupSysLowMenuSort" element={<PopupSysLowMenuSort />} />
       <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />
       <Route path="/popup/PopupSysCodeInfo" element={<PopupSysCodeInfo />} />
       <Route path="/popup/PopupSysGroupAdd" element={<PopupSysGroupAdd />} />
+      <Route path="/popup/PopupSysMenuAdd" element={<PopupSysMenuAdd />} />
+      <Route path="/popup/PopupSysMenuInfo" element={<PopupSysMenuInfo />} />
+      <Route path="/popup/PopupSysLowMenuAdd" element={<PopupSysLowMenuAdd />} />
+      <Route path="/popup/PopupSysLowMenuInfo" element={<PopupSysLowMenuInfo />} />
 
       {/* 시스템관리 */}
       <Route path="/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001" element={<SysDepartmentMng />} />
