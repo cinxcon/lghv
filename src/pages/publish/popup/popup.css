@@ -1,6 +1,6 @@
 .modal { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99; background-color: rgba(0, 0, 0, 0.6); }
 .modal > section { margin: 0 auto; background-color: #fff; animation: modal-show 0.3s; overflow: hidden; }
-.modal > section.alert-wrap { width: 342px; min-height: 160px; margin: 0 auto; padding: 40px 0; text-align: center; font-size: 16px; }
+.modal > section.alert-wrap { width: 342px; min-height: 160px; margin: 0 auto; padding: 40px 24px; text-align: center; font-size: 16px; }
 .modal > section .btn-group { margin-top: 24px; }
 .modal > section button { margin: 0 4px; }
 .modal > section.popup-wrap { width: 708px; padding: 22px 40px 32px; }

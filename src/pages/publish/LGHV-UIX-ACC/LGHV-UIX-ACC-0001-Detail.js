@@ -8,8 +8,8 @@ const PopupPortal = ({ children }) => {
 
 function AccUserDetail() {
   const pagedata = {
-    title: '접근제어 사용자 정보',
-    subtitle: '',
+    title: '접근제어',
+    subtitle: '사용자 정보',
     SubMenu: 'yes',
     isDetail: 'yes'
   }

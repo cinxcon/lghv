@@ -1,63 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import axios from 'axios';
 const Sidebar = () => {
-  const [systemData] = useState([
-    {
-      title: '계정관리',
-      path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001',
-      subMenus: [
-        { title: '부서관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001' },
-        { title: '사용자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002' },
-        { title: '수신거부 사용자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0003' },
-        { title: 'SMS 수신거부 가입자관리', path: '/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0004' }
-      ]
-    },
-    {
-      title: '로그관리',
-      path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005',
-      subMenus: [
-        { title: '접속로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005' },
-        { title: '개인정보 조회로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0006' },
-        { title: '문자발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007' },
-        { title: '메일발송로그', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008' },
-        { title: '고객문자 발송내역', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009' },
-        { title: '장애 발생 서비스 가입자 문자 발송', path: '/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010' }
-      ]
-    },
-    {
-      title: '공통관리',
-      path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011',
-      subMenus: [
-        { title: '코드관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011' },
-        { title: '권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012' },
-        { title: '메뉴권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013' },
-        { title: '공지사항 등록', path: '/LGHV-UIX-SYS-003/LGHV-UIX-NOTI-0002' }
-      ]
-    },
-    {
-      title: '보고서',
-      path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014',
-      subMenus: [
-        { title: '주간보고서', path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014' },
-        { title: '원갈보고서', path: '/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015' }
-      ]
+  const [menuData, setMenuData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('../data/menu.json'); // JSON 파일 경로를 넣어주세요
+      setMenuData(response.data[1].menu);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
-  ]);
+  };
 
   const location = useLocation();
   const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
 
   return (
     <ul className='menu-level-1'>
-        {systemData.map((menuItem, index) => (
+        {menuData.map((menuItem, index) => (
             <MenuItemLevel1
             key={index}
             index={index}
-            title={menuItem.title}
-            ptitle={menuItem.ptitle}
-            path={menuItem.path}
-            subMenus={menuItem.subMenus}
+            title={menuItem.menuName}
+            path={menuItem.menuUrl}
+            subMenus={menuItem.menu}
             pathSegments={pathSegments}
             />
         ))}
@@ -83,7 +54,7 @@ const MenuLevel2 = ({ subMenus, parentTitle, pathSegments }) => {
   return (
     <ul className='menu-level-2'>
       {subMenus.map((submenu, index) => (
-        <MenuItemLevel2 key={index} parentTitle={parentTitle} title={submenu.title} index={index} path={submenu.path} pathSegments={pathSegments} />
+        <MenuItemLevel2 key={index} parentTitle={parentTitle} title={submenu.menuName} index={index} path={submenu.menuUrl} pathSegments={pathSegments} />
       ))}
     </ul>
   );
