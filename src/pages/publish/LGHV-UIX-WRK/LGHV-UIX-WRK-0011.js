@@ -12,21 +12,25 @@ function TemplateList() {
     SubMenu: 'yes'
   }
   const data = [
-    { category: '작업신청', formName: '작업 신청서 기본 폼', date: '2023.07.01' },
-    { category: '보고', formName: '기간망 작업신청서 작업세부', date: '2023.07.01' },
-    { category: '기록', formName: '서비스개발 작업신청서', date: '2023.07.01' },
-    { category: '작업신청', formName: '작업신청서 작업개요', date: '2023.07.01' },
-    { category: '보고', formName: '기간 망 작업 신청서', date: '2023.07.01' },
-    { category: '기록', formName: '선로 작업 신청서', date: '2023.07.01' },
-    { category: '기록', formName: '기간 망 작업 신청서', date: '2023.07.01' },
-    { category: '작업신청', formName: '선로 작업 신청서', date: '2023.07.01' },
-    { category: '보고', formName: '기간 망 작업 신청서', date: '2023.07.01' },
-    { category: '작업신청', formName: '선로 작업 신청서', date: '2023.07.01' }
+    { isNotice: true, category: '작업신청', formName: '작업 신청서 기본 폼', date: '2023.07.01' },
+    { isNotice: true, category: '보고', formName: '기간망 작업신청서 작업세부', date: '2023.07.01' },
+    { isNotice: true, category: '기록', formName: '서비스개발 작업신청서', date: '2023.07.01' },
+    { isNotice: false, category: '작업신청', formName: 'MY 작업 신청서 기본 폼', date: '2023.07.01' },
+    { isNotice: false, category: '보고', formName: 'MY 기간망 작업신청서 작업세부', date: '2023.07.01' },
+    { isNotice: false, category: '기록', formName: 'MY 서비스개발 작업신청서', date: '2023.07.01' },
+    { isNotice: false, category: '작업신청', formName: 'MY 작업신청서 작업개요', date: '2023.07.01' },
+    { isNotice: false, category: '보고', formName: 'MY 기간 망 작업 신청서', date: '2023.07.01' },
+    { isNotice: false, category: '기록', formName: 'MY 선로 작업 신청서', date: '2023.07.01' },
+    { isNotice: false, category: '기록', formName: 'MY 기간 망 작업 신청서', date: '2023.07.01' },
+    { isNotice: false, category: '작업신청', formName: 'MY 선로 작업 신청서', date: '2023.07.01' },
+    { isNotice: false, category: '보고', formName: 'MY 기간 망 작업 신청서', date: '2023.07.01' },
+    { isNotice: false, category: '작업신청', formName: 'MY 선로 작업 신청서', date: '2023.07.01' }
   ];
   const optionsTemplateType = [
     { value: 'all', label: '전체' },
     { value: '작업신청', label: '작업신청' }
   ];
+  const countTrue = data.filter(item => item.isNotice === true).length;
   const [templateType, setTemplateType] = useState(optionsTemplateType[0]);
   const onPopup = () => {
     const url = '/LGHV-UIX-WRK/LGHV-UIX-WRK-0012-Detail';
@@ -71,6 +75,10 @@ function TemplateList() {
       <div className='content-section'>
       <div className="result-pageview">
         <ResultPageView />
+        <div className='btn-wrap'>
+          <button type="button" className='btn btn-md'>내 템플릿만 보기</button>
+          <button type="button" className='btn btn-md cheked-item'>내 템플릿만 보기</button>
+        </div>
       </div>
       {/* 목록 영역 */}
       <table className="table">
@@ -92,7 +100,7 @@ function TemplateList() {
             <tbody>
               {data.map((item, index) => (
               <tr className='link' key={item.id} onClick={() => { onPopup() }}>
-                <td>{index + 1}</td>
+                { item.isNotice ? (<td><span className='box-primary'>공지</span></td>) : (<td>{(index + 1) - countTrue}</td>)}
                 <td className='left'>{item.category}</td>
                 <td className='left'>{item.formName}</td>
                 <td>{item.date}</td>

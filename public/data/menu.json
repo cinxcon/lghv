@@ -1,0 +1,330 @@
+[
+    {
+        "menuIndex": "1",
+        "menuName": "사용자메뉴",
+        "menu": [
+        {
+            "parentIndex": 1,
+            "menuIndex": "42",
+            "menuUrl": "/LGHV-UIX-MAN/LGHV-UIX-MAN-0003",
+            "menuName": "대시보드",
+            "menu": []
+        },
+        {
+            "parentIndex": 1,
+            "menuIndex": "3",
+            "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0003",
+            "menuName": "작업관리",
+            "menu": [
+            {
+                "parentIndex": 3,
+                "menuIndex": "12",
+                "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0003",
+                "menuName": "작업목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 3,
+                "menuIndex": "13",
+                "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0001",
+                "menuName": "일반작업등록",
+                "menu": []
+            },
+            {
+                "parentIndex": 3,
+                "menuIndex": "14",
+                "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0002",
+                "menuName": "긴급작업등록",
+                "menu": []
+
+
+            },
+            {
+                "parentIndex": 3,
+                "menuIndex": "15",
+                "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0011",
+                "menuName": "템플릿목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 3,
+                "menuIndex": "16",
+                "menuUrl": "/LGHV-UIX-WRK/LGHV-UIX-WRK-0012",
+                "menuName": "템플릿등록",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 1,
+            "menuIndex": "4",
+            "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0001",
+            "menuName": "접근제어 ",
+            "menu": [
+            {
+                "parentIndex": 4,
+                "menuIndex": "17",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0001",
+                "menuName": "사용자목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 4,
+                "menuIndex": "18",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0005",
+                "menuName": "장비목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 4,
+                "menuIndex": "19",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0007",
+                "menuName": "사용자등록",
+                "menu": []
+            },
+            {
+                "parentIndex": 4,
+                "menuIndex": "20",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0008",
+                "menuName": "장비등록",
+                "menu": []
+            },
+            {
+                "parentIndex": 4,
+                "menuIndex": "21",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0009",
+                "menuName": "접근제어정책목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 4,
+                "menuIndex": "22",
+                "menuUrl": "/LGHV-UIX-ACC/LGHV-UIX-ACC-0010",
+                "menuName": "접근제어정책등록",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 1,
+            "menuIndex": "5",
+            "menuUrl": "/LGHV-UIX-BLK/LGHV-UIX-BLK-0002",
+            "menuName": "장애관리 ",
+            "menu": [
+            {
+                "parentIndex": 5,
+                "menuIndex": "23",
+                "menuUrl": "/LGHV-UIX-BLK/LGHV-UIX-BLK-0002",
+                "menuName": "장애목록",
+                "menu": []
+            },
+            {
+                "parentIndex": 5,
+                "menuIndex": "24",
+                "menuUrl": "/LGHV-UIX-BLK/LGHV-UIX-BLK-0001",
+                "menuName": "장애등록 ",
+                "menu": []
+            },
+            {
+                "parentIndex": 5,
+                "menuIndex": "25",
+                "menuUrl": "/LGHV-UIX-BLK/LGHV-UIX-BLK-0003",
+                "menuName": "셀목록 ",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 1,
+            "menuIndex": "6",
+            "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0000",
+            "menuName": "결재관리",
+            "menu": [
+            {
+                "parentIndex": 6,
+                "menuIndex": "26",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0000",
+                "menuName": "결재문서함",
+                "menu": []
+            },
+            {
+                "parentIndex": 6,
+                "menuIndex": "27",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0003",
+                "menuName": "공람문서함",
+                "menu": []
+            },
+            {
+                "parentIndex": 6,
+                "menuIndex": "28",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0005",
+                "menuName": "임시보관함 ",
+                "menu": []
+            },
+            {
+                "parentIndex": 6,
+                "menuIndex": "29",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0006",
+                "menuName": "ONTIMEPROCESS",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 1,
+            "menuIndex": "7",
+            "menuUrl": "/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001",
+            "menuName": "공지사항",
+            "menu": [ {
+                "parentIndex": 6,
+                "menuIndex": "28",
+                "menuUrl": "/LGHV-UIX-NOTI/LGHV-UIX-NOTI-0001",
+                "menuName": "공지사항목록 ",
+                "menu": []
+            }]
+        }]
+    },
+    {
+        "parentIndex": 0,
+        "menuIndex": "2",
+        "menuUrl": "",
+        "menuName": "시스템메뉴",
+        "menu": [
+        {
+            "parentIndex": 2,
+            "menuIndex": "8",
+            "menuUrl": "/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001",
+            "menuName": "계정관리",
+            "menu": [
+            {
+                "parentIndex": 8,
+                "menuIndex": "30",
+                "menuUrl": "/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0001",
+                "menuName": "부서관리 ",
+                "menu": []
+            },
+            {
+                "parentIndex": 8,
+                "menuIndex": "31",
+                "menuUrl": "/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002",
+                "menuName": "사용자관리",
+                "menu": []
+            },
+            {
+                "parentIndex": 8,
+                "menuIndex": "32",
+                "menuUrl": "/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0003",
+                "menuName": "수신거부사용자관리",
+                "menu": []
+            },
+            {
+                "parentIndex": 8,
+                "menuIndex": "33",
+                "menuUrl": "/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0004",
+                "menuName": "SMS 수신거부 가입자관리",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 2,
+            "menuIndex": "9",
+            "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005",
+            "menuName": "로그관리",
+            "menu": [
+            {
+                "parentIndex": 9,
+                "menuIndex": "34",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0005",
+                "menuName": "접속로그",
+                "menu": []
+            },
+            {
+                "parentIndex": 9,
+                "menuIndex": "35",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0006",
+                "menuName": "개인정보 조회로그",
+                "menu": []
+            },
+            {
+                "parentIndex": 9,
+                "menuIndex": "36",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0007",
+                "menuName": "문자발송로그",
+                "menu": []
+            },
+            {
+                "parentIndex": 9,
+                "menuIndex": "37",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0008",
+                "menuName": "메일발송로그",
+                "menu": []
+            },
+            {
+                "parentIndex": 9,
+                "menuIndex": "38",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009",
+                "menuName": "고객문자 발송내역",
+                "menu": []
+            }, 
+            {
+                "parentIndex": 9,
+                "menuIndex": "39",
+                "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010",
+                "menuName": "장애 발생 서비스 가입자 문자 발송",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 2,
+            "menuIndex": "10",
+            "menuUrl": "/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011",
+            "menuName": "공통관리",
+            "menu": [
+            {
+                "parentIndex": 10,
+                "menuIndex": "136",
+                "menuUrl": "/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011",
+                "menuName": "코드관리",
+                "menu": []
+            },
+            {
+                "parentIndex": 10,
+                "menuIndex": "137",
+                "menuUrl": "/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012",
+                "menuName": "권한관리",
+                "menu": []
+            },
+            {
+                "parentIndex": 10,
+                "menuIndex": "138",
+                "menuUrl": "/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013",
+                "menuName": "메뉴관리",
+                "menu": []
+            },
+            {
+                "parentIndex": 10,
+                "menuIndex": "139",
+                "menuUrl": "/LGHV-UIX-SYS-003/LGHV-UIX-NOTI-0002",
+                "menuName": "공지사항등록",
+                "menu": []
+            }]
+        },
+        {
+            "parentIndex": 2,
+            "menuIndex": "11",
+            "menuUrl": "/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014",
+            "menuName": "보고서",
+            "menu": [
+            {
+                "parentIndex": 11,
+                "menuIndex": "40",
+                "menuUrl": "/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014",
+                "menuName": "주간보고서",
+                "menu": []
+            },
+            {
+                "parentIndex": 11,
+                "menuIndex": "41",
+                "menuUrl": "/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0015",
+                "menuName": "월간보고서 ",
+                "menu": []
+            }]
+        }]
+    }
+]

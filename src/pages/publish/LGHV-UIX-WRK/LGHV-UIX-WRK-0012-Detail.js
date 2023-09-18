@@ -23,7 +23,7 @@ function TemplateDetail() {
   const date = String(today.getDate()).padStart(2, '0');
   const tDate = `${year}-${month}-${date}`;
 
-  const [cancle, setCancle] = useState(false);
+  const [mytem, setMytem] = useState(false);
   const [regist, setRegist] = useState(false);
 
   const optionsTemplateType = [
@@ -51,6 +51,7 @@ function TemplateDetail() {
                 `}
             </style>
             <div className='new-window-wrap'>
+                <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
                 <ContentTitle data={pagedata} />
                 <div className='content-section'>
                     <table className='table table-row'>
@@ -96,7 +97,7 @@ function TemplateDetail() {
                                 <th scope='row'>작업 내용</th>
                                 <td colSpan={3}>
                                     <div className='work-content'>
-                                        <div className='template'>
+                                        <div className='template over-flow-y'>
                                             <CKEditor
                                             editor={ CustomEditor }
                                             data={initialHtml}
@@ -124,13 +125,23 @@ function TemplateDetail() {
                     </div>
                 </div>
                 <div className="detail-bottom-btn-group">
-                    <button className="btn btn-lg btn-low" onClick={() => { setCancle(true) }}>취소</button>
-                    <Alert open={cancle} close={() => { setCancle(false) }} >
-                    <div>취소 하시겠습니까?</div>
+                    <button className="btn btn-lg" onClick={() => { setMytem(true) }}>내 템플릿 등록</button>
+                    <Alert open={mytem} close={() => { setMytem(false) }} type="no">
+                        <div>
+                            <span className='ico_success'>
+                                내 템플릿으로 <span className='color-success'>등록</span> 되었습니다.
+                            </span>
+                        </div>
+                        <div>
+                            <span className='ico_fail'>
+                                내 템플릿 등록이 <span className='color-fail'>실패</span> 하였습니다.<br />
+                                <span className='ico_error_msg mt8'>양식명이 같은 경우 내 템플릿으로 등록할 수 없습니다.</span>
+                            </span>
+                        </div>
                     </Alert>
-                    <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>등록</button>
+                    <button className="btn btn-lg btn-primary" onClick={() => { setRegist(true) }}>수정</button>
                     <Alert open={regist} close={() => { setRegist(false) }}>
-                    <div>작업을 등록 하시겠습니까?</div>
+                        <div>템플릿을 수정 하시겠습니까?</div>
                     </Alert>
                 </div>
             </div>
