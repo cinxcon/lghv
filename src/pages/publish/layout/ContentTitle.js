@@ -6,7 +6,6 @@ function ContentTitle({ data }) {
   const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
   const isSubMenu = data.SubMenu;
   const systemUrl = pathSegments[0].split('-');
-  console.log(systemUrl[2]);
   const [isSystemMenu, setIsSystemMenu] = useState(false);
   useEffect(() => {
     if (systemUrl[2] === 'SYS') {

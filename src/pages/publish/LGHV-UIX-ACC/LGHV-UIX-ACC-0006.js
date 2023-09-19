@@ -10,8 +10,8 @@ const PopupPortal = ({ children }) => {
 
 function AccEquipmentDetail() {
   const pagedata = {
-    title: '접근제어 장비 정보',
-    subtitle: '',
+    title: '접근제어',
+    subtitle: '장비 정보',
     SubMenu: 'yes',
     isDetail: 'yes'
   }

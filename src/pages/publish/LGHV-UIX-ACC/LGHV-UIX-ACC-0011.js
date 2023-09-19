@@ -15,7 +15,7 @@ function AccPolicyRegist() {
   const [resultList] = useState([1, 2, 3]);
   const pagedata = {
     title: '접근제어',
-    subtitle: '접근제어 정책 등록',
+    subtitle: '정책상세',
     SubMenu: 'yes',
     isDetail: 'no'
   }
