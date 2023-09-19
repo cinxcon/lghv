@@ -31,7 +31,7 @@ const Sidebar = () => {
       subMenus: [
         { title: '코드관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011' },
         { title: '권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012' },
-        { title: '메뉴권한관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013' },
+        { title: '메뉴관리', path: '/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013' },
         { title: '공지사항 등록', path: '/LGHV-UIX-SYS-003/LGHV-UIX-NOTI-0002' }
       ]
     },
