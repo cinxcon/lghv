@@ -202,9 +202,9 @@ const ApprovalLine = ({ onItemSelected }) => {
             </div>
             <div className='list-item'>
                 <ul>
-                  { isReception === false
-                    ? (<li><input type="checkbox" name="ck_1" id="ck_1" value="" /> <label htmlFor='ck_1'>[{selectedDepart}] 전체선택</label> </li>)
-                    : (<li><button type='button' className='btn w100 btn-all-cheak'>[{selectedDepart}] 전체선택</button></li>)
+                  { isReception === true
+                    ? (<li className='all-select'><button type='button' className='btn w100 btn-all-cheak'>[{selectedDepart}] 전체선택</button></li>)
+                    : null
                   }
                   {getMenuItems()}
                 </ul>
