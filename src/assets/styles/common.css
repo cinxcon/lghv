@@ -151,6 +151,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-lg { min-width: 64px; height: 36px; padding: 0 16px; font-size: 16px; text-align: center; }
 .btn-md {min-width: 24px; height: 22px; padding: 0 8px; font-size: 12px; line-height: 18px; }
 .btn-sm { min-width: 24px; height: 18px; padding: 0 8px; font-size: 12px; }
+.btn-circle{border-radius: 20px; border: 1px solid #d9d9d9; width: 20px; height: 20px; line-height: 20px; font-size: 12px; font-weight: bold; padding: 0;}
 .btn.w100{width: 100%;}
 .btn-txt { width: 26px; height: 22px; font-size: 14px; line-height: 21px; color: #000000; position: relative; }
 .btn-txt-underline{ border-bottom: 1px solid #000;}
@@ -203,7 +204,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .btn-minus-28{background:url('../images/common/ic_black_set_28.png') -28px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
 .btn-check-28{background:url('../images/common/ic_black_set_28.png') -56px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
 .btn-del-28{background:url('../images/common/ic_black_set_28.png') -84px 0 no-repeat; background-size: auto; width: 28px; height: 28px; font-size: 0; line-height: 0; border: none; padding: 0;}
-.btn-all-cheak{position: relative; font-size: 12px;}
+.btn-all-cheak{position: relative; font-size: 12px; height: 24px; line-height: 24px;}
 .btn-all-cheak::before{content:''; display: inline-block; width: 16px; height: 16px; margin-right: 10px; background: url('../images/common/ic_check_set_16.png') 0 4px no-repeat; }
 .btn-success {padding-left: 24px; position: relative; border-color: #1ea51e; color: #1ea51e; }
 .btn-success:before{content:''; background:url('../images/common/ic_success_16.png') 0 0 no-repeat; background-size: cover; width: 12px; height: 12px; position: absolute; top: 5px; left: 7px;}

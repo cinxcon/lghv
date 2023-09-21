@@ -60,7 +60,7 @@
 .list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
 .list-item ul { list-style: none; }
 .list-item ul li { margin: 0 16px; padding: 8px 20px; border-bottom: 1px dotted #dbdbdb; cursor: pointer; display:flex; justify-content: space-between; }
-.list-item ul li.all-select{padding: 8px 0; border-bottom:1px solid #dbdbdb ;}
+.list-item ul li.all-select{padding: 8px 0; border-bottom:0 ;}
 .list-item ul li.active {background: url('../../../assets/images/common/ic_check_set_16.png') -16px 12px no-repeat; }
 .list-item ul li span + span { margin-left: 16px; }
 .selected-item {width: 45%; padding: 0 0 0 20px;  }
