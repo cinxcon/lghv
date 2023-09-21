@@ -53,7 +53,7 @@ import PopupAccPolicyReg from './pages/publish/popup/popupDetail/Popup_AccPolicy
 import PopupAccPolicyDetail from './pages/publish/popup/popupDetail/Popup_AccPolicyDetail';
 import PopupUserGroupSelect from './pages/publish/popup/popupDetail/Popup_UserGroupSelect';
 import { PopupSysComSort, PopupSysMenuSort, PopupSysLowMenuSort } from './pages/publish/popup/popupDetail/Popup_SysCommonSort';
-import { PopupSysCodeAdd, PopupSysCodeInfo, PopupSysGroupAdd, PopupSysMenuAdd, PopupSysLowMenuAdd, PopupSysMenuInfo, PopupSysLowMenuInfo } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
+import { PopupSysCodeAdd, PopupSysCodeInfo, PopupSysGroupAdd, PopupSysGroupInfo, PopupSysAuthorityUserAdd, PopupSysMenuAdd, PopupSysLowMenuAdd, PopupSysMenuInfo, PopupSysLowMenuInfo } from './pages/publish/popup/popupDetail/Popup_SysCommonAdd';
 
 // 시스템관리
 import SysDepartmentMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0001';
@@ -71,7 +71,6 @@ import SysSendCustomTxtMsgLogDetail from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-
 import SysSendBlockingMemberTxtMsgLog from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0010';
 import SysCodeMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0011';
 import SysAuthorityMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0012';
-import SysAuthorityMngUserList from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0012-UserList';
 import SysMenuAuthMng from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0013';
 import SysWeeklyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0014';
 import SysMonthlyReport from './pages/publish/LGHV-UIX-SYS/LGHV-UIX-SYS-0015';
@@ -142,6 +141,8 @@ const AppRouter = () => {
       <Route path="/popup/PopupSysCodeAdd" element={<PopupSysCodeAdd />} />
       <Route path="/popup/PopupSysCodeInfo" element={<PopupSysCodeInfo />} />
       <Route path="/popup/PopupSysGroupAdd" element={<PopupSysGroupAdd />} />
+      <Route path="/popup/PopupSysGroupInfo" element={<PopupSysGroupInfo />} />
+      <Route path="/popup/PopupSysAuthorityUserAdd" element={<PopupSysAuthorityUserAdd />} />
       <Route path="/popup/PopupSysMenuAdd" element={<PopupSysMenuAdd />} />
       <Route path="/popup/PopupSysMenuInfo" element={<PopupSysMenuInfo />} />
       <Route path="/popup/PopupSysLowMenuAdd" element={<PopupSysLowMenuAdd />} />
@@ -167,7 +168,6 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0010" element={<SysSendBlockingMemberTxtMsgLog />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0011" element={<SysCodeMng />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012" element={<SysAuthorityMng />} />
-      <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0012-UserList" element={<SysAuthorityMngUserList />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-SYS-0013" element={<SysMenuAuthMng />} />
       <Route path="/LGHV-UIX-SYS-003/LGHV-UIX-NOTI-0002" element={<NoticeRegist />} />
       <Route path="/LGHV-UIX-SYS-004/LGHV-UIX-SYS-0014" element={<SysWeeklyReport />} />
