@@ -37,7 +37,6 @@ function SysUserMngDetail() {
       <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <ContentTitle data={pagedata} />
         <div className='btn-wrap right'>
-          <button className='btn btn-md btn-pop'>권한보기</button>
           <button className='btn btn-md btn-pop' onClick={() => { onPopup('/LGHV-UIX-SYS-001/LGHV-UIX-SYS-0002-modify', 'departmentMngModi', 952, 800) }}>수정</button>
           <button className="btn btn-low btn-md btn-del" onClick={() => { setDatadel(true) }}>삭제</button>
         </div>
