@@ -26,7 +26,7 @@ const Header = () => {
           <button type='button' className='btn btn-circle' onClick={ () => { setDetailinfo(true) }}>i</button>
           <div className='user ml10'>
           사용자 : <span>{userInfo}</span> <span>{tDate}</span>
-            <Link to="/mypage" className='ml10 underline'>마이 페이지</Link>
+            {/* <Link to="/mypage" className='ml10 underline'>마이 페이지</Link> */}
            </div>
           <button type='button' className='logout-btn' onClick={logout}>로그아웃</button>
         </div>
