@@ -10,10 +10,10 @@ import DisabilityMngDetail from '../LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail';
 import AccUserDetailAPR from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0001-DetailAPR';
 import AccEquipmentDetailAPR from '../LGHV-UIX-ACC/LGHV-UIX-ACC-0006-DetailAPR';
 
-function ApprovalAll() {
+function ApprovalProcessing() {
   const pagedata = {
     title: '결재관리',
-    subtitle: '공람문서함',
+    subtitle: '처리내역',
     SubMenu: 'yes',
     isDetail: 'no'
   }
@@ -22,7 +22,7 @@ function ApprovalAll() {
 
   // 새창 팝업
   const onPopupDetail = (name) => {
-    const url = '/LGHV-UIX-APR/LGHV-UIX-APR-0003/:' + name;
+    const url = '/LGHV-UIX-APR/LGHV-UIX-APR-0005/:' + name;
     const width = '1280';
     const height = '760';
     const popupX = (window.screen.width / 2) - (width / 2);
@@ -78,7 +78,7 @@ function ApprovalAll() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-success'>결재완료</span></td>
+                    <td><span className='color-disable'>결재대기</span></td>
                   </tr>
                 )
               })
@@ -96,7 +96,7 @@ function ApprovalAll() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-success'>결재완료</span></td>
+                    <td><span className='color-fail'>결재반려</span></td>
                   </tr>
                 )
               })
@@ -114,7 +114,7 @@ function ApprovalAll() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-success'>결재완료</span></td>
+                    <td><span className='color-ongoing'>결재중</span></td>
                   </tr>
                 )
               })
@@ -132,7 +132,7 @@ function ApprovalAll() {
                     <td>2023-01-01 02:00</td>
                     <td>2023-01-01 03:00</td>
                     <td>2023-01-01 03:00</td>
-                    <td><span className='color-success'>결재완료</span></td>
+                    <td>등록</td>
                   </tr>
                 )
               })
@@ -146,7 +146,7 @@ function ApprovalAll() {
   )
 }
 
-function ApprovalAllDetail() {
+function ApprovalProcessingDetail() {
   const location = useLocation();
   const current = location.pathname.substring(33);
 
@@ -166,4 +166,4 @@ function ApprovalAllDetail() {
   )
 }
 
-export { ApprovalAll, ApprovalAllDetail };
+export { ApprovalProcessing, ApprovalProcessingDetail };

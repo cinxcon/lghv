@@ -26,13 +26,6 @@ function ApprovalStandby() {
     setToggled(prevState => !prevState);
   };
 
-  // 새창 팝업
-  const onPopup = (url, name, width, height) => {
-    const popupX = (window.screen.width / 2) - (width / 2);
-    const popupY = (window.screen.height / 2) - (height / 2);
-    window.open(url, name, 'status=no, height=' + height + ', width=' + width + ', left=' + popupX + ', top=' + popupY);
-  }
-
   // 날짜 선택
   const [selectedStday, setSelectedStday] = useState('st_user');
   const handleStdayChange = (event) => {
@@ -67,25 +60,12 @@ function ApprovalStandby() {
   };
 
   // SelectBox
-  const optionInfra = [
-    { value: '선택', label: '선택' },
-    { value: '서울인프라팀 ', label: '서울인프라팀 ' },
-    { value: '경북인프라팀', label: '경북인프라팀' }
-  ];
-  const [infra, setInfra] = useState(optionInfra[0]);
   const optionSo = [
-    { value: '선택', label: '선택' },
+    { value: '전체', label: '전체' },
     { value: '중앙방송  ', label: '중앙방송  ' },
     { value: '중부산방송', label: '중부산방송' }
   ];
   const [so, setSo] = useState(optionSo[0]);
-  const optionGubun = [
-    { value: '선택', label: '선택' },
-    { value: '결재대기 ', label: '결재대기 ' },
-    { value: '결재완료', label: '결재완료' },
-    { value: '결재반려', label: '결재반려' }
-  ];
-  const [gubun, setGubun] = useState(optionGubun[0]);
 
   const [resultList] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
@@ -105,12 +85,12 @@ function ApprovalStandby() {
       <div className='content-section'>
         <div className='search-wrap'>
           <div className='title flex-wrap between'>
-              <h3>검색 조건</h3>
-              <button className={`btn-fold ${isToggled ? 'close' : ''}`} onClick={handleButtonToggle} id='fold-open'>검색영역 열기</button>
+            <h3>검색 조건</h3>
+            <button className={`btn-fold ${isToggled ? 'close' : ''}`} onClick={handleButtonToggle} id='fold-open'>검색영역 열기</button>
           </div>
           <div className={`toggle-box ${isToggled ? 'hide' : ''}`}>
             <table className='search'>
-              <caption>제목, 등록번호, 등록자, 등록부서, 구분, 내작업, 인프라팀, SO, 상태구분 항목 검색 영역</caption>
+              <caption>제목, 등록번호, 등록자, 구분, 구역명, 상태구분 항목 검색 영역</caption>
               <colgroup>
                 <col style={{ width: '6%' }} />
                 <col style={{ width: '28%' }} />
@@ -122,11 +102,9 @@ function ApprovalStandby() {
               <tbody>
                 <tr>
                   <th scope="row"><label htmlFor="subjec">제목</label></th>
-                  <td colSpan={5}>
+                  <td>
                     <input type="text" name="subject" id="subjec" />
                   </td>
-                </tr>
-                <tr>
                   <th scope="row"><label htmlFor="regnum">등록번호</label></th>
                   <td>
                     <input type="text" name="regnum" id="regnum" />
@@ -136,17 +114,10 @@ function ApprovalStandby() {
                   <td>
                     <input type="text" name="registrant" id="registrant" />
                   </td>
-                  <th scope="row"><label htmlFor="regdep">등록부서</label></th>
-                  <td>
-                    <span className='input-btn-wrap'>
-                      <span className='input input_org input-search-front'></span>
-                      <button className='btn btn-search' onClick={() => { onPopup('/popup/PopupDepartment', 'PopupDepartment', '480', '760') }}>조회</button>
-                    </span>
-                  </td>
                 </tr>
                 <tr>
                   <th scope="row">구분</th>
-                  <td colSpan={3}>
+                  <td>
                     <fieldset>
                       <legend>구분</legend>
                       <input type="checkbox" name="division" id="div_1" value="" checked />
@@ -159,24 +130,25 @@ function ApprovalStandby() {
                       <label htmlFor="div_4">장비관리</label>
                     </fieldset>
                   </td>
-                  <th scope="row">내작업</th>
-                  <td>
-                    <input type="checkbox" name="mywork" id="mywork" value="" />
-                    <label htmlFor="mywork">내작업만 보기</label>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><label htmlFor="infra">인프라팀</label></th>
-                  <td>
-                    <Select defaultValue={optionInfra[0]} value={infra} onChange={setInfra} options={optionInfra} className='react-select-container' classNamePrefix="react-select" />
-                  </td>
-                  <th scope="row"><label htmlFor="SO">SO</label></th>
+                  <th scope="row"><label htmlFor="SO">구역명</label></th>
                   <td>
                     <Select defaultValue={optionSo[0]} value={so} onChange={setSo} options={optionSo} className='react-select-container' classNamePrefix="react-select" />
                   </td>
                   <th scope="row"><label htmlFor="gubun">상태구분</label></th>
                   <td>
-                    <Select defaultValue={optionGubun[0]} value={gubun} onChange={setGubun} options={optionGubun} className='react-select-container' classNamePrefix="react-select" />
+                    <fieldset>
+                      <legend>구분</legend>
+                      <input type="checkbox" name="status" id="status_1" value="" checked />
+                      <label htmlFor="status_1">전체</label>
+                      <span>(&nbsp;
+                        <input type="checkbox" name="division" id="status_2" value="" checked />
+                        <label htmlFor="status_2">결재대기</label>
+                        <input type="checkbox" name="division" id="status_3" value="" checked />
+                        <label htmlFor="status_3">결재승인</label>
+                        <input type="checkbox" name="division" id="status_4" value="" checked />
+                        <label htmlFor="status_4">결재반려</label>
+                      &nbsp;)</span>
+                    </fieldset>
                   </td>
                 </tr>
               </tbody>
@@ -258,7 +230,7 @@ function ApprovalStandby() {
             <tr>
               <th>등록 번호</th>
               <th>작업 구분</th>
-              <th>SO</th>
+              <th>구역명</th>
               <th>제목</th>
               <th>등록 부서</th>
               <th>등록자</th>

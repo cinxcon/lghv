@@ -160,6 +160,20 @@
             },
             {
                 "parentIndex": 6,
+                "menuIndex": "28",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0007",
+                "menuName": "내작업 ",
+                "menu": []
+            },
+            {
+                "parentIndex": 6,
+                "menuIndex": "28",
+                "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0008",
+                "menuName": "처리내역 ",
+                "menu": []
+            },
+            {
+                "parentIndex": 6,
                 "menuIndex": "29",
                 "menuUrl": "/LGHV-UIX-APR/LGHV-UIX-APR-0006",
                 "menuName": "ONTIMEPROCESS",
@@ -261,7 +275,7 @@
                 "menuUrl": "/LGHV-UIX-SYS-002/LGHV-UIX-SYS-0009",
                 "menuName": "고객문자 발송내역",
                 "menu": []
-            }, 
+            },
             {
                 "parentIndex": 9,
                 "menuIndex": "39",

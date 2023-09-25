@@ -9,6 +9,8 @@ import ApprovalDetail from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0001';
 import { ApprovalAll, ApprovalAllDetail } from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0003';
 import { ApprovalTempStorage, ApprovalTempStorageDetail } from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0005';
 import { ApprovalOnTimeProcess, ApprovalOnTimeProcessDetail } from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0006';
+import { ApprovalMy, ApprovalMyDetail } from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0007';
+import { ApprovalProcessing, ApprovalProcessingDetail } from './pages/publish/LGHV-UIX-APR/LGHV-UIX-APR-0008';
 import AccUser from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0001';
 import AccUserDetail from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-Detail';
 import AccUserDetailAPR from './pages/publish/LGHV-UIX-ACC/LGHV-UIX-ACC-0001-DetailAPR';
@@ -109,6 +111,10 @@ const AppRouter = () => {
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0005/:id" element={<ApprovalTempStorageDetail />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0006" element={<ApprovalOnTimeProcess />} />
       <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0006/:id" element={<ApprovalOnTimeProcessDetail />} />
+      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0007" element={<ApprovalMy />} />
+      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0007/:id" element={<ApprovalMyDetail />} />
+      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0008" element={<ApprovalProcessing />} />
+      <Route path="/LGHV-UIX-APR/LGHV-UIX-APR-0008/:id" element={<ApprovalProcessingDetail />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0001" element={<DisabilityMngReg />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002" element={<DisabilityMngList />} />
       <Route path="/LGHV-UIX-BLK/LGHV-UIX-BLK-0002-Detail" element={<DisabilityMngDetail />} />
