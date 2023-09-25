@@ -157,7 +157,7 @@ const ApprovalLine = ({ onItemSelected }) => {
           #root {display: none;}
         `}
       </style>
-      <div className='new-window-wrap'>
+      <div className='new-window-wrap over-flow-y-hidden'>
       <button type='button' className='pop-close' onClick={() => { window.close() }}>닫기</button>
         <div className="content-title">
           <h2>결재 지정</h2>

@@ -534,7 +534,8 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
      min-height: 300px;
 }
 .fix-wrap{position: sticky;}
-
+.over-flow-x-hidden{overflow-x: hidden;}
+.over-flow-y-hidden{overflow-y: hidden;}
 
 /* 셀렉트 박스 */
 .react-select-container{width: 100% !important;}
@@ -552,3 +553,4 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-select__menu{ color: #000 !important; background-color: #fff !important; margin:0 !important; border-radius: 0 !important; z-index: 1 !important; }
 .react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea !important;}
 .react-select__option--is-selected {background-color:#dbdbdb !important; color: #000 !important;}
+.react-select-container.error .react-select__control{ border-color: #e72323 !important;}

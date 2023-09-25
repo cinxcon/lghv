@@ -229,7 +229,7 @@ function ServicetaskSearch() {
                   <th scope="row"><label htmlFor="division">작업구분/유형</label></th>
                   <td colSpan={3}>
                     <span className='service select-wrap'>
-                      <Select defaultValue={optionDivision[0]} value={division} onChange={setDivision} options={optionDivision} className='react-select-container' classNamePrefix="react-select" />
+                      <Select defaultValue={optionDivision[0]} value={division} onChange={setDivision} options={optionDivision} className='react-select-container error' classNamePrefix="react-select" />
                       <Select defaultValue={optionCategory[0]} value={category} onChange={setCategory} options={optionCategory} className='react-select-container ml10' classNamePrefix="react-select" />
                     </span>
                   </td>
