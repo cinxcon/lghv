@@ -54,7 +54,7 @@ function ApprovalTempStorage() {
             <tr>
               <th>등록 번호</th>
               <th>작업 구분</th>
-              <th>SO</th>
+              <th>구역명</th>
               <th>제목</th>
               <th>등록 부서</th>
               <th>등록자</th>
