@@ -435,6 +435,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .input-btn-wrap .input-plus-front { width: calc(100% - 64px); }
 .input-btn-wrap .input-search-front { width: calc(100% - 32px); }
 .input-btn-wrap .input-repeatcheck-front { width: calc(100% - 79px); }
+.input-btn-wrap .input-ref-front { width: calc(100% - 180px); }
 .input-btn-wrap .input-w-80{width: 80%;}
 .input-btn-wrap .input-sz50-front { width: calc(100% - 50px); }
 .worker-box{height: 66px; background: none; padding: 0; border: 0;}
@@ -550,7 +551,7 @@ label.invisible { font-size: 0; line-height: 0; text-indent: -99999px; }
 .react-select__indicator:hover{color: #000 !important;}
 .react-select__value-container, .react-select__input-container{margin:0 !important; padding: 0 !important;}
 .react-select__single-value{padding: 0 10px !important;}
-.react-select__menu{ color: #000 !important; background-color: #fff !important; margin:0 !important; border-radius: 0 !important; z-index: 1 !important; }
+.react-select__menu{ color: #000 !important; background-color: #fff !important; margin:0 !important; border-radius: 0 !important; z-index: 10 !important; }
 .react-select__option--is-focused, .react-select__option:hover{background-color:#eaeaea !important;}
 .react-select__option--is-selected {background-color:#dbdbdb !important; color: #000 !important;}
 .react-select-container.error .react-select__control{ border-color: #e72323 !important;}

@@ -40,6 +40,10 @@ function TemplateList() {
     const popupY = (window.screen.height / 2) - (popupHeight / 2);
     window.open(url, 'Detail', 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY);
   }
+  const [selectedOption, setSelectedOption] = useState('team');
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   return (
     <>
       <ContentTitle data={pagedata} />
@@ -48,21 +52,30 @@ function TemplateList() {
             <table className='search'>
                 <caption>템플릿 리스트</caption>
                   <colgroup>
-                  <col style={{ width: '10%' }} />
-                  <col style={{ width: '40%' }} />
-                  <col style={{ width: '10%' }} />
-                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '6%' }} />
+                  <col style={{ width: '15%' }} />
+                  <col style={{ width: '6%' }} />
+                  <col style={{ width: '23%' }} />
+                  <col style={{ width: '6%' }} />
+                  <col style={{ width: '44%' }} />
                   </colgroup>
                 <tbody>
                   <tr>
-                  <th scope="row"><label htmlFor="type">작업종류</label></th>
+                      <th scope="row">템플릿 구분</th>
+                      <td>
+                        <input type="radio" name="type" id="type_team" value="team" checked={selectedOption === 'team'} onChange={handleOptionChange} />
+                        <label htmlFor="type_team">팀별</label>
+                        <input type="radio" name="type" id="type_personal" value="personal" checked={selectedOption === 'personal'} onChange={handleOptionChange} />
+                        <label htmlFor="type_personal">개인별</label>
+                      </td>
+                      <th scope="row"><label htmlFor="type">템플릿 분류</label></th>
                       <td>
                           <Select defaultValue={optionsTemplateType[0]} value={templateType} onChange={setTemplateType} options={optionsTemplateType} className='react-select-container' classNamePrefix="react-select" />
                       </td>
                       <th scope="row"><label htmlFor="formName">양식명</label></th>
                       <td>
                       <span className='input-btn-wrap'>
-                          <input type="text" name="formName" id="formName" className='input-w-80' placeholder='양식명' />
+                          <input type="text" name="formName" id="formName" className='input-ref-front' placeholder='양식명' />
                           <button className='btn btn-low btn-ref'>초기화</button>
                           <button className='btn btn-black btn-search-txt'>검색</button>
                       </span>

@@ -32,8 +32,8 @@
 .approval-top .line-select{ flex-basis: 60%;}
 .approval-top .search-box{ flex-basis: 40%; }
 .approval-top .line-select input[type='checkbox'] + label, .line-select input[type='radio'] + label { margin-right: 10px; }
-.approval-conts { width: 55%; display: flex; height: 580px; min-height: 580px; padding: 15px 16px; overflow: hidden; border: 1px solid #dbdbdb; border-top: 1px solid #000;}
-.tree-wrap { width: 55%; height: 300px; overflow-y: scroll; min-height: inherit; padding-bottom: 30px;}
+.approval-conts { width: 55%; display: flex; height: 580px; min-height: 580px; padding: 15px 16px; overflow: hidden; border: 1px solid #dbdbdb; border-top: 1px solid #000; position: relative; z-index: 1;}
+.tree-wrap { width: 50%; height: 300px; overflow-y: scroll; min-height: inherit; padding-bottom: 30px;}
 .approval-conts.alone, .tree-wrap.alone{width: 100%;}
 .approval-conts.alone{height: 520px; min-height: 520px;}
 .tree-wrap .tree-logo{width: 120px; height: 20px; background: url('../../../assets/images/layout/LGHV_logo_20@2x.png') 0 0 no-repeat; background-size: 100%; z-index: 100; font-size: 0;}
@@ -57,12 +57,13 @@
 .tree-item > .tree-content input[type='checkbox'] + label:before { left: auto; right: -25px; }
 .tree-item.open::before { content: ""; display: block; position: absolute; left: 6px; top: -16px; width: 1px; height: 100%; background-color: #dbdbdb; }
 .tree-item.close::before { content: none; }
-.list-item { width: 45%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
+.list-item { width: 50%; padding: 0; border-right: 1px solid #dbdbdb; height: 300px; overflow-y: scroll; min-height: inherit; background-color: #f7f7f7; }
 .list-item ul { list-style: none; }
-.list-item ul li { margin: 0 16px; padding: 8px 20px; border-bottom: 1px dotted #dbdbdb; cursor: pointer; display:flex; justify-content: space-between; }
+.list-item ul li { margin: 0 12px; padding: 8px 0px 8px 20px; border-bottom: 1px dotted #dbdbdb; cursor: pointer; display:flex; justify-content: space-between; }
 .list-item ul li.all-select{padding: 8px 0; border-bottom:0 ;}
 .list-item ul li.active {background: url('../../../assets/images/common/ic_check_set_16.png') -16px 12px no-repeat; }
-.list-item ul li span + span { margin-left: 16px; }
+.list-item ul li span{width:55%;}
+.list-item ul li span + span {width: 45%;}
 .selected-item {width: 45%; padding: 0 0 0 20px;  }
 .overflow{height: 300px; overflow-y: scroll;}
 .overflow + .overflow { margin-top: 30px; height: 200px; }
