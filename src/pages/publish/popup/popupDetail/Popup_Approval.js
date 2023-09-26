@@ -25,52 +25,52 @@ const ApprovalLine = ({ onItemSelected }) => {
   };
   const listData = {
     N00: [
-      { id: 'da', title: '대표이사', name: '김헬로' },
-      { id: 'db', title: '품질혁신팀', name: '손혁신' },
-      { id: 'dc', title: '미디어운영팀', name: '이디어' },
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' },
-      { id: 'df', title: 'OMC팀', name: '권큐엠' },
-      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
+      { id: 'da', title: '대표이사', name: '김헬로', no: '0033702' },
+      { id: 'db', title: '품질혁신팀', name: '손혁신', no: 'WDN0080122' },
+      { id: 'dc', title: '미디어운영팀', name: '이디어', no: '0033702' },
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제', no: '0033702' },
+      { id: 'de', title: '품질안전협력', name: '박안전', no: '0033702' },
+      { id: 'df', title: 'OMC팀', name: '권큐엠', no: '0033702' },
+      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비', no: '0033702' }
     ],
     N000A00001: [
-      { id: 'da', title: '대표이사', name: '김헬로' }
+      { id: 'da', title: '대표이사', name: '김헬로', no: '0033702' }
     ],
     N000C00020: [
-      { id: 'db', title: '품질혁신팀', name: '손혁신' }
+      { id: 'db', title: '품질혁신팀', name: '손혁신', no: '0033702' }
     ],
     N000D00404: [
-      { id: 'db', title: '품질혁신팀', name: '손혁신' }
+      { id: 'db', title: '품질혁신팀', name: '손혁신', no: 'WDN0080122' }
     ],
     N000F00100: [
-      { id: 'dc', title: '미디어운영팀', name: '이디어' },
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' }
+      { id: 'dc', title: '미디어운영팀', name: '이디어', no: '0033702' },
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제', no: '0033702' },
+      { id: 'de', title: '품질안전협력', name: '박안전', no: '0033702' }
     ],
     N000D00211: [
-      { id: 'dc', title: '미디어운영팀', name: '이디어' }
+      { id: 'dc', title: '미디어운영팀', name: '이디어', no: '0033702' }
     ],
     N000D00130: [
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' },
-      { id: 'de', title: '품질안전협력', name: '박안전' }
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제', no: '0033702' },
+      { id: 'de', title: '품질안전협력', name: '박안전', no: '0033702' }
     ],
     N000001301: [
-      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제' }
+      { id: 'dd', title: '컨버전스운용팀_관제', name: '김관제', no: '0033702' }
     ],
     N00G000240: [
-      { id: 'de', title: '품질안전협력', name: '박안전' }
+      { id: 'de', title: '품질안전협력', name: '박안전', no: '0033702' }
     ],
     N00G000261: [
-      { id: 'df', title: 'OMC팀', name: '권큐엠' }
+      { id: 'df', title: 'OMC팀', name: '권큐엠', no: '0033702' }
     ],
     N00G000282: [
-      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비' }
+      { id: 'dg', title: '뉴비즈운영팀', name: '손뉴비', no: '0033702' }
     ],
     N00cjworld: [
-      { id: 'dh', title: '가상부서', name: '김나니' }
+      { id: 'dh', title: '가상부서', name: '김나니', no: '0033702' }
     ],
     N00G000308: [
-      { id: 'dh', title: '가상부서', name: '김나니' }
+      { id: 'dh', title: '가상부서', name: '김나니', no: '0033702' }
     ]
   };
 
@@ -90,7 +90,7 @@ const ApprovalLine = ({ onItemSelected }) => {
   };
 
   const listItemSelect = (item, index) => {
-    const newRow = { id: item.id, title: item.title, name: item.name };
+    const newRow = { id: item.id, title: item.title, name: item.name, no: item.no };
     const activeListItem = document.getElementById(item.id);
     activeListItem.classList.add('active');
     selectedType[index] = approvalType;
@@ -145,7 +145,7 @@ const ApprovalLine = ({ onItemSelected }) => {
     if (selectedTree === null) return null;
 
     return listData[selectedTree].map((item, index) => (
-      <li key={item.id} id={item.id} onClick={(e) => { e.stopPropagation(); listItemSelect(item, index) }} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}</span></li>
+      <li key={item.id} id={item.id} onClick={(e) => { e.stopPropagation(); listItemSelect(item, index) }} ><span className="item-title">{item.title}</span><span className="item-name">{item.name}({item.no})</span></li>
     ));
   };
 
@@ -222,10 +222,10 @@ const ApprovalLine = ({ onItemSelected }) => {
               <caption>결제선 선택 정보</caption>
                   <colgroup>
                     <col style={{ width: '10%' }} />
-                    <col style={{ width: '25%' }} />
-                    <col style={{ width: '25%' }} />
-                    <col style={{ width: '20%' }} />
-                    <col style={{ width: '20%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '55%' }} />
+                    <col style={{ width: '10%' }} />
+                    <col style={{ width: '15%' }} />
                   </colgroup>
                   <thead>
                     <tr>
@@ -241,7 +241,7 @@ const ApprovalLine = ({ onItemSelected }) => {
                   <tr key={rowIndex}>
                     <td><button onClick={() => deleteRow(row.id)} className='btn-del-28'>삭제</button></td>
                     <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{selectedType[rowIndex]}</td>
-                    <td onClick={() => reviewerSelect(row.name, rowIndex)} className={trActive === rowIndex ? 'active' : ''}>{row.name}</td>
+                    <td onClick={() => reviewerSelect(row.name, rowIndex)} className={`left ${trActive === rowIndex ? 'active' : ''}`}>{row.name}({row.no})</td>
                     <td>
                       <input type="checkbox" name={`sms${row.id}`} id={`sms${row.id}`} />
                       <label htmlFor={`sms${row.id}`}></label>

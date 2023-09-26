@@ -15,7 +15,7 @@ function ServicetaskRegist() {
   const openLinePop = () => {
     const lineData = selectedOptionLine;
     console.log(lineData);
-    onPopup('/popup/PopupApproval', 'Line', '1200', '800');
+    onPopup('/popup/PopupApproval', 'Line', '1280', '800');
     setLine(false);
   }
 
