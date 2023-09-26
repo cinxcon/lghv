@@ -1,8 +1,9 @@
 import { Chart as ChartJS, CategoryScale, ArcElement, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line, Bar, Pie } from 'react-chartjs-2';
+import { Line, Bar, Pie, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import CustomLegend from './CustomLegend';
 import CustomLegendCircle from './CustomLegendCircle';
+import CustomLegendDoughnut from './CustomLegendDoughnut';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, LineElement, PointElement, Title, Tooltip, Legend);
 
@@ -10,11 +11,9 @@ const DashboardDetail = ({ type, index }) => {
   if (type === 'bar') {
     return <BarChart />;
   } else if (type === 'pie') {
-    if (index === '1') {
-      return <PieChart1 />;
-    } else {
-      return <PieChart2 />;
-    }
+    return <PieChart />;
+  } else if (type === 'Doughnut') {
+    return <DoughnutChart />;
   } else if (type === 'line') {
     return <LineChart />;
   } else if (type === 'wideline') {
@@ -22,17 +21,22 @@ const DashboardDetail = ({ type, index }) => {
   }
   return <div>Unknown type</div>;
 }
-function PieChart1() {
+function DoughnutChart() {
   const data = {
-    labels: ['기반', '시스템', 'H/E', '전상망', '기간망'],
+    labels: ['강원인프라팀', '경남인프라팀', '경남인프라팀', '경인인프라팀', '부산인프라팀', '서울인프라', '호남인프라', '기간망운영팀', '뉴비즈운영팀', '미디어운영팀'],
     datasets: [{
-      data: [12, 19, 3, 5, 6],
+      data: [4, 2, 5, 2.5, 2.5, 4, 6, 3, 4, 5],
       backgroundColor: [
-        'rgba(255, 193, 74, 1)',
-        'rgba(32, 186, 194, 1)',
-        'rgba(115, 91, 235, 1)',
-        'rgba(250, 108, 142, 1)',
-        'rgba(67, 87, 138, 1)'
+        '#FFC14A',
+        '#20BAC2',
+        '#735BEB',
+        '#FA6C8E',
+        '#43578A',
+        '#0EBB59',
+        '#d7c7fe',
+        '#91E8E1',
+        '#FD9C94',
+        '#cccccc'
       ]
     }]
   };
@@ -41,23 +45,32 @@ function PieChart1() {
     plugins: {
       legend: {
         display: false
+      },
+      datalabels: {
+        display: true,
+        color: '#fff',
+        align: 'center',
+        anchor: 'center',
+        font: { size: '12' }
       }
     }
   };
   return (
   <>
     <div className='title'>
-        <h3>작업 현황</h3>
+        <h3>팀별 작업등록현황</h3>
     </div>
+    <div className='total'>총 20건</div>
+    <div className='right color-gray size-sm'>건수 / 당일기준</div>
     <div className='flex-wrap between'>
-      <Pie data={data} options={options} width={160} height={160} />
-      <CustomLegendCircle data={data} labels={data.labels} />
+      <Doughnut data={data} options={options} plugins={[ChartDataLabels]} width={200} height={180} />
+      <CustomLegendDoughnut data={data} labels={data.labels} />
     </div>
   </>
   );
 }
 
-function PieChart2() {
+function PieChart() {
   const data = {
     labels: ['지정안함', 'A등급', 'B등급', 'C등급', '등급외'],
     datasets: [{
@@ -157,29 +170,25 @@ function LineChart() {
         <div className='title'>
           <h3>작업 관리 현황</h3>
         </div>
-        <Line data={data} plugins={[ChartDataLabels]} options={options} width={345} height={192} />
+        <div className='right color-gray size-sm'>건수 / 월</div>
+        <Line data={data} plugins={[ChartDataLabels]} options={options} width={452} height={224} />
         <CustomLegend datasets={data.datasets.map((dataset) => ({ label: dataset.label, color: dataset.backgroundColor }))} />
     </>
   );
 }
 function BarChart() {
   const data = {
-    labels: ['양천방송', '은평방송', '나라방송', '부천방송', '김포방송'],
+    labels: ['전주', '이번주'],
     datasets: [
       {
-        label: '전송망',
-        data: [12, 19, 3, 5, 2],
-        backgroundColor: 'rgba(250, 108, 142, 1)'
+        label: '일반작업',
+        data: [160, 140],
+        backgroundColor: '#43578a'
       },
       {
-        label: '콜현황',
-        data: [3, 10, 13, 15, 22],
-        backgroundColor: 'rgba(32, 186, 194, 1)'
-      },
-      {
-        label: '장애지표',
-        data: [6, 9, 11, 11, 17],
-        backgroundColor: 'rgba(204, 204, 204, 1)'
+        label: '긴급작업',
+        data: [125, 175],
+        backgroundColor: '#fa6c8e'
       }
     ]
   };
@@ -187,21 +196,37 @@ function BarChart() {
     responsive: false,
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          // forces step size to be 50 units
+          stepSize: 50
+        },
+        min: 0, // 최소값 설정
+        max: 200 // 최대값 설정
       }
     },
+    barPercentage: 0.7, // 바의 너비 (기본값은 1이며, 1보다 작으면 바가 좁아집니다.)
+    categoryPercentage: 0.5, // 바 간의 여백 (기본값은 0.8이며, 1보다 작으면 여백이 커집니다.)
     plugins: {
       legend: {
         display: false
+      },
+      datalabels: {
+        display: true,
+        color: '#fff',
+        align: 'start',
+        anchor: 'end',
+        font: { size: '12' }
       }
     }
   };
   return (
     <>
         <div className='title'>
-          <h3>장애 관리 현황</h3>
+          <h3>작업등록 현황</h3>
         </div>
-        <Bar data={data} options={options} width={345} height={192} />
+        <div className='right color-gray size-sm'>건수 / 주</div>
+        <Bar data={data} options={options} plugins={[ChartDataLabels]} width={452} height={224} />
         <CustomLegend datasets={data.datasets.map((dataset) => ({ label: dataset.label, color: dataset.backgroundColor }))} />
     </>
   );

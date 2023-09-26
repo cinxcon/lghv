@@ -1,22 +1,26 @@
 .dashboard-wrap .search-wrap{display: flex; align-items: center;}
 .dashboard-wrap .search-wrap .title{padding-left: 24px;}
-.dashboard-wrap .search-wrap .date-wrap{display: flex; align-items: center; padding: 0 40px;}
+.dashboard-wrap .search-wrap .date-wrap{display: flex; align-items: center; padding: 0;}
 .dashboard-wrap .search-wrap .date-wrap label{margin-right: 10px;}
-.dashboard-wrap .search-wrap .date-wrap .date-box{margin:0 20px;}
+.dashboard-wrap .search-wrap .date-wrap .date-box{margin:0 10px; width: 240px;}
 
 .dashboard-wrap .chart-wrap{ margin-top: 40px; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 .dashboard-wrap .chart-wrap .date-box{ border-top:1px solid #000;}
-.dashboard-wrap .chart-box{width: 392px; position: relative; margin-bottom: 60px; padding: 24px; height: 280px; border: 1px solid #dbdbdb;}
+.dashboard-wrap .chart-box{width: 32%; position: relative; margin-bottom: 60px; padding: 24px; height: 320px; border: 1px solid #dbdbdb;}
 
 .dashboard-wrap .chart-wrap canvas{}
+.dashboard-wrap .chart-box .total{position: absolute; left: 105px; top: 155px;}
 .dashboard-wrap .chart-box.wide{width: 100%; height: auto;}
 .dashboard-wrap .chart-box.wide canvas{margin:0;}
 .dashboard-wrap .chart-box .title{margin-bottom: 16px;}
 .dashboard-wrap .chart-box .title h2{ font-size: 16px; font-weight: 500;}
 .dashboard-wrap .custom-legend{display: flex; align-items: center; justify-content: center}
-.dashboard-wrap .custom-legend.vertical { width: 126px; flex-wrap: wrap; justify-content: flex-start;}
+.dashboard-wrap .custom-legend.vertical { width: 230px; flex-wrap: wrap; justify-content: flex-start;}
 .dashboard-wrap .custom-legend.vertical .legend-item{ margin-right: 0; margin-bottom: 2px; justify-content: space-between; width: 100%;}
+.dashboard-wrap .custom-legend.vertical .legend-item.half{width: 50%;}
 .dashboard-wrap .custom-legend .legend-item{display: flex; align-items: center; margin-right: 10px;}
 .dashboard-wrap .custom-legend .legend-item .color-box{display: inline-block; width: 10px; height: 10px; margin-right: 5px; padding:0;}
 .dashboard-wrap .custom-legend .legend-item .label-item{margin-right: 15px;}
 .dashboard-wrap .custom-legend .legend-item .label-number{font-weight: bold;}
+.dashboard-wrap .custom-legend .legend-item span{ font-size: 12px;}
+.dashboard-wrap .custom-legend.top-right{position: absolute; top: 20px; right: 10px;}

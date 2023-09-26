@@ -18,19 +18,13 @@ const DashBorad = () => {
       <DashboardSearch/>
       <div className="chart-wrap">
       <div className="chart-box">
-          <DashboardDetail type={'pie'} index={'1'} />
+          <DashboardDetail type={'bar'} />
         </div>
-        <div className='chart-box'>
-          <DashboardDetail type={'pie'} index={'2'} />
+        <div className="chart-box">
+          <DashboardDetail type={'Doughnut'} />
         </div>
         <div className="chart-box">
           <DashboardDetail type={'line'} />
-        </div>
-        <div className="chart-box">
-          <DashboardDetail type={'bar'} />
-        </div>
-        <div className='chart-box wide'>
-          <DashboardDetail type={'wideline'} />
         </div>
       </div>
       <DashBoradTable />
